@@ -15,12 +15,12 @@ Feature: creating a new project
 		And	I fill in the "project_short_title" with "Tracking ants"
 		And I fill in ...
 		And I click submit
-		Then I see the new project in all its glory
+		Then I see the new project
 		And the 'project_pubdate' should be the current date
 		
 	
 	Scenario: an investigator submits an incomplete project application
-  	Given context
+  	Given I am logged in
   	When event
   	Then outcome
 	
@@ -66,8 +66,6 @@ Feature: creating a new project
 	  Given context
 	  When event
 	  Then outcome
-
-
 
 Feature: Finding a new study site
 	In order to find a suitable study site
@@ -233,7 +231,7 @@ Feature: monitoring
   As a information manager
   I want to receive a notification when a project is updated
 
-Feature: uploading a new project
+Feature: uploading a project to the project db
   In order keep the network database up to date
   As a site manager
   I want to upload my projects to the network project database
@@ -244,19 +242,24 @@ Feature: uploading a new project
 	  Then 1 more project will be in the network database
 	
 	Scenario: upload a new invalid project
-	  Given context
-	  When event
-	  Then outcome
+	  Given 1 invalid project schema file on my hard disk
+	  When I upload the file to the network project db
+	  Then I receive an error
+		And the number of projects does not change
 	
 	Scenario: overwrite an existing project with a modified valid project
-	  Given context
-	  When event
-	  Then outcome
+	  Given 1 valid project file on my hard disk
+	  When I upload the file to the network project db
+	  Then the number of projects does not change
+		And	the project.version_number will be incremented
+		And I will see the modified project
 	
 	Scenario: overwrite an existing project with a modified invalid project
-	  Given context
-	  When event
-	  Then outcome
+	  Given 1 invalid project file on my hard disk
+	  When I upload the file to the project db
+	  Then I receive and error
+		And	the project is not updated
+		And the number of projects does not change
 	
 Feature: harvesting projects
   In order to keep the network database up to date
@@ -290,10 +293,12 @@ Feature: updating project information
   I want to update the project information for the projects that I am responsible for
 
 	Scenario: changing the objectives or scope of the project
-	  Given context
-	  When event
-	  Then outcome
+	  Given I am logged in
+		And I have at least 1 project
+	  When I edit the project.objectives
+	  Then the project.version_number is increased by 1
 		And the 'project_pubdate' should be the current date
+		And the project.objectives are saved
 	
 		
 	Scenario: I want to update the recent findings
@@ -309,7 +314,7 @@ Feature: updating project information
 	  Then outcome
 		And the 'project_pubdate' should be the current date
 		
-	Scenario: I want to remove a dataset/report/publicaiton from the project
+	Scenario: I want to remove a dataset/report/publication from the project
 	  Given context
 	  When event
 	  Then outcome 
