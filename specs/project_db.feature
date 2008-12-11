@@ -35,12 +35,14 @@ Feature: creating a new project
 		And I have filled out the required fields	
   	When I fill in the 'project_abstract' with ''
 		And	click 'submit'
-  	Then I should get an error
+  	Then I get an error
 	
 	Scenario: an investigator leaves the short title empty
-	  Given context
-	  When event
-	  Then outcome
+		Given I am logged in
+		And I have filled out the required fields	
+	  When I fill in the 'short_title' with ''
+		And click 'submit'
+	  Then I get an error.
 	
 	Scenario: an investigator provides keywords
 	  Given context
@@ -62,7 +64,7 @@ Feature: creating a new project
 	  When event
 	  Then outcome
 	
-	Scenario: an information selects a project type
+	Scenario: an investigator selects a project type
 	  Given context
 	  When event
 	  Then outcome
@@ -110,7 +112,7 @@ Feature: approval_tracking
 	As an information manager or site manager
 	I want to be notified when a project needs approval
 
-Feature: approval_tracking
+Feature: progress_tracking
 	In order to know which projects are approved and need tracking
 	As a site manager	
 	I want to check off that the project is approved

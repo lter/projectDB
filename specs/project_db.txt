@@ -1,0 +1,156 @@
+ 
+Actors:
+  a. User: Public user that is not necessarily authenticated looking for information about research projects. All authenticated actors would also have the goals for the User actor in addition to their own goals.
+  b. Requester: Authenticated user requesting to conduct a new research project
+  c. Site manager: Authenticated user that facilitates completion of information needed to evaluate the impacts and feasibility of proposed research projects. Serves as a point of contact between the requester and the site leadership.
+  d. Site leadership:  Authenticated user(s) responsible for approving/disapproving new research project requests for a site.
+  e. Writer: Authenticated user(s) collecting information and either supplying content for or writing the annual report for a site
+  f. Administrator: Authenticated user(s) responsible for maintenance of all research project information for a site.
+  g. Responsible investigator: Person responsible for a research project(s) that maintains their own research project(s) information or the responsible investigators 
+delegate. 
+
+  h. Research assistant: Authenticated user(s) responsible for setting up research sites, collecting and quality checking data, analyzing data, and/or maintaining research equipment and sites. (Field or lab technicians)
+
+Actor goals:
+  a. User: 
+    1. Basic Search: (project title, abstract, keywords, people, core areas)
+    2. Advanced Search:
+      i. Project status, title, abstract, keywords, people, core area, biome/habitat type, project type (core, student, etc.), research theme (plant, hydrology, climate, etc.), organization, funding source
+
+      ii. No results returned
+    3. Register: to allow submission of new research project accounts or in preparation for role assignment
+  b. Requester: 
+
+    1. Register
+    2. Login
+    3. Logout
+  c. Site Manager: 
+
+    1. Register
+    2. Login
+    3. Logout
+  d. Site leadership: 
+
+    1. Register
+    2. Login
+    3. Logout
+  e. Writer: 
+
+    1. Register
+    2. Login
+    3. Logout
+  f. Administrator: 
+
+    1. Register
+    2. Login
+    3. Logout
+  g. Responsible investigator: 
+
+    1. Register
+    2. Login
+    3. Logout
+  h. Research assistant:
+
+    1. Register
+    2. Login
+    3. Logout
+
+Goals listing:
+    1. Register
+    2. Login
+    3. Logout
+    4. Advanced Search
+      a. Research sites
+      b. Disturbances
+      c. Chemicals used
+      d. Project status, title, abstract, keywords, people, core area, biome/habitat type, project type (core, student, etc.), research theme (plant, hydrology, climate, etc.), organization, funding source
+      e. No results returned
+    5. Basic Search (project title, abstract, keywords, people, core areas)
+    6. Browse 
+      a. By thematic group
+      b. Search results
+    7. Report
+    8. Request new project
+    9. Modify new project request
+      a. Requester
+      b. Site Manager
+    10. Approve/Disapprove request
+    11. Map site locations
+    12. Edit/update project
+    13. Locate (draw) new research site
+    14. Tracking
+      a. Approvals
+      b. Disapprovals
+      c. Progess (inactive, current, past anticipated completion date)
+    15. EML 2.1 creation
+    16. Harvesting projects to LNO
+    17. Notification
+      a. Research request approval
+      b. Research request disapproval
+      c. Successful user registration
+    18. Assign roles
+      a. Administrator for site
+      b. Site Manager for site
+      c. 
+
+
+Use case: 1
+Name: Permission to perform research
+Goal: Provide the ability for prospective researcher to propose new research projects for consideration and support communication between the requester and the site manager for selecting optimum research site(s) that will not impact existing research projects.
+Assumptions: 
+
+Steps:
+
+Variations:
+Non-functional: 
+
+Use case: 2
+Name: Reporting research projects
+Goal: Provide the ability to collect and organize information for annual reports using information about active research projects.
+Assumptions:
+
+Steps:
+
+Variations:
+Non-functional: 
+
+Use case: 3
+Name: Research project administration and tracking
+Goal: Provide the ability to administer (modify/create) and track research projects.
+Assumptions:
+
+Steps:
+
+Variations:
+Non-functional: 
+
+Use case: 4
+Name: Research project resources for field/lab personnel
+Goal: Provide information about a research project needed by field or lab personnel to perform the research (collect, maintain, and analyze data).
+Assumptions:
+
+Steps:
+
+Variations:
+Non-functional: 
+
+Use case: 5
+Name: Discovery of research projects
+Goal: Provide the interfaces and mechanisms that allow researchers and public to discover ongoing and past research projects at one or more sites.
+Assumptions:
+
+Steps:
+
+Variations:
+Non-functional: 
+
+Use case: 6
+Name: Tool for adding research project information to EML 2.1 documents
+Goal: Provide a tool to allow information managers to complete EML 2.1 documents using research project information stored within the project database.
+Actors: 
+Assumptions:
+Steps:
+
+Variations:
+Non-functional: 
+
