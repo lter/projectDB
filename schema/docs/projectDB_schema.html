@@ -1,0 +1,675 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>
+         projectDB project schema --DEVELOPMENT  
+     </title>
+<style>
+          body { background: white;
+                 color: black; }
+          h2   { border-top: black solid 1px;
+                 margin-top: 2em;
+                 padding-top: 1em; }
+        </style>
+</head>
+<body>
+<h1>
+       projectDB project schema --DEVELOPMENT </h1>
+<h2><a href="projectDB_schema.png">IMAGE: projectDB_schema.png</a></h2>
+  
+  
+  
+  
+  
+  
+  
+  
+    <para>
+       Copyright: 1997-2002 Regents of the University of California,
+                            University of New Mexico, and
+                            Arizona State University
+        Sponsors: National Center for Ecological Analysis and Synthesis and
+                  Partnership for Interdisciplinary Studies of Coastal Oceans,
+                     University of California Santa Barbara
+                  Long-Term Ecological Research Network Office,
+                     University of New Mexico
+                  Center for Environmental Studies, Arizona State University
+   Other funding: National Science Foundation (see README for details)
+                  The David and Lucile Packard Foundation
+     For Details: http://knb.ecoinformatics.org/
+    </para><h2>Table of Contents</h2>
+<h3>Elements</h3>
+<ul><li><a href="#element-type-researchProject">researchProject</a></li></ul>
+    
+      
+        eml-project
+        
+          
+            The eml-project module - Research context information for
+            resources
+            This module is based on the eml-project module.
+            It describes a project which might form a context for research. 
+            The definition of a  "project" is not constrained. It may
+            include scientific research investigations or student-led thesis
+            projects, working groups of limited scope, or 
+            cyberinfrastructure coding projects.  It is intended to house information
+            on how a project was created, including descriptions of over-all
+            motivations and goals, funding, personnel, description of the study
+            area etc. This is also the module to describe the design of the
+            project: the scientific questions being asked, the architecture of
+            the design, etc. 
+            
+            Unlike the eml-project module, instance
+            documents written against this schema are standalone documents.
+            the eml:project element is a top level element.
+            It includes the "resource group" which includes basic
+            elements for title, abstract, responsible parties, coverage, keywords, etc.
+           .
+          
+        
+        Use eml-project to document the research context
+        of any project.
+        no
+      
+    
+  
+  <h2 id="element-type-researchProject">Element Name: researchProject</h2>
+<p>Namespace: <code>eml://ecoinformatics.org/project-2.1.0</code></p>
+      
+        research project
+        The root element of this module.
+        The root element of this module  to instantiate a 
+        stand-alone project
+        file.
+      
+    <h3>Content Model</h3>
+<p>Simple type <a href="#simple-type-ResearchProjectType">ResearchProjectType</a></p>
+  
+    
+      
+        Research project Type
+        Descriptor of a research context.
+        The researchProject complex type describes the
+        structure for documenting the research context. It can 
+        include research goals, motivations, theory,
+        hypotheses, etc., as well as a description of research efforts that
+        form the basis for other work.
+      
+    
+    <p>Exactly 1 sequences of:</p>
+<ol>
+      
+        
+          Accumulated activities conducted in this project
+          Accumulated activities conducted in this project
+          This field contaiins a description of the project's activities.
+                    The intent is that this field could be used to record accumulated activities, 
+                    not just recent.  
+        
+      
+      <li>Exactly 1 <a href="#group-res:ResourceGroup">res:ResourceGroup</a> group</li>
+      <h2 id="element-type-funding">Element Name: funding</h2>
+<p>Namespace: <code>eml://ecoinformatics.org/project-2.1.0</code></p>
+          
+            Funding
+            Funding information.
+            The funding field is used to provide information
+              about funding sources for the project such as: grant and contract
+              numbers; names and addresses of funding sources. Other
+              funding-related information may also be
+              included.
+          
+        <h3>Content Model</h3>
+<p>Simple type <a href="#simple-type-txt:TextType">txt:TextType</a></p>
+      <h2 id="element-type-studyAreaDescription">Element Name: studyAreaDescription</h2>
+<p>Namespace: <code>eml://ecoinformatics.org/project-2.1.0</code></p>
+          
+            Description of the study area.
+            Description of the physical area associated with the
+              research project, potentially including coverage, climate,
+              geology, distrubances, etc.
+            The studyAreaDescription field documents the
+              physical area associated with the research project. It can
+              include descriptions of the geographic, temporal, and taxonomic
+              coverage of the research location and descriptions of domains
+              (themes) of interest such as climate, geology, soils or
+              distrubances or reference to citable biological or geophysical
+              classification systems such as the Bailey Ecoregions or the
+              Holdridge Life Zones.
+          
+        <table border="1">
+<caption>Attributes</caption>
+<tr valign="baseline">
+<th align="left" rowspan="2">name_or_id</th>
+<td>Built-in type string</td>
+<td>optional</td>
+</tr>
+<tr valign="baseline"><td colspan="2">
+                              
+                                The name or ID of a descriptor
+                                  value.
+                                The name part of a name/value
+                                  pair of a descriptor; or ID portion of a
+                                  classification, if applicable.
+                                The name_or_id field is the
+                                  name part of a name/value pair of a
+                                  descriptor; or ID portion of a
+                                  classification, if applicable. The values of
+                                  biogeophysical classification systems, e.g.
+                                  Bailey-Ecoregions, often take the form of an
+                                  ID or Code along with a text representaiton.
+                                  For example, the ID/Code M131 refers to the
+                                  phrase "Open Woodland -Tundra". M131 is an
+                                  unambiguous reference to a more detailed
+                                  description. If one is using a published
+                                  classification system then there should be a
+                                  corresponding citation to the source, e.g.,
+                                  Bailey,R.G., 1996 "Ecosystem
+                                  Geography".
+                                M131
+                                Average Annual
+                                  Rainfall
+                              
+                            </td></tr>
+<tr valign="baseline">
+<th align="left" rowspan="2">name</th>
+<td>Simple type <a href="#simple-type-DescriptorType">DescriptorType</a>
+</td>
+<td>required</td>
+</tr>
+<tr valign="baseline"><td colspan="2">
+                    
+                      name
+                      The name of the descriptor
+                        system.
+                      The name of the descriptor system. The
+                        name can be either a theme such as climate or
+                        hydrology, or the name of a citable classification
+                        system.
+                    
+                  </td></tr>
+<tr valign="baseline">
+<th align="left" rowspan="2">citableClassificationSystem</th>
+<td>Built-in type boolean</td>
+<td>required</td>
+</tr>
+<tr valign="baseline"><td colspan="2">
+                    
+                      citation classification
+                        system
+                      This boolean attribute defines whether
+                        this descriptor comes from a citable classification
+                        system or not.
+                      This boolean attribute defines whether
+                        this descriptor comes from a citable classification
+                        system or not.
+                    
+                  </td></tr>
+</table>
+<h3>Content Model</h3>
+          <p>1 or more choice of:</p>
+<ul>
+            <h2 id="element-type-descriptor">Element Name: descriptor</h2>
+<p>Namespace: <code>eml://ecoinformatics.org/project-2.1.0</code></p>
+                
+                  Non-coverage characteristics of the study
+                    area
+                  Description of non-coverage characteristics of
+                    the study area such as climate, geology,
+                    disturbances
+                  The descriptor field is used to document
+                    domains (themes) of interest such as climate, geology,
+                    soils or disturbances or references to citable biological
+                    or geophysical classification systems such as the Bailey
+                    Ecoregions or the Holdridge Life Zones.
+                
+              <table border="1">
+<caption>Attributes</caption>
+<tr valign="baseline">
+<th align="left" rowspan="2">name_or_id</th>
+<td>Built-in type string</td>
+<td>optional</td>
+</tr>
+<tr valign="baseline"><td colspan="2">
+                              
+                                The name or ID of a descriptor
+                                  value.
+                                The name part of a name/value
+                                  pair of a descriptor; or ID portion of a
+                                  classification, if applicable.
+                                The name_or_id field is the
+                                  name part of a name/value pair of a
+                                  descriptor; or ID portion of a
+                                  classification, if applicable. The values of
+                                  biogeophysical classification systems, e.g.
+                                  Bailey-Ecoregions, often take the form of an
+                                  ID or Code along with a text representaiton.
+                                  For example, the ID/Code M131 refers to the
+                                  phrase "Open Woodland -Tundra". M131 is an
+                                  unambiguous reference to a more detailed
+                                  description. If one is using a published
+                                  classification system then there should be a
+                                  corresponding citation to the source, e.g.,
+                                  Bailey,R.G., 1996 "Ecosystem
+                                  Geography".
+                                M131
+                                Average Annual
+                                  Rainfall
+                              
+                            </td></tr>
+<tr valign="baseline">
+<th align="left" rowspan="2">name</th>
+<td>Simple type <a href="#simple-type-DescriptorType">DescriptorType</a>
+</td>
+<td>required</td>
+</tr>
+<tr valign="baseline"><td colspan="2">
+                    
+                      name
+                      The name of the descriptor
+                        system.
+                      The name of the descriptor system. The
+                        name can be either a theme such as climate or
+                        hydrology, or the name of a citable classification
+                        system.
+                    
+                  </td></tr>
+<tr valign="baseline">
+<th align="left" rowspan="2">citableClassificationSystem</th>
+<td>Built-in type boolean</td>
+<td>required</td>
+</tr>
+<tr valign="baseline"><td colspan="2">
+                    
+                      citation classification
+                        system
+                      This boolean attribute defines whether
+                        this descriptor comes from a citable classification
+                        system or not.
+                      This boolean attribute defines whether
+                        this descriptor comes from a citable classification
+                        system or not.
+                    
+                  </td></tr>
+</table>
+<h3>Content Model</h3>
+                <p>1 or more sequences of:</p>
+<ol>
+                  <h2 id="element-type-descriptorValue">Element Name: descriptorValue</h2>
+<p>Namespace: <code>eml://ecoinformatics.org/project-2.1.0</code></p>
+                      
+                        Description of some aspect of the study
+                          area.
+                        Description of some aspect of the study
+                          area.
+                        The descriptorValue field contains
+                          the value of a descriptor, describing some aspect of
+                          the study area. This may either be a general
+                          description in textual form or the value part of a
+                          "name/value" pair where the name is entered in the
+                          attribute "name_or_id". For example, if the value of
+                          the "name" attribute" of the element "descriptor" is
+                          "climate", and the value of the attribute
+                          "name_or_id" of the element "descriptorValue" is
+                          "Annual Precipitation" then the value of this element
+                          could be "12.5 inches".
+                        12.5 inches
+                        tundra-forest
+                      
+                    <table border="1">
+<caption>Attributes</caption>
+<tr valign="baseline">
+<th align="left" rowspan="2">name_or_id</th>
+<td>Built-in type string</td>
+<td>optional</td>
+</tr>
+<tr valign="baseline"><td colspan="2">
+                              
+                                The name or ID of a descriptor
+                                  value.
+                                The name part of a name/value
+                                  pair of a descriptor; or ID portion of a
+                                  classification, if applicable.
+                                The name_or_id field is the
+                                  name part of a name/value pair of a
+                                  descriptor; or ID portion of a
+                                  classification, if applicable. The values of
+                                  biogeophysical classification systems, e.g.
+                                  Bailey-Ecoregions, often take the form of an
+                                  ID or Code along with a text representaiton.
+                                  For example, the ID/Code M131 refers to the
+                                  phrase "Open Woodland -Tundra". M131 is an
+                                  unambiguous reference to a more detailed
+                                  description. If one is using a published
+                                  classification system then there should be a
+                                  corresponding citation to the source, e.g.,
+                                  Bailey,R.G., 1996 "Ecosystem
+                                  Geography".
+                                M131
+                                Average Annual
+                                  Rainfall
+                              
+                            </td></tr>
+</table>
+<h3>Content Model</h3>
+                      
+                        
+                          
+                        
+                      
+                    
+                  <h2 id="element-type-citation">Element Name: citation</h2>
+<p>Namespace: <code>eml://ecoinformatics.org/project-2.1.0</code></p>
+                      
+                        citation
+                        A citation for this
+                          descriptor.
+                        A citation for this
+                          desciptor.
+                      
+                    <h3>Content Model</h3>
+<p>Simple type <a href="#simple-type-cit:CitationType">cit:CitationType</a></p>
+                </ol>
+                
+                
+              
+            <h2 id="element-type-citation">Element Name: citation</h2>
+<p>Namespace: <code>eml://ecoinformatics.org/project-2.1.0</code></p>
+                
+                  citation
+                  The citation for this
+                    descriptor.
+                  The citation for this
+                    descriptor.
+                
+              <h3>Content Model</h3>
+<p>Simple type <a href="#simple-type-cit:CitationType">cit:CitationType</a></p>
+            <h2 id="element-type-coverage">Element Name: coverage</h2>
+<p>Namespace: <code>eml://ecoinformatics.org/project-2.1.0</code></p>
+                
+                  coverage
+                  The coverage of this descriptor.
+                  The coverage of this
+                    descriptor.
+                
+              <h3>Content Model</h3>
+<p>Simple type <a href="#simple-type-cov:Coverage">cov:Coverage</a></p>
+          </ul>
+        
+      <h2 id="element-type-designDescription">Element Name: designDescription</h2>
+<p>Namespace: <code>eml://ecoinformatics.org/project-2.1.0</code></p>
+          
+            Description of research design
+            Description of the design of the research
+              project
+            The field designDescription contains general
+              textual descriptions of research design. It can include detailed
+              accounts of goals, motivations, theory, hypotheses, strategy,
+              statistical design, and actual work. Literature citations may
+              also be used to describe the research design.
+          
+        <h3>Content Model</h3>
+          <p>1 or more choice of:</p>
+<ul>
+            <h2 id="element-type-description">Element Name: description</h2>
+<p>Namespace: <code>eml://ecoinformatics.org/project-2.1.0</code></p>
+                
+                  Description of research design
+                  Textual description of research
+                    design.
+                  The field designDescription contains
+                    general textual descriptions of research design. It can
+                    include detailed accounts of goals, motivations, theory,
+                    hypotheses, strategy, statistical design, and actual
+                    work.
+                
+              <h3>Content Model</h3>
+<p>Simple type <a href="#simple-type-txt:TextType">txt:TextType</a></p>
+            <h2 id="element-type-citation">Element Name: citation</h2>
+<p>Namespace: <code>eml://ecoinformatics.org/project-2.1.0</code></p>
+                
+                  Citation for research design
+                  Citation that describes the research
+                    design.
+                  The citation field is a citation to
+                    literature that describes elements of the research design,
+                    such as goals, motivations, theory, hypotheses, strategy,
+                    statistical design, and actual work.
+                
+              <h3>Content Model</h3>
+<p>Simple type <a href="#simple-type-cit:CitationType">cit:CitationType</a></p>
+          </ul>
+        
+      <h2 id="element-type-reporting">Element Name: reporting</h2>
+<p>Namespace: <code>eml://ecoinformatics.org/project-2.1.0</code></p>
+<h3>Content Model</h3>
+<p>Simple type <a href="#simple-type-ReportingType">ReportingType</a></p>
+      <h2 id="element-type-associatedMaterial">Element Name: associatedMaterial</h2>
+<p>Namespace: <code>eml://ecoinformatics.org/project-2.1.0</code></p>
+          
+             Associated Material
+            Associated material, file or document belonging to 
+            the project
+            
+              
+                This field is intended to be used as necessary to record 
+                other files, documents or resources that may belong with this 
+                project. These include but are not limted to: proposals, protocols, 
+                datasets, imagery, citations, or other databases. It contains an
+                instance of EML's physicalDistributionType. This type includes an
+                access tree for controlling access to resources. Assume that 
+                access is open unless otherwise stated.
+                The element also has optional attributes to describe features
+                of the material;SOME MORE ABOUT THE INTENDED USE.
+             
+              
+            
+          
+        <table border="1">
+<caption>Attributes</caption>
+<tr valign="baseline">
+<th align="left" rowspan="2">id</th>
+<td>Simple type <a href="#simple-type-res:IDType">res:IDType</a>
+</td>
+<td>optional</td>
+</tr>
+<tr valign="baseline"><td colspan="2">
+              
+                 Associated Material ID
+                The ID of the Associated material,  associated with 
+            this project
+                
+                  
+                    The Id of the material in some system
+                WHERE IS THE SYSTEM ATTR?.
+             
+                  
+                
+                knb-lter-sbc.1.1
+              
+            </td></tr>
+<tr valign="baseline">
+<th align="left" rowspan="2">type</th>
+<td>Built-in type string</td>
+<td>optional</td>
+</tr>
+<tr valign="baseline"><td colspan="2">
+              
+                 Associated Material type
+                The type of the Associated material,  associated with 
+            this project
+                
+                  
+                    The type of the material
+             
+                  
+                
+                dataset
+              
+            </td></tr>
+<tr valign="baseline">
+<th align="left" rowspan="2">date</th>
+<td>Simple type <a href="#simple-type-res:yearDate">res:yearDate</a>
+</td>
+<td>optional</td>
+</tr>
+<tr valign="baseline"><td colspan="2">
+              
+                date
+                The date of the Associated material
+                
+                  
+                    The date of the material
+                  
+                
+                2008
+              
+            </td></tr>
+<tr valign="baseline">
+<th align="left" rowspan="2">weight</th>
+<td>Built-in type integer</td>
+<td>optional</td>
+</tr>
+<tr valign="baseline"><td colspan="2">
+              
+                weight
+                weight
+                
+                  
+                    A project may have many associated resources, 
+                    and these may have various levels of importance. This attribute
+                    allows managers to specify a weight for the associated material
+                    Applications should allow low-value weights to "float"
+                    up to indicate higher importance.
+                    
+                  
+                
+                0
+                1
+              
+            </td></tr>
+</table>
+<h3>Content Model</h3>
+          <p>Exactly 1 sequences of:</p>
+<ol>
+            <h2 id="element-type-distribution">Element Name: distribution</h2>
+<p>Namespace: <code>eml://ecoinformatics.org/project-2.1.0</code></p>
+<h3>Content Model</h3>
+<p>Simple type <a href="#simple-type-phys:PhysicalDistributionType">phys:PhysicalDistributionType</a></p>
+          </ol>
+          
+          
+          
+          
+        
+      <h2 id="element-type-associatedProject">Element Name: associatedProject</h2>
+<p>Namespace: <code>eml://ecoinformatics.org/project-2.1.0</code></p>
+          
+            associated project
+            This field is for a reference to another project
+            This field contains a reference to another
+              project. Use the relationship attribute to specify the relationship that the referenced
+              project has to the current project. 
+          
+        <h3>Content Model</h3>
+<p>Simple type <a href="#simple-type-associatedProjectType">associatedProjectType</a></p>
+    </ol>
+    
+    
+    
+  
+  
+    
+      
+        Descriptor Theme Type
+        The type of descriptor theme or the name of a
+        classification system.
+        The descriptorType is used to represent either the
+        name of a citable classification system/controlled vocabulary such as
+        the Bailey classification of ecoregions or a domain of physical
+        descriptors such as climate or disturbances.
+        climate
+        soils
+        hydrology
+        "bailey"
+        biome
+        disturbance
+        geology
+      
+    
+    
+      
+        <p>Built-in type string</p>
+<p>Enumeration:</p>
+<ul>
+<li><code>climate</code></li>
+<li><code>hydrology</code></li>
+<li><code>soils</code></li>
+<li><code>geology</code></li>
+<li><code>disturbance</code></li>
+<li><code>bailey</code></li>
+<li><code>biome</code></li>
+</ul>
+      
+      
+        <p>Simple type <a href="#simple-type-res:NonEmptyStringType">res:NonEmptyStringType</a></p>
+      
+    
+  
+  
+    
+      
+        Reporting Type
+        Reporting Type.
+        The reportingType is used for containing
+        report material for the project.
+      
+    
+    <p>Exactly 1 sequences of:</p>
+<ol>
+      <h2 id="element-type-reportSection">Element Name: reportSection</h2>
+<p>Namespace: <code>eml://ecoinformatics.org/project-2.1.0</code></p>
+          
+            Report Section
+            Report Section.
+            The reportSection is used to name
+        a topic required by a report in this project.
+            Activities
+          
+        <h3>Content Model</h3>
+<p>Simple type <a href="#simple-type-res:NonEmptyStringType">res:NonEmptyStringType</a></p>
+      <h2 id="element-type-reportValue">Element Name: reportValue</h2>
+<p>Namespace: <code>eml://ecoinformatics.org/project-2.1.0</code></p>
+          
+            Report Value
+            Report Value.
+            The reportValue contains text for
+        the report section
+          
+        <h3>Content Model</h3>
+<p>Simple type <a href="#simple-type-txt:TextType">txt:TextType</a></p>
+    </ol>
+    
+    
+  
+  
+    
+      
+        Assiated project Type
+        Associated project Type
+        A project that is associated with
+        this project. This type was developed as an alternative
+        to the nested "relatedProject"s in EML.
+        The relationship attribute reflects the relationship of the 
+        associated project to the project being described. 
+        2008
+      
+    
+    
+      
+        
+      
+    
+  
+</body>
+</html>
