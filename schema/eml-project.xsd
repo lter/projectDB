@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:doc="eml://ecoinformatics.org/documentation-2.1.0" xmlns:txt="eml://ecoinformatics.org/text-2.1.0" xmlns:prot="eml://ecoinformatics.org/protocol-2.1.0" xmlns:rp="eml://ecoinformatics.org/party-2.1.0" xmlns:cov="eml://ecoinformatics.org/coverage-2.1.0" xmlns:cit="eml://ecoinformatics.org/literature-2.1.0" xmlns:res="eml://ecoinformatics.org/resource-2.1.0" xmlns:phys="eml://ecoinformatics.org/physical-2.1.0" xmlns="eml://ecoinformatics.org/project-2.1.0" targetNamespace="eml://ecoinformatics.org/project-2.1.0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="eml://ecoinformatics.org/project-2.1.0" xmlns:doc="eml://ecoinformatics.org/documentation-2.1.0" xmlns:rp="eml://ecoinformatics.org/party-2.1.0" xmlns:cov="eml://ecoinformatics.org/coverage-2.1.0" xmlns:cit="eml://ecoinformatics.org/literature-2.1.0" xmlns:res="eml://ecoinformatics.org/resource-2.1.0" xmlns:phys="eml://ecoinformatics.org/physical-2.1.0" xmlns:txt="eml://ecoinformatics.org/text-2.1.0" targetNamespace="eml://ecoinformatics.org/project-2.1.0">
   <xs:import namespace="eml://ecoinformatics.org/documentation-2.1.0" schemaLocation="eml-documentation.xsd"/>
   <xs:import namespace="eml://ecoinformatics.org/resource-2.1.0" schemaLocation="eml-resource.xsd"/>
   <xs:import namespace="eml://ecoinformatics.org/party-2.1.0" schemaLocation="eml-party.xsd"/>
@@ -8,7 +8,7 @@
   <xs:import namespace="eml://ecoinformatics.org/physical-2.1.0" schemaLocation="eml-physical.xsd"/>
   <xs:import namespace="eml://ecoinformatics.org/text-2.1.0" schemaLocation="eml-text.xsd"/>
   <xs:annotation>
-    <xs:documentation>'$RCSfile: eml-project.xsd,v $'
+    <xs:documentation>
        Copyright: 1997-2002 Regents of the University of California,
                             University of New Mexico, and
                             Arizona State University
@@ -21,10 +21,6 @@
    Other funding: National Science Foundation (see README for details)
                   The David and Lucile Packard Foundation
      For Details: http://knb.ecoinformatics.org/
-
-        '$Author: obrien $'
-          '$Date: 2008/11/14 23:50:13 $'
-      '$Revision: 1.82 $'
     </xs:documentation>
     <xs:appinfo>
       <doc:moduleDocs>
@@ -37,7 +33,7 @@
             It describes a project which might form a context for research. 
             The definition of a  &quot;project&quot; is not constrained. It may
             include scientific research investigations or student-led thesis
-            projects. It may be working groups of limited scope, or 
+            projects, working groups of limited scope, or 
             cyberinfrastructure coding projects.  It is intended to house information
             on how a project was created, including descriptions of over-all
             motivations and goals, funding, personnel, description of the study
@@ -57,6 +53,15 @@
         of any project.</doc:recommendedUsage>
         <doc:standAlone>no</doc:standAlone>
       </doc:moduleDocs>
+            <doc:module>eml-project.xsd</doc:module>
+      <doc:module>eml-access.xsd</doc:module>
+      <doc:module>eml-coverage.xsd</doc:module>
+      <doc:module>eml-literature.xsd</doc:module>
+      <doc:module>eml-party.xsd</doc:module>
+      <doc:module>eml-physical.xsd</doc:module>
+      <doc:module>eml-resource.xsd</doc:module>
+      <doc:module>eml-text.xsd</doc:module>
+      <doc:module>eml-unitTypeDefinitions.xsd</doc:module>
     </xs:appinfo>
   </xs:annotation>
   <xs:element name="researchProject" type="ResearchProjectType">
