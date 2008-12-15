@@ -1,156 +1,687 @@
+
+Writing effective Use Case Examples: http://www.gatherspace.com/static/use_case_example.html
  
-Actors:
-  a. User: Public user that is not necessarily authenticated looking for information about research projects. All authenticated actors would also have the goals for the User actor in addition to their own goals.
-  b. Requester: Authenticated user requesting to conduct a new research project
-  c. Site manager: Authenticated user that facilitates completion of information needed to evaluate the impacts and feasibility of proposed research projects. Serves as a point of contact between the requester and the site leadership.
-  d. Site leadership:  Authenticated user(s) responsible for approving/disapproving new research project requests for a site.
-  e. Writer: Authenticated user(s) collecting information and either supplying content for or writing the annual report for a site
-  f. Administrator: Authenticated user(s) responsible for maintenance of all research project information for a site.
-  g. Responsible investigator: Person responsible for a research project(s) that maintains their own research project(s) information or the responsible investigators 
-delegate. 
 
-  h. Research assistant: Authenticated user(s) responsible for setting up research sites, collecting and quality checking data, analyzing data, and/or maintaining research equipment and sites. (Field or lab technicians)
-
-Actor goals:
-  a. User: 
-    1. Basic Search: (project title, abstract, keywords, people, core areas)
-    2. Advanced Search:
-      i. Project status, title, abstract, keywords, people, core area, biome/habitat type, project type (core, student, etc.), research theme (plant, hydrology, climate, etc.), organization, funding source
-
-      ii. No results returned
-    3. Register: to allow submission of new research project accounts or in preparation for role assignment
-  b. Requester: 
-
-    1. Register
-    2. Login
-    3. Logout
-  c. Site Manager: 
-
-    1. Register
-    2. Login
-    3. Logout
-  d. Site leadership: 
-
-    1. Register
-    2. Login
-    3. Logout
-  e. Writer: 
-
-    1. Register
-    2. Login
-    3. Logout
-  f. Administrator: 
-
-    1. Register
-    2. Login
-    3. Logout
-  g. Responsible investigator: 
-
-    1. Register
-    2. Login
-    3. Logout
-  h. Research assistant:
-
-    1. Register
-    2. Login
-    3. Logout
-
-Goals listing:
-    1. Register
-    2. Login
-    3. Logout
-    4. Advanced Search
-      a. Research sites
-      b. Disturbances
-      c. Chemicals used
-      d. Project status, title, abstract, keywords, people, core area, biome/habitat type, project type (core, student, etc.), research theme (plant, hydrology, climate, etc.), organization, funding source
-      e. No results returned
-    5. Basic Search (project title, abstract, keywords, people, core areas)
-    6. Browse 
-      a. By thematic group
-      b. Search results
-    7. Report
-    8. Request new project
-    9. Modify new project request
-      a. Requester
-      b. Site Manager
-    10. Approve/Disapprove request
-    11. Map site locations
-    12. Edit/update project
-    13. Locate (draw) new research site
-    14. Tracking
-      a. Approvals
-      b. Disapprovals
-      c. Progess (inactive, current, past anticipated completion date)
-    15. EML 2.1 creation
-    16. Harvesting projects to LNO
-    17. Notification
-      a. Research request approval
-      b. Research request disapproval
-      c. Successful user registration
-    18. Assign roles
-      a. Administrator for site
-      b. Site Manager for site
-      c. 
+Actors: 
+1. User: Public user that is not necessarily authenticated looking for information about research projects. All authenticated actors would also have the goals for the User actor in addition to their own goals. 
+2. Requester: Authenticated user requesting to conduct a new research project 
+3. Site manager: Authenticated user that facilitates completion of information needed to evaluate the impacts and feasibility of proposed research projects. Serves as a point of contact between the requester and the site leadership. 
+4. Site leadership:  Authenticated user(s) responsible for approving/disapproving new research project requests for a site.
+ 
+5. Report writer: Authenticated user(s) collecting information and either supplying content for or writing the annual report for a site
+ 
+6. Administrator: Authenticated user(s) responsible for maintenance of all research project information for a site.
+ 
+7. Responsible investigator: Person responsible for a research project(s) that maintains their own research project(s) information or person(s) that the                                         responsible investigators delegate delegate to administer their individual research project information.  
+8. Research assistant: Authenticated user(s) responsible for setting up research sites, collecting and quality checking data, analyzing data, and/or maintaining research equipment and sites. (Field or lab technicians) 
 
 
-Use case: 1
-Name: Permission to perform research
-Goal: Provide the ability for prospective researcher to propose new research projects for consideration and support communication between the requester and the site manager for selecting optimum research site(s) that will not impact existing research projects.
+Actor goals: 
+   1. User:  
+      1. Basic Search (project title, abstract, keywords, people, core areas) 
+      2. Advanced Search: 
+         1. Project status, title, abstract, keywords, people, core area, biome/habitat type, project type (core, student, etc.), research theme (plant, hydrology, climate, etc.), organization, funding source 
+      3. No search results returned 
+      4. Browse  
+         1. By thematic group
+ 
+         2. Search results
+ 
+         3. Map site locations
+ 
+         4. Register (self)
+ 
+         5. Notification 
+            1. Successful user registration (receive)
+ 
+            2. Password reset notification (receive) 
+            3. Requester: 
+ 
+               1. Register (self)
+ 
+               2. Login
+ 
+               3. Logout
+ 
+               4. Map site locations
+ 
+               5. Locate (draw) new research site
+ 
+               6. Notification
+ 
+                  1. Research request approval (receive)
+ 
+                  2. Research request disapproval (receive) 
+                  3. Review current request (to Site Manager) 
+                  4. Modify new project request that has not been approved/disapproved
+ 
+                  5. Site manager: 
+ 
+                     1. Register (self)
+ 
+                     2. Login
+ 
+                     3. Logout
+ 
+                     4. Map site locations
+ 
+                     5. Locate (draw) new research site
+ 
+                     6. Notification
+ 
+                        1. Research request approval (receive)
+ 
+                        2. Research request disapproval (receive)
+ 
+                        3. Review current request (to Requester) 
+                        4. Request Site leadership review new project request for approval/disapproval 
+                        5. Modify new project request that has not been approved/disapproved
+ 
+                        6. Tracking
+ 
+                           1. Approvals
+ 
+                           2. Disapprovals
+ 
+                           3. Progress (inactive, current, past anticipated completion date)
+ 
+                           4. Assign members to role(s)
+ 
+                              1. Research assistant(s) for site
+ 
+                              2. Site leadership: 
+ 
+                                 1. Register (self)
+ 
+                                 2. Login 
+                                 3. Logout 
+                                 4. Map site locations
+ 
+                                 5. Locate (draw) new research site
+ 
+                                 6. Notification
+ 
+                                    1. Research request approval (send)
+ 
+                                    2. Research request disapproval (send)
+ 
+                                    3. Review current request (to Site Manager)
+ 
+                                    4. Tracking
+ 
+                                       1. Approvals 
+                                       2. Disapprovals 
+                                       3. Progress (inactive, current, past anticipated completion date) 
+                                    5. Assign members to role(s)
+ 
+                                       1. Site Manager for site
+ 
+                                       2. Report writer:  
+                                          1. Register (self)
+ 
+                                          2. Login
+ 
+                                          3. Logout
+ 
+                                          4. Basic Search (project title, abstract, keywords, people, core areas)
+ 
+                                          5. Advanced Search
+ 
+                                             1. Research sites
+ 
+                                             2. Project status, title, abstract, keywords, people, core area, biome/habitat type, project type (core, student, etc.), research theme (plant, hydrology, climate, etc.), organization, funding source 
+                                             3. No results returned
+ 
+                                             4. Browse 
+ 
+                                                1. By thematic group 
+                                                2. Search results 
+                                             5. Report
+ 
+                                             6. Administrator: 
+ 
+                                                1. Register 
+                                                   1. register others
+ 
+                                                   2. reset password
+ 
+                                                   3. Login
+ 
+                                                   4. Logout
+ 
+                                                   5. Basic Search (project title, abstract, keywords, people, core areas)
+ 
+                                                   6. Advanced Search
+ 
+                                                      1. Research sites
+ 
+                                                      2. Disturbances
+ 
+                                                      3. Chemicals used
+ 
+                                                      4. Project status, title, abstract, keywords, people, core area, biome/habitat type, project type (core, student, etc.), research theme (plant, hydrology, climate, etc.), organization, funding source 
+                                                      5. No results returned
+ 
+                                                      6. Browse 
+ 
+                                                         1. By thematic group
+ 
+                                                         2. Search results
+ 
+                                                         3. Report
+ 
+                                                         4. Request new project
+ 
+                                                         5. Map site locations
+ 
+                                                            1. my projects
+ 
+                                                            2. others projects 
+                                                            3. Edit/update project
+ 
+                                                            4. Locate (draw) new research site
+ 
+                                                            5. Tracking
+ 
+                                                               1. Approvals
+ 
+                                                               2. Disapprovals
+ 
+                                                               3. Progress (inactive, current, past anticipated completion date)
+ 
+                                                               4. EML 2.1 creation
+ 
+                                                               5. Harvesting projects to LNO
+ 
+                                                               6. Notification
+ 
+                                                                  1. Research request approval (receive/log)
+ 
+                                                                  2. Research request disapproval (receive/log)
+ 
+                                                                  3. Successful user registration (receive/log)
+ 
+                                                                  4. Password reset notification (receive/log)
+ 
+                                                                  5. Review current request(s)
+ 
+                                                                  6. Request Site leadership review new project request for approval/disapproval
+ 
+                                                                  7. Assign members to role(s)
+ 
+                                                                     1. Administrator for site
+ 
+                                                                     2. Site Manager for site
+ 
+                                                                     3. Research assistant(s) for site 
+                                                                     4. Delegate user to administer my projects 
+                                                                     5. Log
+ 
+                                                                        1. User registration
+ 
+                                                                        2. Passwords resets
+ 
+                                                                        3. Access 
+ 
+                                                                           1. technical information (Research assistant)
+ 
+                                                                           2. log files 
+                                                                           3. Responsible investigator: 
+ 
+                                                                              1.  Register
+ 
+                                                                                 1. register self
+ 
+                                                                                 2. reset password
+ 
+                                                                                 3. Login
+ 
+                                                                                 4. Logout
+ 
+                                                                                 5. Basic Search (project title, abstract, keywords, people, core areas)
+ 
+                                                                                 6. Advanced Search
+ 
+                                                                                    1. Research sites
+ 
+                                                                                    2. Disturbances
+ 
+                                                                                    3. Chemicals used
+ 
+                                                                                       1. Project status, title, abstract, keywords, people, core area, biome/habitat type, project type (core, student, etc.), research theme (plant, hydrology, climate, etc.), organization, funding source
+ 
+                                                                                       2. No results returned 
+                                                                                       3. Browse 
+ 
+                                                                                          1. By thematic group
+ 
+                                                                                          2. Search results
+ 
+                                                                                          3. Report 
+                                                                                          4. Request new project 
+                                                                                          5. Map site locations 
+                                                                                             1. my projects 
+                                                                                             2. others projects 
+                                                                                          6. Edit/update project 
+                                                                                          7. Locate (draw) new research site 
+                                                                                          8. Tracking 
+                                                                                             1. Progress (inactive, current, past anticipated completion date)
+ 
+                                                                                             2. Notification
+ 
+                                                                                                1. Research request approval (receive) 
+                                                                                                2. Research request disapproval (receive) 
+                                                                                                3. Successful user registration (receive) 
+                                                                                                4. Password reset notification (receive) 
+                                                                                             3. Assign members to role(s) 
+                                                                                                1. Delegate user to administer my projects 
+                                                                                             4. Access  
+                                                                                                1. technical information (Research assistant)
+ 
+                                                                                                2. Research assistant:
+ 
+                                                                                                   1. Register
+ 
+                                                                                                      1. register self
+ 
+                                                                                                      2. reset password
+ 
+                                                                                                      3. Login
+ 
+                                                                                                      4. Logout
+ 
+                                                                                                      5. Basic Search (project title, abstract, keywords, people, core areas)
+ 
+                                                                                                      6. Advanced Search
+ 
+                                                                                                         1. Research sites
+ 
+                                                                                                         2. Disturbances
+ 
+                                                                                                         3. Chemicals used
+ 
+                                                                                                         4. Project status, title, abstract, keywords, people, core area, biome/habitat type, project type (core, student, etc.), research theme (plant, hydrology, climate, etc.), organization, funding source
+ 
+                                                                                                         5. No results returned
+ 
+                                                                                                         6. Browse 
+ 
+                                                                                                            1. By thematic group
+ 
+                                                                                                            2. Search results
+ 
+                                                                                                            3. Request new project
+ 
+                                                                                                            4. Map site locations
+ 
+                                                                                                               1. my projects
+ 
+                                                                                                               2. others projects
+ 
+                                                                                                               3. Edit/update project
+ 
+                                                                                                               4. Locate (draw) new research site
+ 
+                                                                                                               5. Tracking
+ 
+                                                                                                                  1. Progress (inactive, current, past anticipated completion date)
+ 
+                                                                                                                  2. Notification
+ 
+                                                                                                                     1. Research request approval (receive)
+ 
+                                                                                                                     2. Research request disapproval (receive)
+ 
+                                                                                                                     3. Successful user registration (receive)
+ 
+                                                                                                                     4. Password reset notification (receive)
+ 
+                                                                                                                     5. Review current request(s)
+ 
+                                                                                                                     6. Access 
+ 
+                                                                                                                        1. technical information (Research assistant)
+ 
+
+Goals listing: 
+                                                                                                                           1. Register
+ 
+                                                                                                                              1. register new user (self)
+ 
+                                                                                                                              2. register new user (others)
+ 
+                                                                                                                              3. reset password (with knowledge of user email, selected information)
+ 
+                                                                                                                              4. Login
+ 
+                                                                                                                              5. Logout 
+                                                                                                                              6. Basic Search (project title, abstract, keywords, people, core areas) 
+                                                                                                                              7. Advanced Search
+ 
+                                                                                                                                 1. Research sites
+ 
+                                                                                                                                 2. Disturbances
+ 
+                                                                                                                                 3. Chemicals used
+ 
+                                                                                                                                 4. Project status, title, abstract, keywords, people, core area, biome/habitat type, project type (core, student, etc.), research theme (plant, hydrology, climate, etc.), organization, funding source 
+                                                                                                                                 5. No results returned
+ 
+                                                                                                                                 6. Browse 
+ 
+                                                                                                                                    1. By thematic group
+ 
+                                                                                                                                    2. Search results
+ 
+                                                                                                                                    3. Report
+ 
+                                                                                                                                    4. Request new project
+ 
+                                                                                                                                    5. Modify new project request that has not been approved/disapproved
+ 
+                                                                                                                                       1. Requester
+ 
+                                                                                                                                       2. Site Manager 
+                                                                                                                                       3. Approve/Disapprove request
+ 
+                                                                                                                                       4. Map site locations
+ 
+                                                                                                                                       5. Edit/update project
+ 
+                                                                                                                                          1. my projects
+ 
+                                                                                                                                          2. others projects
+ 
+                                                                                                                                          3. Locate (draw) new research site
+ 
+                                                                                                                                          4. Tracking
+ 
+                                                                                                                                             1. Approvals
+ 
+                                                                                                                                             2. Disapprovals
+ 
+                                                                                                                                             3. Progress (inactive, current, past anticipated completion date)
+ 
+                                                                                                                                             4. EML 2.1 creation
+ 
+                                                                                                                                             5. Harvesting projects to LNO
+ 
+                                                                                                                                             6. Notification
+ 
+                                                                                                                                                1. Research request approval
+ 
+                                                                                                                                                2. Research request disapproval 
+                                                                                                                                                3. Successful user registration 
+                                                                                                                                                4. Password reset notification
+ 
+                                                                                                                                                5. Review current request(s)
+ 
+                                                                                                                                                6. Request Site leadership review new project request for approval/disapproval
+ 
+                                                                                                                                                7. Assign members to role(s)
+ 
+                                                                                                                                                   1. Administrator for site
+ 
+                                                                                                                                                   2. Site Manager for site
+ 
+                                                                                                                                                   3. Research assistant(s) for site
+ 
+                                                                                                                                                   4. Log
+ 
+                                                                                                                                                      1. User registration
+ 
+                                                                                                                                                      2. Passwords resets
+ 
+                                                                                                                                                      3. Access 
+ 
+                                                                                                                                                         1. technical information (Research assistant)
+ 
+                                                                                                                                                         2. log files
+ 
+
+
+Use case: 1 
+
+Name: Permission to perform research 
+
+Goal: Provide the ability for prospective researcher to propose new research projects for consideration and support communication between the requester and the site manager for selecting optimum research site(s) that will not impact existing research projects. 
+
 Assumptions: 
+ 
 
 Steps:
+ 
 
-Variations:
-Non-functional: 
+Variations: 
 
-Use case: 2
-Name: Reporting research projects
-Goal: Provide the ability to collect and organize information for annual reports using information about active research projects.
+Non-functional:  
+
+
+Use case: 2 
+
+Name: Reporting research projects 
+
+Goal: Provide the ability to collect and organize information for annual reports using information about active research projects. 
+
 Assumptions:
+ 
 
 Steps:
+ 
 
-Variations:
-Non-functional: 
+Variations: 
 
-Use case: 3
-Name: Research project administration and tracking
-Goal: Provide the ability to administer (modify/create) and track research projects.
+Non-functional:  
+
+
+Use case: 3 
+
+Name: Research project administration and tracking 
+
+Goal: Provide the ability to administer (modify/create) and track research projects. 
+
 Assumptions:
+ 
 
 Steps:
+ 
 
-Variations:
-Non-functional: 
+Variations: 
 
-Use case: 4
-Name: Research project resources for field/lab personnel
-Goal: Provide information about a research project needed by field or lab personnel to perform the research (collect, maintain, and analyze data).
+Non-functional:  
+
+
+Use case: 4 
+
+Name: Research project resources for field/lab personnel 
+
+Goal: Provide information about a research project needed by field or lab personnel to perform the research (collect, maintain, and analyze data). 
+
 Assumptions:
+ 
 
 Steps:
+ 
 
-Variations:
-Non-functional: 
+Variations: 
 
-Use case: 5
+Non-functional:  
+
+
+Use case: 5 
+
 Name: Discovery of research projects
-Goal: Provide the interfaces and mechanisms that allow researchers and public to discover ongoing and past research projects at one or more sites.
-Assumptions:
+ 
+
+Goal: Provide the interfaces and mechanisms that allow researchers and public to discover ongoing and past research projects at one or more sites.   
+
+Assumptions: User selections and terms entered before a search is performed are kept when the search results table is displayed
+ 
+                   User can select a Clear button to reset the search terms and options back to default 
+                   User can select a Help icon to get information on browsing and searching ProjectDB 
 
 Steps:
+ 
+User visits ProjectDB home page 
+User enters search term(s) into search textbox 
+User selects/de-selects checkboxes to widen/narrow search fields 
+  (checkboxes for: title (selected by default), 
+                   abstract (selected by default), 
+                   keywords (selected by default), 
+                   people, 
+                   organization, 
+                   funding source) 
+User selects the search button to perform search 
+User is presented with the number of matching research projectsUser is presented with a table of matching research projects with links to individual project descriptions (results table includes the following columns: title, primaryOrganization, PI, status) 
+User can sort results table by selecting column name 
 
-Variations:
+Variations: 
+  a. Alternate Flow: Search without filters or changes in search fields 
+  User visits ProjectDB home page 
+  User selects the search button 
+  User is presented with the number of matching research projects 
+  User is presented with a table of ALL research projects with links to individual project descriptions 
+  user can sort results table by selecting column name 
+
+  b. Alternative Flow: Browsing by category drop down 
+  User visits ProjectDB home page 
+  User selects a browse category in the search section drop down list 
+    (drop down list options: -- Select a browse category -- (disabled), 
+                             All research projects by LTER Core Area, 
+                             Primary productivity research projects, 
+                             ..., 
+                             All research projects by ??? (organized by other categories?), 
+                             ...) 
+  User is presented with the number of matching research projects 
+  User is presented with a table of matching research projects with links to individual project descriptions 
+  user can sort results table by selecting column name 
+
+  c. Alternative Flow: Browsing by keyword list 
+  User visits ProjectDB home page 
+  User selects one of the browse keywords a list of controlled keywords 
+  User is presented with the number of matching research projects 
+  User is presented with a table of matching research projects with links to individual project descriptions 
+  user can sort results table by selecting column name 
+
+  d. Alternative Flow: Search does not return any matching research projects 
+  User visits ProjectDB home page 
+  User performs a customized search 
+  User is presented with the number of matching research projects (0 records found) 
+  User is presented a message with suggestion to widen search parameters 
+
 Non-functional: 
+ 
 
-Use case: 6
-Name: Tool for adding research project information to EML 2.1 documents
-Goal: Provide a tool to allow information managers to complete EML 2.1 documents using research project information stored within the project database.
-Actors: 
+
+Use case: 6 
+
+Name: Tool for adding research project information to EML 2.1 documents 
+
+Goal: Provide a tool to allow information managers to complete EML 2.1 documents using research project information stored within the project database. 
+
 Assumptions:
-Steps:
+ 
 
-Variations:
-Non-functional: 
+Steps:
+ 
+
+Variations: 
+
+Non-functional:  
+ 
+
+8) Use Case Basic Flow:  Facilitates completion of information needed to evaluate the impacts and feasibility of proposed research projects.
+ 
+Site Manager logs in.
+ Site Manager clicks on link to ProjectDB Site Manager acesses list of Site Projects (list by title and PI and date project initiated) Some projects are flagged as unapproved.  
+ Site Manager clicks on a link to a project that isn't approved yet.   
+ Site Manager can click on a button to approve the project, which sends an approval email to the Requestor and the Project database is updated to show the project approved.    
+Project Manager can click on a link to deny the project, which also updates the database.  
+ Project Manager can click on an email link to the requestor to request
+ additional information to be added to the Requestor web page.    
+ 
+9) Use Case Alternate Flow:    None
+ 
+and
+ 
+8) Use Case Basic Flow:   Permission to perform research
+ 
+Requestor goes to LTER site web page where they want to work.  
+ Requestor registers.
+ Requestor logs in.
+ Requestor clicks on link to ProjectDB.  
+ Requestor clicks on button that says "Initiate New Project"
+ Requestor sees form that allows them to enter their Name, their Contact Information, Project Title, Abstract, and Study design for their project.
+ There is a form field for describing the infrastructure they will require to
+ do the study.   
+ Requestor submits request by clicking on "Submit" button.  
+ An email is generated going to the site PI to tell them to read the new
+ request in ProjectDB.   
+ 
+9) Use Case Alternate Flow:  
+ 
+Site Manager wants more details on the Project Request and Requestor has to
+ login again and access their original form.    
+ 
+
+and 
+
+8) Use Case Basic Flow: Performing a search for research project information 
+
+User visits ProjectDB home page 
+User enters search term(s) into search textbox 
+User selects/de-selects checkboxes to widen/narrow search fields 
+  (checkboxes for: title (selected by default), 
+                   abstract (selected by default), 
+                   keywords (selected by default), 
+                   people, 
+                   organization, 
+                   funding source) 
+User selects the search button to perform search 
+User is presented with the number of matching research projectsUser is presented with a table of matching research projects with links to individual project descriptions (results table includes the following columns: title, primaryOrganization, PI, status) 
+User can sort results table by selecting column name 
+
+9) Use Case Alternate Flows 
+
+  a. Alternate Flow: Search without filters or changes in search fields 
+  User visits ProjectDB home page 
+  User selects the search button 
+  User is presented with the number of matching research projects 
+  User is presented with a table of ALL research projects with links to individual project descriptions 
+  user can sort results table by selecting column name 
+
+  b. Alternative Flow: Browsing by category drop down 
+  User visits ProjectDB home page 
+  User selects a browse category in the search section drop down list 
+    (drop down list options: -- Select a browse category -- (disabled), 
+                             All research projects by LTER Core Area, 
+                             Primary productivity research projects, 
+                             ..., 
+                             All research projects by ??? (organized by other categories?), 
+                             ...) 
+  User is presented with the number of matching research projects 
+  User is presented with a table of matching research projects with links to individual project descriptions 
+  user can sort results table by selecting column name 
+
+  c. Alternative Flow: Browsing by keyword list 
+  User visits ProjectDB home page 
+  User selects one of the browse keywords a list of controlled keywords 
+  User is presented with the number of matching research projects 
+  User is presented with a table of matching research projects with links to individual project descriptions 
+  user can sort results table by selecting column name 
+
+  d. Alternative Flow: Search does not return any matching research projects 
+  User visits ProjectDB home page 
+  User performs a customized search 
+  User is presented with the number of matching research projects (0 records found) 
+  User is presented a message with suggestion to widen search parameters 
+
+10) Use Case Assumptions 
+
+User selections and terms entered before a search is performed are kept when the search results table is displayed 
+User can select a Clear button to reset the search terms and options back to default 
+User can select a Help icon to get information on browsing and searching ProjectDB 
+
+
+
 
