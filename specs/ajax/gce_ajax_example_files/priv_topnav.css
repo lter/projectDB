@@ -1,0 +1,52 @@
+#content {
+	height: 500px;
+}
+#top-navbar {
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+#top-navbar, #top-navbar a {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000;
+	text-decoration: none;
+}
+#top-navbar a, #top-navbar a:link, #top-navbar a:visited {
+	background-color: transparent;
+	background-image: url('/public/images/backgrounds/papyrus1.jpg');
+	border: 1px solid #CCC;
+	padding: 3px 6px 3px 6px;
+	color: #000;
+}
+#top-navbar a:hover, #top-navbar a:active {
+	padding: 3px 6px 3px 6px;
+	background-image: none;
+	border: 1px solid Maroon;
+	background-color: Maroon;
+	color: #FFFFCC;
+}
+#top-navbar span.current-page {
+	background-color: #FFC;
+	background-image: none;
+	border: 1px solid #CCC;
+	padding: 3px 6px 3px 6px;
+}
+#top-navbar a.subpage, #top-navbar a.subpage:link, #top-navbar a.subpage:visited, #top-navbar a.subpage:hover {
+	background-color: transparent;
+	background-image: none;
+	border: none;
+	text-decoration: underline;
+	padding: 3px 0 3px 0;
+	color: #000;
+}
+#top-navbar a.subpage:hover {
+	color: #00C;
+	background-image: none;
+}
+#top-navbar span.current-subpage {
+	background-color: #FFC;
+	background-image: none;
+	border: none;
+	padding: 3px 0 3px 0;
+	color: #000;
+}

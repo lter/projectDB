@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+    
+    <RefType>Thesis</RefType>
+    <TextFields>
+        <Field><FieldName>SecondaryTitle</FieldName><Label>SecondaryTitle</Label><Display>0</Display></Field><Field><FieldName>TertiaryTitle</FieldName><Label>TertiaryTitle</Label><Display>0</Display></Field><Field><FieldName>ShortTitle</FieldName><Label>ShortTitle</Label><Display>0</Display></Field><Field><FieldName>AlternateTitle</FieldName><Label>AlternateTitle</Label><Display>0</Display></Field><Field><FieldName>Abstract</FieldName><Label>Abstract</Label><Display>1</Display></Field><Field><FieldName>Publisher</FieldName><Label>University</Label><Display>1</Display></Field><Field><FieldName>PlacePublished</FieldName><Label>University Location</Label><Display>1</Display></Field><Field><FieldName>Volume</FieldName><Label>Volume</Label><Display>0</Display></Field><Field><FieldName>Number</FieldName><Label>Number</Label><Display>0</Display></Field><Field><FieldName>Pages</FieldName><Label>Pages</Label><Display>1</Display></Field><Field><FieldName>Edition</FieldName><Label>Edition</Label><Display>0</Display></Field><Field><FieldName>Date</FieldName><Label>Date</Label><Display>0</Display></Field><Field><FieldName>DOI</FieldName><Label>DOI</Label><Display>1</Display></Field><Field><FieldName>Notes</FieldName><Label>Notes</Label><Display>1</Display></Field><Field><FieldName>Label</FieldName><Label>Label</Label><Display>0</Display></Field><Field><FieldName>DataSets</FieldName><Label>Data Sets</Label><Display>1</Display></Field>
+    </TextFields>
+    <TypeOfWorkList>
+        <Type>M.S. Thesis</Type><Type>Ph.D. Dissertation</Type>
+    </TypeOfWorkList>
+</Root>

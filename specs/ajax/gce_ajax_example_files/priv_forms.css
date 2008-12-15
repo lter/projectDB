@@ -1,0 +1,73 @@
+form { 
+	margin: 0 auto 1em auto;
+}
+table.forms  {
+	width: 85%;
+}
+select, input {
+	margin: 0;
+}
+td.forms-labels { 
+	width: 25%; 
+	text-align: center;
+	padding: 9px 6px 5px 12px;
+}
+td.forms-left  { 
+	width: 75%; 
+	text-align: left; 
+	white-space: nowrap;
+	padding: 5px 12px 5px 6px;
+}
+.form_help, .file_help  { 
+	font-size: 11px;
+	font-style: italic; 
+	font-weight: normal;
+	padding-left: 8px; 
+	color: #360;
+}
+.file_help  { 
+	padding: 0; 
+	margin-top: 1em; 
+	margin-bottom: 0; 
+	text-align: center; 
+}
+.form_label  { 
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	font-weight: bold;
+	font-size: 10pt; color: #000;
+}
+.popup { 
+	font-family: Verana, Arial, Helvetica, sans-serif; 
+	font-weight: normal;
+}
+.warning { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	font-style: italic;
+	font-weight: bold; 
+	color: #660000;
+}
+input, textarea, select  {
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+#instructions  { 
+	margin-left: 96px; 
+	margin-right: 96px; 
+	font-size: 11px;
+}
+#instructions ul  { 
+	padding-left: 48px;
+}
+#instructions ul li  { 
+	margin-bottom: 0.5em;
+}
+#content p.fileheading { 
+	margin: 0; 
+	padding: 0;
+}
+#content p.filelist  { 
+	margin: 0; 
+	padding: 0.25em 0 0 72px; 
+	text-indent: -48px; 
+}

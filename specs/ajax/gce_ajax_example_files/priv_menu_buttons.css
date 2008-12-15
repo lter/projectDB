@@ -1,0 +1,87 @@
+/* ================================================================ 
+This copyright notice must be untouched at all times.
+
+The original version of this stylesheet and the associated (x)html
+is available at http://www.cssplay.co.uk/menus/example_flyout.html
+Copyright (c) 2005-2007 Stu Nicholls. All rights reserved.
+This stylesheet and the assocaited (x)html may be modified in any 
+way to fit your requirements.
+=================================================================== */
+
+/* common styling */
+.menu {
+font-family: Verdana, Arial, Helvetica, sans-serif; width:120px; height:415px; position:relative; font-size:11px; margin: 0; z-index:100;
+}
+
+.menu ul {
+padding:0; margin:0; list-style-type: none; width:120px; height:415px; border:none;
+}
+
+.menu ul li ul {
+visibility:hidden; position:absolute; height:0; overflow:hidden; top:0; left:125px; background:Maroon;
+}
+
+.menu ul li {
+margin:0 0 4px 0; background:#f5f5dc; background-image:url('/private/images/backgrounds/papyrus1.jpg'); float:left; border: 1px solid #CCC;
+}
+
+.menu ul li ul li, .menu ul li ul li ul li {
+background-image:none
+}
+
+.menu ul li a, .menu ul li a:visited {
+display:block; float:left; text-decoration:none; color:#000; width:115px; height:24px; line-height:23px; font-size:11px; background:transparent; padding-left:10px;
+}
+
+* html .menu ul li a, * html .menu ul li a:visited {width:120px; w\idth:115px;}
+
+.menu table {
+border-collapse:collapse; border:0; margin:0; padding:0; font-size:1em; position:absolute; left:0; top:0;
+}
+
+/* first line for IE7 and non-IE browsers - second line for IE5.5 and IE6 */
+.menu ul li:hover a,
+.menu ul li a:hover{
+background:Maroon; color:#fff;
+}
+
+.menu ul li:hover {position:relative; z-index:90;}
+* html .menu ul li a:hover {position:relative; z-index:100;}
+
+.menu ul li:hover ul,
+.menu ul li a:hover ul {
+visibility:visible; position:absolute; height:auto; border:1px solid Maroon; background:Maroon; overflow:visible;
+}
+
+.menu ul li:hover ul li,
+.menu ul li a:hover ul li {
+border: none;
+padding: 0;
+}
+
+.menu ul li:hover ul li a,
+.menu ul li a:hover ul li a{
+display:block; background:Maroon; color:#fff; line-height:11px; padding:5px 0 5px 5px; height:auto; text-decoration:none;
+}
+
+.menu ul li:hover ul li:hover a,
+.menu ul li a:hover ul li a:hover {
+background:#ffff99; color:Maroon;
+}
+.menu ul li:hover ul li ul,
+.menu ul li a:hover ul li a ul {
+visibility:hidden; position:absolute; height:0; overflow:hidden; top:0; left:120px;
+}
+.menu ul li:hover ul li:hover ul,
+.menu ul li a:hover ul li a:hover ul {
+visibility:visible; position:absolute; height:auto; color:#000; padding:0; border:1px solid Maroon; list-style-type:none; background:#f5f5dc;
+}
+.menu ul li:hover ul li:hover ul li a,
+.menu ul li a:hover ul li a:hover ul li a {
+display:block; background:transparent; color:#000;
+}
+
+.menu ul li:hover ul li:hover ul li:hover a,
+.menu ul li a:hover ul li a:hover ul li a:hover {
+background:#f5f5dc; color:Maroon; text-decoration:underline;
+}

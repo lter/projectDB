@@ -1,0 +1,1228 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" media="all" type="text/css" href="priv_main.css">
+<link rel="stylesheet" media="all" type="text/css" href="priv_topnav.css">
+<link rel="stylesheet" media="all" type="text/css" href="priv_menu_buttons.css">
+<link rel="stylesheet" media="all" type="text/css" href="add_citation.css">
+<link rel="stylesheet" media="all" type="text/css" href="priv_forms.css">
+<style type="text/css">
+<!--
+/* init display options for default Journal Article selection */
+#Editors { display: none }
+#RecordDates { display: none }
+#ShortTitle { display: none }
+#AlternateTitle { display: none }
+#Publisher { display: none }
+#PlacePublished { display: none }
+#Edition { display: none }
+#Date { display: none }
+#Label { display: none }
+-->
+</style>
+<script type="text/javascript" language="javascript" src="list_utils.js"></script>
+<script type="text/javascript" language="javascript" src="ajaxUtils.js"></script>
+<script type="text/javascript" language="javascript" src="add_citation.js"></script>
+<title>GCE-LTER Project Website :: Add/Update Citation</title>
+</head><body>
+<div id="top-border">&nbsp;</div>
+<table id="pageframe">
+  <tbody><tr>
+    <td colspan="2" id="heading">
+	  <div id="banner-image"><a href="http://gce-lter.marsci.uga.edu/" title="Georgia Coastal Ecosystems LTER"><img src="priv_logo.jpg" alt="Georgia Coastal Ecosystems LTER" border="0" width="825" height="95"></a><!-- InstanceEndEditable --></div>
+	  <div id="top-navbar"><a href="http://gce-lter.marsci.uga.edu/">Home</a> &gt;
+	     <a href="http://gce-lter.marsci.uga.edu/public/private.htm">Private Site</a> &gt; <a href="https://gce-lter.marsci.uga.edu/private/app/update_citation.asp">Update Bibliography</a> &gt;
+		 <span class="current-subpage">Add Citation</span>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td id="leftnavbar">
+<div class="menu">
+<ul>
+<li><a href="http://gce-lter.marsci.uga.edu/">Home</a></li>
+<li><a href="http://gce-lter.marsci.uga.edu/public/app/news.asp">GCE News »<!--[if IE 7]><!--></a><!--<![endif]-->
+<!--[if lte IE 6]><table><tr><td><![endif]-->
+	<ul>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/news.asp">News &amp; Events</a></li>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/calendar.asp">GCE Calendar »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<ul>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/calendar.asp">Calendar</a></li>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/calendar_browse.asp">Search Events</a></li>
+		</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/announcements.asp">Announcements</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/conditions.asp">Site Conditions</a></li>
+	<li><a href="http://www.lternet.edu/news/">LTER Network</a></li>
+	</ul>
+<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li><a href="http://gce-lter.marsci.uga.edu/public/app/biblio_query.asp">Bibliography »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+	<ul>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/biblio_query.asp">Search/Custom</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/biblio_results.asp?Library=GCE&amp;Reprints=yes&amp;URLs=yes">GCE Publications</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/biblio_results.asp?Library=UGAMI&amp;Reprints=yes&amp;URLs=yes">UGAMI Publications</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/biblio_results.asp?Library=GARLMER&amp;Reprints=yes&amp;URLs=yes">LMER Publications</a></li>
+	<li><a href="http://search.lternet.edu/biblio/">LTER Network</a></li>
+	</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li><a href="http://gce-lter.marsci.uga.edu/public/data/data.htm">Data Products »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+	<ul>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/data/data.htm">GCE Data</a> </li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/data_catalog.asp">Data Catalog</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/portal/monitoring.htm">Data Portal</a></li>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/resources.asp?type=gisvectordata">GIS Vector Data</a></li>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/resources.asp?type=gisrasterdata">GIS Raster Data</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/realtime_data.asp">Near-real-time</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/im/data_submission.htm">Data Submission »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<ul>
+		<li><a href="http://gce-lter.marsci.uga.edu/public/im/data_submission.htm">Submission Info</a></li>
+		<li><a href="http://gce-lter.marsci.uga.edu/public/app/resource_details.asp?id=101">Submission Form</a></li>
+		</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+	<li><a href="http://metacat.lternet.edu/knb/">LTER Network »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<ul>
+		<li><a href="http://metacat.lternet.edu/knb/">LTER Data Catalog</a></li>
+		<li><a href="http://www.fsl.orst.edu/climhy/">LTER Climate Data</a></li>
+		</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+	</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li><a href="http://gce-lter.marsci.uga.edu/public/app/personnel.asp">Personnel »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+	<ul>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/personnel.asp?display=all">GCE Personnel</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/personnel.asp?display=committees">GCE Committees</a></li>
+	<li><a href="http://search.lternet.edu/dir.php">LTER Network</a></li>
+	</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li><a href="http://gce-lter.marsci.uga.edu/public/research/research.htm">Research »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+	<ul>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/research/research.htm">GCE Research</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/all_species_lists.asp">Species Lists</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/research/mon/monitoring.htm">Projects »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<ul>
+		<li><a href="http://gce-lter.marsci.uga.edu/public/research/mon/monitoring.htm">All Projects</a></li>
+		<li><a href="http://gce-lter.marsci.uga.edu/public/research/mon/climate.htm">Climate Monitoring</a></li>
+		<li><a href="http://gce-lter.marsci.uga.edu/public/research/mon/sounds_creeks.htm">Salinity Monitoring</a></li>
+		<li><a href="http://gce-lter.marsci.uga.edu/public/research/mon/marsh_set.htm">Sediment Dynamics</a></li>
+		<li><a href="http://gce-lter.marsci.uga.edu/public/site/monitoring_map.htm">Monitoring Map</a></li>
+		</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+	<li><a href="http://www.lternet.edu/coreareas/coreintro.html">LTER Network »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<ul>
+		<li><a href="http://www.lternet.edu/coreareas/coreintro.html">LTER Core Areas</a></li>
+		<li><a href="http://www.lternet.edu/technology/ltergis/">Remote Sensing</a></li>
+		<li><a href="http://www.lternet.edu/microbial_ecology/">Microbial Ecology</a></li>
+		</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+	</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li><a href="http://gce-lter.marsci.uga.edu/public/site/site_info.htm">Study Site »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+	<ul>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/site/site_info.htm">GCE Study Site</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/site/studyarea.htm">Study Area Map</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/site/logistics.htm">Visiting Sapelo</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/site/tides.htm">Tide Tables</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/studysites.asp">Sampling Sites »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<ul>
+		<li><a href="http://gce-lter.marsci.uga.edu/public/app/studysites.asp">Sampling Sites</a></li>
+		<li><a href="http://gce-lter.marsci.uga.edu/public/app/transects.asp">Survey Transects</a></li>
+		<li><a href="http://gce-lter.marsci.uga.edu/public/app/geo_query.asp">Location Database</a></li>
+		<li><a href="http://gce-lter.marsci.uga.edu/public/site/monitoring_map.htm">Monitoring Map</a></li>
+		</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+	<li><a href="http://www.lternet.edu/sites/">LTER Network »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<ul>
+		<li><a href="http://www.lternet.edu/sites/">Site Profiles</a></li>
+		<li><a href="http://www.lternet.edu/sites/site_coordinates.php">Site Coordinates</a></li>
+		</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+	</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li><a href="http://gce-lter.marsci.uga.edu/public/gis/Introduction.htm">GIS Resources »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+	<ul>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/gis/Introduction.htm">Overview</a> </li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/gis/Data_Resources.html">GIS Data Types</a></li>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/gis/Geodatabase_instructions.asp">Geodatabase Info</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/gis/KML.html">KML Information</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/gis/Links.html">GIS Links</a></li>
+    <li><a href="http://www.lternet.edu/technology/ltergis/">LTER Network</a></li>
+	</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li><a href="http://gce-lter.marsci.uga.edu/public/app/resource_search.asp?type=documents">Documents »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+	<ul>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/resource_search.asp?type=document">Search/Browse All</a></li>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/resources.asp?type=document&amp;category=reports">Reports</a></li>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/resources.asp?type=document&amp;category=proposals">Proposals</a></li>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/resources.asp?type=document&amp;category=publications">Publications</a></li>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/resources.asp?type=document&amp;category=presentations">Presentations</a></li>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/resources.asp?type=document&amp;category=informatics">Informatics</a></li>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/resources.asp?type=document&amp;category=governance">Governance</a></li>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/resources.asp?type=document&amp;category=procedures">Procedures</a></li>
+	<li><a href="http://intranet.lternet.edu/modules.php?op=modload&amp;name=UpDownload&amp;file=index">LTER Network</a></li>
+	</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li><a href="https://gce-lter.marsci.uga.edu/private/app/resource_search.asp?type=imagery">Maps &amp; Imagery »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+	<ul>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/resource_search.asp?type=image">Search/Browse All</a></li>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/resources.asp?type=image&amp;category=sitemaps">Site Maps</a></li>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/resources.asp?type=image&amp;category=sitephotos">Site Photos</a></li>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/resources.asp?type=image&amp;category=speciesphotos">Organism Photos</a></li>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/resources.asp?type=image&amp;category=logos">Logos</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/site/legacy_maps.htm">Legacy Maps</a></li>
+	<li><a href="http://savanna.lternet.edu/gallery/">LTER Network</a></li>
+	</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li><a href="http://gce-lter.marsci.uga.edu/public/outreach.htm">Outreach &amp; Ed »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+	<ul>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/outreach.htm">GCE Outreach »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<ul>
+		<li><a href="http://gce-lter.marsci.uga.edu/public/outreach.htm">Overview</a></li>
+		<li><a href="http://www.gcrc.uga.edu/">GCRC Web Site</a></li>
+		</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/education/education.htm">GCE Education »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<ul>
+		<li><a href="http://gce-lter.marsci.uga.edu/public/education/education.htm">Education News</a></li>
+		<li><a href="http://gce-lter.marsci.uga.edu/public/education/uga_classes.htm">UGA Classes</a></li>
+		<li><a href="http://gce-lter.marsci.uga.edu/public/app/biblio_results.asp?Library=GCE&amp;KeyWord=education&amp;KeyWordMatch=exact&amp;URLs=yes">Publications</a></li>
+		</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+	<li><a href="http://www.lternet.edu/education/">LTER Network »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<ul>
+		<li><a href="http://www.lternet.edu/education/">Opportunities</a></li>
+		<li><a href="http://schoolyard.lternet.edu/">Schoolyard LTER</a></li>
+		</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+	</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li><a href="http://gce-lter.marsci.uga.edu/public/im/gce_is.htm">Informatics »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+	<ul>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/im/gce_is.htm">IM Overview</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/resource_details.asp?id=101">Data Submission</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/data/eml_metadata.htm">EML Metadata</a></li>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/resources.asp?type=document&amp;category=informatics&amp;theme=Database%20schemas">Databases</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/im/tools/it_development.htm">Software »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<ul>
+		<li><a href="http://gce-lter.marsci.uga.edu/public/im/tools/it_development.htm">IT Development</a> </li>
+		<li><a href="http://gce-lter.marsci.uga.edu/public/im/tools/data_toolbox.htm">GCE Data Toolbox</a></li>
+		<li><a href="http://gce-lter.marsci.uga.edu/public/im/tools/usgs_harvester.htm">Data Harvesting</a></li>
+		</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+	<li><a href="http://www.lternet.edu/informatics/">LTER Network »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<ul>
+		<li><a href="http://www.lternet.edu/informatics/">LTER Informatics</a> </li>
+		<li><a href="http://www.ecoinformatics.org/">Ecoinformatics</a></li>
+		<li><a href="http://www.lternet.edu/databits/">DataBits Newsletter</a></li>
+		</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+	</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li><a href="http://gce-lter.marsci.uga.edu/public/affiliates.htm">Affiliates »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+	<ul>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/affiliates.htm">GCE Affiliates</a></li>
+	<li><a href="http://www.lternet.edu/">LTER Web Site</a></li>
+	<li><a href="http://www.uga.edu/ugami/">UGAMI Web Site</a></li>
+	<li><a href="http://www.sapelonerr.org/">SINERR Web Site</a></li>
+	<li><a href="http://www.gcrc.uga.edu/">GCRC Web Site</a></li>
+	<li><a href="http://simo.marsci.uga.edu/">SIMO Web Site</a></li>
+	</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li><a href="http://gce-lter.marsci.uga.edu/public/private.htm">Private Site »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+	<ul>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/private.htm">Private Site Info</a></li>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/project_data.asp">Provisional Data</a></li>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/gce_archives.asp">Project Archives »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<ul>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/gce_archives.asp">Archive Info</a></li>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/resource_search.asp">File Archive</a></li>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/cruise_files.asp">Cruise Logs</a></li>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/meetings.asp">Annual Meetings</a></li>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/gce_reprints.asp">Reprint Library</a></li>
+		</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/resource_search.asp">Governance »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<ul>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/referenda.asp">GCE Referenda</a></li>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/resource_details.asp?id=94">GCE Bylaws</a></li>
+		<li><a href="http://gce-lter.marsci.uga.edu/public/app/personnel.asp?display=committees">Exec Committee</a></li>
+		</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/upload_file.asp">Upload File(s) »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<ul>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/upload_file.asp?category=data">Study Data</a></li>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/upload_gis.asp">GPS Data</a></li>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/upload_file.asp?category=reprints">Reprint File</a></li>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/upload_species_files.asp">Species List File</a></li>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/upload_file.asp">Other File(s)</a></li>
+		</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/add_resource.asp">Archive File »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<ul>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/add_resource.asp?type=doc">Document</a></li>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/add_resource.asp?type=gisvectordata&amp;category=gisdata">GIS Vector Data</a></li>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/add_resource.asp?type=map&amp;category=sitemaps">Map Image</a></li>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/upload_species_files.asp">Organism Photo</a></li>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/add_resource.asp?type=photo&amp;category=sitephotos">Site Photo</a></li>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/add_resource.asp">Other File</a></li>
+		</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/update_citation.asp">Update Biblio »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<ul>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/add_citation.asp">Add Citation</a></li>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/update_citation.asp">Update Citation</a></li>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/upload_file.asp?category=reprints">Upload Reprint</a></li>
+		</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/announcements.asp">Update News »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<ul>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/announcements.asp">View News Items</a></li>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/add_announce.asp">Add News Item</a></li>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/announcements.asp">Update News Item</a></li>
+		</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/calendar.asp">Update Calendar »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<ul>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/calendar.asp">View Calendar</a></li>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/calendar_add.asp">Add Event</a></li>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/calendar_browse.asp?Mode=edit">Update Event</a></li>
+		</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/update_bio.asp">Update User Info »<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<ul>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/password.asp">Change Password</a></li>
+		<li><a href="http://gce-lter.marsci.uga.edu/public/request_login.htm">Email Password</a></li>
+		<li><a href="https://gce-lter.marsci.uga.edu/private/app/update_bio.asp">Update Bio Page</a></li>
+		</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+	</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+</ul>
+</div>
+<div id="google-search-left">
+<form action="http://gce-lter.marsci.uga.edu/public/search.htm" id="searchbox_014432048925071680651:vwuni1yg6dk">
+<div>
+  <input name="cx" value="014432048925071680651:vwuni1yg6dk" type="hidden">
+  <input name="cof" value="FORID:11" type="hidden">
+  <input name="q" size="18" type="text">
+  <input name="sa" value="Search" type="submit">
+</div>
+</form>
+</div>
+</td>
+    <td id="content">
+	<h1>Add Bibliographic Citation</h1>
+	<p style="margin: -2.5em 10px 0.5em 0pt; text-align: right; padding-left: 0pt;"><em>(highlighted fields are required)</em></p>
+	<noscript><p class="warning">This form requires Javascript - please enable
+Javascript support in your web browser and reload this page<br/> or <a href="http://gce-lter.marsci.uga.edu/public/app/personnel_bios.asp?id=wsheldon">contact
+the Information Manager</a> for assistance</p></noscript>
+	<form name="frmCitation" id="citation" method="post" enctype="multipart/form-data" action="" onsubmit="selectAllNoneMultiple(['listAuthors','listEditors'],'all')">
+        <table class="forms" style="width: 85%;">
+          <tbody><tr>
+            <td class="forms-labels">Contributor:</td>
+            <td class="forms-left">
+			  <select size="1" name="Contributor" id="Contributor" class="required-field">
+                <option value="">&lt;Select a Name&gt;</option>
+                <option value="malber">Alber, Merryl</option>
+                <option value="galbers">Albers, Gayle</option>
+                <option value="calexander">Alexander, Clark R.</option>
+                <option value="jamft">Amft, Julie</option>
+                <option value="kanstead">Anstead, Kristen</option>
+                <option value="rasher">Asher, Rose</option>
+                <option value="javitan">Avitan, Josh</option>
+                <option value="pbaas">Baas, Peter</option>
+                <option value="jbartlett">Bartlett, Justin</option>
+                <option value="abarton">Barton, Alan</option>
+                <option value="sbell">Bell, Steven</option>
+                <option value="lbbishop">Berger-Bishop, Laurel</option>
+                <option value="jbertram">Bertram, Jillian</option>
+                <option value="ebiers">Biers, Erin J.</option>
+                <option value="dbishop">Bishop, Thomas Dale</option>
+                <option value="jblanton">Blanton, Jackson O.</option>
+                <option value="gblohm">Blohm, Gabriela M.</option>
+                <option value="bblount">Blount, Ben G.</option>
+                <option value="mbooth">Booth, Melissa G.</option>
+                <option value="jbritt">Britt, Jennifer</option>
+                <option value="rbrittain">Brittain, Ross</option>
+                <option value="rbrown">Brown, Ryan P.</option>
+                <option value="ebrumer">Brumer, Elise</option>
+                <option value="abuchan">Buchan, Alison</option>
+                <option value="tbuck">Buck, Tracy L.</option>
+                <option value="aburd">Burd, Adrian B.</option>
+                <option value="wcai">Cai, Wei-Jun</option>
+                <option value="lcammon">Cammon, Laura W.</option>
+                <option value="jpcarpenter">Carpenter, John P.</option>
+                <option value="achalmers">Chalmers, Alice G.</option>
+                <option value="jclarke">Clarke, Jonathan</option>
+                <option value="lcouey">Couey, Lee</option>
+                <option value="mcozad">Cozad, Madeline</option>
+                <option value="ccraft">Craft, Christopher B.</option>
+                <option value="acramer">Cramer, Abby</option>
+                <option value="ccrutcher">Crutcher, Candice</option>
+                <option value="ddiiorio">Di Iorio, Daniela</option>
+                <option value="ediaz-ferguson">Diaz-Ferguson, Edgardo</option>
+                <option value="rdixon">Dixon, Ray E.</option>
+                <option value="ldonovan">Donovan, Lisa A.</option>
+                <option value="geilers">Eilers, Greg</option>
+                <option value="selston">Elston, Susan A.</option>
+                <option value="merickson">Erickson, Matthew</option>
+                <option value="cewers">Ewers, Christine</option>
+                <option value="jfenton">Fenton, Jenny Leigh</option>
+                <option value="mfirst">First, Matthew R.</option>
+                <option value="sfischer">Fischer, Sarah</option>
+                <option value="jeflory">Flory, Janice E.</option>
+                <option value="jfrost">Frost, Josh W.</option>
+                <option value="pfulton">Fulton, Patrick</option>
+                <option value="agaddis">Gaddis, Aimee</option>
+                <option value="jgarbisch">Garbisch, Jon</option>
+                <option value="jagarbisch">Garbisch, Jane</option>
+                <option value="bgiri">Giri, Bruno</option>
+                <option value="rgisewhite">Gisewhite, Rachel</option>
+                <option value="cgivens">Givens, Carrie</option>
+                <option value="sgraham">Graham, Sean</option>
+                <option value="bgreene">Greene, Becky</option>
+                <option value="hguo">Guo, Hongyu</option>
+                <option value="jhall">Hall, Josh</option>
+                <option value="dhardy">Hardy, Dean</option>
+                <option value="jhartmann">Hartmann, Justin</option>
+                <option value="khelm">Helm, Kenneth</option>
+                <option value="phembree">Hembree, Patricia A.</option>
+                <option value="mhensel">Hensel, Marc</option>
+                <option value="chladik">Hladik, Christine M.</option>
+                <option value="ckho">Ho, Chuan-Kai</option>
+                <option value="rhodson">Hodson, Robert E.</option>
+                <option value="thollibaugh">Hollibaugh, James T.</option>
+                <option value="khunter">Hunter, Kimberley S.</option>
+                <option value="dhurley">Hurley, Dorset</option>
+                <option value="ljarrell">Jarrell, Lori</option>
+                <option value="ljiang">Jiang, Liqing</option>
+                <option value="ljohnson">Johnson, Liza</option>
+                <option value="hjohnson">Johnson, Heather E.</option>
+                <option value="mjoye">Joye, Samantha B.</option>
+                <option value="kkang">Kang, KiRyong</option>
+                <option value="gkaufman">Kaufman, Galen</option>
+                <option value="tkenemer">Kenemer, Bernard Julian</option>
+                <option value="akretzer">Kretzer, Andy</option>
+                <option value="akunza">Kunza, Amy E.</option>
+                <option value="claporte">Laporte, Christine</option>
+                <option value="rlee">Lee, Rosalynn Y.</option>
+                <option value="jlindell">Lindell, Jennifer</option>
+                <option value="wlisting">Listing, Wayne</option>
+                <option value="mloomis">Loomis, Mark</option>
+                <option value="alynes">Lynes, Alana R.</option>
+                <option value="jlyons">Lyons, Justine I.</option>
+                <option value="smacavoy">MacAvoy, Steven E.</option>
+                <option value="mmachmuller">Machmuller, Megan</option>
+                <option value="amahoney">Mahoney, Anika</option>
+                <option value="lmarczak">Marczak, Laurie</option>
+                <option value="cmcfarlin">McFarlin, Caroline R.</option>
+                <option value="pmckay">McKay, Paul</option>
+                <option value="nmctigue">McTigue, Nathan</option>
+                <option value="kmeehan">Meehan, Kristin</option>
+                <option value="cmeile">Meile, Christof</option>
+                <option value="pmerani">Merani, Paul</option>
+                <option value="bmiller">Miller, William</option>
+                <option value="tmoore">Moore, Trent C.</option>
+                <option value="wmoore">Moore, Willard S.</option>
+                <option value="mmoran">Moran, Mary Ann</option>
+                <option value="xmou">Mou, Xiaozhen</option>
+                <option value="mnapolitano">Napolitano, Matthew</option>
+                <option value="snewell">Newell, Steven Y.</option>
+                <option value="jnifong">Nifong, James C.</option>
+                <option value="soconnell">O'Connell, Steven G.</option>
+                <option value="mogburn">Ogburn, Matthew B.</option>
+                <option value="polecki">Olecki, Paula</option>
+                <option value="jpahlas">Pahlas, Jonathan</option>
+                <option value="mpalta">Palta, Monica M.</option>
+                <option value="spankey">Pankey, Sabrina</option>
+                <option value="mpendergras">Pendergras, Mark</option>
+                <option value="spennings">Pennings, Steven C.</option>
+                <option value="mpoelchau">Poelchau, Monica</option>
+                <option value="bporubsky">Porubsky, William P.</option>
+                <option value="cpruett">Pruett, Christina</option>
+                <option value="gpurcell">Purcell, Gabrielle</option>
+                <option value="rrandall">Randall, Rochelle</option>
+                <option value="bransom">Ransom, Briana</option>
+                <option value="ereitz">Reitz, Elizabeth J.</option>
+                <option value="crichards">Richards, Christina L.</option>
+                <option value="krichardson">Richardson, Kristal</option>
+                <option value="rrivas">Rivas, Rudy</option>
+                <option value="troberts">Roberts, Tiffany</option>
+                <option value="mrobinson">Robinson, Michael</option>
+                <option value="jrobinson">Robinson, John D.</option>
+                <option value="cruppel">Ruppel, Carolyn D.</option>
+                <option value="csalgado">Salgado, Cristiano S.</option>
+                <option value="rsalman">Salman, Rebecca</option>
+                <option value="vsamarkin">Samarkin, Vladimir</option>
+                <option value="jsandow">Sandow, Jack T.</option>
+                <option value="dsattelmeyer">Sattelmeyer, Daniel</option>
+                <option value="dsaucedo">Saucedo, Daniel F.</option>
+                <option value="sschaefer">Schaefer, Sylvia C.</option>
+                <option value="jschalles">Schalles, John F.</option>
+                <option value="tschleicher">Schleicher, Tymeri</option>
+                <option value="gschultz">Schultz, Gregory M.</option>
+                <option value="cschutte">Schutte, Charles</option>
+                <option value="nscoville">Scoville, Nick</option>
+                <option value="ksegarra">Segarra, Katherine</option>
+                <option value="jshalack">Shalack, Jacob</option>
+                <option value="jshelby">Shelby, Jon</option>
+                <option value="jsheldon">Sheldon, Joan E.</option>
+                <option selected="selected" value="wsheldon">Sheldon, Wade M.</option>
+                <option value="esheppard">Sheppard, Edward</option>
+                <option value="bsilliman">Silliman, Brian R.</option>
+                <option value="csmith">Smith, Carrie Beth</option>
+                <option value="msnyder">Snyder, Matthew</option>
+                <option value="rstyles">Styles, Renee</option>
+                <option value="vthompson">Thompson, Victor D.</option>
+                <option value="mthoresen">Thoresen, Merrilee</option>
+                <option value="ctilburg">Tilburg, Christine</option>
+                <option value="jturck">Turck, John A.</option>
+                <option value="bvallaster">Vallaster, Brooke</option>
+                <option value="pvc">Van Cappellen, Philippe</option>
+                <option value="svanmontfrans">van Montfrans, Schuyler</option>
+                <option value="lvelasquez">Velasquez, Liliana E.</option>
+                <option value="cvenherm">Venherm, Claudia</option>
+                <option value="mvolkmer">Volkmer, Maria</option>
+                <option value="hvu">Vu, Huy</option>
+                <option value="awang">Wang, Zhaohui</option>
+                <option value="ywang">Wang, Yongchen</option>
+                <option value="kwardlaw">Wardlaw, Kristen</option>
+                <option value="jwares">Wares, John P.</option>
+                <option value="ewason">Wason, Elizabeth L.</option>
+                <option value="mmoss">Watkins, Monica H.</option>
+                <option value="cweeks">Weeks, Christopher</option>
+                <option value="nweston">Weston, Nathaniel B.</option>
+                <option value="swhite">White, Susan N.</option>
+                <option value="dwiegert">Wiegert, Richard G.</option>
+                <option value="kwieski">Wieski, Kazimierz</option>
+                <option value="awilson">Wilson, Alicia M.</option>
+                <option value="awrona">Wrona, Amanda B.</option>
+                <option value="wye">Ye, Wendy</option>
+                <option value="cyeager">Yeager, Caitlin</option>
+                <option value="mzimmer">Zimmer, Martin</option>
+              </select>
+			  <span class="form_help">(primary record updater and GCE contact)</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="forms-labels">Citation Type:</td>
+            <td class="forms-left"><select size="1" name="RefType" id="RefType" onchange="switchRefType('RefType')" class="required-field">
+                <option value="">&lt;Select a Type&gt;</option>
+                <option value="Book">Book</option>
+                <option value="Book Section">Book Chapter</option>
+                <option value="Conference Paper">Conference Paper</option>
+                <option value="Conference Proceedings">Conference Presentation/Poster</option>
+                <option value="Edited Book">Edited Book</option>
+                <option selected="selected" value="Journal Article">Journal Article</option>
+                <option value="Newspaper Article">Newsletter/Newspaper Article</option>
+                <option value="Report">Report</option>
+                <option value="Thesis">Thesis/Dissertation</option>
+              </select>
+              <span class="forms-labels">Type of Work:</span>&nbsp;
+              <select size="1" name="TypeOfWork" id="TypeOfWork" class="required-field">
+                <option value="">&lt;Select a Type&gt;</option>
+                <option selected="selected" value="Article">Article</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td class="forms-labels">Publication Year:</td>
+            <td class="forms-left"><input name="Year" size="4" maxlength="4" value="" type="text">
+              <span class="form_help">(YYYY, blank if unpublished)</span> <span class="forms-labels">Status:</span>&nbsp;
+              <select name="Status" size="1" class="required-field">
+                <option selected="selected" value="">&lt;Select Status&gt;</option>
+                <option value="accepted">accepted</option>
+                <option value="in preparation">in preparation</option>
+                <option value="in press">in press</option>
+                <option value="in review">in review</option>
+                <option value="presented">presented</option>
+                <option value="published">published</option>
+              </select>
+            </td>
+          </tr>
+          <tr id="Authors">
+            <td class="forms-labels" style="padding-top: 2em;">Author List:</td>
+            <td class="forms-left">
+			  <table style="margin: 0pt;">
+                <tbody><tr>
+                  <td><div style="padding: 0pt 0pt 4px; text-align: center;">Registered Names</div>
+                    <select size="5" name="AllAuthors" id="listAllAuthors" style="width: 200px;">
+                      <option value="Adamowicz;Susan C.;;">Adamowicz, Susan C.</option>
+                      <option value="Adams;P.;;">Adams, P.</option>
+                      <option value="Adelaide Ferreira;M.;;">Adelaide Ferreira, M.</option>
+                      <option value="Alber;Merryl;;malber">Alber, Merryl</option>
+                      <option value="Albers;Gayle;;galbers">Albers, Gayle</option>
+                      <option value="Alexander;Clark R.;Jr.;calexander">Alexander, Clark R., Jr.</option>
+                      <option value="Amft;Julie;;jamft">Amft, Julie</option>
+                      <option value="Anderson;Iris;;">Anderson, Iris</option>
+                      <option value="Andrade;Francisco A.;;">Andrade, Francisco A.</option>
+                      <option value="Anstead;Kristen;;kanstead">Anstead, Kristen</option>
+                      <option value="Aretxabaleta;A.;;">Aretxabaleta, A.</option>
+                      <option value="Asher;Rose;;rasher">Asher, Rose</option>
+                      <option value="Avitan;Josh;;javitan">Avitan, Josh</option>
+                      <option value="Baas;Peter;;pbaas">Baas, Peter</option>
+                      <option value="Bane;J. M.;;">Bane, J. M.</option>
+                      <option value="Bano;Nasreen;;">Bano, Nasreen</option>
+                      <option value="Barans;Charles;;">Barans, Charles</option>
+                      <option value="Barendregt;A.;;">Barendregt, A.</option>
+                      <option value="Bartlett;Justin;;jbartlett">Bartlett, Justin</option>
+                      <option value="Barton;Alan;;abarton">Barton, Alan</option>
+                      <option value="Batty;M.;;">Batty, M.</option>
+                      <option value="Batzer;Darold;;">Batzer, Darold</option>
+                      <option value="Bell;Steven;;sbell">Bell, Steven</option>
+                      <option value="Berger-Bishop;Laurel;;lbbishop">Berger-Bishop, Laurel</option>
+                      <option value="Bernier;Meaghan;;">Bernier, Meaghan</option>
+                      <option value="Bertness;Mark D.;;">Bertness, Mark D.</option>
+                      <option value="Bertram;Jillian;;jbertram">Bertram, Jillian</option>
+                      <option value="Bestelmeyer;S.;;">Bestelmeyer, S.</option>
+                      <option value="Biers;Erin J.;;ebiers">Biers, Erin J.</option>
+                      <option value="Bishop;Thomas Dale;;dbishop">Bishop, Thomas Dale</option>
+                      <option value="Blanton;Jackson O.;;jblanton">Blanton, Jackson O.</option>
+                      <option value="Blanton;Barbara;;">Blanton, Barbara</option>
+                      <option value="Blohm;Gabriela M.;;gblohm">Blohm, Gabriela M.</option>
+                      <option value="Blount;Ben G.;;bblount">Blount, Ben G.</option>
+                      <option value="Booth;Melissa G.;;mbooth">Booth, Melissa G.</option>
+                      <option value="Bordalo;A. A.;;">Bordalo, A. A.</option>
+                      <option value="Borneman;Eric H.;;">Borneman, Eric H.</option>
+                      <option value="Bouck;A. C.;;">Bouck, A. C.</option>
+                      <option value="Bowen;G. M.;;">Bowen, G. M.</option>
+                      <option value="Bowman;W. D.;;">Bowman, W. D.</option>
+                      <option value="Breed;Greg A.;;">Breed, Greg A.</option>
+                      <option value="Brewer;J. S.;;">Brewer, J. S.</option>
+                      <option value="Bricker;Suzanne B.;;">Bricker, Suzanne B.</option>
+                      <option value="Britt;Jennifer;;jbritt">Britt, Jennifer</option>
+                      <option value="Brittain;Ross;;rbrittain">Brittain, Ross</option>
+                      <option value="Bromberg;Keryn;;">Bromberg, Keryn</option>
+                      <option value="Bromberg-Gedan;Keryn;;">Bromberg-Gedan, Keryn</option>
+                      <option value="Bronk;Deborah A.;;">Bronk, Deborah A.</option>
+                      <option value="Broome;S. W.;;">Broome, S. W.</option>
+                      <option value="Brown;Ryan P.;;rbrown">Brown, Ryan P.</option>
+                      <option value="Brumer;Elise;;ebrumer">Brumer, Elise</option>
+                      <option value="Bryan;L. A.;;">Bryan, L. A.</option>
+                      <option value="Buchan;Alison;;abuchan">Buchan, Alison</option>
+                      <option value="Buck;Tracy L.;;tbuck">Buck, Tracy L.</option>
+                      <option value="Burd;Adrian B.;;aburd">Burd, Adrian B.</option>
+                      <option value="Burden;C. A.;;">Burden, C. A.</option>
+                      <option value="Burke;Indie C.;;">Burke, Indie C.</option>
+                      <option value="Butler;M.;;">Butler, M.</option>
+                      <option value="Caffrey;J. M.;;">Caffrey, J. M.</option>
+                      <option value="Cai;Wei-Jun;;wcai">Cai, Wei-Jun</option>
+                      <option value="Callaway;Ragan M.;;">Callaway, Ragan M.</option>
+                      <option value="Cammon;Laura W.;;lcammon">Cammon, Laura W.</option>
+                      <option value="Carefoot;Thomas H.;;">Carefoot, Thomas H.</option>
+                      <option value="Carpenter;John P.;;jpcarpenter">Carpenter, John P.</option>
+                      <option value="Chalmers;Alice G.;;achalmers">Chalmers, Alice G.</option>
+                      <option value="Chase;Margo E.;;">Chase, Margo E.</option>
+                      <option value="Chen;C.;;">Chen, C.</option>
+                      <option value="Chen;Tao Hung Shuitu;;">Chen, Tao Hung Shuitu</option>
+                      <option value="Chen;Zhaozhang;;">Chen, Zhaozhang</option>
+                      <option value="Clark;Christopher M.;;">Clark, Christopher M.</option>
+                      <option value="Clarke;Jonathan;;jclarke">Clarke, Jonathan</option>
+                      <option value="Cleland;Elsa E.;;">Cleland, Elsa E.</option>
+                      <option value="Clough;J.;;">Clough, J.</option>
+                      <option value="Collins;Scott L.;;">Collins, Scott L.</option>
+                      <option value="Comita;L. S.;;">Comita, L. S.</option>
+                      <option value="Cook;P.;;">Cook, P.</option>
+                      <option value="Couey;Lee;;lcouey">Couey, Lee</option>
+                      <option value="Cousins;J. C.;;">Cousins, J. C.</option>
+                      <option value="Cousins;J. E.;;">Cousins, J. E.</option>
+                      <option value="Covich;Alan;;">Covich, Alan</option>
+                      <option value="Cozad;Madeline;;mcozad">Cozad, Madeline</option>
+                      <option value="Craft;Christopher B.;;ccraft">Craft, Christopher B.</option>
+                      <option value="Cramer;Abby;;acramer">Cramer, Abby</option>
+                      <option value="Cronin;T.;;">Cronin, T.</option>
+                      <option value="Crutcher;Candice;;ccrutcher">Crutcher, Candice</option>
+                      <option value="Curran;Mary Carla;;">Curran, Mary Carla</option>
+                      <option value="Dai;Minhan;;">Dai, Minhan</option>
+                      <option value="Dailey;S.;;">Dailey, S.</option>
+                      <option value="Davé;Nilam B.;;">Davé, Nilam B.</option>
+                      <option value="de Beer;D.;;">de Beer, D.</option>
+                      <option value="Di Iorio;Daniela;;ddiiorio">Di Iorio, Daniela</option>
+                      <option value="Dias;Natalia;;">Dias, Natalia</option>
+                      <option value="Diaz;J.;;">Diaz, J.</option>
+                      <option value="Diaz-Ferguson;Edgardo;;ediaz-ferguson">Diaz-Ferguson, Edgardo</option>
+                      <option value="Dixon;Ray E.;;rdixon">Dixon, Ray E.</option>
+                      <option value="Dong;Yihe;;">Dong, Yihe</option>
+                      <option value="Donnelly;Jeff P.;;">Donnelly, Jeff P.</option>
+                      <option value="Donovan;Lisa A.;;ldonovan">Donovan, Lisa A.</option>
+                      <option value="Edmonds;Jennifer W.;;">Edmonds, Jennifer W.</option>
+                      <option value="Ehman;J.;;">Ehman, J.</option>
+                      <option value="Eilers;Greg;;geilers">Eilers, Greg</option>
+                      <option value="Elser;M.;;">Elser, M.</option>
+                      <option value="Elston;Susan A.;;selston">Elston, Susan A.</option>
+                      <option value="Elston-Graham;Susan A.;;">Elston-Graham, Susan A.</option>
+                      <option value="Erickson;Matthew;;merickson">Erickson, Matthew</option>
+                      <option value="Ewanchuk;Patrick J.;;">Ewanchuk, Patrick J.</option>
+                      <option value="Ewers;Christine;;cewers">Ewers, Christine</option>
+                      <option value="Fargione;Joseph E.;;">Fargione, Joseph E.</option>
+                      <option value="Farina;J.;;">Farina, J.</option>
+                      <option value="Fenton;Jenny Leigh;;jfenton">Fenton, Jenny Leigh</option>
+                      <option value="Fernandes;Elisa;;">Fernandes, Elisa</option>
+                      <option value="Ferreira;M. A.;;">Ferreira, M. A.</option>
+                      <option value="First;Matthew R.;;mfirst">First, Matthew R.</option>
+                      <option value="Fischer;Sarah;;sfischer">Fischer, Sarah</option>
+                      <option value="Flory;Janice E.;;jeflory">Flory, Janice E.</option>
+                      <option value="Flory;Janice E.;;">Flory, Janice E.</option>
+                      <option value="Fogel;M. L.;;">Fogel, M. L.</option>
+                      <option value="Franks;Steven J.;;">Franks, Steven J.</option>
+                      <option value="Frost;Josh W.;;jfrost">Frost, Josh W.</option>
+                      <option value="Fulton;Patrick;;pfulton">Fulton, Patrick</option>
+                      <option value="Gaddis;Aimee;;agaddis">Gaddis, Aimee</option>
+                      <option value="Garbisch;Jon;;jgarbisch">Garbisch, Jon</option>
+                      <option value="Garbisch;Jane;;jagarbisch">Garbisch, Jane</option>
+                      <option value="Georgia Coastal Research Council;;;">Georgia Coastal Research Council, </option>
+                      <option value="Gessner;M. O.;;">Gessner, M. O.</option>
+                      <option value="Giblin;Ann E.;;">Giblin, Ann E.</option>
+                      <option value="Giri;Bruno;;bgiri">Giri, Bruno</option>
+                      <option value="Gisewhite;Rachel;;rgisewhite">Gisewhite, Rachel</option>
+                      <option value="Givens;Carrie;;cgivens">Givens, Carrie</option>
+                      <option value="Gonzales;E.;;">Gonzales, E.</option>
+                      <option value="Gonzalez;Jose M.;;">Gonzalez, Jose M.</option>
+                      <option value="Goodbody;Gretchen;;">Goodbody, Gretchen</option>
+                      <option value="Goranson;Carol E.;;">Goranson, Carol E.</option>
+                      <option value="Gough;Laura;;">Gough, Laura</option>
+                      <option value="Grace;J. B.;;">Grace, J. B.</option>
+                      <option value="Grace;J. S.;;">Grace, J. S.</option>
+                      <option value="Grace;James;;">Grace, James</option>
+                      <option value="Graham;Sean;;sgraham">Graham, Sean</option>
+                      <option value="Grant;Mary-Bestor;;">Grant, Mary-Bestor</option>
+                      <option value="Greene;Becky;;bgreene">Greene, Becky</option>
+                      <option value="Grosholtz;T.;;">Grosholtz, T.</option>
+                      <option value="Gross;Katherine L.;;">Gross, Katherine L.</option>
+                      <option value="Gross;Thomas;;">Gross, Thomas</option>
+                      <option value="Guerrero;Stella;;">Guerrero, Stella</option>
+                      <option value="Guo;Hongyu;;hguo">Guo, Hongyu</option>
+                      <option value="Gustafson;Danny J.;;">Gustafson, Danny J.</option>
+                      <option value="Hall;Josh;;jhall">Hall, Josh</option>
+                      <option value="Hamrick;James L.;;">Hamrick, James L.</option>
+                      <option value="Hardesty;B. D.;;">Hardesty, B. D.</option>
+                      <option value="Hardy;Dean;;dhardy">Hardy, Dean</option>
+                      <option value="Hartmann;Justin;;jhartmann">Hartmann, Justin</option>
+                      <option value="Haskins;John;;">Haskins, John</option>
+                      <option value="Helm;Kenneth;;khelm">Helm, Kenneth</option>
+                      <option value="Hembree;Patricia A.;;phembree">Hembree, Patricia A.</option>
+                      <option value="Hensel;Marc;;mhensel">Hensel, Marc</option>
+                      <option value="Henshaw;Donald L.;;">Henshaw, Donald L.</option>
+                      <option value="Hester;Mark W.;;">Hester, Mark W.</option>
+                      <option value="Higinbotham;Carrie. B.;;">Higinbotham, Carrie. B.</option>
+                      <option value="Hladik;Christine M.;;chladik">Hladik, Christine M.</option>
+                      <option value="Ho;Chuan-Kai;;ckho">Ho, Chuan-Kai</option>
+                      <option value="Hodson;Robert E.;;rhodson">Hodson, Robert E.</option>
+                      <option value="Hollibaugh;James T.;;thollibaugh">Hollibaugh, James T.</option>
+                      <option value="Hopkinson;Charles;;">Hopkinson, Charles</option>
+                      <option value="Houser;Letise T.;;">Houser, Letise T.</option>
+                      <option value="Howarth;Robert W.;;">Howarth, Robert W.</option>
+                      <option value="Hu;X.;;">Hu, X.</option>
+                      <option value="Hunter;Kimberley S.;;khunter">Hunter, Kimberley S.</option>
+                      <option value="Hurley;Dorset;;dhurley">Hurley, Dorset</option>
+                      <option value="Jarrell;Lori;;ljarrell">Jarrell, Lori</option>
+                      <option value="Jay;D.;;">Jay, D.</option>
+                      <option value="Ji;Hongwei;;">Ji, Hongwei</option>
+                      <option value="Jiang;Liqing;;ljiang">Jiang, Liqing</option>
+                      <option value="Johnson;Liza;;ljohnson">Johnson, Liza</option>
+                      <option value="Johnson;Heather E.;;hjohnson">Johnson, Heather E.</option>
+                      <option value="Johnston;J. A.;;">Johnston, J. A.</option>
+                      <option value="Jones;F. A.;;">Jones, F. A.</option>
+                      <option value="Joye;Samantha B.;;mjoye">Joye, Samantha B.</option>
+                      <option value="Justic;D.;;">Justic, D.</option>
+                      <option value="Kalanetra;Karen ;;">Kalanetra, Karen </option>
+                      <option value="Kang;KiRyong;;kkang">Kang, KiRyong</option>
+                      <option value="Kaufman;Galen;;gkaufman">Kaufman, Galen</option>
+                      <option value="Kenemer;Bernard Julian;III;tkenemer">Kenemer, Bernard Julian, III</option>
+                      <option value="Kilheffer;Jeff;;">Kilheffer, Jeff</option>
+                      <option value="Kimmerer;Wim;;">Kimmerer, Wim</option>
+                      <option value="Kineke;Gayle;;">Kineke, Gayle</option>
+                      <option value="Kleikemper;Jutta;;">Kleikemper, Jutta</option>
+                      <option value="Knott;D.;;">Knott, D.</option>
+                      <option value="Knowles;N.;;">Knowles, N.</option>
+                      <option value="Kohlmeyer;Jan;;">Kohlmeyer, Jan</option>
+                      <option value="Koopmans;Dirk;;">Koopmans, Dirk</option>
+                      <option value="Kotwica;Kyle;;">Kotwica, Kyle</option>
+                      <option value="Krest;James;;">Krest, James</option>
+                      <option value="Kretzer;Andy;;akretzer">Kretzer, Andy</option>
+                      <option value="Krull;K.;;">Krull, K.</option>
+                      <option value="Kunza;Amy E.;;akunza">Kunza, Amy E.</option>
+                      <option value="Landis;C.;;">Landis, C.</option>
+                      <option value="Laporte;Christine;;claporte">Laporte, Christine</option>
+                      <option value="Lauenroth;G. P.;;">Lauenroth, G. P.</option>
+                      <option value="LeCleir;Gary;;">LeCleir, Gary</option>
+                      <option value="Lee;Rosalynn Y.;;rlee">Lee, Rosalynn Y.</option>
+                      <option value="Li;C. Y.;;">Li, C. Y.</option>
+                      <option value="Li;Chunyan;;">Li, Chunyan</option>
+                      <option value="Lin;Guoqing;;">Lin, Guoqing</option>
+                      <option value="Lindell;Jennifer;;jlindell">Lindell, Jennifer</option>
+                      <option value="Listing;Wayne;;wlisting">Listing, Wayne</option>
+                      <option value="Liu;H.;;">Liu, H.</option>
+                      <option value="Loomis;Mark;;mloomis">Loomis, Mark</option>
+                      <option value="Luger;H.;;">Luger, H.</option>
+                      <option value="Lugo;Ariel;;">Lugo, Ariel</option>
+                      <option value="Lynes;Alana R.;;alynes">Lynes, Alana R.</option>
+                      <option value="Lyons;Justine I.;;jlyons">Lyons, Justine I.</option>
+                      <option value="MacAvoy;Steven E.;;smacavoy">MacAvoy, Steven E.</option>
+                      <option value="Machmuller;Megan;;mmachmuller">Machmuller, Megan</option>
+                      <option value="Mackinnon;Jan;;">Mackinnon, Jan</option>
+                      <option value="Magalhães;C. M.;;">Magalhães, C. M.</option>
+                      <option value="Mahoney;Anika;;amahoney">Mahoney, Anika</option>
+                      <option value="Marczak;Laurie;;lmarczak">Marczak, Laurie</option>
+                      <option value="Mauricio;Rodney;;">Mauricio, Rodney</option>
+                      <option value="McFarlin;Caroline R.;;cmcfarlin">McFarlin, Caroline R.</option>
+                      <option value="Mcguire;Mary Ann;;">Mcguire, Mary Ann</option>
+                      <option value="McKay;Paul;;pmckay">McKay, Paul</option>
+                      <option value="McTigue;Nathan;;nmctigue">McTigue, Nathan</option>
+                      <option value="Meehan;Kristin;;kmeehan">Meehan, Kristin</option>
+                      <option value="Meile;Christof;;cmeile">Meile, Christof</option>
+                      <option value="Mendelssohn;Irving A.;;">Mendelssohn, Irving A.</option>
+                      <option value="Merani;Paul;;">Merani, Paul</option>
+                      <option value="Merani;Paul;;pmerani">Merani, Paul</option>
+                      <option value="Mews;Malte;;">Mews, Malte</option>
+                      <option value="Milchunas;Daniel G.;;">Milchunas, Daniel G.</option>
+                      <option value="Miller;H. L.;III;">Miller, H. L., III</option>
+                      <option value="Miller;William;;bmiller">Miller, William</option>
+                      <option value="Montagna;P.;;">Montagna, P.</option>
+                      <option value="Moore;Trent C.;;tmoore">Moore, Trent C.</option>
+                      <option value="Moore;Willard S.;;wmoore">Moore, Willard S.</option>
+                      <option value="Moran;Mary Ann;;mmoran">Moran, Mary Ann</option>
+                      <option value="Moreira;R. M.;;">Moreira, R. M.</option>
+                      <option value="Moreta;Justine I. L.;;">Moreta, Justine I. L.</option>
+                      <option value="Mou;Xiaozhen;;xmou">Mou, Xiaozhen</option>
+                      <option value="Najjar;R.;;">Najjar, R.</option>
+                      <option value="Napolitano;Matthew;;mnapolitano">Napolitano, Matthew</option>
+                      <option value="Neidle;Ellen L.;;">Neidle, Ellen L.</option>
+                      <option value="Nelson;James R.;;">Nelson, James R.</option>
+                      <option value="Neubauer;S.;;">Neubauer, S.</option>
+                      <option value="Neubauer;S. C.;;">Neubauer, S. C.</option>
+                      <option value="Newell;Steven Y.;;snewell">Newell, Steven Y.</option>
+                      <option value="Nifong;James C.;;jnifong">Nifong, James C.</option>
+                      <option value="O'Connell;Steven G.;;soconnell">O'Connell, Steven G.</option>
+                      <option value="O'Connell;K.;;">O'Connell, K.</option>
+                      <option value="Ogburn;Matthew B.;;mogburn">Ogburn, Matthew B.</option>
+                      <option value="Olecki;Paula;;polecki">Olecki, Paula</option>
+                      <option value="Osgood;D.;;">Osgood, D.</option>
+                      <option value="Pahlas;Jonathan;;jpahlas">Pahlas, Jonathan</option>
+                      <option value="Palta;Monica M.;;mpalta">Palta, Monica M.</option>
+                      <option value="Pankey;Sabrina;;spankey">Pankey, Sabrina</option>
+                      <option value="Park;R.;;">Park, R.</option>
+                      <option value="Pate;Whitney M.;;">Pate, Whitney M.</option>
+                      <option value="Pendergras;Mark;;mpendergras">Pendergras, Mark</option>
+                      <option value="Pennings;Steven C.;;spennings">Pennings, Steven C.</option>
+                      <option value="Peterson;B.;;">Peterson, B.</option>
+                      <option value="Pfauder;Anett;;">Pfauder, Anett</option>
+                      <option value="Pickering;Maria;;">Pickering, Maria</option>
+                      <option value="Poelchau;Monica;;mpoelchau">Poelchau, Monica</option>
+                      <option value="Pomeroy;Lawrence R.;;">Pomeroy, Lawrence R.</option>
+                      <option value="Poretsky;Rachel S.;;">Poretsky, Rachel S.</option>
+                      <option value="Porubsky;William P.;;bporubsky">Porubsky, William P.</option>
+                      <option value="Pruett;Christina;;cpruett">Pruett, Christina</option>
+                      <option value="Purcell;Gabrielle;;gpurcell">Purcell, Gabrielle</option>
+                      <option value="Queiroga;Henrique;;">Queiroga, Henrique</option>
+                      <option value="Randall;Rochelle;;rrandall">Randall, Rochelle</option>
+                      <option value="Ransom;Briana;;bransom">Ransom, Briana</option>
+                      <option value="Raymond;P.;;">Raymond, P.</option>
+                      <option value="Reitz;Elizabeth J.;;ereitz">Reitz, Elizabeth J.</option>
+                      <option value="Remillard;Suzanne M.;;">Remillard, Suzanne M.</option>
+                      <option value="Richards;Christina L.;;crichards">Richards, Christina L.</option>
+                      <option value="Richardson;Kristal;;krichardson">Richardson, Kristal</option>
+                      <option value="Rivas;Rudy;;rrivas">Rivas, Rudy</option>
+                      <option value="Roberts;Tiffany;;troberts">Roberts, Tiffany</option>
+                      <option value="Robertson;J. C.;;">Robertson, J. C.</option>
+                      <option value="Robinson;Michael;;mrobinson">Robinson, Michael</option>
+                      <option value="Robinson;John D.;;jrobinson">Robinson, John D.</option>
+                      <option value="Roggenstein;Edward;;">Roggenstein, Edward</option>
+                      <option value="Rosenthal;D. R.;;">Rosenthal, D. R.</option>
+                      <option value="Ruppel;Carolyn D.;;cruppel">Ruppel, Carolyn D.</option>
+                      <option value="Sala;N.;;">Sala, N.</option>
+                      <option value="Salgado;Cristiano S.;;csalgado">Salgado, Cristiano S.</option>
+                      <option value="Salman;Rebecca;;rsalman">Salman, Rebecca</option>
+                      <option value="Samarkin;Vladimir;;vsamarkin">Samarkin, Vladimir</option>
+                      <option value="Sandow;Jack T.;Jr.;jsandow">Sandow, Jack T., Jr.</option>
+                      <option value="Sattelmeyer;Daniel;;dsattelmeyer">Sattelmeyer, Daniel</option>
+                      <option value="Saucedo;Daniel F.;;dsaucedo">Saucedo, Daniel F.</option>
+                      <option value="Scavia;Donald;;">Scavia, Donald</option>
+                      <option value="Schaefer;Sylvia C.;;sschaefer">Schaefer, Sylvia C.</option>
+                      <option value="Schalles;John F.;;jschalles">Schalles, John F.</option>
+                      <option value="Schleicher;Tymeri;;tschleicher">Schleicher, Tymeri</option>
+                      <option value="Schultz;Gregory M.;;gschultz">Schultz, Gregory M.</option>
+                      <option value="Schutte;Charles;;cschutte">Schutte, Charles</option>
+                      <option value="Scoville;Nick;;nscoville">Scoville, Nick</option>
+                      <option value="Seay;Jennie E.;;">Seay, Jennie E.</option>
+                      <option value="Segarra;Katherine;;ksegarra">Segarra, Katherine</option>
+                      <option value="Seim;Harvey E.;;">Seim, Harvey E.</option>
+                      <option value="Selig;Elizabeth R.;;">Selig, Elizabeth R.</option>
+                      <option value="Shalack;Jacob;;jshalack">Shalack, Jacob</option>
+                      <option value="Sharitz;Rebecca R.;;">Sharitz, Rebecca R.</option>
+                      <option value="Shelby;Jon;;jshelby">Shelby, Jon</option>
+                      <option value="Sheldon;Joan E.;;jsheldon">Sheldon, Joan E.</option>
+                      <option value="Sheldon;Wade M.;Jr.;wsheldon">Sheldon, Wade M., Jr.</option>
+                      <option value="Sheppard;Edward;;esheppard">Sheppard, Edward</option>
+                      <option value="Silliman;Brian R.;;bsilliman">Silliman, Brian R.</option>
+                      <option value="Simmons;B.;;">Simmons, B.</option>
+                      <option value="Simpson;Juliet C.;;">Simpson, Juliet C.</option>
+                      <option value="Smith;Carrie Beth;;csmith">Smith, Carrie Beth</option>
+                      <option value="Snyder;Matthew;;msnyder">Snyder, Matthew</option>
+                      <option value="Sommer;S.;;">Sommer, S.</option>
+                      <option value="Sprung;Martin;;">Sprung, Martin</option>
+                      <option value="Stanton;L. E.;;">Stanton, L. E.</option>
+                      <option value="Steiner;S.;;">Steiner, S.</option>
+                      <option value="Stepansuskas;Ramunas;;">Stepansuskas, Ramunas</option>
+                      <option value="Styles;Renee;;rstyles">Styles, Renee</option>
+                      <option value="Suding;Katherine N.;;">Suding, Katherine N.</option>
+                      <option value="Swenson;Erick M.;;">Swenson, Erick M.</option>
+                      <option value="Taillefert;Martial;;">Taillefert, Martial</option>
+                      <option value="Taylor;Glenn;;">Taylor, Glenn</option>
+                      <option value="Thompson;Victor D.;;vthompson">Thompson, Victor D.</option>
+                      <option value="Thomsen;M.;;">Thomsen, M.</option>
+                      <option value="Thomsen;M. S.;;">Thomsen, M. S.</option>
+                      <option value="Thoresen;Merrilee;;mthoresen">Thoresen, Merrilee</option>
+                      <option value="Tilburg;Christine;;ctilburg">Tilburg, Christine</option>
+                      <option value="Tilburg;Charles E.;;">Tilburg, Charles E.</option>
+                      <option value="Tilman;David;;">Tilman, David</option>
+                      <option value="Tobias;C.;;">Tobias, C.</option>
+                      <option value="Tuncay;K.;;">Tuncay, K.</option>
+                      <option value="Turck;John A.;;jturck">Turck, John A.</option>
+                      <option value="Ulanowicz;D.;;">Ulanowicz, D.</option>
+                      <option value="Upchurch;Bruce L.;;">Upchurch, Bruce L.</option>
+                      <option value="Vallaster;Brooke;;bvallaster">Vallaster, Brooke</option>
+                      <option value="Van Bloem;S. J.;;">Van Bloem, S. J.</option>
+                      <option value="Van Cappellen;Philippe;;pvc">Van Cappellen, Philippe</option>
+                      <option value="van Montfrans;Schuyler;;svanmontfrans">van Montfrans, Schuyler</option>
+                      <option value="Velasquez;Liliana E.;;lvelasquez">Velasquez, Liliana E.</option>
+                      <option value="Velinksy;D. J.;;">Velinksy, D. J.</option>
+                      <option value="Venherm;Claudia;;cvenherm">Venherm, Claudia</option>
+                      <option value="Verity;Peter G.;;">Verity, Peter G.</option>
+                      <option value="Vile;M. A.;;">Vile, M. A.</option>
+                      <option value="Volkmann-Kohlmeyer;Brigitte;;">Volkmann-Kohlmeyer, Brigitte</option>
+                      <option value="Volkmer;Maria;;">Volkmer, Maria</option>
+                      <option value="Volkmer;Maria;;mvolkmer">Volkmer, Maria</option>
+                      <option value="Vu;Huy;;hvu">Vu, Huy</option>
+                      <option value="Walker;H.;;">Walker, H.</option>
+                      <option value="Wang;Zhaohui;;awang">Wang, Zhaohui</option>
+                      <option value="Wang;Yongchen;;ywang">Wang, Yongchen</option>
+                      <option value="Wanninkhof;R.;;">Wanninkhof, R.</option>
+                      <option value="Wardlaw;Kristen;;kwardlaw">Wardlaw, Kristen</option>
+                      <option value="Wares;John P.;;jwares">Wares, John P.</option>
+                      <option value="Wason;Elizabeth L.;;ewason">Wason, Elizabeth L.</option>
+                      <option value="Watkins;Monica H.;;mmoss">Watkins, Monica H.</option>
+                      <option value="Weeks;Christopher;;cweeks">Weeks, Christopher</option>
+                      <option value="Weisberg;R.;;">Weisberg, R.</option>
+                      <option value="Weisburg;R.;;">Weisburg, R.</option>
+                      <option value="Wenner;E.;;">Wenner, E.</option>
+                      <option value="Werner;Cisco;;">Werner, Cisco</option>
+                      <option value="Werner;F. E.;;">Werner, F. E.</option>
+                      <option value="West;J. B.;;">West, J. B.</option>
+                      <option value="Weston;Nathaniel B.;;nweston">Weston, Nathaniel B.</option>
+                      <option value="Whigham;D. F.;;">Whigham, D. F.</option>
+                      <option value="White;Susan N.;;swhite">White, Susan N.</option>
+                      <option value="Whitehurst;Latrincy;;">Whitehurst, Latrincy</option>
+                      <option value="Wiebe;William J.;;">Wiebe, William J.</option>
+                      <option value="Wiegert;Richard G.;;dwiegert">Wiegert, Richard G.</option>
+                      <option value="Wieski;Kazimierz;;kwieski">Wieski, Kazimierz</option>
+                      <option value="Wilde;S.;;">Wilde, S.</option>
+                      <option value="Wilson;Alicia M.;;awilson">Wilson, Alicia M.</option>
+                      <option value="Wooller;M. J.;;">Wooller, M. J.</option>
+                      <option value="Wrona;Amanda B.;;awrona">Wrona, Amanda B.</option>
+                      <option value="Yager;Patricia;;">Yager, Patricia</option>
+                      <option value="Ye;Wendy;;wye">Ye, Wendy</option>
+                      <option value="Yeager;Caitlin;;cyeager">Yeager, Caitlin</option>
+                      <option value="Zepp;Richard G.;;">Zepp, Richard G.</option>
+                      <option value="Zhai;Weidong;;">Zhai, Weidong</option>
+                      <option value="Zhang;Fan;;">Zhang, Fan</option>
+                      <option value="Zheng;L.;;">Zheng, L.</option>
+                      <option value="Zimmer;Martin;;mzimmer">Zimmer, Martin</option>
+                    </select>
+                  </td>				
+                  <td style="padding: 20px 6px 0pt; text-align: center;"><input name="autho_add" value="&gt;&gt;" title="Add name to author list" onclick="transferOptionSingle('listAllAuthors','listAuthors',0)" type="button"><br/>
+                    <input name="auth_remove" value="&lt;&lt;" style="margin-top: 5px;" title="Remove name from author list" onclick="transferOptionSingle('listAuthors','listAllAuthors',1)" type="button">
+				  </td>
+                  <td><div style="padding: 0pt 0pt 4px; text-align: center;">Citation Author List</div>
+                    <select size="5" name="Authors" id="listAuthors" multiple="multiple" class="required-field" style="width: 200px;">
+                      
+                    </select>
+                  </td>
+				  <td style="padding: 18px 0pt 0pt 3px; text-align: center;"><input name="auth_up" value="Up" title="Move selected name up in list" onclick="moveOptionsUp('listAuthors')" type="button"><br/>
+				      <input name="auth_down" value="Dn" title="Move selected name down in list" onclick="moveOptionsDown('listAuthors')" style="margin-top: 5px;" type="button">
+				  </td>
+                </tr>
+                <tr>
+                  <td colspan="4" style="padding-top: 10px; text-align: left;"> New Author:
+                    <input name="NewAuthor" id="NewAuthor" size="40" value="" type="text">
+                    <input name="AddAuthor" value="Add" onclick="appendNameToList('NewAuthor','listAuthors')" type="button">
+                    <br/>
+                    <span class="form_help" style="margin-left: 75px;">Lastname, Firstname Initials, Suffix (e.g. Doe, John A., Jr.)</span></td>
+                </tr>
+              </tbody></table></td>
+          </tr>
+          <tr id="Editors">
+            <td class="forms-labels" style="padding-top: 2em;">Editor List:</td>
+            <td class="forms-left">
+              <table style="margin: 0pt;">
+                <tbody><tr>
+                  <td><div style="padding: 0pt 0pt 4px; text-align: center;">Registered Names</div>
+                    <select size="5" name="AllEditors" id="listAllEditors" style="width: 200px;">
+                      <option value="Alber;Merryl;">Alber, Merryl</option>
+                      <option value="Anderson;M. G.;">Anderson, M. G.</option>
+                      <option value="Batzer;Darold P.;">Batzer, Darold P.</option>
+                      <option value="Bertness;Mark D.;">Bertness, Mark D.</option>
+                      <option value="Bills;Gerald F.;">Bills, Gerald F.</option>
+                      <option value="Bitton;G.;">Bitton, G.</option>
+                      <option value="Brinson;M. M.;">Brinson, M. M.</option>
+                      <option value="Cahoon;D.;">Cahoon, D.</option>
+                      <option value="Cai;Wei-Jun;">Cai, Wei-Jun</option>
+                      <option value="Collins;G.;">Collins, G.</option>
+                      <option value="Day-Lewis;E. D.;">Day-Lewis, E. D.</option>
+                      <option value="DeVoe;M. R.;">DeVoe, M. R.</option>
+                      <option value="Dyer;P.;">Dyer, P.</option>
+                      <option value="Fath;B.D.;">Fath, B.D.</option>
+                      <option value="Foster;Mercedes S.;">Foster, Mercedes S.</option>
+                      <option value="Fuiman;Lee;">Fuiman, Lee</option>
+                      <option value="Gadd;G.;">Gadd, G.</option>
+                      <option value="Gries;Corinna;">Gries, Corinna</option>
+                      <option value="Grosholtz;T.;">Grosholtz, T.</option>
+                      <option value="Hatcher;Kathryn J.;">Hatcher, Kathryn J.</option>
+                      <option value="Hollibaugh;James T.;">Hollibaugh, James T.</option>
+                      <option value="Hyndman;D. W.;">Hyndman, D. W.</option>
+                      <option value="Jahnke;Richard A.;">Jahnke, Richard A.</option>
+                      <option value="Jones;Matthew B.;">Jones, Matthew B.</option>
+                      <option value="Jorgensen;S. E.;">Jorgensen, S. E.</option>
+                      <option value="Kleppel;G. S.;">Kleppel, G. S.</option>
+                      <option value="Mueller;Gregory M.;">Mueller, Gregory M.</option>
+                      <option value="Perillo;G. M. E.;">Perillo, G. M. E.</option>
+                      <option value="Rawson;Mac V.;">Rawson, Mac V.</option>
+                      <option value="Rullkötter;Jürgen;">Rullkötter, Jürgen</option>
+                      <option value="Sharitz;Rebecca R.;">Sharitz, Rebecca R.</option>
+                      <option value="Silliman;Brian R.;">Silliman, Brian R.</option>
+                      <option value="Singha;K.;">Singha, K.</option>
+                      <option value="Southward;Alan;">Southward, Alan</option>
+                      <option value="Tyler;Paul;">Tyler, Paul</option>
+                      <option value="Watkinson;S.;">Watkinson, S.</option>
+                      <option value="Wolanski;E.;">Wolanski, E.</option>
+                      <option value="Young;Craig;">Young, Craig</option>
+                    </select>
+                  </td>					
+                  <td style="padding: 20px 6px 0pt; text-align: center;"><input name="add" value="&gt;&gt;" title="Add name to editor list" onclick="transferOptionSingle('listAllEditors','listEditors',0)" type="button"><br/>
+                    <input name="remove" value="&lt;&lt;" style="margin-top: 5px;" title="Remove name from editor list" onclick="transferOptionSingle('listEditors','listAllEditors',1)" type="button">
+                  </td>
+                  <td><div style="padding: 0pt 0pt 4px; text-align: center;">Citation Editor List</div>
+                    <select size="5" name="Editors" id="listEditors" multiple="multiple" style="width: 200px;">
+                      
+                    </select>
+                  </td>					
+				  <td style="padding: 18px 0pt 0pt 3px; text-align: center;"><input name="ed_up" value="Up" title="Move selected name up in list" onclick="moveOptionsUp('listEditors')" type="button"><br/>
+				      <input name="ed_down" value="Dn" title="Move selected name down in list" onclick="moveOptionsDown('listEditors')" style="margin-top: 5px;" type="button">
+				  </td>
+                </tr>
+                <tr>
+                  <td colspan="4" style="padding-top: 10px; text-align: left;"> New Editor:
+                    <input name="NewEditor" id="NewEditor" size="40" value="" type="text">
+                    <input name="AddEditor" value="Add" onclick="appendNameToList('NewEditor','listEditors')" type="button">
+                    <br/>
+                    <span class="form_help" style="margin-left: 75px;">Lastname, Firstname Initials, Suffix (e.g. Doe, John A., Jr.)</span></td>
+                </tr>
+              </tbody></table>
+             </td>			  
+          </tr>
+		  <tr id="Title">
+            <td class="forms-labels">Title:</td>
+            <td class="forms-left"><textarea name="Title" cols="90" rows="2" wrap="virtual" class="required-field"></textarea></td>
+          </tr>
+		  <tr id="KeyWords">
+            <td class="forms-labels">Key Words:</td>
+            <td class="forms-left"><input name="KeyWords" size="90" value="" class="required-field" type="text"></td>
+          </tr>
+          <tr id="SecondaryTitle">
+            <td class="forms-labels"><span id="SecondaryTitle_Label">Journal:</span></td>
+            <td class="forms-left"><input name="SecondaryTitle" size="90" value="" class="text" type="text">
+            </td>
+          </tr>
+          <tr id="TertiaryTitle">
+            <td class="forms-labels"><span id="TertiaryTitle_Label">Special Issue:</span></td>
+            <td class="forms-left"><input name="TertiaryTitle" size="90" value="" class="text" type="text">
+            </td>
+          </tr>
+          <tr id="ShortTitle">
+            <td class="forms-labels"><span id="ShortTitle_Label">ShortTitle:</span></td>
+            <td class="forms-left"><input name="ShortTitle" size="90" value="" class="text" type="text">
+            </td>
+          </tr>
+          <tr id="AlternateTitle">
+            <td class="forms-labels"><span id="AlternateTitle_Label">AlternateTitle:</span></td>
+            <td class="forms-left"><input name="AlternateTitle" size="90" value="" class="text" type="text">
+            </td>
+          </tr>
+          <tr id="Abstract">
+            <td class="forms-labels"><span id="Abstract_Label">Abstract:</span></td>
+            <td class="forms-left">
+            <textarea name="Abstract" rows="8" cols="90" wrap="virtual" class="text"></textarea>
+            </td>
+          </tr>
+          <tr id="Publisher">
+            <td class="forms-labels"><span id="Publisher_Label">Publisher:</span></td>
+            <td class="forms-left"><input name="Publisher" size="90" value="" class="text" type="text">
+            </td>
+          </tr>
+          <tr id="PlacePublished">
+            <td class="forms-labels"><span id="PlacePublished_Label">Place Published:</span></td>
+            <td class="forms-left"><input name="PlacePublished" size="90" value="" class="text" type="text">
+            </td>
+          </tr>
+          <tr id="Volume">
+            <td class="forms-labels"><span id="Volume_Label">Volume:</span></td>
+            <td class="forms-left"><input name="Volume" size="90" value="" class="text" type="text">
+            </td>
+          </tr>
+          <tr id="Number">
+            <td class="forms-labels"><span id="Number_Label">Number:</span></td>
+            <td class="forms-left"><input name="Number" size="90" value="" class="text" type="text">
+            </td>
+          </tr>
+          <tr id="Pages">
+            <td class="forms-labels"><span id="Pages_Label">Pages:</span></td>
+            <td class="forms-left"><input name="Pages" size="90" value="" class="text" type="text">
+<br/>
+            <span class="form_help">Total pages or page range (numbers only - do not include in press, pp, pages, etc.)</span>
+            </td>
+          </tr>
+          <tr id="Edition">
+            <td class="forms-labels"><span id="Edition_Label">Edition:</span></td>
+            <td class="forms-left"><input name="Edition" size="90" value="" class="text" type="text">
+            </td>
+          </tr>
+          <tr id="Date">
+            <td class="forms-labels"><span id="Date_Label">Date:</span></td>
+            <td class="forms-left"><input name="Date" size="90" value="" class="text" type="text">
+            </td>
+          </tr>
+          <tr id="DOI">
+            <td class="forms-labels"><span id="DOI_Label">DOI:</span></td>
+            <td class="forms-left"><input name="DOI" size="90" value="" class="text" type="text">
+            </td>
+          </tr>
+          <tr id="Notes">
+            <td class="forms-labels"><span id="Notes_Label">Notes:</span></td>
+            <td class="forms-left">
+            <textarea name="Notes" rows="2" cols="90" wrap="virtual" class="text"></textarea>
+            </td>
+          </tr>
+          <tr id="Label">
+            <td class="forms-labels"><span id="Label_Label">Label:</span></td>
+            <td class="forms-left"><input name="Label" size="90" value="" class="text" type="text">
+            </td>
+          </tr>
+          <tr id="DataSets">
+            <td class="forms-labels"><span id="DataSets_Label">Data Sets:</span></td>
+            <td class="forms-left">
+            <textarea name="DataSets" rows="3" cols="90" wrap="virtual" class="text"></textarea><br/>
+            <span class="form_help">Descriptions or list of GCE data set accession numbers to associate with this citation</span>
+            </td>
+          </tr>
+
+		  <tr id="URL">
+            <td class="forms-labels">Public Web URL:</td>
+            <td class="forms-left"><input name="URL" size="90" value="" class="text" type="text"><br/>
+			<span class="form_help">Reprint link used for the public bibliography, document archive and personnel bio page</span></td>
+          </tr>
+          <tr id="URL_Private">
+            <td class="forms-labels">Private Web URL:</td>
+            <td class="forms-left"><input name="URL_Private" size="90" value="" class="text" type="text"><br/>
+			<span class="form_help">Reprint link used for the private reprint archive and document archive</span></td>
+          </tr>
+		  <tr>
+		    <td class="forms-labels">New Reprint:</td>
+			<td class="forms-left"><input name="FILE1" size="60" type="file">
+			  <input name="PublicAccess" value="yes" style="margin-left: 10px;" type="checkbox">&nbsp;Public Access<br/>
+			  <span class="form_help">Please check the publisher's policy on web posting before selecting "Public Access"</span></td>
+		  </tr>
+          <tr id="RecordDates">
+            <td class="forms-labels">Database Info:</td>
+            <td class="forms-left"><span class="forms-labels" style="margin-left: 0pt;">Created:</span>&nbsp;  <span class="forms-labels">Last Edited:</span>&nbsp; </td>
+          </tr>
+		  <tr>
+		    <td colspan="2" style="padding: 20px 0pt; text-align: center;">
+			  <input value="Reset Form" onclick="window.location='add_citation.asp?id=0&amp;id_copy=0&amp;reftype='" type="button">
+			  <input value="Submit" style="margin-left: 20px;" type="submit">
+			  <input name="RefID" value="0" type="hidden"></td>
+		  </tr>
+        </tbody></table>
+      </form>
+	</td>
+  </tr>
+  <tr>
+    <td id="footer-left"><em>06-Sep-2008</em></td>
+    <td id="footer-right"><a href="mailto:gcelter@uga.edu">Contact Us</a></td>
+  </tr>
+</tbody></table>
+<div id="disclaimer">
+  <div style="margin: 0pt 20px 0pt 0pt; float: left;"><a href="http://www.lternet.edu/" title="LTER Network" target="_blank"><img src="lterlogo_small.gif" alt="LTER" border="0" width="51" height="60"></a></div>
+  <div style="margin: 0pt 0pt 0pt 20px; float: right;"><a href="http://www.nsf.gov/" title="NSF" target="_blank"><img src="nsfe2.gif" alt="NSF" border="0" width="64" height="65"></a></div>
+  <p style="margin-top: 10px;">This material is based upon work supported by the <a href="http://www.nsf.gov/" target="_blank">National Science Foundation</a> under
+    grant numbers <a href="http://www.nsf.gov/awardsearch/showAward.do?AwardNumber=9982133" target="_blank">OCE-9982133</a> and <a href="http://www.nsf.gov/awardsearch/showAward.do?AwardNumber=0620959" target="_blank">OCE-0620959</a>.&nbsp;
+Any opinions, findings, conclusions, or recommendations expressed in
+the material are those of the author(s) and do not necessarily reflect
+the views of the National Science Foundation.</p>
+</div>
+</body>
+</html>

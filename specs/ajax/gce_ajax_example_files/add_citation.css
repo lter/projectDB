@@ -1,0 +1,29 @@
+h1 {
+	margin-bottom: 1em;
+}
+div.label {
+	width: 100px;
+	text-align: left;
+	font-weight: bold;
+	vertical-align: top;
+	display: inline;
+}
+div.field {
+	margin-left: 10px; 
+	margin-right: 50px;
+	text-align: left;
+	vertical-align: top;
+	display: inline;
+}
+span.forms-labels {
+ 	margin-left: 20px;
+	font-weight: bold;
+}
+input.required-field, input.text, textarea {
+	width: 480px;
+}
+p.warning {
+	text-align: center;
+	margin: 0 8% 0.5em 8%;
+	white-space: nowrap;
+}

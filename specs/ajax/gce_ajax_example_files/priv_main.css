@@ -1,0 +1,401 @@
+/* GCE main CSS sheet - last modified 14-Jun-2007 by Wade Sheldon */
+
+/* general default styles */
+html {
+	height: 100.1%;
+}
+body { 
+	background-color: #060;
+	background-image: url('/public/images/spartina_bg.jpg');
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	margin: 0;
+	padding: 0;
+	color: #000;
+	height: 100.1%;
+}
+p {
+	margin: 0 0 1em 0;
+	color: #000;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: bold;
+	color: Maroon;
+	margin: 0 0 1em 0;
+	padding: 0;
+}
+h1 {
+	text-align: center;
+	font-size: 16px;
+	margin-bottom: .5em;
+}
+h2 {
+	font-size: 14px;
+}
+h3 {
+	font-size: 12px;
+}
+h4,h5,h6 {
+	font-size: 11px;
+}
+input, select, textarea {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	margin: 0;
+}
+input, textarea {
+	padding: 1px 3px 1px 3px;
+}
+.required-field {
+	background-color: #FFFFDD;
+}
+form {
+	margin: 0;
+	padding: 0;
+}
+a, a:link {
+	color: #00008B;
+}
+a:visited {
+	color: #8A008A;
+}
+a:active, a:hover {
+	color: Blue;
+}
+table {
+	border-collapse: collapse;
+	margin: 0 auto 0 auto;
+}
+th,td {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding: 3px;
+}
+strong {
+	font-weight: bold;
+}
+hr {
+	width: 50%;
+	height: 2px;
+	margin: 0 auto 1em auto;
+	padding: 0px;
+	color: Maroon;
+	background-color: Maroon;
+	text-align: center;
+}
+.warning {
+	font-size: 11px;
+	color: Maroon; 
+	background-color: #FFFFCC;
+	font-weight: bold;
+	font-style: italic;
+	padding: 3px;
+}
+.highlight {
+	font-weight: bold;
+	font-style: italic;
+	color: maroon;
+	padding:2px; 
+}
+.center-bold {
+	text-align: center;
+	font-weight: bold;
+}
+
+/* page scaffolding div and table styles */
+#top-border {
+	margin: 0 2% 0 2%;
+	text-align: left;
+	padding: 0;
+	height: 18px;
+	color: #FFF;
+}
+#top-border p, #top-border p a {
+	color: #FFF;
+}
+#pageframe  {
+	border-collapse: collapse;
+	background-color: #F5F5DC;
+	border: 2px solid Maroon;
+	padding: 0;	
+	width: 97%;
+	margin: 0 1.5% 0 1.5%;
+}
+#heading {
+	border: 2px solid Maroon;
+	border-bottom: 2px solid Maroon;
+	padding: 2px 2px 2px 18px;
+	text-align: left;
+	height: 125px;
+	vertical-align: top;
+	overflow: hidden;
+}
+#footer, #footer-left, #footer-right  {
+	padding: 6px;
+	border-top: 1px solid #000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+#footer-left  {
+	padding-right: 0;
+	width: 130px;
+}
+#footer-right  {
+	text-align: right;
+}
+
+/* left navbar on 2-panel template */
+#leftnavbar {
+	padding: 20px 0 0 5px;
+	height: 560px;
+	vertical-align: top;
+	width: 130px;
+	background-color: #FFF;
+}
+
+/* top navbar div */
+#top-navbar {
+	width: 100%;
+	margin: 0;
+	padding: 3px 0 2px 125px;
+	white-space: nowrap;
+} 
+
+/* banner image div style */
+#banner-image {
+	vertical-align: top;
+	text-align: left;
+	overflow: hidden;
+	width: 99%;
+	height: 95px;
+	padding: 0;
+}
+#banner-image a img {
+	overflow: hidden;
+	margin: 0;
+}
+#banner-image a {
+	border: none;
+}
+
+/* special forms styles for library includes */
+#lter-sites-form, #google-search {
+	display: inline;
+	margin: 0;
+	background: none; 
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	padding: 0;
+	white-space: nowrap;
+	float: left;
+}
+#google-search {
+	margin-left: 40px;
+}
+#google-search-left {
+	margin: 1em 0 0 0;
+	padding: 0;
+	background: none; 
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	white-space: normal;
+	text-align: right;
+	width: 120px;
+}
+
+/* general content area styles */
+#content {
+	width: 90%;
+	padding: 20px 12px 12px 18px;
+	vertical-align: top;
+	text-align: left;
+	background-color: #FFF;
+}
+#content p {
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+/* general formatting styles */
+.hanging-indent-20 {
+	margin-left: 20px;
+	text-indent: -20px;
+}
+.hanging-indent-40 {
+	margin-left: 40px;
+	text-indent: -20px;
+}
+.hanging-indent-60 {
+	margin-left: 60px;
+	text-indent: -20px;
+}
+.separator {
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+/* info table */
+table.info {
+	border-top: 1px solid #8B0000;
+	border-bottom: 1px solid #8B0000;
+	background-color : White;
+}
+th.info {
+	background-color : #F8F8FF;
+	border-bottom : 1px solid #999999;
+}
+td.info {
+	background-color : White;
+	border-bottom : 1px solid #CCCCCC;
+}
+td.info-highlight {
+	background-color : #FFFFF0;
+	border-bottom : 1px solid #CCCCCC;
+}
+td.info-center {
+	text-align : center;
+	background-color : White;
+	border-bottom : 1px solid #CCCCCC;
+}
+
+/* floating related info table */
+table.related-info {
+	border : 1px solid #8B0000;
+	background-color : #FFFFF0;
+}
+th.related-info {
+	background-color: #8B0000;
+	border-bottom: 1px solid white;
+	color: #FFFFF0;
+	font-size: 12px;
+	white-space: nowrap;
+	padding: 4px 18px 6px 18px;
+}
+td.related-info, td.related-info-wrap {
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size : 11px;
+	padding: 4px 18px 6px 18px;
+}
+td.related-info {
+	white-space: nowrap;
+}
+
+/* class for logged on user div in navbar*/
+#logonuser {
+	display: inline;
+	padding: 1em 10px 0 10px;
+	text-align: right;
+	font-style: italic;
+	color: Maroon;
+}
+
+/* submission form classes */
+table.forms {
+	border-top: 1px solid Maroon;
+	border-bottom: 1px solid Maroon;
+	margin-top: 1em;
+	background-color: #F8F8FF;
+	margin-bottom: 1em;
+}
+th.forms {
+	background-color: #F8F8FF;
+	border-bottom: 1px solid Maroon;
+	padding: 5px;
+}
+td.forms-labels {
+	font-weight: bold;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: top;
+	border-bottom: 1px solid #EEEEEE;
+	background-color: #F8F8FF;
+	padding: 5px;
+}
+td.forms { text-align: center;
+	border-bottom: 1px solid #EEEEEE;
+	background-color: #F8F8FF;
+	padding: 5px;
+}
+td.forms-left { text-align: left;
+	border-bottom: 1px solid #EEEEEE;
+	background-color: #F8F8FF;
+	padding: 5px;
+}
+td.forms-subrows { text-align: left;
+	border-bottom: none;
+	background-color: #F8F8FF;
+	padding: 3px 3px 0px 3px;
+}
+td.forms-subrows-last { text-align: left;
+	border-bottom: 1px solid #EEEEEE;
+	background-color: #F8F8FF;
+	padding: 3px 3px 0px 3px;
+}
+
+table.subform {
+	border: none;
+	margin: 0;
+}
+table.subform td, table.subform th {
+	padding: 5px 0 5px 0;
+	vertical-align: top;
+	text-align: center;
+}
+
+/* styles for top-right context menu buttons */
+#context-buttons {
+	margin: -3em 0 1.25em 10px;
+	padding: 0;
+	text-align: right;
+	font-size: 11px;
+}
+#context-buttons a, #context-buttons a:hover, #context-buttons a:visited {
+	text-decoration: none;
+	border: 1px solid #CCC;
+	padding: 2px;
+	color: #000;
+}
+#context-buttons a, #context-buttons a:visited {
+	background-color: transparent;
+	background-image: url('/public/images/backgrounds/papyrus1.jpg');
+}
+#context-buttons a:hover, #context-buttons a:active {
+	background-color: #060;
+	background-image: none;
+	color: #FFFFCC;
+}
+#disclaimer  {
+	height: 80px;
+	width: 95%;
+	margin: 15px auto 5px auto;
+	text-align: center;
+	vertical-align: top;
+}
+#disclaimer p, #disclaimer a {
+	text-align: left; 
+	color: #FFF; 
+	font-family: Verdana,Arial,Helvetica,sans-serif; 
+	font-size: 10px;
+}
+#disclaimer a:hover {
+	color: #FFFF99;
+}
+#disclaimer div.left-image {
+	float: left;
+	margin: 0 20px 0 0;
+	width:80px;
+}
+#disclaimer div.right-image {
+	float: right;
+	margin: 0 0 0 20px;
+	width: 80px;
+}
+#disclaimer p {
+	padding-top: 10px;
+}
+#disclaimer div.clear-float {
+	display: block;
+	clear: both;
+}
