@@ -64,7 +64,7 @@
 <xsl:include href="html-rtf.xsl"/>
 <xsl:include href="literalLayout.xsl"/>
 
-<xsl:param name="html.stylesheet" select="'../default.css'"/>
+<xsl:param name="html.stylesheet" select="'./default.css'"/>
 <xsl:param name="stylesheet.result.type" select="'html'"/>
 
 <!-- ==================================================================== -->

@@ -124,7 +124,7 @@ set       toc
 
 <xsl:param name="html.longdesc.link" select="$html.longdesc"/>
 
-<xsl:param name="html.stylesheet" select="''"/>
+<!-- <xsl:param name="html.stylesheet" select="''"/> -->
 <xsl:param name="html.stylesheet.type">text/css</xsl:param>
 
 <xsl:param name="htmlhelp.alias.file" select="'alias.h'"/>
