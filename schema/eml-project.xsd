@@ -500,7 +500,7 @@
         <xs:appinfo>
           <doc:tooltip>Report recipient</doc:tooltip>
           <doc:summary>Report recipient.</doc:summary>
-          <doc:description>The recipient will receive this report.</doc:description>
+          <doc:description>The recipient who will receive this report.</doc:description>
           <doc:example>NSF</doc:example>
         </xs:appinfo>
       </xs:annotation>
@@ -526,7 +526,7 @@
         to the nested &quot;relatedProject&quot;s in EML.
         The relationship attribute reflects the relationship of the 
         associated project to the project being described. </doc:description>
-        <doc:example>2008</doc:example>
+        <doc:example>Santa Barbara Coastal LTER Project</doc:example>
       </xs:appinfo>
     </xs:annotation>
     <xs:simpleContent>
@@ -539,8 +539,8 @@
               <doc:description>The relationship of the 
         associatedProject to the project being described. 
         The relationship is constrained  to only &quot;ancestor&quot;
-        or &quot;descendand&quot;.</doc:description>
-              <doc:example>2008</doc:example>
+        or &quot;descendant&quot;.</doc:description>
+              <doc:example>ancestor</doc:example>
             </xs:appinfo>
           </xs:annotation>
           <xs:simpleType>

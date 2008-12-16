@@ -42,208 +42,118 @@
   <xsl:template match="/">
     <book>
       <bookinfo>
-        <title>Ecological Metadata Language (EML) Specification</title>
+        <title>About projectDB Schema</title>
       </bookinfo>
-      <chapter id="preface">
-        <title>Preface</title>
-        <section id="introduction">
-          <title>Introduction</title>
-          <para> intro for the project module </para>
-        </section>
-        <section id="features">
-          <title>Features</title>
-          <para> some feature text here </para>
-        </section>
+      <chapter id="introduction">
+        <title>Introduction</title>
+          <para>The schema for the projectDB is closely based on the EML project module. The EML
+            development community is aware of this use, and we plan to recommend a set of changes to
+            the EML schema in the course of this work.</para>
+      </chapter>
+      <!-- 
+      features-->
+      <chapter id="features">
+        <title>Features and differences from EML 2</title>
+        
+               <para>This schema incorporates most of the important features of  EML2. In the projectDB
+                 schema we have imported the EML2.1 series of schema docs, in anticipation of it's release
+                 early in 2009. Some changes have been made to the project schema for projectDB, and so it
+                 differs from EML 2's project module in these ways:</para>
+          
+            <section>
+              <title>Root-level element is &lt;researchProject&gt;</title>
+              <para>The root-level element is &lt;researchProject&gt; instead of &lt;eml&gt;.  
+                           <itemizedlist>
+                  <listitem> DISCUSSION POINT: should the root level element be
+                    &lt;eml:eml&gt;, and the project be elevated to it's first child? This would be analogous to 
+                    
+                    dataset|citation|software|protocol in EML 2 </listitem>
+                  <listitem> DISCUSSION POINT: namespace? currently there is none.</listitem>
+                </itemizedlist>
+                           </para>
+            </section>
+          <section>
+            <title>Import the resource group </title>
+            <para>
+              The project schema uses the resource group, as do other top-level EML elements. 
+              
+            </para>
+          </section>
+          <section>
+            <title> New nodes added </title>
+            <para>Three new nodes were added to the eml-project schema to accommodate use cases.
+            <orderedlist>
+              <listitem>&lt;reporting&gt;: to contain information about reporting needs.
+                This section is generic, with child-elements for the name of a report section and a value, and
+                attributes desribing t the recipient and date. </listitem>
+              <listitem> &lt;associatedMaterial&gt;: to contain distribution info about
+                an associated resource of the project, such as a dataset or publication
+                <itemizedlist>
+                  <listitem> DISCUSSION POINT: this element might need a "system" attribute to go along
+                    with the id </listitem>
+                </itemizedlist>
+              </listitem>
+              <listitem> &lt;associatedProject&gt;: to contain the name and relationship
+                of a project associated with the project being descibed. The relationship is
+                limited to ancesor or descendant. In the EML 2.1 project schema module, related
+                projects can be nested. This may be appropirate for a datset or citation. But
+                for this use, it seemed that a nested strucutre could result in complex
+                branching documents in which relationships were difficult to follow. A structure
+                more similar to "triples" as simpler to implement and results in simpler
+                instance documents <itemizedlist>
+                  <listitem>DISCUSSION POINT: should this element have a "system" +
+                    "id" pair also, to facilitate automated processing? </listitem>
+                  <listitem>DISCUSSION POINT: what about relationships with no 
+                    parentage implied? do we need other relationships? like sibling? or collaborator? </listitem>
+                </itemizedlist>
+              </listitem>
+            </orderedlist>
+            </para>
+          </section>
+    
+      
+
+
+  
       </chapter>
       <chapter id="moduleOverview">
-        <title>Overview of EML modules and their use</title>
+        <title>Module Overview </title>
         <section>
-          <title>Module Overview Foreword</title>
-          <para> The following section briefly describes each EML module and how they are logically
-            designed in order to document ecological resources. Some of the modules are dependent on
-            others, while others may be used as stand-alone descriptions. This section describes the
-            modules using a &quot;top down&quot; approach, starting from the top-level eml
-            wrapper module, followed by modules of increasing detail. However, there are modules
-            that may be used at many levels, such as eml-access. These modules are described when it
-            is appropriate. </para>
+          <title>Introduction to projectDB modules and their use</title>
+          <para> The following section briefly describes each EML module used by the projectDB.
+          </para>
         </section>
         <section>
           <title> Root-level structure </title>
-          <!-- Get the eml module description from the xsd file -->
-          <xsl:apply-templates select="document('eml.xsd')//doc:moduleDescription/*" mode="copy"></xsl:apply-templates>
-          <!-- Get the eml-resource module description from the xsd file -->
-          <xsl:apply-templates select="document('eml-resource.xsd')//doc:moduleDescription/*"
-            mode="copy"></xsl:apply-templates>
-        </section>
-        <section>
-          <title> Top-level resources </title>
-          <para> The following four modules are used to describe separate resources: datasets,
-            literature, software, and protocols. However, note that the dataset module makes use of
-            the other top-level modules by importing them at different levels. For instance, a
-            dataset may have been produced using a particular protocol, and that protocol may come
-            from a protocol document in a library of protocols. Likewise, citations are used
-            throughout the top-level resource modules by importing the literature module. </para>
-          <!-- Get the eml-dataset module description from the xsd file -->
-          <xsl:apply-templates select="document('eml-dataset.xsd')//doc:moduleDescription/*"
-            mode="copy"></xsl:apply-templates>
-          <!-- Get the eml-literature module description from the xsd file -->
-          <xsl:apply-templates select="document('eml-literature.xsd')//doc:moduleDescription/*"
-            mode="copy"></xsl:apply-templates>
-          <!-- Get the eml-software module description from the xsd file -->
-          <xsl:apply-templates select="document('eml-software.xsd')//doc:moduleDescription/*"
-            mode="copy"></xsl:apply-templates>
-          <!-- Get the eml-protocol module description from the xsd file -->
-          <xsl:apply-templates select="document('eml-protocol.xsd')//doc:moduleDescription/*"
-            mode="copy"></xsl:apply-templates>
-        </section>
-        <section>
-          <title> Supporting Modules - Adding detail to top-level resources </title>
-          <para> The following six modules are used to qualify the resources being described in more
-            detail. They are used to describe access control rules, distribution of the metadata and
-            data themselves, parties associated with the resource, the geographic, temporal, and
-            taxonomic extents of the resource, the overall research context of the resource, and
-            detailed methodology used for creating the resource. Some of these modules are imported
-            directly into the top-level resource modules, often in many locations in order to limit
-            the scope of the description. For instance, the eml-coverage module may be used for a
-            particular column of a dataset, rather than the entire dataset as a whole. </para>
-          <!-- Get the eml-access module description from the xsd file -->
-          <xsl:apply-templates select="document('eml-access.xsd')//doc:moduleDescription/*"
-            mode="copy"></xsl:apply-templates>
-          <!-- Get the eml-physical module description from the xsd file -->
-          <xsl:apply-templates select="document('eml-physical.xsd')//doc:moduleDescription/*"
-            mode="copy"></xsl:apply-templates>
-          <!-- Get the eml-party module description from the xsd file -->
-          <xsl:apply-templates select="document('eml-party.xsd')//doc:moduleDescription/*"
-            mode="copy"></xsl:apply-templates>
-          <!-- Get the eml-coverage module description from the xsd file -->
-          <xsl:apply-templates select="document('eml-coverage.xsd')//doc:moduleDescription/*"
-            mode="copy"></xsl:apply-templates>
-          <!-- Get the eml-project module description from the xsd file -->
+          <!-- Get the module descriptions from the project xsd file -->
           <xsl:apply-templates select="document('eml-project.xsd')//doc:moduleDescription/*"
             mode="copy"></xsl:apply-templates>
-          <!-- Get the eml-methods module description from the xsd file -->
-          <xsl:apply-templates select="document('eml-methods.xsd')//doc:moduleDescription/*"
-            mode="copy"></xsl:apply-templates>
+          <!-- Get the eml module description from the xsd file
+          <xsl:apply-templates select="document('eml.xsd')//doc:moduleDescription/*" mode="copy"></xsl:apply-templates>
+ -->
         </section>
+
         <section>
-          <title> Data organization - Modules describing dataset structures </title>
-          <para> The following three modules are used to document the logical layout of a dataset.
-            Many datasets are comprised of multiple entities (e.g. a series of tabular data files,
-            or a set of GIS features, or a number of tables in a relational database). Each entity
-            within a dataset may contain one or more attributes (e.g. multiple columns in a
-            datafile, multiple attributes of a GIS feature, or multiple columns of a database
-            table). Lastly, there may be both simple or complex relationships among the entities
-            within a dataset. The relationships, or the constraints that are to be enforced in the
-            dataset, are described using the eml-constraint module. All entities share a common set
-            of information (described using eml-entity), but some discipline specific entities have
-            characteristics that are unique to that entity type. Therefore, the eml-entity module is
-            extended for each of these types (dataTable, spatialRaster, spatialVector, etc...) which
-            are described in the next section. </para>
-          <!-- Get the eml-entity module description from the xsd file -->
-          <xsl:apply-templates select="document('eml-entity.xsd')//doc:moduleDescription/*"
+          <title>Modules Used </title>
+          <para> The following modules are used</para>
+          <!-- Get the eml-resource module description from each  xsd file -->
+          <xsl:apply-templates select="document('eml-resource.xsd')//doc:moduleDescription/*"
             mode="copy"></xsl:apply-templates>
-          <!-- Get the eml-attribute module description from the xsd file -->
-          <xsl:apply-templates select="document('eml-attribute.xsd')//doc:moduleDescription/*"
+          <xsl:apply-templates select="document('eml-physical.xsd')//doc:moduleDescription/*"
             mode="copy"></xsl:apply-templates>
-          <!-- Get the eml-constraint module description from the xsd file -->
-          <xsl:apply-templates select="document('eml-constraint.xsd')//doc:moduleDescription/*"
+          <xsl:apply-templates select="document('eml-party.xsd')//doc:moduleDescription/*"
             mode="copy"></xsl:apply-templates>
-          <!--section>
-          <title>
-            The stmml module - Definitions for creating a unit
-            dictionary in EML
-          </title>
-          <para>
-          <emphasis>This section is not yet complete.</emphasis>
-          </para>
-        </section-->
-        </section>
-        <section>
-          <title> Entity types - Detailed information for discipline specific entities </title>
-          <para> The following six modules are used to describe a number of common types of entities
-            found in datasets. Each entity type uses the eml-entity module elements as it's base set
-            of elements, but then extends the base with entity-specific elements. Note that the
-            eml-spatialReference module is not an entity type, but is rather a common set of
-            elements used to describe spatial reference systems in both eml-spatialRaster and
-            eml-spatialVector. It is described here in relation to those two modules. </para>
-          <!-- Get the eml-dataTable module description from the xsd file -->
-          <xsl:apply-templates select="document('eml-dataTable.xsd')//doc:moduleDescription/*"
+          <xsl:apply-templates select="document('eml-coverage.xsd')//doc:moduleDescription/*"
             mode="copy"></xsl:apply-templates>
-          <!-- Get the eml-spatialRaster module description from the xsd file -->
-          <xsl:apply-templates select="document('eml-spatialRaster.xsd')//doc:moduleDescription/*"
+          <xsl:apply-templates select="document('eml-literature.xsd')//doc:moduleDescription/*"
             mode="copy"></xsl:apply-templates>
-          <!-- Get the eml-spatialVector module description from the xsd file -->
-          <xsl:apply-templates select="document('eml-spatialVector.xsd')//doc:moduleDescription/*"
+          <xsl:apply-templates select="document('eml-access.xsd')//doc:moduleDescription/*"
             mode="copy"></xsl:apply-templates>
-          <!-- Get the eml-spatialReference module description from the xsd file -->
-          <xsl:apply-templates
-            select="document('eml-spatialReference.xsd')//doc:moduleDescription/*" mode="copy"></xsl:apply-templates>
-          <!-- Get the eml-storedProcedure module description from the xsd file -->
-          <xsl:apply-templates select="document('eml-storedProcedure.xsd')//doc:moduleDescription/*"
-            mode="copy"></xsl:apply-templates>
-          <!-- Get the eml-view module description from the xsd file -->
-          <xsl:apply-templates select="document('eml-view.xsd')//doc:moduleDescription/*"
-            mode="copy"></xsl:apply-templates>
-        </section>
-        <section>
-          <title> Utility modules - Metadata documentation enhancements </title>
-          <para> The following modules are used to highlight the information being documented in
-            each of the above modules where prose may be needed to convey the critical metadata. The
-            eml-text module provides a number of text-based constructs to enhance a document
-            (including sections, paragraphs, lists, subscript, superscript, emphasis, etc.) </para>
-          <xsl:apply-templates select="document('eml-text.xsd')//doc:moduleDescription/*"
-            mode="copy"></xsl:apply-templates>
-          <section>
-            <title>Dependency Chart</title>
-            <para> The multiple modules in EML all depend on each other in complex ways. To easily
-              see these dependencies see the <ulink url="eml-dependencies.html">EML Dependency
-                Chart.</ulink>
-            </para>
-          </section>
+
         </section>
       </chapter>
 
-      <chapter id="technicalArch">
 
-
-
-
-        <section>
-
-          <title>ID and Scope Examples</title>
-          <section>
-            <title>Example Documents</title>
-            <example>
-              <title>Invalid EML due to duplicate identifiers</title>
-
-              <section>
-                <para>This instance document is invalid because both creator elements have the same
-                  id. No two elements can have the same string as an id.</para>
-              </section>
-            </example>
-            <example>
-              <title>Invalid EML due to a non-existent reference</title>
-
-              <section>
-                <para>This instance document is invalid because the contact element references an id
-                  that does not exist. Any referenced id must exist.</para>
-              </section>
-            </example>
-            <example>
-              <title>Invalid EML due to a conflicting id attribute and a &lt;references&gt;
-                element</title>
-
-
-            </example>
-            <example>
-              <title>A valid EML document</title>
-
-
-            </example>
-          </section>
-        </section>
-
-      </chapter>
 
       <chapter id="moduleDescriptions">
         <title>Module Descriptions (Normative)</title>
