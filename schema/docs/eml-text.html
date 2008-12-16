@@ -1,0 +1,653 @@
+<html xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:doc="eml://ecoinformatics.org/documentation-2.1.0">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>eml-text Documentation </title>
+<link rel="stylesheet" type="text/css" href="./default.css">
+</head>
+<body>
+<table border="0" width="100%"><tr valign="top">
+<td><div class="title"> Module Documentation: eml-text</div></td>
+<td><a href="index.html" class="navlink">Back to EML Contents</a></td>
+</tr></table>
+        
+          <div class="sectiontitle">The eml-text module - Text field formatting</div>
+          <p>
+          The eml-text module is a wrapper container that allows general
+            text descriptions to be used within the various modules of eml.
+            It can include either structured or unstructured text blocks.
+            It isn't really appropriate to use this module outside of the
+            context of a parent module, because the parent module determines
+            the appropriate context to which this text description applies.
+            The eml-text module allows one to provide structure to a text
+            description in order to convey concepts such as sections
+            (paragraphs), hierarchy (ordered and unordered lists), emphasis
+            (bold, superscript, subscript) etc.  The structured elements
+            are a subset of <a href="http://www.docbook.org">DocBook</a>
+            so the predefined DocBook stylesheets can be used to style
+            EML fields that implement this module.
+          </p>
+        
+        <div class="title">Module details</div>
+<table class="tabledefault" border="0" id="eml-text">
+<tr>
+<td class="tablepanel"> Recommended Usage: </td>
+<td class="tablepanel">any module</td>
+</tr>
+<tr>
+<td class="tablepanel"> Stand-alone: </td>
+<td class="tablepanel">no</td>
+</tr>
+<tr>
+<td class="tablepanel"> Imports: </td>
+<td class="tablepanel">eml-documentation</td>
+</tr>
+<tr>
+<td class="tablepanel"> Imported By: </td>
+<td class="tablepanel"></td>
+</tr>
+<tr>
+<td class="tablepanel"> View an image of the schema: </td>
+<td class="tablepanel"><a href="eml-text.png" target="offline">eml-text image</a></td>
+</tr>
+</table>
+<table border="0" class="tabledefault">
+<tr><td colspan="2"><h2>Element Definitions:</h2></td></tr>
+<tr>
+<td colspan="1" class="tablehead"><a class="sitelink" name="text">text  </a></td>
+<td colspan="1" class="tablehead">This element has no default value.</td>
+</tr>
+<tr>
+<td class="tablepanel" width="40%"> Content of this field: </td>
+<td class="tablepanel"> Description of this field: </td>
+</tr>
+<tr>
+<td class="tablepanel"><table border="0" class="tabledefault"><tr><td valign="top" class="tablepanel">
+<span class="boldtext">Type: </span><a class="sitelink" href="#TextType">TextType</a>
+</td></tr></table></td>
+<td colspan="1" class="tablepanel" valign="top"><blockquote>The "text" element allows for both formatted and
+        unformatted text blocks to be included in EML. It can contain a number
+        of relevant subsections that allow the use of titles, sections, and
+        paragraphs in the text block. This markup is a subset of DocBook.
+        </blockquote></td>
+</tr>
+<tr>
+<td colspan="1" class="tablehead"><a class="sitelink" name="section">section  </a></td>
+<td colspan="1" class="tablehead">This element has no default value.</td>
+</tr>
+<tr>
+<td class="tablepanel" width="40%"> Content of this field: </td>
+<td class="tablepanel"> Description of this field: </td>
+</tr>
+<tr>
+<td class="tablepanel"><table border="0" class="tabledefault"><tr><td valign="top" class="tablepanel">
+<span class="boldtext">Type: </span><a class="sitelink" href="#SectionType">SectionType</a>
+</td></tr></table></td>
+<td colspan="1" class="tablepanel" valign="top"><blockquote>The "section" element allows for
+            grouping related paragraphs of text together, with
+            an optional title.  This markup is a subset of DocBook.
+            </blockquote></td>
+</tr>
+<tr>
+<td colspan="1" class="tablehead"><a class="sitelink" name="para">para  </a></td>
+<td colspan="1" class="tablehead">This element has no default value.</td>
+</tr>
+<tr>
+<td class="tablepanel" width="40%"> Content of this field: </td>
+<td class="tablepanel"> Description of this field: </td>
+</tr>
+<tr>
+<td class="tablepanel"><table border="0" class="tabledefault"><tr><td valign="top" class="tablepanel">
+<span class="boldtext">Type: </span><a class="sitelink" href="#ParagraphType">ParagraphType</a>
+</td></tr></table></td>
+<td colspan="1" class="tablepanel" valign="top"><blockquote>The "paragraph" element allows for
+            both formatted and unformatted text blocks to be included
+            in EML. It can be plain text or text with a limited set of
+            markup tags, inlcuding emphasis, subscript,
+            superscript, and lists. This markup is a subset of DocBook.
+            </blockquote></td>
+</tr>
+<tr>
+<td colspan="1" class="tablehead"><a class="sitelink" name="itemizedlist">itemizedlist  </a></td>
+<td colspan="1" class="tablehead">This element has no default value.</td>
+</tr>
+<tr>
+<td class="tablepanel" width="40%"> Content of this field: </td>
+<td class="tablepanel"> Description of this field: </td>
+</tr>
+<tr>
+<td class="tablepanel"><table border="0" class="tabledefault"><tr><td valign="top" class="tablepanel">
+<span class="boldtext">Type: </span><a class="sitelink" href="#ListType">ListType</a>
+</td></tr></table></td>
+<td colspan="1" class="tablepanel" valign="top"><blockquote>A list of items in a text paragraph.  The
+            list is generally displayed as a bulleted list.
+            This markup is a subset of DocBook.
+            </blockquote></td>
+</tr>
+<tr>
+<td colspan="1" class="tablehead"><a class="sitelink" name="orderedlist">orderedlist  </a></td>
+<td colspan="1" class="tablehead">This element has no default value.</td>
+</tr>
+<tr>
+<td class="tablepanel" width="40%"> Content of this field: </td>
+<td class="tablepanel"> Description of this field: </td>
+</tr>
+<tr>
+<td class="tablepanel"><table border="0" class="tabledefault"><tr><td valign="top" class="tablepanel">
+<span class="boldtext">Type: </span><a class="sitelink" href="#ListType">ListType</a>
+</td></tr></table></td>
+<td colspan="1" class="tablepanel" valign="top"><blockquote>An ordered list of items in a text
+            paragraph.  The list is generally displayed as a numbered
+            list. This markup is a subset of DocBook.
+            </blockquote></td>
+</tr>
+<tr>
+<td colspan="1" class="tablehead"><a class="sitelink" name="emphasis">emphasis  </a></td>
+<td colspan="1" class="tablehead">This element has no default value.</td>
+</tr>
+<tr>
+<td class="tablepanel" width="40%"> Content of this field: </td>
+<td class="tablepanel"> Description of this field: </td>
+</tr>
+<tr>
+<td class="tablepanel"><table border="0" class="tabledefault"><tr><td valign="top" class="tablepanel">
+<span class="boldtext">Type: </span><span class="boldtext">xs:string</span>
+</td></tr></table></td>
+<td colspan="1" class="tablepanel" valign="top"><blockquote>A span of emphasized text in a paragraph.
+             Emphasized text is generally rendered as boldfaced or otherwise
+             distinct from the surrounding text.
+             This markup is a subset of DocBook.</blockquote></td>
+</tr>
+<tr>
+<td colspan="1" class="tablehead"><a class="sitelink" name="subscript">subscript  </a></td>
+<td colspan="1" class="tablehead">This element has no default value.</td>
+</tr>
+<tr>
+<td class="tablepanel" width="40%"> Content of this field: </td>
+<td class="tablepanel"> Description of this field: </td>
+</tr>
+<tr>
+<td class="tablepanel"><table border="0" class="tabledefault"><tr><td valign="top" class="tablepanel">
+<span class="boldtext">Type: </span><a class="sitelink" href="#SubSuperScriptType">SubSuperScriptType</a>
+</td></tr></table></td>
+<td colspan="1" class="tablepanel" valign="top"><blockquote>A subscript in a text paragraph.
+             This markup is a subset of DocBook.</blockquote></td>
+</tr>
+<tr>
+<td colspan="1" class="tablehead"><a class="sitelink" name="superscript">superscript  </a></td>
+<td colspan="1" class="tablehead">This element has no default value.</td>
+</tr>
+<tr>
+<td class="tablepanel" width="40%"> Content of this field: </td>
+<td class="tablepanel"> Description of this field: </td>
+</tr>
+<tr>
+<td class="tablepanel"><table border="0" class="tabledefault"><tr><td valign="top" class="tablepanel">
+<span class="boldtext">Type: </span><a class="sitelink" href="#SubSuperScriptType">SubSuperScriptType</a>
+</td></tr></table></td>
+<td colspan="1" class="tablepanel" valign="top"><blockquote>A superscript in a text paragraph.
+             This markup is a subset of DocBook.</blockquote></td>
+</tr>
+<tr>
+<td colspan="1" class="tablehead"><a class="sitelink" name="literalLayout">literalLayout  </a></td>
+<td colspan="1" class="tablehead">This element has no default value.</td>
+</tr>
+<tr>
+<td class="tablepanel" width="40%"> Content of this field: </td>
+<td class="tablepanel"> Description of this field: </td>
+</tr>
+<tr>
+<td class="tablepanel"><table border="0" class="tabledefault"><tr><td valign="top" class="tablepanel">
+<span class="boldtext">Type: </span><span class="boldtext">xs:string</span>
+</td></tr></table></td>
+<td colspan="1" class="tablepanel" valign="top"><blockquote>This element specifies that the structure of
+            the text within the tag, specifically the whitespace, should not
+            be altered.</blockquote></td>
+</tr>
+<tr>
+<td colspan="1" class="tablehead"><a class="sitelink" name="ulink">ulink  </a></td>
+<td colspan="1" class="tablehead">This element has no default value.</td>
+</tr>
+<tr>
+<td class="tablepanel" width="40%"> Content of this field: </td>
+<td class="tablepanel"> Description of this field: </td>
+</tr>
+<tr>
+<td class="tablepanel"><table border="0" class="tabledefault">
+<tr>
+<td valign="top" class="tablepanel"><span class="boldtext"> Elements: </span></td>
+<td valign="top" class="tablepanel"><span class="boldtext"> Use: </span></td>
+<td valign="top" class="tablepanel"><span class="boldtext"> How many: </span></td>
+</tr>
+<tr><td colspan="3" class="tablepanel"> A sequence of (</td></tr>
+<tr>
+<td class="tablepanel"><a class="sitelink" href="#citetitle">citetitle</a></td>
+<td class="tablepanel">required</td>
+<td class="tablepanel"></td>
+</tr>
+<tr><td colspan="3" class="tablepanel">)</td></tr>
+<tr>
+<td valign="top" class="tablepanel"><span class="boldtext"> Attributes: </span></td>
+<td valign="top" class="tablepanel"><span class="boldtext"> Use: </span></td>
+<td valign="top" class="tablepanel">
+<span class="boldtext"> Default Value: </span></td>
+</tr>
+<tr>
+<td class="tablepanel"><a class="sitelink" href="#url">url</a></td>
+<td class="tablepanel"><span class="plaintext">optional</span></td>
+</tr>
+</table></td>
+<td colspan="1" class="tablepanel" valign="top"><blockquote>this element and its children allow paragraphs to contain
+              urls and titles for anchor tags. This markup is a subset of DocBook.</blockquote></td>
+</tr>
+<tr>
+<td colspan="1" class="tablehead"><a class="sitelink" name="citetitle">citetitle  </a></td>
+<td colspan="1" class="tablehead">This element has no default value.</td>
+</tr>
+<tr>
+<td class="tablepanel" width="40%"> Content of this field: </td>
+<td class="tablepanel"> Description of this field: </td>
+</tr>
+<tr>
+<td class="tablepanel"><table border="0" class="tabledefault"></table></td>
+<td colspan="1" class="tablepanel" valign="top"><blockquote>the citetitle element  contains a text title for the url. It can be displated in an achor tag. This markup is a subset of DocBook.<br>The Dublin Core Metadata Initiative<br>
+</blockquote></td>
+</tr>
+<tr>
+<td colspan="1" class="tablehead"><a class="sitelink" name="title">title  </a></td>
+<td colspan="1" class="tablehead">This element has no default value.</td>
+</tr>
+<tr>
+<td class="tablepanel" width="40%"> Content of this field: </td>
+<td class="tablepanel"> Description of this field: </td>
+</tr>
+<tr>
+<td class="tablepanel"><table border="0" class="tabledefault"><tr><td valign="top" class="tablepanel">
+<span class="boldtext">Type: </span><span class="boldtext">xs:string</span>
+</td></tr></table></td>
+<td colspan="1" class="tablepanel" valign="top"><blockquote>The optional title for a section.
+            This markup is a subset of DocBook.
+            </blockquote></td>
+</tr>
+<tr>
+<td colspan="1" class="tablehead"><a class="sitelink" name="para">para  </a></td>
+<td colspan="1" class="tablehead">This element has no default value.</td>
+</tr>
+<tr>
+<td class="tablepanel" width="40%"> Content of this field: </td>
+<td class="tablepanel"> Description of this field: </td>
+</tr>
+<tr>
+<td class="tablepanel"><table border="0" class="tabledefault"><tr><td valign="top" class="tablepanel">
+<span class="boldtext">Type: </span><a class="sitelink" href="#ParagraphType">ParagraphType</a>
+</td></tr></table></td>
+<td colspan="1" class="tablepanel" valign="top"><blockquote>The "paragraph" element allows for
+              both formatted and unformatted text blocks to be included
+              in EML. It can be plain text or text with a limited set of
+              markup tags, inlcuding emphasis, subscript,
+              superscript, and lists. This markup is a subset of DocBook.
+              </blockquote></td>
+</tr>
+<tr>
+<td colspan="1" class="tablehead"><a class="sitelink" name="section">section  </a></td>
+<td colspan="1" class="tablehead">This element has no default value.</td>
+</tr>
+<tr>
+<td class="tablepanel" width="40%"> Content of this field: </td>
+<td class="tablepanel"> Description of this field: </td>
+</tr>
+<tr>
+<td class="tablepanel"><table border="0" class="tabledefault"><tr><td valign="top" class="tablepanel">
+<span class="boldtext">Type: </span><a class="sitelink" href="#SectionType">SectionType</a>
+</td></tr></table></td>
+<td colspan="1" class="tablepanel" valign="top"><blockquote>The "section" element allows for
+              grouping related paragraphs of text together, with
+              an optional title.  This markup is a subset of DocBook.
+              </blockquote></td>
+</tr>
+<tr>
+<td colspan="1" class="tablehead"><a class="sitelink" name="listitem">listitem  </a></td>
+<td colspan="1" class="tablehead">This element has no default value.</td>
+</tr>
+<tr>
+<td class="tablepanel" width="40%"> Content of this field: </td>
+<td class="tablepanel"> Description of this field: </td>
+</tr>
+<tr>
+<td class="tablepanel"><table border="0" class="tabledefault">
+<tr>
+<td valign="top" class="tablepanel"><span class="boldtext"> Elements: </span></td>
+<td valign="top" class="tablepanel"><span class="boldtext"> Use: </span></td>
+<td valign="top" class="tablepanel"><span class="boldtext"> How many: </span></td>
+</tr>
+<tr><td colspan="3" class="tablepanel"> A choice of (</td></tr>
+<tr>
+<td class="tablepanel"><a class="sitelink" href="#para">para</a></td>
+<td class="tablepanel">required</td>
+<td class="tablepanel"></td>
+</tr>
+<tr><td colspan="3" class="tablepanel"> OR </td></tr>
+<tr>
+<td class="tablepanel"><a class="sitelink" href="#itemizedlist">itemizedlist</a></td>
+<td class="tablepanel">required</td>
+<td class="tablepanel"></td>
+</tr>
+<tr><td colspan="3" class="tablepanel"> OR </td></tr>
+<tr>
+<td class="tablepanel"><a class="sitelink" href="#orderedlist">orderedlist</a></td>
+<td class="tablepanel">required</td>
+<td class="tablepanel"></td>
+</tr>
+<tr><td colspan="3" class="tablepanel">)</td></tr>
+</table></td>
+<td colspan="1" class="tablepanel" valign="top"><blockquote>An item in a list of items.  Each list item
+              is formatted as a bulleted or numbered item depending on the
+              list type in which it resides. List items contain paragraphs
+              which in turn can be plain text or text with a limited set of
+              markup tags, inlcuding emphasis, subscript,
+              superscript, and lists. This markup is a subset of DocBook.
+              </blockquote></td>
+</tr>
+<tr>
+<td colspan="1" class="tablehead"><a class="sitelink" name="para">para  </a></td>
+<td colspan="1" class="tablehead">This element has no default value.</td>
+</tr>
+<tr>
+<td class="tablepanel" width="40%"> Content of this field: </td>
+<td class="tablepanel"> Description of this field: </td>
+</tr>
+<tr>
+<td class="tablepanel"><table border="0" class="tabledefault"><tr><td valign="top" class="tablepanel">
+<span class="boldtext">Type: </span><a class="sitelink" href="#ParagraphType">ParagraphType</a>
+</td></tr></table></td>
+<td colspan="1" class="tablepanel" valign="top"><blockquote>The "paragraph" element allows for
+                    both formatted and unformatted text blocks to be included
+                    in EML. It can be plain text or text with a limited set of
+                    markup tags, inlcuding emphasis, subscript,
+                    superscript, and lists. This markup is a subset of DocBook.
+                    </blockquote></td>
+</tr>
+<tr>
+<td colspan="1" class="tablehead"><a class="sitelink" name="itemizedlist">itemizedlist  </a></td>
+<td colspan="1" class="tablehead">This element has no default value.</td>
+</tr>
+<tr>
+<td class="tablepanel" width="40%"> Content of this field: </td>
+<td class="tablepanel"> Description of this field: </td>
+</tr>
+<tr>
+<td class="tablepanel"><table border="0" class="tabledefault"><tr><td valign="top" class="tablepanel">
+<span class="boldtext">Type: </span><a class="sitelink" href="#ListType">ListType</a>
+</td></tr></table></td>
+<td colspan="1" class="tablepanel" valign="top"><blockquote>A list of items in a text paragraph.  The
+                    list is generally displayed as a bulleted list.
+                    This markup is a subset of DocBook.
+                    </blockquote></td>
+</tr>
+<tr>
+<td colspan="1" class="tablehead"><a class="sitelink" name="orderedlist">orderedlist  </a></td>
+<td colspan="1" class="tablehead">This element has no default value.</td>
+</tr>
+<tr>
+<td class="tablepanel" width="40%"> Content of this field: </td>
+<td class="tablepanel"> Description of this field: </td>
+</tr>
+<tr>
+<td class="tablepanel"><table border="0" class="tabledefault"><tr><td valign="top" class="tablepanel">
+<span class="boldtext">Type: </span><a class="sitelink" href="#ListType">ListType</a>
+</td></tr></table></td>
+<td colspan="1" class="tablepanel" valign="top"><blockquote>An ordered list of items in a text
+                    paragraph.  The list is generally displayed as a numbered
+                    list. This markup is a subset of DocBook.
+                    </blockquote></td>
+</tr>
+<tr>
+<td colspan="1" class="tablehead"><a class="sitelink" name="subscript">subscript  </a></td>
+<td colspan="1" class="tablehead">This element has no default value.</td>
+</tr>
+<tr>
+<td class="tablepanel" width="40%"> Content of this field: </td>
+<td class="tablepanel"> Description of this field: </td>
+</tr>
+<tr>
+<td class="tablepanel"><table border="0" class="tabledefault"><tr><td valign="top" class="tablepanel">
+<span class="boldtext">Type: </span><a class="sitelink" href="#SubSuperScriptType">SubSuperScriptType</a>
+</td></tr></table></td>
+<td colspan="1" class="tablepanel" valign="top"><blockquote>A subscript in a text paragraph.
+             This markup is a subset of DocBook.</blockquote></td>
+</tr>
+<tr>
+<td colspan="1" class="tablehead"><a class="sitelink" name="superscript">superscript  </a></td>
+<td colspan="1" class="tablehead">This element has no default value.</td>
+</tr>
+<tr>
+<td class="tablepanel" width="40%"> Content of this field: </td>
+<td class="tablepanel"> Description of this field: </td>
+</tr>
+<tr>
+<td class="tablepanel"><table border="0" class="tabledefault"><tr><td valign="top" class="tablepanel">
+<span class="boldtext">Type: </span><a class="sitelink" href="#SubSuperScriptType">SubSuperScriptType</a>
+</td></tr></table></td>
+<td colspan="1" class="tablepanel" valign="top"><blockquote>A superscript in a text paragraph.
+             This markup is a subset of DocBook.</blockquote></td>
+</tr>
+<tr><td colspan="2"><h2>Attribute Definitions:</h2></td></tr>
+<tr><td class="tablehead" colspan="2"><a class="sitelink" name="url">url</a></td></tr>
+<tr>
+<td class="tablepanel"><p><span class="boldtext">Use: </span><span class="plaintext">optional</span></p></td>
+<td colspan="1" class="tablepanel" valign="top"><blockquote>the url attribute contains the location of the work for a link. This markup is a subset of DocBook.<br>url="http://dublincore.org/documents/usageguide/"<br>
+</blockquote></td>
+</tr>
+<tr><td colspan="2"><h2>Complex Type Definitions:</h2></td></tr>
+<tr>
+<td colspan="1" class="tablehead"><a class="sitelink" name="TextType">TextType  </a></td>
+<td colspan="1" class="tablehead">
+              </td>
+</tr>
+<tr>
+<td class="tablepanel" width="40%"> Content of this field: </td>
+<td class="tablepanel"> Description of this field: </td>
+</tr>
+<tr>
+<td class="tablepanel"><table border="0" class="tabledefault">
+<tr>
+<td valign="top" class="tablepanel"><span class="boldtext"> Elements: </span></td>
+<td valign="top" class="tablepanel"><span class="boldtext"> Use: </span></td>
+<td valign="top" class="tablepanel"><span class="boldtext"> How many: </span></td>
+</tr>
+<tr><td colspan="3" class="tablepanel"> A choice of (</td></tr>
+<tr>
+<td class="tablepanel"><a class="sitelink" href="#section">section</a></td>
+<td class="tablepanel">optional</td>
+<td class="tablepanel">unbounded</td>
+</tr>
+<tr><td colspan="3" class="tablepanel"> OR </td></tr>
+<tr>
+<td class="tablepanel"><a class="sitelink" href="#para">para</a></td>
+<td class="tablepanel">optional</td>
+<td class="tablepanel">unbounded</td>
+</tr>
+<tr><td colspan="3" class="tablepanel">)</td></tr>
+</table></td>
+<td colspan="1" class="tablepanel" valign="top"><blockquote>The "text" element allows for both formatted and
+        unformatted text blocks to be included in EML. It can contain a number
+        of relevant subsections that allow the use of titles, sections, and
+        paragraphs in the text block. This markup is a subset of DocBook.
+        </blockquote></td>
+</tr>
+<tr>
+<td colspan="1" class="tablehead"><a class="sitelink" name="ParagraphType">ParagraphType  </a></td>
+<td colspan="1" class="tablehead">
+              </td>
+</tr>
+<tr>
+<td class="tablepanel" width="40%"> Content of this field: </td>
+<td class="tablepanel"> Description of this field: </td>
+</tr>
+<tr>
+<td class="tablepanel"><table border="0" class="tabledefault">
+<tr>
+<td valign="top" class="tablepanel"><span class="boldtext"> Elements: </span></td>
+<td valign="top" class="tablepanel"><span class="boldtext"> Use: </span></td>
+<td valign="top" class="tablepanel"><span class="boldtext"> How many: </span></td>
+</tr>
+<tr><td colspan="3" class="tablepanel"> A choice of (</td></tr>
+<tr>
+<td class="tablepanel"><a class="sitelink" href="#itemizedlist">itemizedlist</a></td>
+<td class="tablepanel">required</td>
+<td class="tablepanel"></td>
+</tr>
+<tr><td colspan="3" class="tablepanel"> OR </td></tr>
+<tr>
+<td class="tablepanel"><a class="sitelink" href="#orderedlist">orderedlist</a></td>
+<td class="tablepanel">required</td>
+<td class="tablepanel"></td>
+</tr>
+<tr><td colspan="3" class="tablepanel"> OR </td></tr>
+<tr>
+<td class="tablepanel"><a class="sitelink" href="#emphasis">emphasis</a></td>
+<td class="tablepanel">required</td>
+<td class="tablepanel"></td>
+</tr>
+<tr><td colspan="3" class="tablepanel"> OR </td></tr>
+<tr>
+<td class="tablepanel"><a class="sitelink" href="#subscript">subscript</a></td>
+<td class="tablepanel">required</td>
+<td class="tablepanel"></td>
+</tr>
+<tr><td colspan="3" class="tablepanel"> OR </td></tr>
+<tr>
+<td class="tablepanel"><a class="sitelink" href="#superscript">superscript</a></td>
+<td class="tablepanel">required</td>
+<td class="tablepanel"></td>
+</tr>
+<tr><td colspan="3" class="tablepanel"> OR </td></tr>
+<tr>
+<td class="tablepanel"><a class="sitelink" href="#literalLayout">literalLayout</a></td>
+<td class="tablepanel">required</td>
+<td class="tablepanel"></td>
+</tr>
+<tr><td colspan="3" class="tablepanel"> OR </td></tr>
+<tr>
+<td class="tablepanel"><a class="sitelink" href="#ulink">ulink</a></td>
+<td class="tablepanel">optional</td>
+<td class="tablepanel"></td>
+</tr>
+<tr><td colspan="3" class="tablepanel">)</td></tr>
+</table></td>
+<td colspan="1" class="tablepanel" valign="top"><blockquote>The "paragraph" element allows for
+        both formatted and unformatted text blocks to be included
+        in EML. It can be plain text or text with a limited set of
+        markup tags, inlcuding emphasis, subscript,
+        superscript, lists and links. This markup is a subset of DocBook.
+        </blockquote></td>
+</tr>
+<tr>
+<td colspan="1" class="tablehead"><a class="sitelink" name="SectionType">SectionType  </a></td>
+<td colspan="1" class="tablehead">
+              </td>
+</tr>
+<tr>
+<td class="tablepanel" width="40%"> Content of this field: </td>
+<td class="tablepanel"> Description of this field: </td>
+</tr>
+<tr>
+<td class="tablepanel"><table border="0" class="tabledefault">
+<tr>
+<td valign="top" class="tablepanel"><span class="boldtext"> Elements: </span></td>
+<td valign="top" class="tablepanel"><span class="boldtext"> Use: </span></td>
+<td valign="top" class="tablepanel"><span class="boldtext"> How many: </span></td>
+</tr>
+<tr><td colspan="3" class="tablepanel"> A sequence of (</td></tr>
+<tr>
+<td class="tablepanel"><a class="sitelink" href="#title">title</a></td>
+<td class="tablepanel">optional</td>
+<td class="tablepanel"></td>
+</tr>
+<tr><td colspan="3" class="tablepanel"> A choice of (</td></tr>
+<tr>
+<td class="tablepanel"><a class="sitelink" href="#para">para</a></td>
+<td class="tablepanel">required</td>
+<td class="tablepanel"></td>
+</tr>
+<tr><td colspan="3" class="tablepanel"> OR </td></tr>
+<tr>
+<td class="tablepanel"><a class="sitelink" href="#section">section</a></td>
+<td class="tablepanel">required</td>
+<td class="tablepanel"></td>
+</tr>
+<tr><td colspan="3" class="tablepanel">)</td></tr>
+<tr><td colspan="3" class="tablepanel">)</td></tr>
+</table></td>
+<td colspan="1" class="tablepanel" valign="top"><blockquote>The "section" element allows for
+        grouping related paragraphs (or other sections) of text together, with
+        an optional title.  This markup is a subset of DocBook.
+        </blockquote></td>
+</tr>
+<tr>
+<td colspan="1" class="tablehead"><a class="sitelink" name="ListType">ListType  </a></td>
+<td colspan="1" class="tablehead">
+              </td>
+</tr>
+<tr>
+<td class="tablepanel" width="40%"> Content of this field: </td>
+<td class="tablepanel"> Description of this field: </td>
+</tr>
+<tr>
+<td class="tablepanel"><table border="0" class="tabledefault">
+<tr>
+<td valign="top" class="tablepanel"><span class="boldtext"> Elements: </span></td>
+<td valign="top" class="tablepanel"><span class="boldtext"> Use: </span></td>
+<td valign="top" class="tablepanel"><span class="boldtext"> How many: </span></td>
+</tr>
+<tr><td colspan="3" class="tablepanel"> A sequence of (</td></tr>
+<tr>
+<td class="tablepanel"><a class="sitelink" href="#listitem">listitem</a></td>
+<td class="tablepanel">required</td>
+<td class="tablepanel">unbounded</td>
+</tr>
+<tr><td colspan="3" class="tablepanel">)</td></tr>
+</table></td>
+<td colspan="1" class="tablepanel" valign="top"><blockquote>A list of items in a text paragraph.  The ListType
+        is used by both orderedlist elements and itemizedlist elements.
+        This markup is a subset of DocBook.
+        </blockquote></td>
+</tr>
+<tr>
+<td colspan="1" class="tablehead"><a class="sitelink" name="SubSuperScriptType">SubSuperScriptType  </a></td>
+<td colspan="1" class="tablehead">
+              </td>
+</tr>
+<tr>
+<td class="tablepanel" width="40%"> Content of this field: </td>
+<td class="tablepanel"> Description of this field: </td>
+</tr>
+<tr>
+<td class="tablepanel"><table border="0" class="tabledefault">
+<tr>
+<td valign="top" class="tablepanel"><span class="boldtext"> Elements: </span></td>
+<td valign="top" class="tablepanel"><span class="boldtext"> Use: </span></td>
+<td valign="top" class="tablepanel"><span class="boldtext"> How many: </span></td>
+</tr>
+<tr><td colspan="3" class="tablepanel"> A choice of (</td></tr>
+<tr>
+<td class="tablepanel"><a class="sitelink" href="#subscript">subscript</a></td>
+<td class="tablepanel">required</td>
+<td class="tablepanel"></td>
+</tr>
+<tr><td colspan="3" class="tablepanel"> OR </td></tr>
+<tr>
+<td class="tablepanel"><a class="sitelink" href="#superscript">superscript</a></td>
+<td class="tablepanel">required</td>
+<td class="tablepanel"></td>
+</tr>
+<tr><td colspan="3" class="tablepanel">)</td></tr>
+</table></td>
+<td colspan="1" class="tablepanel" valign="top"><blockquote>A subscript or a superscript in a text paragraph.
+        This type is used by both subscript and superscript elements to define
+        their recursive content. This markup is a subset of DocBook.
+        </blockquote></td>
+</tr>
+</table>
+<p class="contact"> Web Contact: <a href="mailto:jones@nceas.ucsb.edu">jones@nceas.ucsb.edu</a></p>
+</body>
+</html>
