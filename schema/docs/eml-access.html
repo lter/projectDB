@@ -185,7 +185,7 @@
         permissions for this resource. For descriptions of the individual elements, 
         see the AccessType.The permission rules defined here can be overridden 
          by rules added to an access tree in the PhysicalDistributionType  
-        at the entity level. <br>See the description of the AccessType.<br>
+        at the entity level. <br><span class="boldtext">Example(s): </span><br>See the description of the AccessType.<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -201,7 +201,7 @@
 <span class="boldtext">Type: </span><a class="sitelink" href="#AccessRule">AccessRule</a>
 </td></tr></table></td>
 <td colspan="1" class="tablepanel" valign="top"><blockquote>The allow element indicates that a particular
-              user or group is granted the defined permission.<br>allow<br>
+              user or group is granted the defined permission.<br><span class="boldtext">Example(s): </span><br>allow<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -218,7 +218,7 @@
 </td></tr></table></td>
 <td colspan="1" class="tablepanel" valign="top"><blockquote>The deny element indicates that a particular
               user or group is not granted the defined
-              permission.<br>deny<br>
+              permission.<br><span class="boldtext">Example(s): </span><br>deny<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -239,7 +239,7 @@
             element.  The special principal 'public' can be used to indicate
             that any user or group has a particular access permission, thereby
             making it easier to specify that anonymous access is allowed.
-            <br>public<br>uid=alice,o=LTER,dc=ecoinformatics,dc=org<br>
+            <br><span class="boldtext">Example(s): </span><br>public<br>uid=alice,o=LTER,dc=ecoinformatics,dc=org<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -267,7 +267,7 @@
                
                 This element also allows other permission values that may be applicable to some other authentication systems but are not defined in this specification (if these other values are used, access rule enforcement is indeterminate outside of the originating system).</p>
               
-            <br>read<br>
+            <br><span class="boldtext">Example(s): </span><br>read<br>
 </blockquote></td>
 <tr><td class="tablepanel"></td></tr>
 </tr>
@@ -307,7 +307,7 @@
           specified, then all 'allow' rules are processed, and then overridden
           by all 'deny' rules.  If 'denyFirst' is specified, then all 'deny'
           rules are processed, and then overridden by all 'allow' rules.  
-          <br>allowFirst<br>
+          <br><span class="boldtext">Example(s): </span><br>allowFirst<br>
 </blockquote></td>
 </tr>
 <tr><td class="tablehead" colspan="2"><a class="sitelink" name="authSystem">authSystem</a></td></tr>
@@ -322,7 +322,7 @@
           to provide a reference to the authentication system that is used to
           verify the user or group. This reference is typically in the form
           of a URI, which includes the connection protocol, Internet host, and
-          path to the authentication mechanism.<br>
+          path to the authentication mechanism.<br><span class="boldtext">Example(s): </span><br>
           ldap://ldap.ecoinformatics.org:389/dc=ecoinformatics,dc=org
           <br>
 </blockquote></td>

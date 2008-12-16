@@ -98,7 +98,7 @@
               object can contain multiple entities, even though that is not
               a recommended practice.  The objectName often is the filename
               of a file in a filesytem or that is accessible on the network.
-              <br>rainfall-sev-2002-10.txt<br>
+              <br><span class="boldtext">Example(s): </span><br>rainfall-sev-2002-10.txt<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -126,7 +126,7 @@
 <td colspan="1" class="tablepanel" valign="top"><blockquote>This element contains information of the
                     physical size of the entity, by default represented in
                     bytes unless the unit attribute is provided to change
-                    the units.<br>134<br>
+                    the units.<br><span class="boldtext">Example(s): </span><br>134<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -154,7 +154,7 @@
                     procedures or techniques, typically by giving a checksum
                     value for the onject. The method used to compute the
                     authentication value (e.g., MD5) is listed in the method
-                    attribute.<br>f5b2177ea03aea73de12da81f896fe40<br>
+                    attribute.<br><span class="boldtext">Example(s): </span><br>f5b2177ea03aea73de12da81f896fe40<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -176,7 +176,7 @@
                 occur in the reverse order of the listing. For example,
                 if a file is compressed using zip and then encoded using
                 MIME base64, the compression method would be listed first
-                and the encoding method second.<br>zip<br>gzip<br>compress<br>
+                and the encoding method second.<br><span class="boldtext">Example(s): </span><br>zip<br>gzip<br>compress<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -198,7 +198,7 @@
                 occur in the reverse order of the listing. For example,
                 if a file is compressed using zip and then encoded using
                 MIME base64, the compression method would be listed first
-                and the encoding method second.<br>base64<br>uuencode<br>binhex<br>
+                and the encoding method second.<br><span class="boldtext">Example(s): </span><br>base64<br>uuencode<br>binhex<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -215,7 +215,7 @@
 </td></tr></table></td>
 <td colspan="1" class="tablepanel" valign="top"><blockquote>This element contains the name of the
                     character encoding. This is typically ASCII or UTF-8, or
-                    one of the other common encodings.<br>UTF-8<br>
+                    one of the other common encodings.<br><span class="boldtext">Example(s): </span><br>UTF-8<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -353,7 +353,7 @@
                           recordDelimiter.  This value indicated the
                           number of header lines that should be skipped
                           before starting to parse the data.
-                          <br>4<br>
+                          <br><span class="boldtext">Example(s): </span><br>4<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -375,7 +375,7 @@
                           number of footer lines that should be skipped
                           after parsing the data. If this value is omitted,
                           parsers should assume the data continues to the end
-                          of the data stream.<br>4<br>
+                          of the data stream.<br><span class="boldtext">Example(s): </span><br>4<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -402,7 +402,7 @@
                           linefeed (ASCII 0x0a) and "\r" to represent a carriage
                           return (ASCII 0x0d).  Alternatively, one can use the
                           hex value to represent character values (e.g., 0x0a).
-                          <br>\n\r<br>
+                          <br><span class="boldtext">Example(s): </span><br>\n\r<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -430,7 +430,7 @@
                           If this value is not provided, prcessors should
                           assume that the physical line delimiter is the same
                           as the record delimiter.
-                          <br>\n\r<br>
+                          <br><span class="boldtext">Example(s): </span><br>\n\r<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -455,7 +455,7 @@
                           physical line.  If the value is greater than 1, then
                           processers should examine the lineNumber field for
                           each attribute to determine which line of the
-                          record contains the information.<br>3<br>
+                          record contains the information.<br><span class="boldtext">Example(s): </span><br>3<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -476,7 +476,7 @@
                           particularly useful.  However, for fixed format files
                           that do not contain record delimiters, this field is
                           critical to tell processors when one record stops
-                          and another begins.<br>597<br>
+                          and another begins.<br><span class="boldtext">Example(s): </span><br>597<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -506,7 +506,7 @@
                           DATE   2002-01-15
                           PLOT   hfr5
                           SPECIES acer rubrum  acer xxxx
-                          <br>column<br>row<br>
+                          <br><span class="boldtext">Example(s): </span><br>column<br>row<br>
 </blockquote></td>
 <tr><td class="tablepanel">
 <p><span class="boldtext">Derived from: </span><span class="boldtext">xs:string</span> (by xs:restriction) </p>
@@ -596,7 +596,7 @@
                                   or in the column following the delimiter
                                   from the previous field if the previous
                                   field was delimited.
-                                  <br>,<br>\t<br>0x09<br>0x20<br>
+                                  <br><span class="boldtext">Example(s): </span><br>,<br>\t<br>0x09<br>0x20<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -625,7 +625,7 @@
                                   Default behaviour is no; hence, consecutive
                                   delimiters will be treated as seperate
                                   delimiters, by default.
-                                  <br>yes<br>no<br>
+                                  <br><span class="boldtext">Example(s): </span><br>yes<br>no<br>
 </blockquote></td>
 <tr><td class="tablepanel">
 <p><span class="boldtext">Derived from: </span><span class="boldtext">xs:string</span> (by xs:restriction) </p>
@@ -661,7 +661,7 @@
                                   closing quote before the record ends.
                                   Non-printable quote characters can be
                                   provided as their hex values.
-                                  <br>"<br>'<br>
+                                  <br><span class="boldtext">Example(s): </span><br>"<br>'<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -685,7 +685,7 @@
                                   when they are intended to be used in an
                                   attribute value rather than being intended
                                   as a delimiter.  The literalCharacter is
-                                  typically a \.<br>\<br>
+                                  typically a \.<br><span class="boldtext">Example(s): </span><br>\<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -794,7 +794,7 @@
                                         have a set length, thus the end of
                                         the field can always be determined by
                                         adding the fieldWidth to the starting
-                                        column number.<br>7<br>
+                                        column number.<br><span class="boldtext">Example(s): </span><br>7<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -820,7 +820,7 @@
                                         number.  The lineNumber should never
                                         greater that the number of physical
                                         lines per record.
-                                        <br>3<br>
+                                        <br><span class="boldtext">Example(s): </span><br>3<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -847,7 +847,7 @@
                                         or in the column following the
                                         delimiter from the previous field if
                                         the previous field was delimited.
-                                        <br>58<br>
+                                        <br><span class="boldtext">Example(s): </span><br>58<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -941,7 +941,7 @@
                                         or in the column following the
                                         delimiter from the previous field
                                         if the previous field was delimited.
-                                        <br>,<br>\t<br>0x09<br>0x20<br>
+                                        <br><span class="boldtext">Example(s): </span><br>,<br>\t<br>0x09<br>0x20<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -972,7 +972,7 @@
                                         Default behaviour is no; hence,
                                         consecutive delimiters will be treated
                                         as seperate delimiters, by default.
-                                        <br>yes<br>no<br>
+                                        <br><span class="boldtext">Example(s): </span><br>yes<br>no<br>
 </blockquote></td>
 <tr><td class="tablepanel">
 <p><span class="boldtext">Derived from: </span><span class="boldtext">xs:string</span> (by xs:restriction) </p>
@@ -1011,7 +1011,7 @@
                                         that the field data starts in the
                                         first column.  Otherwise, follow the
                                         rules indicated under fieldDelimiter.
-                                        <br>3<br>
+                                        <br><span class="boldtext">Example(s): </span><br>3<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -1043,7 +1043,7 @@
                                         quote before the record ends.
                                         Non-printable quote characters
                                         can be provided as their hex
-                                        values.<br>"<br>'<br>
+                                        values.<br><span class="boldtext">Example(s): </span><br>"<br>'<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -1069,7 +1069,7 @@
                                         in an attribute value rather than
                                         being intended as a delimiter.
                                         The literalCharacter is typically
-                                        a \.<br>\<br>
+                                        a \.<br><span class="boldtext">Example(s): </span><br>\<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -1132,7 +1132,7 @@
 <span class="boldtext">Type: </span><a class="sitelink" href="eml-resource.html#NonEmptyStringType">res:NonEmptyStringType</a>
 </td></tr></table></td>
 <td colspan="1" class="tablepanel" valign="top"><blockquote>Name of the format of
-                          the data object<br>Microsoft Excel<br>
+                          the data object<br><span class="boldtext">Example(s): </span><br>Microsoft Excel<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -1148,7 +1148,7 @@
 <span class="boldtext">Type: </span><span class="boldtext">xs:string</span>
 </td></tr></table></td>
 <td colspan="1" class="tablepanel" valign="top"><blockquote>Version of the format of
-                          the data object<br>2000 (9.0.2720)<br>
+                          the data object<br><span class="boldtext">Example(s): </span><br>2000 (9.0.2720)<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -1248,7 +1248,7 @@
                           be read across rows or down columns.  The valid
                           values are column or row.  If set to 'column', then
                           the data are read down columns. If set to 'row',
-                          then the data are read across rows.<br>column<br>row<br>
+                          then the data are read across rows.<br><span class="boldtext">Example(s): </span><br>column<br>row<br>
 </blockquote></td>
 <tr><td class="tablepanel">
 <p><span class="boldtext">Derived from: </span><span class="boldtext">xs:string</span> (by xs:restriction) </p>
@@ -1304,7 +1304,7 @@
 </td></tr></table></td>
 <td colspan="1" class="tablepanel" valign="top"><blockquote>The number of spectral
                                 bands in the image. Must be greater than 1.
-                                <br>2<br>
+                                <br><span class="boldtext">Example(s): </span><br>2<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -1324,7 +1324,7 @@
                                 values are bil - Band interleaved by
                                 line. bip - Band interleaved by pixel.
                                 bsq - Band sequential.
-                                <br>bil<br>bip<br>bsq<br>
+                                <br><span class="boldtext">Example(s): </span><br>bil<br>bip<br>bsq<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -1346,7 +1346,7 @@
                           B) stored using eight bits for each pixel in each
                           band, nbits equals eight and nbands equals three,
                           for a total of twenty-four bits per pixel.
-                          <br>8<br>
+                          <br><span class="boldtext">Example(s): </span><br>8<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -1367,7 +1367,7 @@
                           bytes per pixel.
                           Acceptable values are little-endian (common on Intel
                           systems like PCs) and big-endian (common on
-                          Motorola platforms).<br>little-endian<br>big-endian<br>
+                          Motorola platforms).<br><span class="boldtext">Example(s): </span><br>little-endian<br>big-endian<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -1386,7 +1386,7 @@
                           image file to skip in order to reach the start of the
                           image data. This keyword allows you to bypass any
                           existing image header information in the file. The
-                          default value is zero bytes.<br>0<br>
+                          default value is zero bytes.<br><span class="boldtext">Example(s): </span><br>0<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -1405,7 +1405,7 @@
                           row. This must be an integer. This keyword is used
                           only with BIL files when there are extra bits at the
                           end of each band within a row that must be
-                          skipped.<br>3<br>
+                          skipped.<br><span class="boldtext">Example(s): </span><br>3<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -1423,7 +1423,7 @@
 <td colspan="1" class="tablepanel" valign="top"><blockquote>The total number of bytes of data
                           per row. Use totalrowbytes when there are extra
                           trailing bits at the end of each
-                          row.<br>8<br>
+                          row.<br><span class="boldtext">Example(s): </span><br>8<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -1440,7 +1440,7 @@
 </td></tr></table></td>
 <td colspan="1" class="tablepanel" valign="top"><blockquote>The number of bytes between bands in
                           a BSQ format image. The default is
-                          zero.<br>1<br>
+                          zero.<br><span class="boldtext">Example(s): </span><br>1<br>
 </blockquote></td>
 </tr>
 <tr>
@@ -1545,7 +1545,7 @@
 </td>
 <td colspan="1" class="tablepanel" valign="top"><blockquote>This element gives the unit of
                             measurement for the size of the entity, and is
-                            by default a byte.<br>byte<br>
+                            by default a byte.<br><span class="boldtext">Example(s): </span><br>byte<br>
 </blockquote></td>
 </tr>
 <tr><td class="tablehead" colspan="2"><a class="sitelink" name="method">method</a></td></tr>
@@ -1557,7 +1557,7 @@
 <td colspan="1" class="tablepanel" valign="top"><blockquote>This element names the method used
                             to calculate and authentication checksum that can
                             be used to validate a bytestream. Typical checksum
-                            methods include MD5 and CRC.<br>MD5<br>
+                            methods include MD5 and CRC.<br><span class="boldtext">Example(s): </span><br>MD5<br>
 </blockquote></td>
 </tr>
 <tr><td class="tablehead" colspan="2"><a class="sitelink" name="id">id</a></td></tr>
