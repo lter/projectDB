@@ -1,10 +1,10 @@
-
+ 
 Writing effective Use Case Examples: http://www.gatherspace.com/static/use_case_example.html
  
 
 Actors: 
 1. User: Public user that is not necessarily authenticated looking for information about research projects. All authenticated actors would also have the goals for the User actor in addition to their own goals. 
-2. Requester: Authenticated user requesting to conduct a new research project 
+2. Requester: Authenticated user requesting to conduct a new research project, the requester becomes the responsible investigator after the project is approved 
 3. Site manager: Authenticated user that facilitates completion of information needed to evaluate the impacts and feasibility of proposed research projects. Serves as a point of contact between the requester and the site leadership. 
 4. Site leadership:  Authenticated user(s) responsible for approving/disapproving new research project requests for a site.
  
@@ -14,6 +14,8 @@ Actors:
  
 7. Responsible investigator: Person responsible for a research project(s) that maintains their own research project(s) information or person(s) that the                                         responsible investigators delegate delegate to administer their individual research project information.  
 8. Research assistant: Authenticated user(s) responsible for setting up research sites, collecting and quality checking data, analyzing data, and/or maintaining research equipment and sites. (Field or lab technicians) 
+9. Harvester: A authenticated user who has the permission to read all local projects for import into a centralized repository.
+ 
 
 
 Actor goals: 
@@ -446,13 +448,13 @@ Name: Permission to perform research
 
 Goal: Provide the ability for prospective researcher to propose new research projects for consideration and support communication between the requester and the site manager for selecting optimum research site(s) that will not impact existing research projects. 
 
-Assumptions: 
+Assumptions: A user and an administrator exists.
  
 
-Steps:
+Basic flow: 
  
 
-Variations: 
+Alternate flow: 
 
 Non-functional:  
 
@@ -461,32 +463,53 @@ Use case: 2
 
 Name: Reporting research projects 
 
-Goal: Provide the ability to collect and organize information for annual reports using information about active research projects. 
-
-Assumptions:
- 
-
-Steps:
- 
-
-Variations: 
-
+Goal: Provide the ability to collect and organize information for reporting annually using information about active research projects. 
+ 
+Assumptions: A research project exists. 
+Primary actors are site manager, site leadership, administrator, responsible investigator, research assistant.
+ 
+Basic flow:
+User visits ProjectDB home page
+User selects specific project from drop down list. 
+    For responsible investigator and research assistant, the list produced shows only projects with which the user is associated.
+User can modify project information
+Associate/Unassociate datasets, publications, images and tag as highlights
+Update findings and highlight recent findings
+Update activities and highlight recent activities
+Update contributions
+Update outreach and broader impacts
+Update the objectives or scope
+Update project description
+User submits information
+ 
+Alternate flow: 
+ 
 Non-functional:  
-
-
+ 
+ 
 Use case: 3 
-
+ 
 Name: Research project administration and tracking 
-
-Goal: Provide the ability to administer (modify/create) and track research projects. 
-
-Assumptions:
- 
-
-Steps:
- 
-
-Variations: 
+ 
+Goal: Provide the ability to administer (modify/create) and track research projects.   Information is useful for annual reporting.
+ 
+Assumptions: A research project.
+Primary actors are site manager, site leadership, report writer, administrator.
+ 
+Basic flow:
+User visits ProjectDB home page
+User selects from predetermined summary buttons (search criteria)  
+    List all projects 
+    Project end date falls between (provide 2 drop-downs for use to select date options)
+    Project title/abstract keyword search
+    Project status search
+    Place_keyword search
+    GPS points search
+    List related products (datasets, publications, images)
+    List alternative reporting categories (findings, recent findings, activities, recent activities, contributions, outreach, broader impacts)
+User is presented with a table of matching research projects with links to individual project descriptions (results table includes the following columns: title, primaryOrganization, PI, status)
+User can sort results table by selecting column name
+Alternate flow: 
 
 Non-functional:  
 
@@ -495,15 +518,15 @@ Use case: 4
 
 Name: Research project resources for field/lab personnel 
 
-Goal: Provide information about a research project needed by field or lab personnel to perform the research (collect, maintain, and analyze data). 
+Goal: Provide information about a research project needs by field or lab personnel to perform the research (collect, maintain, and analyze data). 
 
 Assumptions:
  
 
-Steps:
+Basic flow:
  
 
-Variations: 
+Alternate flow: 
 
 Non-functional:  
 
@@ -520,7 +543,7 @@ Assumptions: User selections and terms entered before a search is performed are
                    User can select a Clear button to reset the search terms and options back to default 
                    User can select a Help icon to get information on browsing and searching ProjectDB 
 
-Steps:
+Basic flow:
  
 User visits ProjectDB home page 
 User enters search term(s) into search textbox 
@@ -532,12 +555,14 @@ User selects/de-selects checkboxes to widen/narrow search fields
                    organization, 
                    funding source) 
 User selects the search button to perform search 
-User is presented with the number of matching research projectsUser is presented with a table of matching research projects with links to individual project descriptions (results table includes the following columns: title, primaryOrganization, PI, status) 
+User is presented with the number of matching research projects. User is presented with a table of matching research projects with links to individual project descriptions (results table includes the following columns: title, primaryOrganization, PI, status) 
 User can sort results table by selecting column name 
 
-Variations: 
+Alternate flow: 
   a. Alternate Flow: Search without filters or changes in search fields 
-  User visits ProjectDB home page 
+  User visits ProjectDB home page
+   User leaves search box empty
+ 
   User selects the search button 
   User is presented with the number of matching research projects 
   User is presented with a table of ALL research projects with links to individual project descriptions 
@@ -582,13 +607,17 @@ Goal: Provide a tool to allow information managers to complete EML 2.1 documents
 Assumptions:
  
 
-Steps:
+Basic flow:
+     Login
+     Select all projects
+     Select projects "eml" link
+     An eml fragment suitable for inclusion in an eml document is generated and downloaded.
  
 
-Variations: 
+Alternate flow: 
 
 Non-functional:  
- 
+
 
 8) Use Case Basic Flow:  Facilitates completion of information needed to evaluate the impacts and feasibility of proposed research projects.
  
@@ -616,7 +645,7 @@ Requestor goes to LTER site web page where they want to work.  
  do the study.   
  Requestor submits request by clicking on "Submit" button.  
  An email is generated going to the site PI to tell them to read the new
- request in ProjectDB.   
+ request in ProjectDB.  (or all the info could be in the email along with an approve, deny, or more info link)
  
 9) Use Case Alternate Flow:  
  
@@ -625,6 +654,12 @@ Site Manager wants more details on the Project Request and Requestor has to
  
 
 and 
+
+6) Preconditions: 
+  User selections and terms entered before a search is performed are kept when the search results table is displayed
+ 
+  User can select a Clear button to reset the search terms and options back to default 
+  User can select a Help icon to get information on browsing and searching ProjectDB 
 
 8) Use Case Basic Flow: Performing a search for research project information 
 
@@ -675,13 +710,6 @@ User can sort results table by selecting column name
   User performs a customized search 
   User is presented with the number of matching research projects (0 records found) 
   User is presented a message with suggestion to widen search parameters 
-
-10) Use Case Assumptions 
-
-User selections and terms entered before a search is performed are kept when the search results table is displayed 
-User can select a Clear button to reset the search terms and options back to default 
-User can select a Help icon to get information on browsing and searching ProjectDB 
-
 
 
 

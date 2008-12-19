@@ -16,8 +16,7 @@ Feature: creating a new project
 		And I fill in ...
 		And I click submit
 		Then I see the new project
-		And the 'project_pubdate' should be the current date
-		
+		And the 'project_pubdate' should be the current date		
 	
 	Scenario: an investigator submits an incomplete project application
   	Given I am logged in
@@ -72,7 +71,7 @@ Feature: creating a new project
 Feature: Finding a new study site
 	In order to find a suitable study site
   As an investigator	
-	I want know what disturbance has occurred on or near the site I want to study
+	I want know what disturbance has occurred on or near the site I want to study or find an area that has or has not had a particular kind of disturbance
 
 	Scenario: check if a given area has been disturbed
 		Given I have an area with a bounding box(a,b,c,d)
@@ -102,10 +101,10 @@ Feature: project_approval
 	  When I review the proposed project	
 	  Then I should be notified of the overlap
 	
-Feature: project approval
-  In order to expedite the approval of new project
-  As a project manager
-  I want see what parts of the application are missing or incomplete
+	Scenario: new research information is incomplete or confusing
+	  Given context
+	  When event
+	  Then outcome		
 
 Feature: approval_tracking
 	In order to approve projects quickly
@@ -215,18 +214,49 @@ Feature: browsing the project database
 	Scenario: selecting a keyword link
 	  Given a number of projects and keywords
 	  When I click on a keyword link
-	  Then I get a list of project titles and abstracts matching the keyword sorted by age
+	  Then I get a list of project titles and abstracts matching the keyword sorted alphabetically
+		And I can sort the list by clicking on the column headings
 	
-Feature: discovery
-  In order to find projects that where funded by my organization
-  As a program manager
-  I want to check on projects that were funded by my organization
+Feature: Searching the project DB
+  In order find projects similar to my own
+  As a user
+  I want find interesting projects
 
+	Scenario: basic search for projects, the basic search covers keywords, titles and abstracts.
+	  Given several projects
+	  And I enter a search term into the search box
+		And leave the checkboxes at the default setting
+		When I hit 'search'
+	  Then I get a list of project titles matching the search terms sorted alphabetically
+		And I can sort the list by clicking on the column headings
+	
+	Scenario: basic search with no results
+	  Given no projects
+	  And I enter a search term into the search box
+		And leave the checkboxes at the default setting
+		When I hit 'search'
+	  Then I get a list of suggested search terms?
+	
+	
+	Scenario: search with all checkboxes uncheced
+	  Given several projects
+		And I enter a search term into the search box
+		And I uncheck all checkboxes
+	  When I hit search
+	  Then outcome
+	
+	
+	Scenario: advanced search for projects
+	  Given a number of projects
+	  When I enter a search term into the search box
+	  Then outcome
+	
 	Scenario: get progress reports on the projects funded by my organization
-  	Given 1 project from mine organization
-	  When 1 query for organization='mine'
-	  Then I get 1 project 
+	  Given 1 project from mine organization
+		When 1 query for organization='mine'
+		Then I get 1 project 
 		And	the project has a tag funding_source = 'mine'
+	
 	
 Feature: monitoring
   In order to review a projects progress
