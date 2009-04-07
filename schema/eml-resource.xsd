@@ -203,6 +203,20 @@
                     </xs:appinfo>
                   </xs:annotation>
                 </xs:element>
+                <xs:element name="temporalCoverage" type="cov:TemporalCoverage" minOccurs="0">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <doc:tooltip>Role</doc:tooltip>
+                      <doc:summary>The role the party played with respect to
+                      the resource.</doc:summary>
+                      <doc:description>Use this field to describe the role the
+                      party played with respect to the resource. Some potential
+                      roles include technician, reviewer, principal
+                      investigator, and many others.</doc:description>
+                      <doc:example>principalInvestigator</doc:example>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:element>
               </xs:sequence>
             </xs:extension>
           </xs:complexContent>

@@ -53,7 +53,7 @@
         of any project.</doc:recommendedUsage>
         <doc:standAlone>no</doc:standAlone>
       </doc:moduleDocs>
-            <doc:module>eml-project.xsd</doc:module>
+      <doc:module>eml-project.xsd</doc:module>
       <doc:module>eml-access.xsd</doc:module>
       <doc:module>eml-coverage.xsd</doc:module>
       <doc:module>eml-literature.xsd</doc:module>
@@ -473,26 +473,40 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="reportSection" type="res:NonEmptyStringType">
-        <xs:annotation>
-          <xs:appinfo>
-            <doc:tooltip>Report Section</doc:tooltip>
-            <doc:summary>Report Section.</doc:summary>
-            <doc:description>The reportSection is used to name
+      <xs:element name="reportSection" maxOccurs="unbounded">
+      <xs:annotation>
+                <xs:appinfo>
+                  <doc:tooltip>Report Section</doc:tooltip>
+                  <doc:summary>Report Section</doc:summary>
+                  <doc:description>The report Section  is used to contain elements that may be used to
+        create a report. It may be repeated as necessary.</doc:description>
+                </xs:appinfo>
+              </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sectionTitle" type="res:NonEmptyStringType">
+              <xs:annotation>
+                <xs:appinfo>
+                  <doc:tooltip>Report Section Title</doc:tooltip>
+                  <doc:summary>Report Section title</doc:summary>
+                  <doc:description>The report Section Title is used to name
         a topic required by a report in this project.</doc:description>
-            <doc:example>Activities</doc:example>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="reportValue" type="txt:TextType">
-        <xs:annotation>
-          <xs:appinfo>
-            <doc:tooltip>Report Value</doc:tooltip>
-            <doc:summary>Report Value.</doc:summary>
-            <doc:description>The reportValue contains text for
+                  <doc:example>Activities</doc:example>
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="sectionValue" type="txt:TextType">
+              <xs:annotation>
+                <xs:appinfo>
+                  <doc:tooltip>Report Section Value</doc:tooltip>
+                  <doc:summary>Report Section Value.</doc:summary>
+                  <doc:description>The report section Value contains text for
         the report section</doc:description>
-          </xs:appinfo>
-        </xs:annotation>
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
       </xs:element>
     </xs:sequence>
     <xs:attribute name="recipient" type="res:NonEmptyStringType" use="optional">
