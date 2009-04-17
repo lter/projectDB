@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://ws.projectDB.lter.edu/" xmlns:tns="http://ws.projectDB.lter.edu/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="getProjectById" type="tns:getProjectById"/>
+
+  <xs:element name="getProjectByIdResponse" type="tns:getProjectByIdResponse"/>
+
+  <xs:complexType name="getProjectById">
+    <xs:sequence>
+      <xs:element name="projectId" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getProjectByIdResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
