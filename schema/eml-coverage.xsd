@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cit="eml://ecoinformatics.org/literature-2.1.0" xmlns:rp="eml://ecoinformatics.org/party-2.1.0" xmlns:doc="eml://ecoinformatics.org/documentation-2.1.0" xmlns:res="eml://ecoinformatics.org/resource-2.1.0" xmlns="eml://ecoinformatics.org/coverage-2.1.0" xmlns:unit="eml://ecoinformatics.org/units-2.1.0" targetNamespace="eml://ecoinformatics.org/coverage-2.1.0">
-  <xs:import namespace="eml://ecoinformatics.org/literature-2.1.0" schemaLocation="eml-literature.xsd"/>
-  <xs:import namespace="eml://ecoinformatics.org/documentation-2.1.0" schemaLocation="eml-documentation.xsd"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:cit="eml://ecoinformatics.org/literature-2.1.0"
+  xmlns:rp="eml://ecoinformatics.org/party-2.1.0"
+  xmlns:doc="eml://ecoinformatics.org/documentation-2.1.0"
+  xmlns:res="eml://ecoinformatics.org/resource-2.1.0"
+  xmlns="eml://ecoinformatics.org/coverage-2.1.0" xmlns:unit="eml://ecoinformatics.org/units-2.1.0"
+  targetNamespace="eml://ecoinformatics.org/coverage-2.1.0">
+  <xs:import namespace="eml://ecoinformatics.org/literature-2.1.0"
+    schemaLocation="eml-literature.xsd"/>
+  <xs:import namespace="eml://ecoinformatics.org/documentation-2.1.0"
+    schemaLocation="eml-documentation.xsd"/>
   <xs:import namespace="eml://ecoinformatics.org/party-2.1.0" schemaLocation="eml-party.xsd"/>
   <xs:import namespace="eml://ecoinformatics.org/resource-2.1.0" schemaLocation="eml-resource.xsd"/>
-  <xs:import namespace="eml://ecoinformatics.org/units-2.1.0" schemaLocation="eml-unitTypeDefinitions.xsd"/>
+  <xs:import namespace="eml://ecoinformatics.org/units-2.1.0"
+    schemaLocation="eml-unitTypeDefinitions.xsd"/>
   <xs:annotation>
     <xs:documentation>
                '$RCSfile: eml-coverage.xsd,v $'
@@ -264,6 +273,13 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="ongoing">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="beginDate" type="SingleDateTimeType"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
       <xs:group ref="res:ReferencesGroup"/>
     </xs:choice>
@@ -436,7 +452,8 @@
                 </xs:appinfo>
               </xs:annotation>
             </xs:element>
-            <xs:element name="timeScaleCitation" type="cit:CitationType" minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="timeScaleCitation" type="cit:CitationType" minOccurs="0"
+              maxOccurs="unbounded">
               <xs:annotation>
                 <xs:appinfo>
                   <doc:tooltip>Time Scale citation</doc:tooltip>
@@ -781,7 +798,8 @@ the spatialReference schema.</doc:description>
                 <xs:complexType>
                   <xs:choice>
                     <xs:sequence>
-                      <xs:element name="gRingPoint" type="GRingPointType" minOccurs="3" maxOccurs="unbounded">
+                      <xs:element name="gRingPoint" type="GRingPointType" minOccurs="3"
+                        maxOccurs="unbounded">
                         <xs:annotation>
                           <xs:appinfo>
                             <doc:tooltip>G Ring Point</doc:tooltip>
@@ -995,7 +1013,8 @@ the spatialReference schema.</doc:description>
                         </xs:appinfo>
                       </xs:annotation>
                     </xs:element>
-                    <xs:element name="classificationSystemModifications" type="xs:string" minOccurs="0">
+                    <xs:element name="classificationSystemModifications" type="xs:string"
+                      minOccurs="0">
                       <xs:annotation>
                         <xs:appinfo>
                           <doc:tooltip>Classification system
@@ -1010,7 +1029,8 @@ the spatialReference schema.</doc:description>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-              <xs:element name="identificationReference" type="cit:CitationType" minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="identificationReference" type="cit:CitationType" minOccurs="0"
+                maxOccurs="unbounded">
                 <xs:annotation>
                   <xs:appinfo>
                     <doc:tooltip>Non-authoritative citation</doc:tooltip>
@@ -1098,7 +1118,8 @@ the spatialReference schema.</doc:description>
                       </xs:annotation>
                       <xs:complexType>
                         <xs:sequence>
-                          <xs:element name="originator" type="rp:ResponsibleParty" maxOccurs="unbounded">
+                          <xs:element name="originator" type="rp:ResponsibleParty"
+                            maxOccurs="unbounded">
                             <xs:annotation>
                               <xs:appinfo>
                                 <doc:tooltip>Originator</doc:tooltip>
@@ -1141,7 +1162,8 @@ the spatialReference schema.</doc:description>
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
-        <xs:element name="taxonomicClassification" type="TaxonomicClassificationType" maxOccurs="unbounded"/>
+        <xs:element name="taxonomicClassification" type="TaxonomicClassificationType"
+          maxOccurs="unbounded"/>
       </xs:sequence>
       <xs:group ref="res:ReferencesGroup"/>
     </xs:choice>
@@ -1218,7 +1240,8 @@ the spatialReference schema.</doc:description>
           </xs:appinfo>
         </xs:annotation>
       </xs:element>
-      <xs:element name="taxonomicClassification" type="TaxonomicClassificationType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="taxonomicClassification" type="TaxonomicClassificationType" minOccurs="0"
+        maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
