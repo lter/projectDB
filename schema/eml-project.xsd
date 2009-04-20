@@ -19,49 +19,35 @@
   <xs:import namespace="eml://ecoinformatics.org/physical-2.1.0" schemaLocation="eml-physical.xsd"/>
   <xs:import namespace="eml://ecoinformatics.org/text-2.1.0" schemaLocation="eml-text.xsd"/>
   <xs:annotation>
-    <xs:documentation>
-       Copyright: 1997-2002 Regents of the University of California,
-                            University of New Mexico, and
-                            Arizona State University
-        Sponsors: National Center for Ecological Analysis and Synthesis and
-                  Partnership for Interdisciplinary Studies of Coastal Oceans,
-                     University of California Santa Barbara
-                  Long-Term Ecological Research Network Office,
-                     University of New Mexico
-                  Center for Environmental Studies, Arizona State University
-   Other funding: National Science Foundation (see README for details)
-                  The David and Lucile Packard Foundation
-     For Details: http://knb.ecoinformatics.org/
-    </xs:documentation>
+    <xs:documentation> Copyright: 1997-2002 Regents of the University of California, University of
+      New Mexico, and Arizona State University Sponsors: National Center for Ecological Analysis and
+      Synthesis and Partnership for Interdisciplinary Studies of Coastal Oceans, University of
+      California Santa Barbara Long-Term Ecological Research Network Office, University of New
+      Mexico Center for Environmental Studies, Arizona State University Other funding: National
+      Science Foundation (see README for details) The David and Lucile Packard Foundation For
+      Details: http://knb.ecoinformatics.org/ </xs:documentation>
     <xs:appinfo>
       <doc:moduleDocs>
         <doc:moduleName>eml-project</doc:moduleName>
         <doc:moduleDescription>
           <section xmlns="">
-            <title>The eml-project module - Research context information for
-            resources</title>
-            <para>This module is based on the eml-project module.
-            It describes a project which might form a context for research. 
-            The definition of a  "project" is not constrained. It may
-            include scientific research investigations or student-led thesis
-            projects, working groups of limited scope, or 
-            cyberinfrastructure coding projects.  It is intended to house information
-            on how a project was created, including descriptions of over-all
-            motivations and goals, funding, personnel, description of the study
-            area etc. This is also the module to describe the design of the
-            project: the scientific questions being asked, the architecture of
-            the design, etc. 
-            </para>
-            <para>Unlike the eml-project module, instance
-            documents written against this schema are standalone documents.
-            the eml:project element is a top level element.
-            It includes the "resource group" which includes basic
-            elements for title, abstract, responsible parties, coverage, keywords, etc.
-           .</para>
+            <title>The eml-project module - Research context information for resources</title>
+            <para>This module is based on the eml-project module. It describes a project which might
+              form a context for research. The definition of a "project" is not constrained. It may
+              include scientific research investigations or student-led thesis projects, working
+              groups of limited scope, or cyberinfrastructure coding projects. It is intended to
+              house information on how a project was created, including descriptions of over-all
+              motivations and goals, funding, personnel, description of the study area etc. This is
+              also the module to describe the design of the project: the scientific questions being
+              asked, the architecture of the design, etc. </para>
+            <para>Unlike the eml-project module, instance documents written against this schema are
+              standalone documents. the eml:project element is a top level element. It includes the
+              "resource group" which includes basic elements for title, abstract, responsible
+              parties, coverage, keywords, etc. .</para>
           </section>
         </doc:moduleDescription>
-        <doc:recommendedUsage>Use eml-project to document the research context
-        of any project.</doc:recommendedUsage>
+        <doc:recommendedUsage>Use eml-project to document the research context of any
+          project.</doc:recommendedUsage>
         <doc:standAlone>no</doc:standAlone>
       </doc:moduleDocs>
       <doc:module>eml-project.xsd</doc:module>
@@ -80,9 +66,8 @@
       <xs:appinfo>
         <doc:tooltip>research project</doc:tooltip>
         <doc:summary>The root element of this module.</doc:summary>
-        <doc:description>The root element of this module  to instantiate a 
-        stand-alone project
-        file.</doc:description>
+        <doc:description>The root element of this module to instantiate a stand-alone project
+          file.</doc:description>
       </xs:appinfo>
     </xs:annotation>
   </xs:element>
@@ -91,11 +76,10 @@
       <xs:appinfo>
         <doc:tooltip>Research project Type</doc:tooltip>
         <doc:summary>Descriptor of a research context.</doc:summary>
-        <doc:description>The researchProject complex type describes the
-        structure for documenting the research context. It can 
-        include research goals, motivations, theory,
-        hypotheses, etc., as well as a description of research efforts that
-        form the basis for other work.</doc:description>
+        <doc:description>The researchProject complex type describes the structure for documenting
+          the research context. It can include research goals, motivations, theory, hypotheses,
+          etc., as well as a description of research efforts that form the basis for other
+          work.</doc:description>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -103,9 +87,9 @@
         <xs:appinfo>
           <doc:tooltip>Accumulated activities conducted in this project</doc:tooltip>
           <doc:summary>Accumulated activities conducted in this project</doc:summary>
-          <doc:description>This field contaiins a description of the project's activities.
-                    The intent is that this field could be used to record accumulated activities, 
-                    not just recent.  </doc:description>
+          <doc:description>This field contaiins a description of the project's activities. The
+            intent is that this field could be used to record accumulated activities, not just
+            recent. </doc:description>
         </xs:appinfo>
       </xs:annotation>
       <xs:group ref="res:ResourceGroup"/>
@@ -114,11 +98,9 @@
           <xs:appinfo>
             <doc:tooltip>Funding</doc:tooltip>
             <doc:summary>Funding information.</doc:summary>
-            <doc:description>The funding field is used to provide information
-              about funding sources for the project such as: grant and contract
-              numbers; names and addresses of funding sources. Other
-              funding-related information may also be
-              included.</doc:description>
+            <doc:description>The funding field is used to provide information about funding sources
+              for the project such as: grant and contract numbers; names and addresses of funding
+              sources. Other funding-related information may also be included.</doc:description>
           </xs:appinfo>
         </xs:annotation>
       </xs:element>
@@ -126,16 +108,13 @@
         <xs:annotation>
           <xs:appinfo>
             <doc:tooltip>Description of the study area.</doc:tooltip>
-            <doc:summary>Description of the physical area associated with the
-              research project, potentially including coverage, climate,
-              geology, distrubances, etc.</doc:summary>
-            <doc:description>The studyAreaDescription field documents the
-              physical area associated with the research project. It can
-              include descriptions of the geographic, temporal, and taxonomic
-              coverage of the research location and descriptions of domains
-              (themes) of interest such as climate, geology, soils or
-              distrubances or reference to citable biological or geophysical
-              classification systems such as the Bailey Ecoregions or the
+            <doc:summary>Description of the physical area associated with the research project,
+              potentially including coverage, climate, geology, distrubances, etc.</doc:summary>
+            <doc:description>The studyAreaDescription field documents the physical area associated
+              with the research project. It can include descriptions of the geographic, temporal,
+              and taxonomic coverage of the research location and descriptions of domains (themes)
+              of interest such as climate, geology, soils or distrubances or reference to citable
+              biological or geophysical classification systems such as the Bailey Ecoregions or the
               Holdridge Life Zones.</doc:description>
           </xs:appinfo>
         </xs:annotation>
@@ -144,15 +123,12 @@
             <xs:element name="descriptor">
               <xs:annotation>
                 <xs:appinfo>
-                  <doc:tooltip>Non-coverage characteristics of the study
-                    area</doc:tooltip>
-                  <doc:summary>Description of non-coverage characteristics of
-                    the study area such as climate, geology,
-                    disturbances</doc:summary>
-                  <doc:description>The descriptor field is used to document
-                    domains (themes) of interest such as climate, geology,
-                    soils or disturbances or references to citable biological
-                    or geophysical classification systems such as the Bailey
+                  <doc:tooltip>Non-coverage characteristics of the study area</doc:tooltip>
+                  <doc:summary>Description of non-coverage characteristics of the study area such as
+                    climate, geology, disturbances</doc:summary>
+                  <doc:description>The descriptor field is used to document domains (themes) of
+                    interest such as climate, geology, soils or disturbances or references to
+                    citable biological or geophysical classification systems such as the Bailey
                     Ecoregions or the Holdridge Life Zones.</doc:description>
                 </xs:appinfo>
               </xs:annotation>
@@ -161,20 +137,15 @@
                   <xs:element name="descriptorValue" maxOccurs="unbounded">
                     <xs:annotation>
                       <xs:appinfo>
-                        <doc:tooltip>Description of some aspect of the study
-                          area.</doc:tooltip>
-                        <doc:summary>Description of some aspect of the study
-                          area.</doc:summary>
-                        <doc:description>The descriptorValue field contains
-                          the value of a descriptor, describing some aspect of
-                          the study area. This may either be a general
-                          description in textual form or the value part of a
-                          "name/value" pair where the name is entered in the
-                          attribute "name_or_id". For example, if the value of
-                          the "name" attribute" of the element "descriptor" is
-                          "climate", and the value of the attribute
-                          "name_or_id" of the element "descriptorValue" is
-                          "Annual Precipitation" then the value of this element
+                        <doc:tooltip>Description of some aspect of the study area.</doc:tooltip>
+                        <doc:summary>Description of some aspect of the study area.</doc:summary>
+                        <doc:description>The descriptorValue field contains the value of a
+                          descriptor, describing some aspect of the study area. This may either be a
+                          general description in textual form or the value part of a "name/value"
+                          pair where the name is entered in the attribute "name_or_id". For example,
+                          if the value of the "name" attribute" of the element "descriptor" is
+                          "climate", and the value of the attribute "name_or_id" of the element
+                          "descriptorValue" is "Annual Precipitation" then the value of this element
                           could be "12.5 inches".</doc:description>
                         <doc:example>12.5 inches</doc:example>
                         <doc:example>tundra-forest</doc:example>
@@ -186,29 +157,21 @@
                           <xs:attribute name="name_or_id" type="xs:string" use="optional">
                             <xs:annotation>
                               <xs:appinfo>
-                                <doc:tooltip>The name or ID of a descriptor
-                                  value.</doc:tooltip>
-                                <doc:summary>The name part of a name/value
-                                  pair of a descriptor; or ID portion of a
-                                  classification, if applicable.</doc:summary>
-                                <doc:description>The name_or_id field is the
-                                  name part of a name/value pair of a
-                                  descriptor; or ID portion of a
-                                  classification, if applicable. The values of
-                                  biogeophysical classification systems, e.g.
-                                  Bailey-Ecoregions, often take the form of an
-                                  ID or Code along with a text representaiton.
-                                  For example, the ID/Code M131 refers to the
-                                  phrase "Open Woodland -Tundra". M131 is an
-                                  unambiguous reference to a more detailed
-                                  description. If one is using a published
-                                  classification system then there should be a
-                                  corresponding citation to the source, e.g.,
-                                  Bailey,R.G., 1996 "Ecosystem
-                                  Geography".</doc:description>
+                                <doc:tooltip>The name or ID of a descriptor value.</doc:tooltip>
+                                <doc:summary>The name part of a name/value pair of a descriptor; or
+                                  ID portion of a classification, if applicable.</doc:summary>
+                                <doc:description>The name_or_id field is the name part of a
+                                  name/value pair of a descriptor; or ID portion of a
+                                  classification, if applicable. The values of biogeophysical
+                                  classification systems, e.g. Bailey-Ecoregions, often take the
+                                  form of an ID or Code along with a text representaiton. For
+                                  example, the ID/Code M131 refers to the phrase "Open Woodland
+                                  -Tundra". M131 is an unambiguous reference to a more detailed
+                                  description. If one is using a published classification system
+                                  then there should be a corresponding citation to the source, e.g.,
+                                  Bailey,R.G., 1996 "Ecosystem Geography".</doc:description>
                                 <doc:example>M131</doc:example>
-                                <doc:example>Average Annual
-                                  Rainfall</doc:example>
+                                <doc:example>Average Annual Rainfall</doc:example>
                               </xs:appinfo>
                             </xs:annotation>
                           </xs:attribute>
@@ -221,10 +184,8 @@
                     <xs:annotation>
                       <xs:appinfo>
                         <doc:tooltip>citation</doc:tooltip>
-                        <doc:summary>A citation for this
-                          descriptor.</doc:summary>
-                        <doc:description>A citation for this
-                          desciptor.</doc:description>
+                        <doc:summary>A citation for this descriptor.</doc:summary>
+                        <doc:description>A citation for this desciptor.</doc:description>
                       </xs:appinfo>
                     </xs:annotation>
                   </xs:element>
@@ -233,11 +194,9 @@
                   <xs:annotation>
                     <xs:appinfo>
                       <doc:tooltip>name</doc:tooltip>
-                      <doc:summary>The name of the descriptor
-                        system.</doc:summary>
-                      <doc:description>The name of the descriptor system. The
-                        name can be either a theme such as climate or
-                        hydrology, or the name of a citable classification
+                      <doc:summary>The name of the descriptor system.</doc:summary>
+                      <doc:description>The name of the descriptor system. The name can be either a
+                        theme such as climate or hydrology, or the name of a citable classification
                         system.</doc:description>
                     </xs:appinfo>
                   </xs:annotation>
@@ -245,14 +204,11 @@
                 <xs:attribute name="citableClassificationSystem" type="xs:boolean" use="required">
                   <xs:annotation>
                     <xs:appinfo>
-                      <doc:tooltip>citation classification
-                        system</doc:tooltip>
-                      <doc:summary>This boolean attribute defines whether
-                        this descriptor comes from a citable classification
-                        system or not.</doc:summary>
-                      <doc:description>This boolean attribute defines whether
-                        this descriptor comes from a citable classification
-                        system or not.</doc:description>
+                      <doc:tooltip>citation classification system</doc:tooltip>
+                      <doc:summary>This boolean attribute defines whether this descriptor comes from
+                        a citable classification system or not.</doc:summary>
+                      <doc:description>This boolean attribute defines whether this descriptor comes
+                        from a citable classification system or not.</doc:description>
                     </xs:appinfo>
                   </xs:annotation>
                 </xs:attribute>
@@ -262,10 +218,8 @@
               <xs:annotation>
                 <xs:appinfo>
                   <doc:tooltip>citation</doc:tooltip>
-                  <doc:summary>The citation for this
-                    descriptor.</doc:summary>
-                  <doc:description>The citation for this
-                    descriptor.</doc:description>
+                  <doc:summary>The citation for this descriptor.</doc:summary>
+                  <doc:description>The citation for this descriptor.</doc:description>
                 </xs:appinfo>
               </xs:annotation>
             </xs:element>
@@ -274,17 +228,20 @@
                 <xs:appinfo>
                   <doc:tooltip>coverage</doc:tooltip>
                   <doc:summary>The coverage of this descriptor.</doc:summary>
-                  <doc:description>The coverage of this
-                    descriptor.</doc:description>
+                  <doc:description>The coverage of this descriptor.</doc:description>
                 </xs:appinfo>
               </xs:annotation>
             </xs:element>
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="associatedMaterial">
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="distribution" type="phys:PhysicalDistributionType"/>
-                </xs:sequence>
-              </xs:complexType>
+            <xs:element name="associatedMaterial" type="associatedMaterialType"
+              maxOccurs="unbounded" minOccurs="0">
+              <xs:annotation>
+                <xs:appinfo>
+                  <doc:tooltip>associatedMaterial</doc:tooltip>
+                  <doc:summary>Associated Material</doc:summary>
+                  <doc:description>See the type for the full description</doc:description>
+                </xs:appinfo>
+              </xs:annotation>
+
             </xs:element>
           </xs:choice>
         </xs:complexType>
@@ -293,12 +250,10 @@
         <xs:annotation>
           <xs:appinfo>
             <doc:tooltip>Description of research design</doc:tooltip>
-            <doc:summary>Description of the design of the research
-              project</doc:summary>
-            <doc:description>The field designDescription contains general
-              textual descriptions of research design. It can include detailed
-              accounts of goals, motivations, theory, hypotheses, strategy,
-              statistical design, and actual work. Literature citations may
+            <doc:summary>Description of the design of the research project</doc:summary>
+            <doc:description>The field designDescription contains general textual descriptions of
+              research design. It can include detailed accounts of goals, motivations, theory,
+              hypotheses, strategy, statistical design, and actual work. Literature citations may
               also be used to describe the research design.</doc:description>
           </xs:appinfo>
         </xs:annotation>
@@ -308,12 +263,10 @@
               <xs:annotation>
                 <xs:appinfo>
                   <doc:tooltip>Description of research design</doc:tooltip>
-                  <doc:summary>Textual description of research
-                    design.</doc:summary>
-                  <doc:description>The field designDescription contains
-                    general textual descriptions of research design. It can
-                    include detailed accounts of goals, motivations, theory,
-                    hypotheses, strategy, statistical design, and actual
+                  <doc:summary>Textual description of research design.</doc:summary>
+                  <doc:description>The field designDescription contains general textual descriptions
+                    of research design. It can include detailed accounts of goals, motivations,
+                    theory, hypotheses, strategy, statistical design, and actual
                     work.</doc:description>
                 </xs:appinfo>
               </xs:annotation>
@@ -322,12 +275,10 @@
               <xs:annotation>
                 <xs:appinfo>
                   <doc:tooltip>Citation for research design</doc:tooltip>
-                  <doc:summary>Citation that describes the research
-                    design.</doc:summary>
-                  <doc:description>The citation field is a citation to
-                    literature that describes elements of the research design,
-                    such as goals, motivations, theory, hypotheses, strategy,
-                    statistical design, and actual work.</doc:description>
+                  <doc:summary>Citation that describes the research design.</doc:summary>
+                  <doc:description>The citation field is a citation to literature that describes
+                    elements of the research design, such as goals, motivations, theory, hypotheses,
+                    strategy, statistical design, and actual work.</doc:description>
                 </xs:appinfo>
               </xs:annotation>
             </xs:element>
@@ -335,100 +286,21 @@
         </xs:complexType>
       </xs:element>
       <xs:element name="reporting" type="ReportingType" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="associatedMaterial" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="associatedMaterial" type="associatedMaterialType" maxOccurs="unbounded"
+        minOccurs="0">
         <xs:annotation>
           <xs:appinfo>
             <doc:tooltip> Associated Material</doc:tooltip>
-            <doc:summary>Associated material, file or document belonging to 
-            the project</doc:summary>
+            <doc:summary>Associated material, file or document belonging to the
+              project</doc:summary>
             <doc:description>
               <doc:section>
-                <para>This field is intended to be used as necessary to record 
-                other files, documents or resources that may belong with this 
-                project. These include but are not limted to: proposals, protocols, 
-                datasets, imagery, citations, or other databases. It contains an
-                instance of EML's physicalDistributionType. This type includes an
-                access tree for controlling access to resources. Assume that 
-                access is open unless otherwise stated.
-                The element also has optional attributes to describe features
-                of the material;SOME MORE ABOUT THE INTENDED USE.
-             </para>
+                <para>See the full description under the type.</para>
               </doc:section>
             </doc:description>
           </xs:appinfo>
         </xs:annotation>
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="distribution" type="phys:PhysicalDistributionType"/>
-          </xs:sequence>
-          <xs:attribute name="id" type="res:IDType" use="optional">
-            <xs:annotation>
-              <xs:appinfo>
-                <doc:tooltip> Associated Material ID</doc:tooltip>
-                <doc:summary>The ID of the Associated material,  associated with 
-            this project</doc:summary>
-                <doc:description>
-                  <doc:section>
-                    <para>The Id of the material in some system
-                WHERE IS THE SYSTEM ATTR?.
-             </para>
-                  </doc:section>
-                </doc:description>
-                <doc:example>knb-lter-sbc.1.1</doc:example>
-              </xs:appinfo>
-            </xs:annotation>
-          </xs:attribute>
-          <xs:attribute name="type" type="xs:string" use="optional">
-            <xs:annotation>
-              <xs:appinfo>
-                <doc:tooltip> Associated Material type</doc:tooltip>
-                <doc:summary>The type of the Associated material,  associated with 
-            this project</doc:summary>
-                <doc:description>
-                  <doc:section>
-                    <para>The type of the material
-             </para>
-                  </doc:section>
-                </doc:description>
-                <doc:example>dataset</doc:example>
-              </xs:appinfo>
-            </xs:annotation>
-          </xs:attribute>
-          <xs:attribute name="date" type="res:yearDate" use="optional">
-            <xs:annotation>
-              <xs:appinfo>
-                <doc:tooltip>date</doc:tooltip>
-                <doc:summary>The date of the Associated material</doc:summary>
-                <doc:description>
-                  <doc:section>
-                    <para>The date of the material</para>
-                  </doc:section>
-                </doc:description>
-                <doc:example>2008</doc:example>
-              </xs:appinfo>
-            </xs:annotation>
-          </xs:attribute>
-          <xs:attribute name="weight" type="xs:integer" use="optional">
-            <xs:annotation>
-              <xs:appinfo>
-                <doc:tooltip>weight</doc:tooltip>
-                <doc:summary>weight</doc:summary>
-                <doc:description>
-                  <doc:section>
-                    <para>A project may have many associated resources, 
-                    and these may have various levels of importance. This attribute
-                    allows managers to specify a weight for the associated material
-                    Applications should allow low-value weights to "float"
-                    up to indicate higher importance.
-                    </para>
-                  </doc:section>
-                </doc:description>
-                <doc:example>0</doc:example>
-                <doc:example>1</doc:example>
-              </xs:appinfo>
-            </xs:annotation>
-          </xs:attribute>
-        </xs:complexType>
+
       </xs:element>
       <xs:element name="associatedProject" type="associatedProjectType" minOccurs="0"
         maxOccurs="unbounded">
@@ -436,9 +308,9 @@
           <xs:appinfo>
             <doc:tooltip>associated project</doc:tooltip>
             <doc:summary>This field is for a reference to another project</doc:summary>
-            <doc:description>This field contains a reference to another
-              project. Use the relationship attribute to specify the relationship that the referenced
-              project has to the current project. </doc:description>
+            <doc:description>This field contains a reference to another project. Use the
+              relationship attribute to specify the relationship that the referenced project has to
+              the current project. </doc:description>
           </xs:appinfo>
         </xs:annotation>
       </xs:element>
@@ -451,12 +323,12 @@
     <xs:annotation>
       <xs:appinfo>
         <doc:tooltip>Descriptor Theme Type</doc:tooltip>
-        <doc:summary>The type of descriptor theme or the name of a
-        classification system.</doc:summary>
-        <doc:description>The descriptorType is used to represent either the
-        name of a citable classification system/controlled vocabulary such as
-        the Bailey classification of ecoregions or a domain of physical
-        descriptors such as climate or disturbances.</doc:description>
+        <doc:summary>The type of descriptor theme or the name of a classification
+          system.</doc:summary>
+        <doc:description>The descriptorType is used to represent either the name of a citable
+          classification system/controlled vocabulary such as the Bailey classification of
+          ecoregions or a domain of physical descriptors such as climate or
+          disturbances.</doc:description>
         <doc:example>climate</doc:example>
         <doc:example>soils</doc:example>
         <doc:example>hydrology</doc:example>
@@ -488,20 +360,23 @@
       <xs:appinfo>
         <doc:tooltip>Reporting Type</doc:tooltip>
         <doc:summary>Reporting Type.</doc:summary>
-        <doc:description>The reportingType is used for containing
-        report material for the project.</doc:description>
+        <doc:description>The reportingType is used for containing report material for the
+          project.</doc:description>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="reportSection" maxOccurs="unbounded">
         <xs:annotation>
           <xs:appinfo>
-                  <doc:tooltip>Report Section</doc:tooltip>
-                  <doc:summary>Report Section</doc:summary>
-                  <doc:description>The report Section  is used to contain elements that may be used to
-        create a report. It may be repeated as necessary.</doc:description>
-                </xs:appinfo>
+            <doc:tooltip>Report Section</doc:tooltip>
+            <doc:summary>Report Section</doc:summary>
+            <doc:description>The report Section is used to contain elements that may be used to
+              create a report. It may be repeated as necessary.</doc:description>
+          </xs:appinfo>
         </xs:annotation>
+
+
+
         <xs:complexType>
           <xs:sequence>
             <xs:element name="sectionTitle" type="res:NonEmptyStringType">
@@ -509,8 +384,8 @@
                 <xs:appinfo>
                   <doc:tooltip>Report Section Title</doc:tooltip>
                   <doc:summary>Report Section title</doc:summary>
-                  <doc:description>The report Section Title is used to name
-        a topic required by a report in this project.</doc:description>
+                  <doc:description>The report Section Title is used to name a topic required by a
+                    report in this project.</doc:description>
                   <doc:example>Activities</doc:example>
                 </xs:appinfo>
               </xs:annotation>
@@ -520,21 +395,25 @@
                 <xs:appinfo>
                   <doc:tooltip>Report Section Value</doc:tooltip>
                   <doc:summary>Report Section Value.</doc:summary>
-                  <doc:description>The report section Value contains text for
-        the report section</doc:description>
+                  <doc:description>The report section Value contains text for the report
+                    section</doc:description>
                 </xs:appinfo>
               </xs:annotation>
             </xs:element>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="associatedMaterial">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="distribution" type="phys:PhysicalDistributionType"/>
-          </xs:sequence>
-        </xs:complexType>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="associatedMaterial"
+        type="associatedMaterialType">
+        <xs:annotation>
+          <xs:appinfo>
+            <doc:tooltip>associatedMaterial</doc:tooltip>
+            <doc:summary>Associated Material</doc:summary>
+            <doc:description>See the type for the full description</doc:description>
+            </xs:appinfo>
+        </xs:annotation>
       </xs:element>
+
     </xs:sequence>
     <xs:attribute name="recipient" type="res:NonEmptyStringType" use="optional">
       <xs:annotation>
@@ -557,16 +436,16 @@
       </xs:annotation>
     </xs:attribute>
   </xs:complexType>
+
+
   <xs:complexType name="associatedProjectType">
     <xs:annotation>
       <xs:appinfo>
         <doc:tooltip>Assiated project Type</doc:tooltip>
         <doc:summary>Associated project Type</doc:summary>
-        <doc:description>A project that is associated with
-        this project. This type was developed as an alternative
-        to the nested "relatedProject"s in EML.
-        The relationship attribute reflects the relationship of the 
-        associated project to the project being described. </doc:description>
+        <doc:description>A project that is associated with this project. This type was developed as
+          an alternative to the nested "relatedProject"s in EML. The relationship attribute reflects
+          the relationship of the associated project to the project being described. </doc:description>
         <doc:example>Santa Barbara Coastal LTER Project</doc:example>
       </xs:appinfo>
     </xs:annotation>
@@ -577,10 +456,9 @@
             <xs:appinfo>
               <doc:tooltip>relationship</doc:tooltip>
               <doc:summary>relationship</doc:summary>
-              <doc:description>The relationship of the 
-        associatedProject to the project being described. 
-        The relationship is constrained  to only "ancestor"
-        or "descendant".</doc:description>
+              <doc:description>The relationship of the associatedProject to the project being
+                described. The relationship is constrained to only "ancestor" or
+                "descendant".</doc:description>
               <doc:example>ancestor</doc:example>
             </xs:appinfo>
           </xs:annotation>
@@ -593,5 +471,91 @@
         </xs:attribute>
       </xs:extension>
     </xs:simpleContent>
+  </xs:complexType>
+
+
+  <xs:complexType name="associatedMaterialType">
+    <xs:annotation>
+      <xs:appinfo>
+        <doc:tooltip> Associated Material</doc:tooltip>
+        <doc:summary>Associated material, file or document belonging to the project</doc:summary>
+        <doc:description>
+          <doc:section>
+            <para>This field is intended to be used as necessary to record other files, documents or
+              resources that may belong with this project. These include but are not limted to:
+              proposals, protocols, datasets, imagery, citations, or other databases. It contains an
+              instance of EML's physicalDistributionType. This type includes an access tree for
+              controlling access to resources. Assume that access is open unless otherwise stated.
+              The element also has optional attributes to describe features of the material;SOME
+              MORE ABOUT THE INTENDED USE. </para>
+          </doc:section>
+        </doc:description>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="distribution" type="phys:PhysicalDistributionType"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="res:IDType" use="optional">
+      <xs:annotation>
+        <xs:appinfo>
+                <doc:tooltip> Associated Material ID</doc:tooltip>
+                <doc:summary>The ID of the Associated material, associated with this
+                  project</doc:summary>
+                <doc:description>
+                  <doc:section>
+                    <para>The Id of the material in some system WHERE IS THE SYSTEM ATTR?. </para>
+                  </doc:section>
+                </doc:description>
+                <doc:example>knb-lter-sbc.1.1</doc:example>
+              </xs:appinfo>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="type" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:appinfo>
+                <doc:tooltip> Associated Material type</doc:tooltip>
+                <doc:summary>The type of the Associated material, associated with this
+                  project</doc:summary>
+                <doc:description>
+                  <doc:section>
+                    <para>The type of the material </para>
+                  </doc:section>
+                </doc:description>
+                <doc:example>dataset</doc:example>
+              </xs:appinfo>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="date" type="res:yearDate" use="optional">
+      <xs:annotation>
+        <xs:appinfo>
+                <doc:tooltip>date</doc:tooltip>
+                <doc:summary>The date of the Associated material</doc:summary>
+                <doc:description>
+                  <doc:section>
+                    <para>The date of the material</para>
+                  </doc:section>
+                </doc:description>
+                <doc:example>2008</doc:example>
+              </xs:appinfo>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="weight" type="xs:integer" use="optional">
+      <xs:annotation>
+        <xs:appinfo>
+                <doc:tooltip>weight</doc:tooltip>
+                <doc:summary>weight</doc:summary>
+                <doc:description>
+                  <doc:section>
+                    <para>A project may have many associated resources, and these may have various
+                      levels of importance. This attribute allows managers to specify a weight for
+                      the associated material Applications should allow low-value weights to "float"
+                      up to indicate higher importance. </para>
+                  </doc:section>
+                </doc:description>
+                <doc:example>0</doc:example>
+                <doc:example>1</doc:example>
+              </xs:appinfo>
+      </xs:annotation>
+    </xs:attribute>
   </xs:complexType>
 </xs:schema>
