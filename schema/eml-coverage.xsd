@@ -278,6 +278,7 @@
             <xs:sequence>
               <xs:element name="beginDate" type="SingleDateTimeType"/>
             </xs:sequence>
+            <xs:attribute name="asOfDate" type="xs:date"/>
           </xs:complexType>
         </xs:element>
       </xs:choice>
