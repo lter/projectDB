@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="eml://ecoinformatics.org/project-2.1.0" xmlns:doc="eml://ecoinformatics.org/documentation-2.1.0" xmlns:rp="eml://ecoinformatics.org/party-2.1.0" xmlns:cov="eml://ecoinformatics.org/coverage-2.1.0" xmlns:cit="eml://ecoinformatics.org/literature-2.1.0" xmlns:res="eml://ecoinformatics.org/resource-2.1.0" xmlns:phys="eml://ecoinformatics.org/physical-2.1.0" xmlns:txt="eml://ecoinformatics.org/text-2.1.0" targetNamespace="eml://ecoinformatics.org/project-2.1.0">
-  <xs:import namespace="eml://ecoinformatics.org/documentation-2.1.0" schemaLocation="eml-documentation.xsd"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns="eml://ecoinformatics.org/project-2.1.0"
+  xmlns:doc="eml://ecoinformatics.org/documentation-2.1.0"
+  xmlns:rp="eml://ecoinformatics.org/party-2.1.0"
+  xmlns:cov="eml://ecoinformatics.org/coverage-2.1.0"
+  xmlns:cit="eml://ecoinformatics.org/literature-2.1.0"
+  xmlns:res="eml://ecoinformatics.org/resource-2.1.0"
+  xmlns:phys="eml://ecoinformatics.org/physical-2.1.0"
+  xmlns:txt="eml://ecoinformatics.org/text-2.1.0"
+  targetNamespace="eml://ecoinformatics.org/project-2.1.0">
+  <xs:import namespace="eml://ecoinformatics.org/documentation-2.1.0"
+    schemaLocation="eml-documentation.xsd"/>
   <xs:import namespace="eml://ecoinformatics.org/resource-2.1.0" schemaLocation="eml-resource.xsd"/>
   <xs:import namespace="eml://ecoinformatics.org/party-2.1.0" schemaLocation="eml-party.xsd"/>
   <xs:import namespace="eml://ecoinformatics.org/coverage-2.1.0" schemaLocation="eml-coverage.xsd"/>
-  <xs:import namespace="eml://ecoinformatics.org/literature-2.1.0" schemaLocation="eml-literature.xsd"/>
+  <xs:import namespace="eml://ecoinformatics.org/literature-2.1.0"
+    schemaLocation="eml-literature.xsd"/>
   <xs:import namespace="eml://ecoinformatics.org/physical-2.1.0" schemaLocation="eml-physical.xsd"/>
   <xs:import namespace="eml://ecoinformatics.org/text-2.1.0" schemaLocation="eml-text.xsd"/>
   <xs:annotation>
@@ -31,7 +42,7 @@
             resources</title>
             <para>This module is based on the eml-project module.
             It describes a project which might form a context for research. 
-            The definition of a  &quot;project&quot; is not constrained. It may
+            The definition of a  "project" is not constrained. It may
             include scientific research investigations or student-led thesis
             projects, working groups of limited scope, or 
             cyberinfrastructure coding projects.  It is intended to house information
@@ -44,7 +55,7 @@
             <para>Unlike the eml-project module, instance
             documents written against this schema are standalone documents.
             the eml:project element is a top level element.
-            It includes the &quot;resource group&quot; which includes basic
+            It includes the "resource group" which includes basic
             elements for title, abstract, responsible parties, coverage, keywords, etc.
            .</para>
           </section>
@@ -205,7 +216,8 @@
                       </xs:simpleContent>
                     </xs:complexType>
                   </xs:element>
-                  <xs:element name="citation" type="cit:CitationType" minOccurs="0" maxOccurs="unbounded">
+                  <xs:element name="citation" type="cit:CitationType" minOccurs="0"
+                    maxOccurs="unbounded">
                     <xs:annotation>
                       <xs:appinfo>
                         <doc:tooltip>citation</doc:tooltip>
@@ -266,6 +278,13 @@
                     descriptor.</doc:description>
                 </xs:appinfo>
               </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="associatedMaterial">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="distribution" type="phys:PhysicalDistributionType"/>
+                </xs:sequence>
+              </xs:complexType>
             </xs:element>
           </xs:choice>
         </xs:complexType>
@@ -399,7 +418,7 @@
                     <para>A project may have many associated resources, 
                     and these may have various levels of importance. This attribute
                     allows managers to specify a weight for the associated material
-                    Applications should allow low-value weights to &quot;float&quot;
+                    Applications should allow low-value weights to "float"
                     up to indicate higher importance.
                     </para>
                   </doc:section>
@@ -411,7 +430,8 @@
           </xs:attribute>
         </xs:complexType>
       </xs:element>
-      <xs:element name="associatedProject" type="associatedProjectType" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="associatedProject" type="associatedProjectType" minOccurs="0"
+        maxOccurs="unbounded">
         <xs:annotation>
           <xs:appinfo>
             <doc:tooltip>associated project</doc:tooltip>
@@ -474,14 +494,14 @@
     </xs:annotation>
     <xs:sequence>
       <xs:element name="reportSection" maxOccurs="unbounded">
-      <xs:annotation>
-                <xs:appinfo>
+        <xs:annotation>
+          <xs:appinfo>
                   <doc:tooltip>Report Section</doc:tooltip>
                   <doc:summary>Report Section</doc:summary>
                   <doc:description>The report Section  is used to contain elements that may be used to
         create a report. It may be repeated as necessary.</doc:description>
                 </xs:appinfo>
-              </xs:annotation>
+        </xs:annotation>
         <xs:complexType>
           <xs:sequence>
             <xs:element name="sectionTitle" type="res:NonEmptyStringType">
@@ -505,6 +525,13 @@
                 </xs:appinfo>
               </xs:annotation>
             </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="associatedMaterial">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="distribution" type="phys:PhysicalDistributionType"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -537,7 +564,7 @@
         <doc:summary>Associated project Type</doc:summary>
         <doc:description>A project that is associated with
         this project. This type was developed as an alternative
-        to the nested &quot;relatedProject&quot;s in EML.
+        to the nested "relatedProject"s in EML.
         The relationship attribute reflects the relationship of the 
         associated project to the project being described. </doc:description>
         <doc:example>Santa Barbara Coastal LTER Project</doc:example>
@@ -552,8 +579,8 @@
               <doc:summary>relationship</doc:summary>
               <doc:description>The relationship of the 
         associatedProject to the project being described. 
-        The relationship is constrained  to only &quot;ancestor&quot;
-        or &quot;descendant&quot;.</doc:description>
+        The relationship is constrained  to only "ancestor"
+        or "descendant".</doc:description>
               <doc:example>ancestor</doc:example>
             </xs:appinfo>
           </xs:annotation>
