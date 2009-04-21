@@ -314,6 +314,7 @@
           </xs:appinfo>
         </xs:annotation>
       </xs:element>
+      <xs:element name="permissions" type="PermissionType"/>
     </xs:sequence>
     <xs:attribute name="id" type="res:IDType" use="optional"/>
     <xs:attribute name="system" type="res:SystemType" use="optional"/>
@@ -355,8 +356,8 @@
       </xs:simpleType>
     </xs:union>
   </xs:simpleType>
-  
-  
+
+
   <xs:simpleType name="associatedMaterialCategoryType">
     <xs:annotation>
       <xs:appinfo>
@@ -373,18 +374,18 @@
         <xs:restriction base="xs:string">
           <xs:enumeration value="dataset"/>
           <xs:enumeration value="image"/>
-          <xs:enumeration value="publication"/>      
-         </xs:restriction>
+          <xs:enumeration value="publication"/>
+        </xs:restriction>
       </xs:simpleType>
       <xs:simpleType>
         <xs:restriction base="res:NonEmptyStringType"/>
       </xs:simpleType>
     </xs:union>
   </xs:simpleType>
-  
-  
-  
-  
+
+
+
+
   <xs:complexType name="ReportingType">
     <xs:annotation>
       <xs:appinfo>
@@ -404,8 +405,6 @@
               create a report. It may be repeated as necessary.</doc:description>
           </xs:appinfo>
         </xs:annotation>
-
-
 
         <xs:complexType>
           <xs:sequence>
@@ -466,7 +465,6 @@
       </xs:annotation>
     </xs:attribute>
   </xs:complexType>
-
 
   <xs:complexType name="associatedProjectType">
     <xs:annotation>
@@ -553,11 +551,11 @@
             </doc:section>
           </doc:description>
           </xs:appinfo>
-      </xs:annotation> 
+      </xs:annotation>
     </xs:attribute>
-    
-    
-    
+
+
+
     <xs:attribute name="date" type="res:yearDate" use="optional">
       <xs:annotation>
         <xs:appinfo>
@@ -592,4 +590,88 @@
       </xs:annotation>
     </xs:attribute>
   </xs:complexType>
+
+
+  <xs:complexType name="PermissionType">
+    <xs:annotation>
+      <xs:appinfo>
+        <doc:tooltip>Approval Type</doc:tooltip>
+        <doc:summary>Approval Type</doc:summary>
+        <doc:description>The approvalType is used for containing report material for the
+          project.</doc:description>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="permissionCategory" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:appinfo>
+            <doc:tooltip>Report Section</doc:tooltip>
+            <doc:summary>Report Section</doc:summary>
+            <doc:description>The report Section is used to contain elements that may be used to
+              create a report. It may be repeated as necessary.</doc:description>
+          </xs:appinfo>
+        </xs:annotation>
+
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sectionTitle" type="res:NonEmptyStringType">
+              <xs:annotation>
+                <xs:appinfo>
+                  <doc:tooltip>Report Section Title</doc:tooltip>
+                  <doc:summary>Report Section title</doc:summary>
+                  <doc:description>The report Section Title is used to name a topic required by a
+                    report in this project.</doc:description>
+                  <doc:example>Activities</doc:example>
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="sectionValue" type="txt:TextType">
+              <xs:annotation>
+                <xs:appinfo>
+                  <doc:tooltip>Report Section Value</doc:tooltip>
+                  <doc:summary>Report Section Value.</doc:summary>
+                  <doc:description>The report section Value contains text for the report
+                    section</doc:description>
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="associatedMaterial"
+        type="associatedMaterialType">
+        <xs:annotation>
+          <xs:appinfo>
+            <doc:tooltip>associatedMaterial</doc:tooltip>
+            <doc:summary>Associated Material</doc:summary>
+            <doc:description>See the type for the full description</doc:description>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+
+    </xs:sequence>
+    <xs:attribute name="grantor" type="res:NonEmptyStringType" use="optional">
+      <xs:annotation>
+        <xs:appinfo>
+          <doc:tooltip>Report recipient</doc:tooltip>
+          <doc:summary>Report recipient.</doc:summary>
+          <doc:description>The recipient who will receive this report.</doc:description>
+          <doc:example>NSF</doc:example>
+        </xs:appinfo>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="date" type="res:yearDate" use="optional">
+      <xs:annotation>
+        <xs:appinfo>
+          <doc:tooltip>Report date</doc:tooltip>
+          <doc:summary>Report date.</doc:summary>
+          <doc:description>The date of the report.</doc:description>
+          <doc:example>2008</doc:example>
+        </xs:appinfo>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+
+
 </xs:schema>
