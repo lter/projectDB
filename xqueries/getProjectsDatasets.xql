@@ -3,8 +3,7 @@ declare namespace eml="eml://ecoinformatics.org/project-2.1.0";
 
 declare option exist:serialize "method=xml omit-xml-declaration=no indent=yes encoding=iso-8859-1 media-type=application/rss+xml";
 
-let $site := ''
-let $site := request:get-parameter("site",0)
+let $site := request:get-parameter("site",'')
 
 let $projects := collection(concat('/db/projects/',lower-case($site)))/eml:researchProject
 let $datasets := $projects/associatedMaterial[@category='data']
