@@ -1,7 +1,7 @@
 # use case 1
 # project creation and approval
 
-Feature: creating a new project
+1. Feature: creating a new project
   In order to know what is being proposed for a new project
   As a project manager
   I want the investigator to submit project info (title, short_title, funding sources, start/end dates, site locations, protocols, data management plan, cleanup plan)
@@ -68,7 +68,7 @@ Feature: creating a new project
 	  When event
 	  Then outcome
 
-Feature: Finding a new study site
+2. Feature: Finding a new study site
 	In order to find a suitable study site
   As an investigator	
 	I want know what disturbance has occurred on or near the site I want to study or find an area that has or has not had a particular kind of disturbance
@@ -83,7 +83,7 @@ Feature: Finding a new study site
 		When I query the system for disturbance free areas
 		Then I should see the areas which are available and have not been disturbed
 		
-Feature: requesting research assistance
+3. Feature: requesting research assistance
   In order to minimize my costs
   As an investigator
   I want the lter staff to do the work
@@ -91,7 +91,7 @@ Feature: requesting research assistance
 
 # project management
 
-Feature: project_approval
+4. Feature: project_approval
   In order to avoid having new research interfering with existing research
   As a project manager
   I want to know where new research is proposed and be notified if the proposed research is near or overlaps ongoing research
@@ -106,24 +106,24 @@ Feature: project_approval
 	  When event
 	  Then outcome		
 
-Feature: approval_tracking
+5. Feature: approval_tracking
 	In order to approve projects quickly
 	As an information manager or site manager
 	I want to be notified when a project needs approval
 
-Feature: progress_tracking
+6. Feature: progress_tracking
 	In order to know which projects are approved and need tracking
 	As a site manager	
 	I want to check off that the project is approved
 
-Feature: progress_tracking
+7. Feature: progress_tracking
 	In order to hound investigators for updates
 	As an information manager
 	I want to list projects which are past due on data or metadata updates
 
 # annual report
 
-Feature: report
+8. Feature: report
   In order to get continued funding
   As an information manager
   I want to find the information required in the annual report
@@ -155,13 +155,13 @@ Feature: report
 	  When event
 	  Then outcome
 	
-Feature: report
+9. Feature: report
   In order to generate an annual report
   As an information manager
   I want the principal investigator to indicate if a project is high profile and which products are the most important
 
 
-Feature: discover collaboration opportunities
+10. Feature: discover collaboration opportunities
   In order to find projects to collaborate with
   As an investigator
   I want to find projects with similar or contrasting subjects, measurements, habitats, biomes or research themes
@@ -196,12 +196,12 @@ Feature: discover collaboration opportunities
 	  When I select the area on the google map
 	  Then I should get 1 project		
 
-Feature: field_personnel
+11. Feature: field_personnel
   In order to find my field locations and helpful hints
   As a field technician
   I want feature
 
-Feature: browsing the project database
+12. Feature: browsing the project database
   In order to look for new ideas
   As a investigator
   I want to see what projects have been done
@@ -217,7 +217,7 @@ Feature: browsing the project database
 	  Then I get a list of project titles and abstracts matching the keyword sorted alphabetically
 		And I can sort the list by clicking on the column headings
 	
-Feature: Searching the project DB
+13. Feature: Searching the project DB
   In order find projects similar to my own
   As a user
   I want find interesting projects
@@ -258,12 +258,12 @@ Feature: Searching the project DB
 		And	the project has a tag funding_source = 'mine'
 	
 	
-Feature: monitoring
+14. Feature: monitoring
   In order to review a projects progress
   As a information manager
   I want to receive a notification when a project is updated
 
-Feature: uploading a project to the project db
+15. Feature: uploading a project to the project db
   In order keep the network database up to date
   As a site manager
   I want to upload my projects to the network project database
@@ -293,7 +293,7 @@ Feature: uploading a project to the project db
 		And	the project is not updated
 		And the number of projects does not change
 	
-Feature: harvesting projects
+16. Feature: harvesting projects
   In order to keep the network database up to date
   As a lter network manager
   I want to pull projects from the sites
@@ -319,7 +319,7 @@ Feature: harvesting projects
 		And	the site manager should be notified
 	
  
-Feature: updating project information
+17. Feature: updating project information
   In order to keep the information up to date
   As an investigator or information  manager
   I want to update the project information for the projects that I am responsible for
@@ -353,7 +353,7 @@ Feature: updating project information
 		And the 'project_pubdate' should be the current date
 		
 
-Feature: export to eml 2.1
+18. Feature: export to eml 2.1
   In order to add the project description to datasets 
   As an information manager
   I want to have the project returned as eml by mapping the project_db schema to the eml schema
