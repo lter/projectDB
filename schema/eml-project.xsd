@@ -602,7 +602,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="description"/>
+      <xs:element name="description" type="res:NonEmptyStringType"/>
       <xs:element name="temporalCoverage" type="cov:TemporalCoverage" minOccurs="0"/>
       <xs:element name="permissionCategory" maxOccurs="unbounded" minOccurs="0">
         <xs:annotation>
