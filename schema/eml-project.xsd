@@ -355,6 +355,36 @@
       </xs:simpleType>
     </xs:union>
   </xs:simpleType>
+  
+  
+  <xs:simpleType name="associatedMaterialCategoryType">
+    <xs:annotation>
+      <xs:appinfo>
+        <doc:tooltip>Associated Material Category Type</doc:tooltip>
+        <doc:summary>The type of material associated with this project</doc:summary>
+        <doc:description>The type of material associated with this project.</doc:description>
+        <doc:example>dataset</doc:example>
+        <doc:example>image</doc:example>
+        <doc:example>publication</doc:example>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="dataset"/>
+          <xs:enumeration value="image"/>
+          <xs:enumeration value="publication"/>      
+         </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="res:NonEmptyStringType"/>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  
+  
+  
+  
   <xs:complexType name="ReportingType">
     <xs:annotation>
       <xs:appinfo>
@@ -510,21 +540,24 @@
               </xs:appinfo>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="type" type="xs:string" use="optional">
+    <xs:attribute name="category" type="associatedMaterialCategoryType">
       <xs:annotation>
         <xs:appinfo>
-                <doc:tooltip> Associated Material type</doc:tooltip>
-                <doc:summary>The type of the Associated material, associated with this
-                  project</doc:summary>
-                <doc:description>
-                  <doc:section>
-                    <para>The type of the material </para>
-                  </doc:section>
-                </doc:description>
-                <doc:example>dataset</doc:example>
-              </xs:appinfo>
-      </xs:annotation>
+          <doc:tooltip> Associated Material category</doc:tooltip>
+          <doc:summary>The category of the material to be associated with this node.</doc:summary>
+          <doc:description>
+            <doc:section>
+              <para>The category or kind of the material. The Type is a represented
+                by a union of an enumerated list of commonly used names of resources.
+                Other strings are also allowed.</para>
+            </doc:section>
+          </doc:description>
+          </xs:appinfo>
+      </xs:annotation> 
     </xs:attribute>
+    
+    
+    
     <xs:attribute name="date" type="res:yearDate" use="optional">
       <xs:annotation>
         <xs:appinfo>
@@ -532,7 +565,8 @@
                 <doc:summary>The date of the Associated material</doc:summary>
                 <doc:description>
                   <doc:section>
-                    <para>The date of the material</para>
+                    <para>The date of the material. Nothing is implied 
+                      about how the date should be used.</para>
                   </doc:section>
                 </doc:description>
                 <doc:example>2008</doc:example>
