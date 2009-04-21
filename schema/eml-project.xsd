@@ -314,7 +314,7 @@
           </xs:appinfo>
         </xs:annotation>
       </xs:element>
-      <xs:element name="permissions" type="PermissionType"/>
+      <xs:element name="permissions" type="PermissionType" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="id" type="res:IDType" use="optional"/>
     <xs:attribute name="system" type="res:SystemType" use="optional"/>
@@ -602,6 +602,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="temporalCoverage" type="cov:TemporalCoverage" minOccurs="0"/>
       <xs:element name="permissionCategory" maxOccurs="unbounded">
         <xs:annotation>
           <xs:appinfo>
@@ -614,7 +615,7 @@
 
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="sectionTitle" type="res:NonEmptyStringType">
+            <xs:element name="categoryTitle" type="res:NonEmptyStringType">
               <xs:annotation>
                 <xs:appinfo>
                   <doc:tooltip>Report Section Title</doc:tooltip>
@@ -625,7 +626,7 @@
                 </xs:appinfo>
               </xs:annotation>
             </xs:element>
-            <xs:element name="sectionValue" type="txt:TextType">
+            <xs:element name="categoryValue" type="txt:TextType">
               <xs:annotation>
                 <xs:appinfo>
                   <doc:tooltip>Report Section Value</doc:tooltip>
@@ -648,7 +649,6 @@
           </xs:appinfo>
         </xs:annotation>
       </xs:element>
-
     </xs:sequence>
     <xs:attribute name="grantor" type="res:NonEmptyStringType" use="optional">
       <xs:annotation>
