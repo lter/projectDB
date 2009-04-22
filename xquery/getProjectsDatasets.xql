@@ -1,7 +1,9 @@
 xquery version "1.0";
-declare namespace eml="eml://ecoinformatics.org/project-2.1.0";
+import schema namespace eml="eml://ecoinformatics.org/project-2.1.0";
 
-declare option exist:serialize "method=xml omit-xml-declaration=no indent=yes encoding=iso-8859-1 media-type=application/rss+xml";
+declare option exist:serialize "method=xml";
+declare option exist:serialize "omit-xml-declaration=no";
+declare option exist:serialize "indent=yes";
 
 let $site := request:get-parameter("site",'')
 

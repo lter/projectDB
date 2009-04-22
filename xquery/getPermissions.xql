@@ -9,18 +9,17 @@ declare function local:yearDate($datestring as xs:string)
 	as xs:gYear {
 	    xs:gYear(substring($datestring, 1, 4))};
 
-
 let $site := request:get-parameter("site",'')
 let $xslt := request:get-parameter("xlst",'')
 let $recipient := request:get-parameter('recipient','')
-let $start_date := local:yearDate(request:get-parameter('start_date', ''))
-let $end_date := local:yearDate(request:get-parameter('end_date', '')) (: minus 1 year? :)
+let $start_date := local:yearDate(request:get-parameter('start_date',current-date()))
+let $end_date := local:yearDate(request:get-parameter('end_date', current_date())) (: minus 1 year? :)
 
 for $projects in collection(concat('/db/projects/',lower-case($site)))/eml:researchProject
 	let $ids := $projects/@id
-	let $dates := $projects/coverage/temporalCoverage
-where ( $projects/reporting[@recipient = $recipient]
- 	and ($dates/ongoing 
+	let $dates := $projects/permissions/temporalCoverage
+where ((: $projects/reporting[@recipient = $recipient]
+ 	and :)($dates/ongoing 
 	or (($dates/rangeOfDates/beginDate > $start_date)
 			and ($dates/rangeOfDates/endDate < $end_date))
 	or (($dates/singleDateTime/calendarDate > $start_date) 
@@ -48,6 +47,6 @@ return
 			<keyword>{$keyword}</keyword>}
 			</keywordSet>
 			{$projects/time}
-			{$projects/reporting}
+			{$projects/permissions}
 	</project>}
 </projects>

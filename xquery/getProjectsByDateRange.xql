@@ -1,27 +1,31 @@
 xquery version "1.0";
 declare namespace eml="eml://ecoinformatics.org/project-2.1.0";
-declare namespace eml-coverage="eml://ecoinformatics.org/coverage-2.1.0";
 declare namespace res="eml://ecoinformatics.org/resource-2.1.0";
 
-declare option exist:serialize "method=xml omit-xml-declaration=no indent=yes encoding=iso-8859-1 media-type=application/rss+xml";
-(: comment  :)
+declare option exist:serialize "method=xml";
+declare option exist:serialize "omit-xml-declaration=no";
+declare option exist:serialize "indent=yes";
 
+(: a function to return the simpleDateTimeType :)
 declare function local:yearDate($datestring as xs:string) 
 	as xs:gYear {
 	    xs:gYear(substring($datestring, 1, 4))};
-  
-let $site := 'cap' (: request:get-parameter("site",'') :)
-let $xslt := '' (: request:get-parameter("xlst",'') :)
-let $start_date := local:yearDate(request:get-parameter('start_date',current-date() cast as xs:string)) 
-let $end_date := local:yearDate(request:get-parameter('end_date', current-date() cast as xs:string))
+ 
+(: grab the request parameters :)
+let $site := request:get-parameter("site",'')
+let $xslt := request:get-parameter("xlst",'')
+let $start_date := xs:date(request:get-parameter('start_date',current-date() cast as xs:string)) 
+let $end_date := xs:date(request:get-parameter('end_date', current-date() cast as xs:string))
 
+(: find the relevant projects :)
 for $projects in collection(concat('/db/projects/',lower-case($site)))/eml:researchProject
+	let $date := $projects/coverage/temporalCoverage
 where (
-	((coverage/temporalCoverage/rangeOfDates/beginDate > $start_date)
-		and (coverage/temporalCoverage/rangeOfDates/endDate < $end_date)) 
-	or coverage/temporalCoverage/ongoing 
-	or ((coverage/temporalCoverage/singleDateTime/calendarDate > $start_date) 
-		and (coverage/temporalCoverage/singleDateTime/calendarDate < $end_date))
+	(($date/rangeOfDates/beginDate > $start_date)
+		and ($date/rangeOfDates/endDate < $end_date)) 
+	or $date/ongoing 
+	or (($date/singleDateTime/calendarDate > $start_date) 
+		and ($date/singleDateTime/calendarDate < $end_date))
 	)
 
 return
