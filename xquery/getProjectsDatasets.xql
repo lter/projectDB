@@ -1,4 +1,4 @@
-(:	getSiteDatasets.xql: XQuery to return all the datasets from a site 
+(:	getProjectsDatasets.xql: XQuery to return all the datasets from a project 
 	
 		Parameters:	
 			id = the project id
