@@ -322,7 +322,7 @@
       </xs:element>
       <xs:element name="permissions" type="PermissionType" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="id" type="res:IDType" use="optional"/>
+    <xs:attribute name="id" type="res:IDType" use="required"/>
     <xs:attribute name="system" type="res:SystemType" use="optional"/>
     <xs:attribute name="scope" type="res:ScopeType" use="optional" default="document"/>
   </xs:complexType>
