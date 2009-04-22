@@ -12,18 +12,18 @@ declare function local:yearDate($datestring as xs:string)
 let $site := request:get-parameter("site",'')
 let $xslt := request:get-parameter("xlst",'')
 let $recipient := request:get-parameter('recipient','')
-let $start_date := local:yearDate(request:get-parameter('start_date',current-date()))
-let $end_date := local:yearDate(request:get-parameter('end_date', current_date())) (: minus 1 year? :)
+let $min_date := local:yearDate(request:get-parameter('min_date',current-date()))
+let $max_date := local:yearDate(request:get-parameter('max_date', current_date())) (: minus 1 year? :)
 
 for $projects in collection(concat('/db/projects/',lower-case($site)))/eml:researchProject
 	let $ids := $projects/@id
 	let $dates := $projects/permissions/temporalCoverage
 where ((: $projects/reporting[@recipient = $recipient]
  	and :)($dates/ongoing 
-	or (($dates/rangeOfDates/beginDate > $start_date)
-			and ($dates/rangeOfDates/endDate < $end_date))
-	or (($dates/singleDateTime/calendarDate > $start_date) 
-			and ($dates/singleDateTime/calendarDate < $end_date)))
+	or (($dates/rangeOfDates/beginDate > $min_date)
+			and ($dates/rangeOfDates/endDate < $max_date))
+	or (($dates/singleDateTime/calendarDate > $min_date) 
+			and ($dates/singleDateTime/calendarDate < $max_date)))
 	)
 order by $ids
 return

@@ -14,18 +14,18 @@ declare function local:yearDate($datestring as xs:string)
 (: grab the request parameters :)
 let $site := request:get-parameter("site",'')
 let $xslt := request:get-parameter("xlst",'')
-let $start_date := xs:date(request:get-parameter('start_date',current-date() cast as xs:string)) 
-let $end_date := xs:date(request:get-parameter('end_date', current-date() cast as xs:string))
+let $min_date := xs:date(request:get-parameter('min_date',current-date() cast as xs:string)) 
+let $max_date := xs:date(request:get-parameter('max_date', current-date() cast as xs:string))
 
 (: find the relevant projects :)
 for $projects in collection(concat('/db/projects/',lower-case($site)))/eml:researchProject
 	let $date := $projects/coverage/temporalCoverage
 where (
-	(($date/rangeOfDates/beginDate > $start_date)
-		and ($date/rangeOfDates/endDate < $end_date)) 
+	(($date/rangeOfDates/beginDate > $min_date)
+		and ($date/rangeOfDates/endDate < $max_date)) 
 	or $date/ongoing 
-	or (($date/singleDateTime/calendarDate > $start_date) 
-		and ($date/singleDateTime/calendarDate < $end_date))
+	or (($date/singleDateTime/calendarDate > $min_date) 
+		and ($date/singleDateTime/calendarDate < $max_date))
 	)
 
 return
