@@ -3,7 +3,7 @@ declare option exist:serialize "method=xml";
 declare option exist:serialize "omit-xml-declaration=no";
 declare option exist:serialize "indent=yes";
 <projects>{
-for $p in collection("/db/projects")/lter:researchProject
+for $p in collection("/db/projects")/*:researchProject
 	let $title := $p/title/text()
 	let $idstr := $p/@id
 	let $time := $p/coverage/temporalCoverage

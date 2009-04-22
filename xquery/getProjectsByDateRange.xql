@@ -33,28 +33,21 @@ declare namespace eml="eml://ecoinformatics.org/project-2.1.0";
 declare option exist:serialize "method=xml";
 declare option exist:serialize "omit-xml-declaration=no";
 declare option exist:serialize "indent=yes";
-
-(: a function to return the simpleDateTimeType :)
-declare function local:yearDate($datestring as xs:string) 
-	as xs:gYear {
-	    xs:gYear(substring($datestring, 1, 4))};
  
 (: grab the request parameters :)
 let $site := request:get-parameter("site",'')
 let $xslt := request:get-parameter("xlst",'')
-let $min_date := local:yearDate(request:get-parameter('min_date',current-date() cast as xs:string)) 
-let $max_date := local:yearDate(request:get-parameter('max_date', current-date() cast as xs:string))
+let $min_date := request:get-parameter('min_date',current-date() ) cast as xs:string
+let $max_date := request:get-parameter('max_date', current-date() ) cast as xs:string
 
 (: find the relevant projects :)
-for $projects in collection(concat('/db/projects/',lower-case($site)))/lter:researchProject
-	let $date := $projects/coverage/temporalCoverage
-where (
-	(($date/rangeOfDates/beginDate >= $min_date)
-		and ($date/rangeOfDates/endDate <= $max_date)) 
-	or $date/ongoing 
-	or (($date/singleDateTime/calendarDate >= $min_date) 
-		and ($date/singleDateTime/calendarDate <= $max_date))
-	)
+
+let $ongoingProjects := collection(concat('/db/projects/',lower-case($site)))/*:researchProject[./coverage/temporalCoverage/ongoing/beginDate > $min_date]
+let $singleDateProjects := collection(concat('/db/projects/',lower-case($site)))/*:researchProject[./coverage/temporalCoverage/singleDateTime/calendarDate > $min_date]
+
+let $multiDateProjects := collection(concat('/db/projects/',lower-case($site)))/*:researchProject[./coverage/temporalCoverage/rangeOfDates/beginDate > $min_date and ./coverage/temporalCoverage/rangeOfDates/endDate < $max_date]
+
+let $projects := $multiDateProjects union $ongoingProjects union $singleDateProjects
 
 return
 <projects>{

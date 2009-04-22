@@ -6,8 +6,7 @@ for a string in title, creator/individualName/surname, keywordSet/keyword, or an
 			keyword = the word or sentence to search for 
 			
 		Usage Notes:
-			only a single word or phrase is searched, no and's and or's. Search is 
-			case sensitive.
+			search is case sensitive, but can use regex.
 		
 		Attribution:
        Author: Sven Böhm <bohms@lternet.edu>
@@ -38,11 +37,11 @@ let $keyword := request:get-parameter("keyword",'')
 let $site := request:get-parameter("site",'')
  
 
-for $projects in collection(concat('/db/projects/',lower-case($site)))/lter:researchProject
-where (fn:contains($projects/title, $keyword)
-	or fn:contains($projects/creator/individualName/surName, $keyword)
-	or fn:contains($projects/keywordSet/keyword, $keyword)
-	or fn:contains($projects/*/para, $keyword))
+for $projects in collection(concat('/db/projects/',lower-case($site)))/*:researchProject
+where (matches($projects/title, $keyword)
+	or matches($projects/creator/individualName/surName, $keyword)
+	or matches($projects/keywordSet/keyword, $keyword)
+	or matches($projects//para, $keyword))
 	
 return
 <projects>{
