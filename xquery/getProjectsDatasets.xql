@@ -1,10 +1,9 @@
 (:	getSiteDatasets.xql: XQuery to return all the datasets from a site 
 	
 		Parameters:	
-			site = the three letter site acronym 
+			id = the project id
 			
 		Usage Notes:
-			if no site is supplied all sites will be returned.
 		
 		Attribution:
        Author: Sven Böhm <bohms@lternet.edu>
@@ -30,12 +29,13 @@ declare option exist:serialize "method=xml";
 declare option exist:serialize "omit-xml-declaration=no";
 declare option exist:serialize "indent=yes";
 
-let $site := request:get-parameter("site",'')
+let $id := request:get-parameter('id','')
 
-let $projects := collection(concat('/db/projects/',lower-case($site)))/eml:researchProject
+let $projects := collection('/db/projects')/eml:researchProject[@id=$id]
 let $datasets := $projects/associatedMaterial[lower-case(@category)='dataset']
 
 return
+$projects
 <eml>{
 	for $dataset in $datasets
 		return
