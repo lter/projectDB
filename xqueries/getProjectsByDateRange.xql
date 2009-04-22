@@ -1,16 +1,19 @@
 xquery version "1.0";
 declare namespace eml="eml://ecoinformatics.org/project-2.1.0";
+declare namespace eml-coverage="eml://ecoinformatics.org/coverage-2.1.0";
+declare namespace res="eml://ecoinformatics.org/resource-2.1.0";
 
 declare option exist:serialize "method=xml omit-xml-declaration=no indent=yes encoding=iso-8859-1 media-type=application/rss+xml";
 (: comment  :)
 
-
-let $site := 'bes' (: request:get-parameter("site",'') :)
+declare function local:yearDate($datestring as xs:string) 
+	as xs:gYear {
+	    xs:gYear(substring($datestring, 0, 5))};
+  
+let $site := 'cap' (: request:get-parameter("site",'') :)
 let $xslt := '' (: request:get-parameter("xlst",'') :)
-let $start_date := xs:date("2000-01-01")
-let $end_date := xs:date("2015-01-01")
-let $start_year := fn:year-from-dateTime($start_date cast as xs:dateTime)
-let $end_year := fn:year-from-dateTime($start_date cast as xs:dateTime)
+let $start_date := local:yearDate("2000/01/01")
+let $end_date := local:yearDate("2015-01-01")
 
 for $projects in collection(concat('/db/projects/',lower-case($site)))/eml:researchProject
 where (
