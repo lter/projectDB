@@ -8,12 +8,12 @@ declare option exist:serialize "method=xml omit-xml-declaration=no indent=yes en
 
 declare function local:yearDate($datestring as xs:string) 
 	as xs:gYear {
-	    xs:gYear(substring($datestring, 0, 5))};
+	    xs:gYear(substring($datestring, 1, 4))};
   
 let $site := 'cap' (: request:get-parameter("site",'') :)
 let $xslt := '' (: request:get-parameter("xlst",'') :)
-let $start_date := local:yearDate("2000/01/01")
-let $end_date := local:yearDate("2015-01-01")
+let $start_date := local:yearDate(request:get-parameter('start_date',current-date() cast as xs:string)) 
+let $end_date := local:yearDate(request:get-parameter('end_date', current-date() cast as xs:string))
 
 for $projects in collection(concat('/db/projects/',lower-case($site)))/eml:researchProject
 where (
