@@ -1,3 +1,32 @@
+(:	getPermissions.xql: XQuery to return all projects that have a permission temporal coverage 
+	within the query dates..
+	
+		Parameters:	
+			site = the three letter site acronym 
+			min_date = the earlier date boundary
+			max_date = the later date boundary
+			recipient = the recipient for the report
+			xslt = the xslt styelsheet reference to include (not implemented)
+			
+		Usage Notes:
+		
+		Attribution:
+       Author: Sven Böhm <bohms@lternet.edu>
+       Date: 22-Apr-2009
+       Revision: 0.1
+	
+		License:
+        This program is free software; you can redistribute it and/or modify
+        it under the terms of the GNU General Public License as published by
+        the Free Software Foundation; either version 2 of the License, or
+        (at your option) any later version.
+    
+        This program is distributed in the hope that it will be useful,
+        but WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        GNU General Public License for more details (Free Software Foundation, Inc., 
+        59 Temple Place, Suite 330, Boston, MA  02111-1307  USA)
+:)
 xquery version "1.0";
 declare namespace eml="eml://ecoinformatics.org/project-2.1.0";
 
@@ -20,10 +49,10 @@ for $projects in collection(concat('/db/projects/',lower-case($site)))/eml:resea
 	let $dates := $projects/permissions/temporalCoverage
 where ((: $projects/reporting[@recipient = $recipient]
  	and :)($dates/ongoing 
-	or (($dates/rangeOfDates/beginDate > $min_date)
-			and ($dates/rangeOfDates/endDate < $max_date))
-	or (($dates/singleDateTime/calendarDate > $min_date) 
-			and ($dates/singleDateTime/calendarDate < $max_date)))
+	or (($dates/rangeOfDates/beginDate >= $min_date)
+			and ($dates/rangeOfDates/endDate <= $max_date))
+	or (($dates/singleDateTime/calendarDate >= $min_date) 
+			and ($dates/singleDateTime/calendarDate <= $max_date)))
 	)
 order by $ids
 return
