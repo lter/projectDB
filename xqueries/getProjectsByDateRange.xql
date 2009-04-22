@@ -23,30 +23,24 @@ where (
 
 return
 <projects>{
-	for $projects in collection("/db/projects")/eml:researchProject
-		let $title := $projects/title/text()
-		let $idstr := $projects/@id
-		let $time := $projects/coverage/temporalCoverage
-		order by $idstr
-		return
-	    <project id="{$idstr}">
-		<title>{$title}</title>
-		{for $creators in $projects/creator
-		let $individual := $creators/individualName
-		let $userid := $creators/userId
-		return
-		<creator>{$individual}{$userid}</creator>}
-		{for $people in $projects/associatedParty
-		let $person_name := $people/individualName
-		let $person_id := $people/userId
-		let $role := $people/role
-		return
-		<associatedParty>{$person_name}{$person_id}{$role}</associatedParty>}
-		<keywordSet>{for $keywords in $projects/keywordSet/keyword
-		let $keyword := $keywords/text()
-		return
-		<keyword>{$keyword}</keyword>}
-		</keywordSet>
-		{$time}
-	    </project>}
-	</projects>	
+	<project id="{$projects/@id}">
+			<title>{$projects/title/text()}</title>
+			{for $creators in $projects/creator
+			let $individual := $creators/individualName
+			let $userid := $creators/userId
+			return
+			<creator>{$individual}{$userid}</creator>}
+			{for $people in $projects/associatedParty
+			let $person_name := $people/individualName
+			let $person_id := $people/userId
+			let $role := $people/role
+			return
+			<associatedParty>{$person_name}{$person_id}{$role}</associatedParty>}
+			<keywordSet>{for $keywords in $projects/keywordSet/keyword
+			let $keyword := $keywords/text()
+			return
+			<keyword>{$keyword}</keyword>}
+			</keywordSet>
+			{$projects/time}
+	</project>}
+</projects>

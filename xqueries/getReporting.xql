@@ -11,23 +11,19 @@ let $start_date := xs:date("2000-01-01")
 let $end_date := xs:date("2015-01-01")
 
 for $projects in collection(concat('/db/projects/',lower-case($site)))/eml:researchProject
-where ($projects/reporting[@recipient = $recipient]
- 	and ($projects/coverage/temporalCoverage/ongoing 
+	let $ids := $projects/@id
+where ((: $projects/reporting[@recipient = $recipient]
+ 	and :)($projects/coverage/temporalCoverage/ongoing 
 	or (($projects/coverage/temporalCoverage/rangeOfDates/beginDate > $start_date)
 			and ($projects/coverage/temporalCoverage/rangeOfDates/endDate < $end_date))
 	or (($projects/coverage/temporalCoverage/singleDateTime/calendarDate > $start_date) 
 			and ($projects/coverage/temporalCoverage/singleDateTime/calendarDate < $end_date)))
 	)
+order by $ids
 return
 <projects>{
-		for $projects in collection("/db/projects")/eml:researchProject
-			let $title := $projects/title/text()
-			let $idstr := $projects/@id
-			let $time := $projects/coverage/temporalCoverage
-			order by $idstr
-			return
-		    <project id="{$idstr}">
-			<title>{$title}</title>
+	<project id="{$projects/@id}">
+			<title>{$projects/title/text()}</title>
 			{for $creators in $projects/creator
 			let $individual := $creators/individualName
 			let $userid := $creators/userId
@@ -44,9 +40,7 @@ return
 			return
 			<keyword>{$keyword}</keyword>}
 			</keywordSet>
-			{$time}
-			<reporting>
-				{$projects/reporting}
-			</reporting>
+			{$projects/time}
+			{$projects/reporting}
 	</project>}
 </projects>
