@@ -46,7 +46,7 @@ let $min_date := local:yearDate(request:get-parameter('min_date',current-date() 
 let $max_date := local:yearDate(request:get-parameter('max_date', current-date() cast as xs:string))
 
 (: find the relevant projects :)
-for $projects in collection(concat('/db/projects/',lower-case($site)))/eml:researchProject
+for $projects in collection(concat('/db/projects/',lower-case($site)))/lter:researchProject
 	let $date := $projects/coverage/temporalCoverage
 where (
 	(($date/rangeOfDates/beginDate >= $min_date)

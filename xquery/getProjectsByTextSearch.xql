@@ -38,7 +38,7 @@ let $keyword := request:get-parameter("keyword",'')
 let $site := request:get-parameter("site",'')
  
 
-for $projects in collection(concat('/db/projects/',lower-case($site)))/eml:researchProject
+for $projects in collection(concat('/db/projects/',lower-case($site)))/lter:researchProject
 where (fn:contains($projects/title, $keyword)
 	or fn:contains($projects/creator/individualName/surName, $keyword)
 	or fn:contains($projects/keywordSet/keyword, $keyword)

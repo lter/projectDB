@@ -32,7 +32,7 @@ declare option exist:serialize "indent=yes";
 
 let $site := request:get-parameter("site",'')
 
-let $projects := collection(concat('/db/projects/',lower-case($site)))/eml:researchProject
+let $projects := collection(concat('/db/projects/',lower-case($site)))/lter:researchProject
 let $datasets := $projects/associatedMaterial[lower-case(@category)='dataset']
 
 return

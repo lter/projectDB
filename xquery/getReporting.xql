@@ -16,7 +16,7 @@ let $recipient := request:get-parameter('recipient','')
 let $min_date := local:yearDate(request:get-parameter('min_date', ''))
 let $max_date := local:yearDate(request:get-parameter('max_date', '')) (: minus 1 year? :)
 
-for $projects in collection(concat('/db/projects/',lower-case($site)))/eml:researchProject
+for $projects in collection(concat('/db/projects/',lower-case($site)))/lter:researchProject
 	let $ids := $projects/@id
 	let $dates := $projects/coverage/temporalCoverage
 where ( $projects/reporting[@recipient = $recipient]

@@ -31,7 +31,7 @@ declare option exist:serialize "indent=yes";
 
 let $id := request:get-parameter('id','')
 
-let $projects := collection('/db/projects')/eml:researchProject[@id=$id]
+let $projects := collection('/db/projects')/lter:researchProject[@id=$id]
 let $datasets := $projects/associatedMaterial[lower-case(@category)='dataset']
 
 return
