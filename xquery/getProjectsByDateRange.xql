@@ -38,21 +38,20 @@ declare option exist:serialize "indent=yes";
 
 declare function local:yearDate($datestring as xs:string) 
 	as xs:gYear {
-	    xs:gYear(substring($datestring, 0, 5))};
-
+	    xs:gYear(substring($datestring, 1, 4))};
+	
+	
 (: return true if the project is in the current date interval or if the id matches :)
-declare function local:currentProject($project, $id, $start_date as xs:string, $end_date as xs:string) 
-	as xs:boolean {
-	if ($id = '') then
-		$project/@id = $id
-	else 
-		(($project/coverage/temporalCoverage/rangeOfDates/beginDate >= $start_date)
+	declare function local:currentProject($project, $id, $start_date as xs:string, $end_date as xs:string) 
+			as xs:boolean {
+			if ($id = '') then
+				(($project/coverage/temporalCoverage/rangeOfDates/beginDate >= $start_date)
 				and ($project/coverage/temporalCoverage/rangeOfDates/endDate <= $end_date)) 
-			or $project/coverage/temporalCoverage/ongoing
-			or (($project/coverage/temporalCoverage/singleDateTime/calendarDate >= $start_date) 
+				or $project/coverage/temporalCoverage/ongoing
+				or (($project/coverage/temporalCoverage/singleDateTime/calendarDate >= $start_date) 
 				and ($project/coverage/temporalCoverage/singleDateTime/calendarDate <= $end_date))
-			)
-	};
+			else   
+				($project/@id = $id)	};
 
  
 (: grab the request parameters :)
@@ -65,8 +64,8 @@ let $max_date := request:get-parameter('endYear', '' ) cast as xs:string
 
 (: find the relevant projects within the date range :)
 for $projects in collection(concat('/db/projects/',lower-case($site)))/*:researchProject
-where local:currentProject($projects, $id, $start_date, $end_date)
-order by $sortField
+where local:currentProject($projects, $id, $min_date, $max_date)
+order by $sortBy
 return
 <projects>{
 	<project id="{$projects/@id}">
@@ -89,4 +88,4 @@ return
 			</keywordSet>
 			{$projects/time}
 	</project>}
-</projects>
+

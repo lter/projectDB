@@ -1,7 +1,12 @@
-(:	getProjectsDatasets.xql: XQuery to return all the datasets from a project 
+(:	getProjectsDatasets.xql: XQuery to return all the projects in the date range with their
+	associated datasets.
 	
 		Parameters:	
-			id = the project id
+			siteId = three letter LTER site acronym
+			id = (optional) the project id
+			sortBy = (optional) default 'title', others 'id', 'surname'
+			startYear = (optional) the first year of interest defaults to 1900
+			endYear = (optional) the last year of interest defaults to current date
 			
 		Usage Notes:
 		
@@ -29,18 +34,57 @@ declare option exist:serialize "method=xml";
 declare option exist:serialize "omit-xml-declaration=no";
 declare option exist:serialize "indent=yes";
 
-let $id := request:get-parameter('id','')
 
-let $projects := collection('/db/projects')/*:researchProject[@id=$id]
-let $datasets := $projects/associatedMaterial[lower-case(@category)='dataset']
+declare function local:yearDate($datestring as xs:string) 
+	as xs:gYear {
+	    xs:gYear(substring($datestring, 1, 4))};
+	
+	
+(: return true if the project is in the current date interval or if the id matches :)
+	declare function local:currentProject($project, $id, $start_date as xs:string, $end_date as xs:string) 
+			as xs:boolean {
+			if ($id = '') then
+				(($project/coverage/temporalCoverage/rangeOfDates/beginDate >= $start_date)
+				and ($project/coverage/temporalCoverage/rangeOfDates/endDate <= $end_date)) 
+				or $project/coverage/temporalCoverage/ongoing
+				or (($project/coverage/temporalCoverage/singleDateTime/calendarDate >= $start_date) 
+				and ($project/coverage/temporalCoverage/singleDateTime/calendarDate <= $end_date))
+			else   
+				($project/@id = $id)	};
 
+
+let $site := request:get-parameter("siteID",'')
+let $id := request:get-parameter("id", '')
+let $sortBy := request:get-parameter("sortBy", "title")
+let $xslt := request:get-parameter("xlst",'')
+let $min_date := request:get-parameter('startYear', '1900' ) cast as xs:string
+let $max_date := request:get-parameter('endYear', current-date ) cast as xs:string
+
+for $projects in collection('/db/projects')/*:researchProject[./associatedMaterial[lower-case(@category)='dataset']
+where local:currentProject($projects, $id, $min_date, $max_date)
+order by $sortBy
 return
 $projects
-<eml>{
-	for $dataset in $datasets
-		return
-		<dataset id="{data($dataset/@id)}">
-			{$dataset/distribution}
-		</dataset>
-}	
-</eml>
+<projects>{
+	<project id="{$projects/@id}">
+			<title>{$projects/title/text()}</title>
+			{for $creators in $projects/creator
+			let $individual := $creators/individualName
+			let $userid := $creators/userId
+			return
+			<creator>{$individual}{$userid}</creator>}
+			{for $people in $projects/associatedParty
+			let $person_name := $people/individualName
+			let $person_id := $people/userId
+			let $role := $people/role
+			return
+			<associatedParty>{$person_name}{$person_id}{$role}</associatedParty>}
+			<keywordSet>{for $keywords in $projects/keywordSet/keyword
+			let $keyword := $keywords/text()
+			return
+			<keyword>{$keyword}</keyword>}
+			</keywordSet>
+			{$projects/time}
+			{$projects/associatedMaterial[lower-case(@category)='dataset']}
+	</project>}
+</projects>

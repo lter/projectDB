@@ -39,39 +39,25 @@ declare function local:yearDate($datestring as xs:string)
 	as xs:gYear {
 	    xs:gYear(substring($datestring, 0, 5))};
 	
-declare function local:currentProject($project, $id, $start_date as xs:string, $end_date as xs:string) 
-	as xs:boolean {
+
+(: return true if the project is in the current date interval or if the id matches :)
+	declare function local:currentProject($project, $id, $start_date as xs:string, $end_date as xs:string) 
+		as xs:boolean {
 	if ($id = '') then
-		$project/@id = $id
-	else then
-		(($project/coverage/temporalCoverage/rangeOfDates/beginDate > $start_date)
-				and ($project/coverage/temporalCoverage/rangeOfDates/endDate < $end_date)) 
-			or $project/coverage/temporalCoverage/ongoing
-			or (($project/coverage/temporalCoverage/singleDateTime/calendarDate > $start_date) 
-				and ($project/coverage/temporalCoverage/singleDateTime/calendarDate < $end_date))
-			)
-	};
-	
-	(: Map query field parameter to xpath selection :)
-	declare function local:query-field($field as xs:string) as xs:string
-	{
-	    if ($field = "au") then
-	        "creator/individualName/surName"
-	    else if ($field = "ti") then
-	        "title"
-	    else if ($field = "ye") then
-	        "pubDate"
-	    else
-	        "."
-	};
-	
+		(($project/coverage/temporalCoverage/rangeOfDates/beginDate >= $start_date)
+		and ($project/coverage/temporalCoverage/rangeOfDates/endDate <= $end_date)) 
+		or $project/coverage/temporalCoverage/ongoing
+		or (($project/coverage/temporalCoverage/singleDateTime/calendarDate >= $start_date) 
+		and ($project/coverage/temporalCoverage/singleDateTime/calendarDate <= $end_date))
+	else   
+		($project/@id = $id)	};	
 
 let $site := request:get-parameter("siteId",'')
 let $id := request:get-parameter("id", '')
 let $sortBy := request:get-parameter("sortBy", 'title')
 let $xslt := request:get-parameter("xlst",'')
 let $startYear := request:get-parameter('startYear','1900') cast as xs:string
-let $endYear := request:get-parameter('endYear', fn:current_date()) cast as xs:string
+let $endYear := request:get-parameter('endYear', current-date()) cast as xs:string
 
 (: find the relevant projects within the date range  unless we have an id :)
 

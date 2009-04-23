@@ -3,7 +3,7 @@
 		Parameters:	
 			siteId = the three letter site acronym 
 			id = (optional) the project id
-			sortsBy = default title, other values id, surname
+			sortBy = default title, other values id, surname
 			startYear = the earlier date boundary
 			endYear = the later date boundary
 			recipient = the recipient of the report
@@ -40,25 +40,29 @@ declare function local:yearDate($datestring as xs:string)
 	    xs:gYear(substring($datestring, 1, 4))};
 
 
-let $site := request:get-parameter("site",'')
+(: return true if the project is in the current date interval or if the id matches :)
+	declare function local:currentProject($project, $id, $start_date as xs:string, $end_date as xs:string) 
+		as xs:boolean {
+	if ($id = '') then
+		(($project/coverage/temporalCoverage/rangeOfDates/beginDate >= $start_date)
+		and ($project/coverage/temporalCoverage/rangeOfDates/endDate <= $end_date)) 
+		or $project/coverage/temporalCoverage/ongoing
+		or (($project/coverage/temporalCoverage/singleDateTime/calendarDate >= $start_date) 
+		and ($project/coverage/temporalCoverage/singleDateTime/calendarDate <= $end_date))
+	else   
+		($project/@id = $id)	};
+
+
+let $site := request:get-parameter("siteId",'')
 let $xslt := request:get-parameter("xlst",'')
+let $id := request:get-parameter('id', '')
 let $recipient := request:get-parameter('recipient','')
 let $sortBy := request:get-parameter('sortBy', 'title')
 let $min_date := request:get-parameter('startYear', '') cast as xs:string
 let $max_date := request:get-parameter('endYear', '') cast as xs:string
 
-(: TODO: check that values are legal :)
-
-(: find the relevant projects within the date range :)
-
-let $ongoingProjects := collection(concat('/db/projects/',lower-case($site)))/*:researchProject[./coverage/temporalCoverage/ongoing/beginDate > $min_date]
-let $singleDateProjects := collection(concat('/db/projects/',lower-case($site)))/*:researchProject[./coverage/temporalCoverage/singleDateTime/calendarDate > $min_date]
-let $multiDateProjects := collection(concat('/db/projects/',lower-case($site)))/*:researchProject[./coverage/temporalCoverage/rangeOfDates/beginDate > $min_date and ./coverage/temporalCoverage/rangeOfDates/endDate < $max_date]
-
-let $possible_projects := $multiDateProjects union $ongoingProjects union $singleDateProjects
-
-for $project in $possible_projects
-where ( $project/reporting[@recipient = $recipient]
+for $projects in collection(concat('/db/projects/',lower-case($site)))/*:researchProject/reporting[@recipient = $recipient]
+		where local:currentProject($projects, $id, $min_date, $max_date)
 order by $sortBy
 return
 <projects>{
