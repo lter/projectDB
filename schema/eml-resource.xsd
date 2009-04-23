@@ -467,8 +467,14 @@
         <doc:tooltip>Year or Date</doc:tooltip>
         <doc:summary>A type allowing a year or date value</doc:summary>
         <doc:description>This type is the union of the built-in types for year and
-          date.</doc:description>
-        <doc:example>1999, or 2001-03-15</doc:example>
+          date. The built-in type year must be an integer. The built-in type for
+          date (xs:date) must be composed of 3 parts separated by dashes (-), where
+          the first part represents a xs:year, and the other parts represent month and 
+          day, respectively.
+        </doc:description>
+        <doc:example>1999</doc:example>
+        <doc:example>2001-03-15</doc:example>
+        
       </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="xs:gYear xs:date"/>

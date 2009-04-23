@@ -33,17 +33,19 @@
         <doc:moduleDescription>
           <section xmlns="">
             <title>The lter-project module - Research context for resources</title>
-            <para>This module is based on the eml-project module. It describes a project which might
-              form a context for research. The definition of a "project" is not constrained. It may
+            <para>This module is based on the eml-project module. It was developed in response to a 
+              need to describe a context for research projects and their management. The definition of a 
+              "project" is not constrained. It may
               include scientific research investigations or student-led thesis projects, working
               groups of limited scope, or cyberinfrastructure coding projects. It is intended to
               house information on how a project was created, including descriptions of 
-              motivations and goals, funding, personnel, description of the study area or study design. 
+              motivations and goals, funding, personnel, and description of the study area or study design. 
               This module also has descriptors for associated resources and projects, and for material 
               intended for (or derived from) reports, and related to project management issues such as
               approval or permission.</para>
-            <para>Unlike the eml-project module, instance documents written against this schema are
-              standalone documents; the lter:researchProject element is a top level element. It includes the
+            <para>Unlike the eml-project module included with EML 2, documents written against this 
+              schema are standalone documents; the lter:researchProject element is a top level element. 
+              This              module includes the
               "resource group" which includes basic elements for title, abstract, responsible
               parties, coverage, keywords, etc, as do other top-level EML resources.</para>
             <para>Since it is derived from the EML-2.1.0 family of schemas, most namespaces were left
@@ -72,8 +74,10 @@
       <xs:appinfo>
         <doc:tooltip>research project</doc:tooltip>
         <doc:summary>The root element of this module.</doc:summary>
-        <doc:description>The root element of this module to instantiate a stand-alone project
-          file.</doc:description>
+        <doc:description>researchProject is the root element of a project document. 
+          The form of a project's description is defined by the ResearchProjectType; 
+          see that Type's definition for more
+          information.</doc:description>
       </xs:appinfo>
     </xs:annotation>
   </xs:element>
@@ -89,15 +93,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:annotation>
-        <xs:appinfo>
-          <doc:tooltip>Accumulated activities conducted in this project</doc:tooltip>
-          <doc:summary>Accumulated activities conducted in this project</doc:summary>
-          <doc:description>This field contaiins a description of the project's activities. The
-            intent is that this field could be used to record accumulated activities, not just
-            recent. </doc:description>
-        </xs:appinfo>
-      </xs:annotation>
+ 
       <xs:group ref="res:ResourceGroup"/>
       <xs:element name="funding" type="txt:TextType" minOccurs="0">
         <xs:annotation>
@@ -115,11 +111,12 @@
           <xs:appinfo>
             <doc:tooltip>Description of the study area.</doc:tooltip>
             <doc:summary>Description of the physical area associated with the research project,
-              potentially including coverage, climate, geology, distrubances, etc.</doc:summary>
-            <doc:description>The studyAreaDescription field documents the physical area associated
+              which might include climate, geology, distrubances, etc, or a coverage node.</doc:summary>
+            <doc:description>The studyAreaDescription field describes the physical area associated
               with the research project. It can include descriptions of the geographic, temporal,
-              and taxonomic coverage of the research location and descriptions of domains (themes)
-              of interest such as climate, geology, soils or distrubances or reference to citable
+              and taxonomic coverage of the research location. It may also include a description
+              of domains (or themes) of interest such as climate, geology, soils or distrubances, 
+              and it may reference a               citable
               biological or geophysical classification systems such as the Bailey Ecoregions or the
               Holdridge Life Zones.</doc:description>
           </xs:appinfo>
@@ -132,10 +129,11 @@
                   <doc:tooltip>Non-coverage characteristics of the study area</doc:tooltip>
                   <doc:summary>Description of non-coverage characteristics of the study area such as
                     climate, geology, disturbances</doc:summary>
-                  <doc:description>The descriptor field is used to document domains (themes) of
-                    interest such as climate, geology, soils or disturbances or references to
+                  <doc:description>The descriptor field is used to document the domain (or theme) of
+                    interest such as climate, geology, soils or disturbances. It may reference a
                     citable biological or geophysical classification systems such as the Bailey
-                    Ecoregions or the Holdridge Life Zones.</doc:description>
+                    Ecoregions or the Holdridge Life Zones. The descriptor element's attributes
+                  specify the descriptor's name, and whether or not it is citable.</doc:description>
                 </xs:appinfo>
               </xs:annotation>
               <xs:complexType>
@@ -146,15 +144,27 @@
                         <doc:tooltip>Description of some aspect of the study area.</doc:tooltip>
                         <doc:summary>Description of some aspect of the study area.</doc:summary>
                         <doc:description>The descriptorValue field contains the value of a
-                          descriptor, describing some aspect of the study area. This may either be a
-                          general description in textual form or the value part of a "name/value"
-                          pair where the name is entered in the attribute "name_or_id". For example,
-                          if the value of the "name" attribute" of the element "descriptor" is
+                          descriptor, describing some aspect of the study area. The descriptorValue
+                          may be either a
+                          general description in textual form, or may be the value part of 
+                          a "name/value"
+                          pair where the name is entered in the attribute "name_or_id"
+                          on the parent element (&lt;descriptor&gt;). For example,
+                          if the value of the "name" attribute of the element "descriptor" is
                           "climate", and the value of the attribute "name_or_id" of the element
                           "descriptorValue" is "Annual Precipitation" then the value of this element
                           could be "12.5 inches".</doc:description>
-                        <doc:example>12.5 inches</doc:example>
-                        <doc:example>tundra-forest</doc:example>
+                        <doc:example>
+                          &lt;descriptor name_or_id=&quot;Annual Precipitation&quot; citableClassificationSystem=&quot;false&quot;&gt;
+                          12.5 inches
+                          &lt;/descriptor;&gt;
+                        </doc:example>
+                        <doc:example> </doc:example>
+                        <doc:example>
+                          &lt;descriptor name_or_id=&quot;Bailey Ecoregion&quot; citableClassificationSystem=&quot;true&quot;&gt;
+                          124 arctic tundra
+                          &lt;/descriptor;&gt;
+                        </doc:example>
                       </xs:appinfo>
                     </xs:annotation>
                     <xs:complexType>
@@ -174,7 +184,7 @@
                                   example, the ID/Code M131 refers to the phrase "Open Woodland
                                   -Tundra". M131 is an unambiguous reference to a more detailed
                                   description. If one is using a published classification system
-                                  then there should be a corresponding citation to the source, e.g.,
+                                  then a corresponding citation to the source is recommended, e.g.,
                                   Bailey,R.G., 1996 "Ecosystem Geography".</doc:description>
                                 <doc:example>M131</doc:example>
                                 <doc:example>Average Annual Rainfall</doc:example>
@@ -214,7 +224,9 @@
                       <doc:summary>This boolean attribute defines whether this descriptor comes from
                         a citable classification system or not.</doc:summary>
                       <doc:description>This boolean attribute defines whether this descriptor comes
-                        from a citable classification system or not.</doc:description>
+                      from a citable classification system or not.</doc:description>
+                      <doc:example>true</doc:example>
+                      <doc:example>false</doc:example>
                     </xs:appinfo>
                   </xs:annotation>
                 </xs:attribute>
@@ -234,7 +246,8 @@
                 <xs:appinfo>
                   <doc:tooltip>coverage</doc:tooltip>
                   <doc:summary>The coverage of this descriptor.</doc:summary>
-                  <doc:description>The coverage of this descriptor.</doc:description>
+                  <doc:description>The coverage of this descriptor. See the type description
+                  for the more documentation.</doc:description>
                 </xs:appinfo>
               </xs:annotation>
             </xs:element>
@@ -242,9 +255,16 @@
               maxOccurs="unbounded" minOccurs="0">
               <xs:annotation>
                 <xs:appinfo>
-                  <doc:tooltip>associatedMaterial</doc:tooltip>
-                  <doc:summary>Associated Material</doc:summary>
-                  <doc:description>See the type for the full description</doc:description>
+                  <doc:tooltip> Associated Material</doc:tooltip>
+                  <doc:summary>Associated material, file or document belonging to the
+                    project</doc:summary>
+                  <doc:description>associatedMaterial should be used to record other files, 
+                    documents or resources that may belong with this project. These include 
+                    but are not limted to: proposals, protocols, datasets, imagery, 
+                    citations, or other databases. The element also has optional attributes 
+                    to describe features of the material, such as the type, date (e.g., of 
+                    publication), system and level of importance. See the Type attributes 
+                    for more information.</doc:description>
                 </xs:appinfo>
               </xs:annotation>
 
@@ -291,7 +311,17 @@
           </xs:choice>
         </xs:complexType>
       </xs:element>
-      <xs:element name="reporting" type="ReportingType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="reporting" type="ReportingType" minOccurs="0" maxOccurs="unbounded">
+        
+        <xs:annotation>
+          <xs:appinfo>
+            <doc:tooltip>reporting</doc:tooltip>
+            <doc:summary>reporting.</doc:summary>
+            <doc:description>put the reporting stuff here. see the type for more info</doc:description>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      
       <xs:element name="associatedMaterial" type="associatedMaterialType" maxOccurs="unbounded"
         minOccurs="0">
         <xs:annotation>
@@ -299,11 +329,13 @@
             <doc:tooltip> Associated Material</doc:tooltip>
             <doc:summary>Associated material, file or document belonging to the
               project</doc:summary>
-            <doc:description>
-              <doc:section>
-                <para>See the full description under the type.</para>
-              </doc:section>
-            </doc:description>
+            <doc:description>associatedMaterial should be used to record other files, 
+                  documents or resources that may belong with this project. These include 
+                  but are not limted to: proposals, protocols, datasets, imagery, 
+                  citations, or other databases. The element also has optional attributes 
+                  to describe features of the material, such as the type, date (e.g., of 
+                  publication), system and level of importance. See the Type attributes 
+                  for more information.</doc:description>
           </xs:appinfo>
         </xs:annotation>
 
@@ -326,6 +358,7 @@
     <xs:attribute name="system" type="res:SystemType" use="optional"/>
     <xs:attribute name="scope" type="res:ScopeType" use="optional" default="document"/>
   </xs:complexType>
+  
   <xs:simpleType name="DescriptorType">
     <xs:annotation>
       <xs:appinfo>
@@ -369,7 +402,11 @@
       <xs:appinfo>
         <doc:tooltip>Associated Material Category Type</doc:tooltip>
         <doc:summary>The type of material associated with this project</doc:summary>
-        <doc:description>The type of material associated with this project.</doc:description>
+        <doc:description>The type of material associated with this project. Several
+        pre-defined categories have been included, and authors should use these when
+        applicable to facilate search by applications expecting them. Authors may
+        choose other content if the pre-defined strings are not appropriate.
+        </doc:description>
         <doc:example>dataset</doc:example>
         <doc:example>image</doc:example>
         <doc:example>publication</doc:example>
@@ -442,11 +479,27 @@
         type="associatedMaterialType">
         <xs:annotation>
           <xs:appinfo>
-            <doc:tooltip>associatedMaterial</doc:tooltip>
-            <doc:summary>Associated Material</doc:summary>
-            <doc:description>See the type for the full description</doc:description>
-            </xs:appinfo>
+            <doc:tooltip> Associated Material</doc:tooltip>
+            <doc:summary>Associated material, file or document belonging to the
+              project</doc:summary>
+            <doc:description>
+              <doc:section>
+                <para>associatedMaterial should be used to record other files, 
+              documents or resources that may belong with this project. These include 
+              but are not limted to: proposals, protocols, datasets, imagery, 
+              citations, or other databases. The element also has optional attributes 
+              to describe features of the material, such as the type, date (e.g., of 
+              publication), system and level of importance. See the Type attributes 
+              for more information.
+                </para>
+              </doc:section>
+              </doc:description>
+          </xs:appinfo>
         </xs:annotation>
+        
+        
+        
+        
       </xs:element>
 
     </xs:sequence>
@@ -477,9 +530,14 @@
       <xs:appinfo>
         <doc:tooltip>Assiated project Type</doc:tooltip>
         <doc:summary>Associated project Type</doc:summary>
-        <doc:description>A project that is associated with this project. This type was developed as
+        <doc:description>
+          <doc:section>
+            <para>A project that is associated with this project. This type was developed as
           an alternative to the nested "relatedProject"s in EML. The relationship attribute reflects
-          the relationship of the associated project to the project being described. </doc:description>
+          the relationship of the associated project to the project being described.
+            </para>
+          </doc:section>
+          </doc:description>
         <doc:example>Santa Barbara Coastal LTER Project</doc:example>
       </xs:appinfo>
     </xs:annotation>
@@ -561,13 +619,15 @@
         <doc:summary>Associated material, file or document belonging to the project</doc:summary>
         <doc:description>
           <doc:section>
-            <para>This field is intended to be used as necessary to record other files, documents or
-              resources that may belong with this project. These include but are not limted to:
-              proposals, protocols, datasets, imagery, citations, or other databases. It contains an
-              instance of EML's physicalDistributionType. This type includes an access tree for
-              controlling access to resources. Assume that access is open unless otherwise stated.
-              The element also has optional attributes to describe features of the material;SOME
-              MORE ABOUT THE INTENDED USE. </para>
+            <para>This field is intended to be used as necessary to record other files, documents 
+              or resources that may belong with this project. These include but are not limted ]
+              to: proposals, protocols, datasets, imagery, citations, or other databases. 
+              It contains an instance of EML's physicalDistributionType. This type includes 
+              an access tree for controlling access to resources. Assume that access is open 
+              unless otherwise stated. The element has optional attributes 
+              to describe features of the material, such as the type, date (e.g., of 
+              publication), system and level of importance. See the individual attributes for
+            more information on their use.</para>
           </doc:section>
         </doc:description>
       </xs:appinfo>
@@ -583,7 +643,8 @@
                   project</doc:summary>
                 <doc:description>
                   <doc:section>
-                    <para>The Id of the material in some system. See the Type for more information. </para>
+                    <para>The Id of the material in some system. See the Type for more 
+                      information. </para>
                   </doc:section>
                 </doc:description>
                 <doc:example>knb-lter-sbc.1.1</doc:example>
@@ -630,6 +691,9 @@
                 Other strings are also allowed.</para>
             </doc:section>
           </doc:description>
+          <doc:example>dataset</doc:example>
+          <doc:example>image</doc:example>
+          <doc:example>publication</doc:example>
           </xs:appinfo>
       </xs:annotation>
     </xs:attribute>

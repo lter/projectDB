@@ -1,97 +1,76 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>About projectDB Schema</title><link rel="stylesheet" href="./default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.50.0"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="book"><div class="titlepage"><div><h1 class="title"><a name="id220952"></a>About projectDB Schema</h1></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt>1. <a href="#introduction">Introduction</a></dt><dt>2. <a href="#features">Features and differences from EML 2</a></dt><dd><dl><dt>2.1. <a href="#id220987">Root-level element is &lt;researchProject&gt;</a></dt><dt>2.2. <a href="#id210201">Import the resource group </a></dt><dt>2.3. <a href="#id210212"> New nodes added </a></dt></dl></dd><dt>3. <a href="#moduleOverview">Module Overview </a></dt><dd><dl><dt>3.1. <a href="#id170314">Introduction to projectDB modules and their use</a></dt><dt>3.2. <a href="#id170324"> Root-level structure </a></dt><dd><dl><dt>3.2.1. <a href="#id170330">The eml-project module - Research context information for
-            resources</a></dt></dl></dd><dt>3.3. <a href="#id170632">Modules Used </a></dt><dd><dl><dt>3.3.1. <a href="#id170641">
-              The eml-resource module - Base information for
-              all resources
-            </a></dt><dt>3.3.2. <a href="#id170665">The eml-physical module - Physical file format</a></dt><dt>3.3.3. <a href="#id170704">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>About projectDB Schema</title><link rel="stylesheet" href="./default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.50.0"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="book"><div class="titlepage"><div><h1 class="title"><a name="d0e1"></a>About projectDB Schema</h1></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt>1. <a href="#introduction">Introduction</a></dt><dt>2. <a href="#features">Features and differences from EML 2</a></dt><dd><dl><dt>2.1. <a href="#d0e15">Root-level element is &lt;researchProject&gt;</a></dt><dt>2.2. <a href="#d0e26">Import the resource group </a></dt><dt>2.3. <a href="#d0e31"> New nodes added </a></dt></dl></dd><dt>3. <a href="#moduleOverview">Module Overview </a></dt><dd><dl><dt>3.1. <a href="#d0e49">Introduction to projectDB modules and their use</a></dt><dt>3.2. <a href="#d0e54"> Root-level structure </a></dt><dd><dl><dt>3.2.1. <a href="#d0e57">The lter-project module - Research context for resources</a></dt></dl></dd><dt>3.3. <a href="#d0e66">Modules Used </a></dt><dd><dl><dt>3.3.1. <a href="#d0e71"> The eml-resource module - Base information for all resources </a></dt><dt>3.3.2. <a href="#d0e78">The eml-physical module - Physical file format</a></dt><dt>3.3.3. <a href="#d0e85">
             The eml-party module - People and organization information
-          </a></dt><dt>3.3.4. <a href="#id170728">
+          </a></dt><dt>3.3.4. <a href="#d0e92">
             The eml-coverage module - Geographic, temporal, and taxonomic extents
             of resources
-          </a></dt><dt>3.3.5. <a href="#id170780">
-              The eml-literature module - Citation specific
-              information
-            </a></dt><dt>3.3.6. <a href="#id170814">
+          </a></dt><dt>3.3.5. <a href="#d0e103"> The eml-literature module - Citation specific information </a></dt><dt>3.3.6. <a href="#d0e113">
               The eml-access module - Access control rules for resources
-            </a></dt></dl></dd></dl></dd><dt>4. <a href="#moduleDescriptions">Module Descriptions (Normative)</a></dt><dd><dl><dt>4.1. <a href="#eml-project">eml-project</a></dt><dt>4.2. <a href="#eml-access">eml-access</a></dt><dt>4.3. <a href="#eml-coverage">eml-coverage</a></dt><dt>4.4. <a href="#eml-literature">eml-literature</a></dt><dt>4.5. <a href="#eml-party">eml-party</a></dt><dt>4.6. <a href="#eml-physical">eml-physical</a></dt><dt>4.7. <a href="#eml-resource">eml-resource</a></dt><dt>4.8. <a href="#eml-text">eml-text</a></dt><dt>4.9. <a href="#eml-unitTypeDefinitions">eml-unitTypeDefinitions</a></dt></dl></dd><dt><a href="#index">Index</a></dt></dl></div><div class="chapter"><div class="titlepage"><div><h2 class="title"><a name="introduction"></a>Chapter 1. Introduction</h2></div></div><p>The schema for the projectDB is closely based on the EML project module. The EML
-            development community is aware of this use, and we plan to recommend a set of changes to
-            the EML schema in the course of this work.</p></div><div class="chapter"><div class="titlepage"><div><h2 class="title"><a name="features"></a>Chapter 2. Features and differences from EML 2</h2></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt>2.1. <a href="#id220987">Root-level element is &lt;researchProject&gt;</a></dt><dt>2.2. <a href="#id210201">Import the resource group </a></dt><dt>2.3. <a href="#id210212"> New nodes added </a></dt></dl></div><p>This schema incorporates most of the important features of  EML2. In the projectDB
-                 schema we have imported the EML2.1 series of schema docs, in anticipation of it's release
-                 early in 2009. Some changes have been made to the project schema for projectDB, and so it
-                 differs from EML 2's project module in these ways:</p><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="id220987"></a>2.1. Root-level element is &lt;researchProject&gt;</h2></div></div><p>The root-level element is &lt;researchProject&gt; instead of &lt;eml&gt;.  
-                           </p><div class="itemizedlist"><ul type="disc"><li> DISCUSSION POINT: should the root level element be
-                    &lt;eml:eml&gt;, and the project be elevated to it's first child? This would be analogous to 
-                    
-                    dataset|citation|software|protocol in EML 2 </li><li> DISCUSSION POINT: namespace? currently there is none.</li></ul></div></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="id210201"></a>2.2. Import the resource group </h2></div></div><p>
-              The project schema uses the resource group, as do other top-level EML elements. 
-              
-            </p></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="id210212"></a>2.3.  New nodes added </h2></div></div><p>Three new nodes were added to the eml-project schema to accommodate use cases.
+            </a></dt></dl></dd></dl></dd><dt>4. <a href="#moduleDescriptions">Module Descriptions (Normative)</a></dt><dd><dl><dt>4.1. <a href="#lter-project">lter-project</a></dt><dt>4.2. <a href="#eml-access">eml-access</a></dt><dt>4.3. <a href="#eml-coverage">eml-coverage</a></dt><dt>4.4. <a href="#eml-literature">eml-literature</a></dt><dt>4.5. <a href="#eml-party">eml-party</a></dt><dt>4.6. <a href="#eml-physical">eml-physical</a></dt><dt>4.7. <a href="#eml-resource">eml-resource</a></dt><dt>4.8. <a href="#eml-text">eml-text</a></dt><dt>4.9. <a href="#eml-unitTypeDefinitions">eml-unitTypeDefinitions</a></dt></dl></dd><dt><a href="#index">Index</a></dt></dl></div><div class="chapter"><div class="titlepage"><div><h2 class="title"><a name="introduction"></a>Chapter 1. Introduction</h2></div></div><p>The schema for the projectDB is closely based on the EML project module. The EML
+          development community is aware of this use, and we plan to recommend a set of changes to
+          the EML schema in the course of this work.</p></div><div class="chapter"><div class="titlepage"><div><h2 class="title"><a name="features"></a>Chapter 2. Features and differences from EML 2</h2></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt>2.1. <a href="#d0e15">Root-level element is &lt;researchProject&gt;</a></dt><dt>2.2. <a href="#d0e26">Import the resource group </a></dt><dt>2.3. <a href="#d0e31"> New nodes added </a></dt></dl></div><p>The projectDB schema incorporates most of the important features of EML2. We have
+          imported the EML2.1 series of schema docs, in anticipation of it's release early in 2009.
+          Some changes have been made to the project schema for projectDB, and so it differs from
+          EML 2's project module in these ways:</p><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="d0e15"></a>2.1. Root-level element is &lt;researchProject&gt;</h2></div></div><p>The root-level element is &lt;researchProject&gt; instead of
+            &lt;eml&gt;. </p><div class="itemizedlist"><ul type="disc"><li>Documents written against this schema may use any namespace prefix, but
+                authors creating documents for LTER applications should use the prefix
+                "lter".</li><li>At some future time, the root level element may become &lt;eml:eml&gt;,
+                and the researchProject elevated to it's first child. This structure 
+                would be analogous to the dataset, citation, software, or protocol 
+                modules in EML 2. </li></ul></div><p>
+         </p></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="d0e26"></a>2.2. Import the resource group </h2></div></div><p> The project schema uses the resource group, as do other top-level EML elements.
+          </p></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="d0e31"></a>2.3.  New nodes added </h2></div></div><p>Four new nodes were added to the eml-project schema to accommodate use cases. 
+            All are optional and repeatable.
             </p><div class="orderedlist"><ol type="1"><li>&lt;reporting&gt;: to contain information about reporting needs.
-                This section is generic, with child-elements for the name of a report section and a value, and
-                attributes desribing t the recipient and date. </li><li> &lt;associatedMaterial&gt;: to contain distribution info about
-                an associated resource of the project, such as a dataset or publication
-                <div class="itemizedlist"><ul type="disc"><li> DISCUSSION POINT: this element might need a "system" attribute to go along
-                    with the id </li></ul></div></li><li> &lt;associatedProject&gt;: to contain the name and relationship
-                of a project associated with the project being descibed. The relationship is
-                limited to ancesor or descendant. In the EML 2.1 project schema module, related
-                projects can be nested. This may be appropirate for a datset or citation. But
-                for this use, it seemed that a nested strucutre could result in complex
-                branching documents in which relationships were difficult to follow. A structure
-                more similar to "triples" as simpler to implement and results in simpler
-                instance documents <div class="itemizedlist"><ul type="disc"><li>DISCUSSION POINT: should this element have a "system" +
-                    "id" pair also, to facilitate automated processing? </li><li>DISCUSSION POINT: what about relationships with no 
-                    parentage implied? do we need other relationships? like sibling? or collaborator? </li></ul></div></li></ol></div></div></div><div class="chapter"><div class="titlepage"><div><h2 class="title"><a name="moduleOverview"></a>Chapter 3. Module Overview </h2></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt>3.1. <a href="#id170314">Introduction to projectDB modules and their use</a></dt><dt>3.2. <a href="#id170324"> Root-level structure </a></dt><dd><dl><dt>3.2.1. <a href="#id170330">The eml-project module - Research context information for
-            resources</a></dt></dl></dd><dt>3.3. <a href="#id170632">Modules Used </a></dt><dd><dl><dt>3.3.1. <a href="#id170641">
-              The eml-resource module - Base information for
-              all resources
-            </a></dt><dt>3.3.2. <a href="#id170665">The eml-physical module - Physical file format</a></dt><dt>3.3.3. <a href="#id170704">
+                This node is generic, with elements for the name of a report section and a
+                value (text), and attributes desribing the report's recipient and a date. </li><li>&lt;permissions&gt;: to contain information about project management.
+                Like reporting, this node is generic,  elements for a permissions category and a
+                value (text), and attributes desribing the premission grantor and a date. </li><li> &lt;associatedMaterial&gt;: to contain distribution info about an
+                associated resource of the project, such as a dataset or publication 
+              </li><li> &lt;associatedProject&gt;: to contain the name and relationship of
+                a project associated with the project being descibed. The relationship is limited to
+                "parent", since this is the only information required to
+                build geneological relationships. In the EML 2.1 project schema module, related 
+                projects can be
+                nested. This may be appropirate for a datset or citation, but for this use,
+                a nested structure might result in complex branching documents in which
+                relationships were difficult to follow. A structure more similar to "triples"
+                results in simpler instance documents and is simpler to implement.
+              </li></ol></div><p>
+         </p></div></div><div class="chapter"><div class="titlepage"><div><h2 class="title"><a name="moduleOverview"></a>Chapter 3. Module Overview </h2></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt>3.1. <a href="#d0e49">Introduction to projectDB modules and their use</a></dt><dt>3.2. <a href="#d0e54"> Root-level structure </a></dt><dd><dl><dt>3.2.1. <a href="#d0e57">The lter-project module - Research context for resources</a></dt></dl></dd><dt>3.3. <a href="#d0e66">Modules Used </a></dt><dd><dl><dt>3.3.1. <a href="#d0e71"> The eml-resource module - Base information for all resources </a></dt><dt>3.3.2. <a href="#d0e78">The eml-physical module - Physical file format</a></dt><dt>3.3.3. <a href="#d0e85">
             The eml-party module - People and organization information
-          </a></dt><dt>3.3.4. <a href="#id170728">
+          </a></dt><dt>3.3.4. <a href="#d0e92">
             The eml-coverage module - Geographic, temporal, and taxonomic extents
             of resources
-          </a></dt><dt>3.3.5. <a href="#id170780">
-              The eml-literature module - Citation specific
-              information
-            </a></dt><dt>3.3.6. <a href="#id170814">
+          </a></dt><dt>3.3.5. <a href="#d0e103"> The eml-literature module - Citation specific information </a></dt><dt>3.3.6. <a href="#d0e113">
               The eml-access module - Access control rules for resources
-            </a></dt></dl></dd></dl></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="id170314"></a>3.1. Introduction to projectDB modules and their use</h2></div></div><p> The following section briefly describes each EML module used by the projectDB.
-          </p></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="id170324"></a>3.2.  Root-level structure </h2></div></div><div class="section"><div class="titlepage"><div><h3 class="title"><a name="id170330"></a>3.2.1. The eml-project module - Research context information for
-            resources</h3></div></div><p>This module is based on the eml-project module.
-            It describes a project which might form a context for research. 
-            The definition of a  "project" is not constrained. It may
-            include scientific research investigations or student-led thesis
-            projects, working groups of limited scope, or 
-            cyberinfrastructure coding projects.  It is intended to house information
-            on how a project was created, including descriptions of over-all
-            motivations and goals, funding, personnel, description of the study
-            area etc. This is also the module to describe the design of the
-            project: the scientific questions being asked, the architecture of
-            the design, etc. 
-            </p><p>Unlike the eml-project module, instance
-            documents written against this schema are standalone documents.
-            the eml:project element is a top level element.
-            It includes the "resource group" which includes basic
-            elements for title, abstract, responsible parties, coverage, keywords, etc.
-           .</p></div></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="id170632"></a>3.3. Modules Used </h2></div></div><p> The following modules are used</p><div class="section"><div class="titlepage"><div><h3 class="title"><a name="id170641"></a>3.3.1. 
-              The eml-resource module - Base information for
-              all resources
-            </h3></div></div><p>
-              The eml-resource module contains general information that
-              describes dataset resources, literature resources, protocol
-              resources, and software resources. Each of the above four types of
-              resources share a common set of information, but also have
-              information that is unique to that particular resource type.  Each
-              resource type uses the eml-resource module to document the
-              information common to all resources, but then extend
-              eml-resource with modules that are specific to that particular
-              resource type.  For instance, all resources have creators,
-              titles, and perhaps keywords, but only the dataset resource would
-              have a "data table" within it.  Likewise, a literature
-              resource may have an "ISBN" number associated with it,
-              whereas the other resource types would not.
-            </p><p>
-              The eml-resource module is exclusively used by other modules, and is
-              therefore not a stand-alone module.
-            </p></div><div class="section"><div class="titlepage"><div><h3 class="title"><a name="id170665"></a>3.3.2. The eml-physical module - Physical file format</h3></div></div><p>
+            </a></dt></dl></dd></dl></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="d0e49"></a>3.1. Introduction to projectDB modules and their use</h2></div></div><p> The following section briefly describes each EML module used by the projectDB.
+          </p></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="d0e54"></a>3.2.  Root-level structure </h2></div></div><div class="section"><div class="titlepage"><div><h3 class="title"><a name="d0e57"></a>3.2.1. The lter-project module - Research context for resources</h3></div></div><p>This module is based on the eml-project module. It describes a project which might
+              form a context for research. The definition of a "project" is not constrained. It may
+              include scientific research investigations or student-led thesis projects, working
+              groups of limited scope, or cyberinfrastructure coding projects. It is intended to
+              house information on how a project was created, including descriptions of 
+              motivations and goals, funding, personnel, description of the study area or study design. 
+              This module also has descriptors for associated resources and projects, and for material 
+              intended for (or derived from) reports, and related to project management issues such as
+              approval or permission.</p><p>Unlike the eml-project module, instance documents written against this schema are
+              standalone documents; the lter:researchProject element is a top level element. It includes the
+              "resource group" which includes basic elements for title, abstract, responsible
+              parties, coverage, keywords, etc, as do other top-level EML resources.</p><p>Since it is derived from the EML-2.1.0 family of schemas, most namespaces were left
+            unchanged. If an imported schema was edited to provide functionality for the lter-project 
+            schema, its namespace was updated to include the term 'lter-' to distinguish it 
+            from the namespaces used by EML.</p></div></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="d0e66"></a>3.3. Modules Used </h2></div></div><p> The following modules are used</p><div class="section"><div class="titlepage"><div><h3 class="title"><a name="d0e71"></a>3.3.1.  The eml-resource module - Base information for all resources </h3></div></div><p> The eml-resource module contains general information that describes dataset
+              resources, literature resources, protocol resources, and software resources. Each of
+              the above four types of resources share a common set of information, but also have
+              information that is unique to that particular resource type. Each resource type uses
+              the eml-resource module to document the information common to all resources, but then
+              extend eml-resource with modules that are specific to that particular resource type.
+              For instance, all resources have creators, titles, and perhaps keywords, but only the
+              dataset resource would have a "data table" within it. Likewise, a literature resource
+              may have an "ISBN" number associated with it, whereas the other resource types would
+              not. </p><p> The eml-resource module is exclusively used by other modules, and is therefore
+              not a stand-alone module. </p></div><div class="section"><div class="titlepage"><div><h3 class="title"><a name="d0e78"></a>3.3.2. The eml-physical module - Physical file format</h3></div></div><p>
         The eml-physical module describes the external
         and internal physical characteristics of a data object as well as the
         information required for its distribution. Examples of the external
@@ -113,7 +92,7 @@
           allows a physical document to be described once, and then
           used as a reference in other locations within the EML document
           via its ID.
-        </p></div><div class="section"><div class="titlepage"><div><h3 class="title"><a name="id170704"></a>3.3.3. 
+        </p></div><div class="section"><div class="titlepage"><div><h3 class="title"><a name="d0e85"></a>3.3.3. 
             The eml-party module - People and organization information
           </h3></div></div><p>
             The eml-party module describes a responsible party (person or
@@ -128,7 +107,7 @@
             "referenced" via the &lt;references&gt; tag.  This allows
             a party to be described once, and then used as a reference in
             other locations within the EML document via its ID.
-          </p></div><div class="section"><div class="titlepage"><div><h3 class="title"><a name="id170728"></a>3.3.4. 
+          </p></div><div class="section"><div class="titlepage"><div><h3 class="title"><a name="d0e92"></a>3.3.4. 
             The eml-coverage module - Geographic, temporal, and taxonomic extents
             of resources
           </h3></div></div><p>
@@ -170,29 +149,17 @@
             "referenced" via the &lt;references&gt; tag.  This allows
             the coverage extent to be described once, and then used as a
             reference in other locations within the EML document via its ID.
-          </p></div><div class="section"><div class="titlepage"><div><h3 class="title"><a name="id170780"></a>3.3.5. 
-              The eml-literature module - Citation specific
-              information
-            </h3></div></div><p>
-              The eml-literature module contains information that describes
-              literature resources. It is intended to provide overview
-              information about the literature citation, including title,
-              abstract, keywords, and contacts. Citation types follow the
-              conventions laid out by
-              <a href="http://www.endnote.com" target="_top">EndNote</a>,
-              and there is an attempt to
-              represent a compatible subset of the EndNote citation types.
-              These citation types include: article, book, chapter, edited
-              book, manuscript, report, thesis, conference proceedings,
-              personal communication, map, generic, audio visual, and
-              presentation.  The "generic" citation type would be
-              used when one of the other types will not work.
-            </p><p>
-              The eml-literature module, like other modules, may be
-              "referenced" via the &lt;references&gt; tag.  This
-              allows a citation to be described once, and then used as a
-              reference in other locations within the EML document via its ID.
-            </p></div><div class="section"><div class="titlepage"><div><h3 class="title"><a name="id170814"></a>3.3.6. 
+          </p></div><div class="section"><div class="titlepage"><div><h3 class="title"><a name="d0e103"></a>3.3.5.  The eml-literature module - Citation specific information </h3></div></div><p> The eml-literature module contains information that describes literature
+              resources. It is intended to provide overview information about the literature
+              citation, including title, abstract, keywords, and contacts. Citation types follow the
+              conventions laid out by <a href="http://www.endnote.com" target="_top">EndNote</a>, and there
+              is an attempt to represent a compatible subset of the EndNote citation types. These
+              citation types include: article, book, chapter, edited book, manuscript, report,
+              thesis, conference proceedings, personal communication, map, generic, audio visual,
+              and presentation. The "generic" citation type would be used when one of the other
+              types will not work. </p><p> The eml-literature module, like other modules, may be "referenced" via the
+              &lt;references&gt; tag. This allows a citation to be described once, and then
+              used as a reference in other locations within the EML document via its ID. </p></div><div class="section"><div class="titlepage"><div><h3 class="title"><a name="d0e113"></a>3.3.6. 
               The eml-access module - Access control rules for resources
             </h3></div></div><p>
               The eml-access module describes the level of access that is
@@ -316,4 +283,305 @@
             "/eml/access").  These default rules can be overridden
             for particular data entities by adding additional &lt;access&gt;
             elements in the physical/distribution trees of those entities.
-           </p></div></div></div><div class="chapter"><div class="titlepage"><div><h2 class="title"><a name="moduleDescriptions"></a>Chapter 4. Module Descriptions (Normative)</h2></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt>4.1. <a href="#eml-project">eml-project</a></dt><dt>4.2. <a href="#eml-access">eml-access</a></dt><dt>4.3. <a href="#eml-coverage">eml-coverage</a></dt><dt>4.4. <a href="#eml-literature">eml-literature</a></dt><dt>4.5. <a href="#eml-party">eml-party</a></dt><dt>4.6. <a href="#eml-physical">eml-physical</a></dt><dt>4.7. <a href="#eml-resource">eml-resource</a></dt><dt>4.8. <a href="#eml-text">eml-text</a></dt><dt>4.9. <a href="#eml-unitTypeDefinitions">eml-unitTypeDefinitions</a></dt></dl></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="eml-project"></a>4.1. eml-project</h2></div></div><p>Normative technical docs for <a href="./eml-project.html" target="_top">eml-project</a></p></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="eml-access"></a>4.2. eml-access</h2></div></div><p>Normative technical docs for <a href="./eml-access.html" target="_top">eml-access</a></p></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="eml-coverage"></a>4.3. eml-coverage</h2></div></div><p>Normative technical docs for <a href="./eml-coverage.html" target="_top">eml-coverage</a></p></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="eml-literature"></a>4.4. eml-literature</h2></div></div><p>Normative technical docs for <a href="./eml-literature.html" target="_top">eml-literature</a></p></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="eml-party"></a>4.5. eml-party</h2></div></div><p>Normative technical docs for <a href="./eml-party.html" target="_top">eml-party</a></p></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="eml-physical"></a>4.6. eml-physical</h2></div></div><p>Normative technical docs for <a href="./eml-physical.html" target="_top">eml-physical</a></p></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="eml-resource"></a>4.7. eml-resource</h2></div></div><p>Normative technical docs for <a href="./eml-resource.html" target="_top">eml-resource</a></p></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="eml-text"></a>4.8. eml-text</h2></div></div><p>Normative technical docs for <a href="./eml-text.html" target="_top">eml-text</a></p></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="eml-unitTypeDefinitions"></a>4.9. eml-unitTypeDefinitions</h2></div></div><p>Normative technical docs for <a href="./eml-unitTypeDefinitions.html" target="_top">eml-unitTypeDefinitions</a></p></div></div><div class="index"><a name="index"></a><div class="titlepage"><div><h2 class="title"><a name="index"></a>Index</h2></div></div><div class="indexdiv">A<dl><dt><a href="./eml-resource.html#abstract" target="_top">abstract</a>-eml-resource</dt><dt><a href="./eml-access.html#access" target="_top">access</a>-eml-access</dt><dt><a href="./eml-physical.html#access" target="_top">access</a>-eml-physical</dt><dt><a href="./eml-resource.html#additionalInfo" target="_top">additionalInfo</a>-eml-resource</dt><dt><a href="./eml-party.html#address" target="_top">address</a>-eml-party</dt><dt><a href="./eml-party.html#administrativeArea" target="_top">administrativeArea</a>-eml-party</dt><dt><a href="./eml-access.html#allow" target="_top">allow</a>-eml-access</dt><dt><a href="./eml-resource.html#alternateIdentifier" target="_top">alternateIdentifier</a>-eml-resource</dt><dt><a href="./eml-coverage.html#alternativeTimeScale" target="_top">alternativeTimeScale</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#altitudeMaximum" target="_top">altitudeMaximum</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#altitudeMinimum" target="_top">altitudeMinimum</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#altitudeUnits" target="_top">altitudeUnits</a>-eml-coverage</dt><dt><a href="./eml-literature.html#article" target="_top">article</a>-eml-literature</dt><dt><a href="./eml-project.html#associatedMaterial" target="_top">associatedMaterial</a>-eml-project</dt><dt><a href="./eml-resource.html#associatedParty" target="_top">associatedParty</a>-eml-resource</dt><dt><a href="./eml-project.html#associatedProject" target="_top">associatedProject</a>-eml-project</dt><dt><a href="./eml-physical.html#attributeOrientation" target="_top">attributeOrientation</a>-eml-physical</dt><dt><a href="./eml-literature.html#audioVisual" target="_top">audioVisual</a>-eml-literature</dt><dt><a href="./eml-physical.html#authentication" target="_top">authentication</a>-eml-physical</dt></dl></div><div class="indexdiv">B<dl><dt><a href="./eml-physical.html#bandgapbytes" target="_top">bandgapbytes</a>-eml-physical</dt><dt><a href="./eml-physical.html#bandrowbytes" target="_top">bandrowbytes</a>-eml-physical</dt><dt><a href="./eml-coverage.html#beginDate" target="_top">beginDate</a>-eml-coverage</dt><dt><a href="./eml-physical.html#binaryRasterFormat" target="_top">binaryRasterFormat</a>-eml-physical</dt><dt><a href="./eml-literature.html#book" target="_top">book</a>-eml-literature</dt><dt><a href="./eml-literature.html#bookTitle" target="_top">bookTitle</a>-eml-literature</dt><dt><a href="./eml-coverage.html#boundingAltitudes" target="_top">boundingAltitudes</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#boundingCoordinates" target="_top">boundingCoordinates</a>-eml-coverage</dt><dt><a href="./eml-physical.html#byteorder" target="_top">byteorder</a>-eml-physical</dt></dl></div><div class="indexdiv">C<dl><dt><a href="./eml-coverage.html#calendarDate" target="_top">calendarDate</a>-eml-coverage</dt><dt><a href="./eml-literature.html#chapter" target="_top">chapter</a>-eml-literature</dt><dt><a href="./eml-literature.html#chapterNumber" target="_top">chapterNumber</a>-eml-literature</dt><dt><a href="./eml-physical.html#characterEncoding" target="_top">characterEncoding</a>-eml-physical</dt><dt><a href="./eml-project.html#citation" target="_top">citation</a>-eml-project</dt><dt><a href="./eml-project.html#citation" target="_top">citation</a>-eml-project</dt><dt><a href="./eml-project.html#citation" target="_top">citation</a>-eml-project</dt><dt><a href="./eml-literature.html#citation" target="_top">citation</a>-eml-literature</dt><dt><a href="./eml-physical.html#citation" target="_top">citation</a>-eml-physical</dt><dt><a href="./eml-text.html#citetitle" target="_top">citetitle</a>-eml-text</dt><dt><a href="./eml-party.html#city" target="_top">city</a>-eml-party</dt><dt><a href="./eml-coverage.html#classificationSystem" target="_top">classificationSystem</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#classificationSystemCitation" target="_top">classificationSystemCitation</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#classificationSystemModifications" target="_top">classificationSystemModifications</a>-eml-coverage</dt><dt><a href="./eml-physical.html#collapseDelimiters" target="_top">collapseDelimiters</a>-eml-physical</dt><dt><a href="./eml-physical.html#collapseDelimiters" target="_top">collapseDelimiters</a>-eml-physical</dt><dt><a href="./eml-coverage.html#commonName" target="_top">commonName</a>-eml-coverage</dt><dt><a href="./eml-literature.html#communicationType" target="_top">communicationType</a>-eml-literature</dt><dt><a href="./eml-physical.html#complex" target="_top">complex</a>-eml-physical</dt><dt><a href="./eml-physical.html#compressionMethod" target="_top">compressionMethod</a>-eml-physical</dt><dt><a href="./eml-literature.html#conferenceDate" target="_top">conferenceDate</a>-eml-literature</dt><dt><a href="./eml-literature.html#conferenceDate" target="_top">conferenceDate</a>-eml-literature</dt><dt><a href="./eml-literature.html#conferenceLocation" target="_top">conferenceLocation</a>-eml-literature</dt><dt><a href="./eml-literature.html#conferenceLocation" target="_top">conferenceLocation</a>-eml-literature</dt><dt><a href="./eml-literature.html#conferenceName" target="_top">conferenceName</a>-eml-literature</dt><dt><a href="./eml-literature.html#conferenceName" target="_top">conferenceName</a>-eml-literature</dt><dt><a href="./eml-literature.html#conferenceProceedings" target="_top">conferenceProceedings</a>-eml-literature</dt><dt><a href="./eml-physical.html#connection" target="_top">connection</a>-eml-physical</dt><dt><a href="./eml-resource.html#connection" target="_top">connection</a>-eml-resource</dt><dt><a href="./eml-resource.html#connectionDefinition" target="_top">connectionDefinition</a>-eml-resource</dt><dt><a href="./eml-resource.html#connectionDefinition" target="_top">connectionDefinition</a>-eml-resource</dt><dt><a href="./eml-literature.html#contact" target="_top">contact</a>-eml-literature</dt><dt><a href="./eml-party.html#country" target="_top">country</a>-eml-party</dt><dt><a href="./eml-project.html#coverage" target="_top">coverage</a>-eml-project</dt><dt><a href="./eml-resource.html#coverage" target="_top">coverage</a>-eml-resource</dt><dt><a href="./eml-resource.html#creator" target="_top">creator</a>-eml-resource</dt></dl></div><div class="indexdiv">D<dl><dt><a href="./eml-physical.html#dataFormat" target="_top">dataFormat</a>-eml-physical</dt><dt><a href="./eml-coverage.html#datasetGPolygon" target="_top">datasetGPolygon</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#datasetGPolygonExclusionGRing" target="_top">datasetGPolygonExclusionGRing</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#datasetGPolygonOuterGRing" target="_top">datasetGPolygonOuterGRing</a>-eml-coverage</dt><dt><a href="./eml-resource.html#defaultValue" target="_top">defaultValue</a>-eml-resource</dt><dt><a href="./eml-resource.html#definition" target="_top">definition</a>-eml-resource</dt><dt><a href="./eml-literature.html#degree" target="_top">degree</a>-eml-literature</dt><dt><a href="./eml-party.html#deliveryPoint" target="_top">deliveryPoint</a>-eml-party</dt><dt><a href="./eml-access.html#deny" target="_top">deny</a>-eml-access</dt><dt><a href="./eml-project.html#description" target="_top">description</a>-eml-project</dt><dt><a href="./eml-resource.html#description" target="_top">description</a>-eml-resource</dt><dt><a href="./eml-project.html#descriptor" target="_top">descriptor</a>-eml-project</dt><dt><a href="./eml-project.html#descriptorValue" target="_top">descriptorValue</a>-eml-project</dt><dt><a href="./eml-project.html#designDescription" target="_top">designDescription</a>-eml-project</dt><dt><a href="./eml-project.html#distribution" target="_top">distribution</a>-eml-project</dt><dt><a href="./eml-physical.html#distribution" target="_top">distribution</a>-eml-physical</dt><dt><a href="./eml-resource.html#distribution" target="_top">distribution</a>-eml-resource</dt></dl></div><div class="indexdiv">E<dl><dt><a href="./eml-coverage.html#eastBoundingCoordinate" target="_top">eastBoundingCoordinate</a>-eml-coverage</dt><dt><a href="./eml-literature.html#editedBook" target="_top">editedBook</a>-eml-literature</dt><dt><a href="./eml-literature.html#edition" target="_top">edition</a>-eml-literature</dt><dt><a href="./eml-literature.html#edition" target="_top">edition</a>-eml-literature</dt><dt><a href="./eml-literature.html#edition" target="_top">edition</a>-eml-literature</dt><dt><a href="./eml-literature.html#editor" target="_top">editor</a>-eml-literature</dt><dt><a href="./eml-party.html#electronicMailAddress" target="_top">electronicMailAddress</a>-eml-party</dt><dt><a href="./eml-text.html#emphasis" target="_top">emphasis</a>-eml-text</dt><dt><a href="./eml-physical.html#encodingMethod" target="_top">encodingMethod</a>-eml-physical</dt><dt><a href="./eml-coverage.html#endDate" target="_top">endDate</a>-eml-coverage</dt><dt><a href="./eml-physical.html#externallyDefinedFormat" target="_top">externallyDefinedFormat</a>-eml-physical</dt></dl></div><div class="indexdiv">F<dl><dt><a href="./eml-physical.html#fieldDelimiter" target="_top">fieldDelimiter</a>-eml-physical</dt><dt><a href="./eml-physical.html#fieldDelimiter" target="_top">fieldDelimiter</a>-eml-physical</dt><dt><a href="./eml-physical.html#fieldStartColumn" target="_top">fieldStartColumn</a>-eml-physical</dt><dt><a href="./eml-physical.html#fieldWidth" target="_top">fieldWidth</a>-eml-physical</dt><dt><a href="./eml-physical.html#formatName" target="_top">formatName</a>-eml-physical</dt><dt><a href="./eml-physical.html#formatVersion" target="_top">formatVersion</a>-eml-physical</dt><dt><a href="./eml-project.html#funding" target="_top">funding</a>-eml-project</dt></dl></div><div class="indexdiv">G<dl><dt><a href="./eml-coverage.html#gRing" target="_top">gRing</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#gRing" target="_top">gRing</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#gRingLatitude" target="_top">gRingLatitude</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#gRingLongitude" target="_top">gRingLongitude</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#gRingPoint" target="_top">gRingPoint</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#gRingPoint" target="_top">gRingPoint</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#generalTaxonomicCoverage" target="_top">generalTaxonomicCoverage</a>-eml-coverage</dt><dt><a href="./eml-literature.html#generic" target="_top">generic</a>-eml-literature</dt><dt><a href="./eml-coverage.html#geographicCoverage" target="_top">geographicCoverage</a>-eml-coverage</dt><dt><a href="./eml-literature.html#geographicCoverage" target="_top">geographicCoverage</a>-eml-literature</dt><dt><a href="./eml-coverage.html#geographicDescription" target="_top">geographicDescription</a>-eml-coverage</dt><dt><a href="./eml-party.html#givenName" target="_top">givenName</a>-eml-party</dt></dl></div><div class="indexdiv">H<dl></dl></div><div class="indexdiv">I<dl><dt><a href="./eml-coverage.html#identificationReference" target="_top">identificationReference</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#identifierName" target="_top">identifierName</a>-eml-coverage</dt><dt><a href="./eml-party.html#individualName" target="_top">individualName</a>-eml-party</dt><dt><a href="./eml-physical.html#inline" target="_top">inline</a>-eml-physical</dt><dt><a href="./eml-resource.html#inline" target="_top">inline</a>-eml-resource</dt><dt><a href="./eml-literature.html#institution" target="_top">institution</a>-eml-literature</dt><dt><a href="./eml-literature.html#institution" target="_top">institution</a>-eml-literature</dt><dt><a href="./eml-resource.html#intellectualRights" target="_top">intellectualRights</a>-eml-resource</dt><dt><a href="./eml-literature.html#issue" target="_top">issue</a>-eml-literature</dt><dt><a href="./eml-text.html#itemizedlist" target="_top">itemizedlist</a>-eml-text</dt><dt><a href="./eml-text.html#itemizedlist" target="_top">itemizedlist</a>-eml-text</dt></dl></div><div class="indexdiv">J<dl><dt><a href="./eml-literature.html#journal" target="_top">journal</a>-eml-literature</dt></dl></div><div class="indexdiv">k<dl><dt><a href="./eml-resource.html#keyword" target="_top">keyword</a>-eml-resource</dt><dt><a href="./eml-resource.html#keywordSet" target="_top">keywordSet</a>-eml-resource</dt><dt><a href="./eml-resource.html#keywordThesaurus" target="_top">keywordThesaurus</a>-eml-resource</dt></dl></div><div class="indexdiv">L<dl><dt><a href="./eml-resource.html#language" target="_top">language</a>-eml-resource</dt><dt><a href="./eml-physical.html#layout" target="_top">layout</a>-eml-physical</dt><dt><a href="./eml-physical.html#lineNumber" target="_top">lineNumber</a>-eml-physical</dt><dt><a href="./eml-physical.html#lineNumber" target="_top">lineNumber</a>-eml-physical</dt><dt><a href="./eml-text.html#listitem" target="_top">listitem</a>-eml-text</dt><dt><a href="./eml-physical.html#literalCharacter" target="_top">literalCharacter</a>-eml-physical</dt><dt><a href="./eml-physical.html#literalCharacter" target="_top">literalCharacter</a>-eml-physical</dt><dt><a href="./eml-text.html#literalLayout" target="_top">literalLayout</a>-eml-text</dt></dl></div><div class="indexdiv">M<dl><dt><a href="./eml-literature.html#manuscript" target="_top">manuscript</a>-eml-literature</dt><dt><a href="./eml-literature.html#map" target="_top">map</a>-eml-literature</dt><dt><a href="./eml-physical.html#maxRecordLength" target="_top">maxRecordLength</a>-eml-physical</dt><dt><a href="./eml-resource.html#mediumDensity" target="_top">mediumDensity</a>-eml-resource</dt><dt><a href="./eml-resource.html#mediumDensityUnits" target="_top">mediumDensityUnits</a>-eml-resource</dt><dt><a href="./eml-resource.html#mediumFormat" target="_top">mediumFormat</a>-eml-resource</dt><dt><a href="./eml-resource.html#mediumName" target="_top">mediumName</a>-eml-resource</dt><dt><a href="./eml-resource.html#mediumNote" target="_top">mediumNote</a>-eml-resource</dt><dt><a href="./eml-resource.html#mediumVolume" target="_top">mediumVolume</a>-eml-resource</dt><dt><a href="./eml-resource.html#metadataProvider" target="_top">metadataProvider</a>-eml-resource</dt><dt><a href="./eml-physical.html#multiBand" target="_top">multiBand</a>-eml-physical</dt></dl></div><div class="indexdiv">N<dl><dt><a href="./eml-resource.html#name" target="_top">name</a>-eml-resource</dt><dt><a href="./eml-resource.html#name" target="_top">name</a>-eml-resource</dt><dt><a href="./eml-physical.html#nbands" target="_top">nbands</a>-eml-physical</dt><dt><a href="./eml-physical.html#nbits" target="_top">nbits</a>-eml-physical</dt><dt><a href="./eml-coverage.html#northBoundingCoordinate" target="_top">northBoundingCoordinate</a>-eml-coverage</dt><dt><a href="./eml-physical.html#numFooterLines" target="_top">numFooterLines</a>-eml-physical</dt><dt><a href="./eml-physical.html#numHeaderLines" target="_top">numHeaderLines</a>-eml-physical</dt><dt><a href="./eml-physical.html#numPhysicalLinesPerRecord" target="_top">numPhysicalLinesPerRecord</a>-eml-physical</dt><dt><a href="./eml-literature.html#numberOfVolumes" target="_top">numberOfVolumes</a>-eml-literature</dt><dt><a href="./eml-literature.html#numberOfVolumes" target="_top">numberOfVolumes</a>-eml-literature</dt></dl></div><div class="indexdiv">O<dl><dt><a href="./eml-physical.html#objectName" target="_top">objectName</a>-eml-physical</dt><dt><a href="./eml-physical.html#offline" target="_top">offline</a>-eml-physical</dt><dt><a href="./eml-resource.html#offline" target="_top">offline</a>-eml-resource</dt><dt><a href="./eml-physical.html#online" target="_top">online</a>-eml-physical</dt><dt><a href="./eml-resource.html#online" target="_top">online</a>-eml-resource</dt><dt><a href="./eml-physical.html#onlineDescription" target="_top">onlineDescription</a>-eml-physical</dt><dt><a href="./eml-resource.html#onlineDescription" target="_top">onlineDescription</a>-eml-resource</dt><dt><a href="./eml-party.html#onlineUrl" target="_top">onlineUrl</a>-eml-party</dt><dt><a href="./eml-text.html#orderedlist" target="_top">orderedlist</a>-eml-text</dt><dt><a href="./eml-text.html#orderedlist" target="_top">orderedlist</a>-eml-text</dt><dt><a href="./eml-party.html#organizationName" target="_top">organizationName</a>-eml-party</dt><dt><a href="./eml-literature.html#originalPublication" target="_top">originalPublication</a>-eml-literature</dt><dt><a href="./eml-coverage.html#originator" target="_top">originator</a>-eml-coverage</dt></dl></div><div class="indexdiv">P<dl><dt><a href="./eml-literature.html#pageRange" target="_top">pageRange</a>-eml-literature</dt><dt><a href="./eml-literature.html#pageRange" target="_top">pageRange</a>-eml-literature</dt><dt><a href="./eml-text.html#para" target="_top">para</a>-eml-text</dt><dt><a href="./eml-text.html#para" target="_top">para</a>-eml-text</dt><dt><a href="./eml-text.html#para" target="_top">para</a>-eml-text</dt><dt><a href="./eml-resource.html#parameter" target="_top">parameter</a>-eml-resource</dt><dt><a href="./eml-resource.html#parameterDefinition" target="_top">parameterDefinition</a>-eml-resource</dt><dt><a href="./eml-party.html#party" target="_top">party</a>-eml-party</dt><dt><a href="./eml-literature.html#performer" target="_top">performer</a>-eml-literature</dt><dt><a href="./eml-access.html#permission" target="_top">permission</a>-eml-access</dt><dt><a href="./eml-literature.html#personalCommunication" target="_top">personalCommunication</a>-eml-literature</dt><dt><a href="./eml-party.html#phone" target="_top">phone</a>-eml-party</dt><dt><a href="./eml-physical.html#physical" target="_top">physical</a>-eml-physical</dt><dt><a href="./eml-physical.html#physicalLineDelimiter" target="_top">physicalLineDelimiter</a>-eml-physical</dt><dt><a href="./eml-party.html#positionName" target="_top">positionName</a>-eml-party</dt><dt><a href="./eml-party.html#postalCode" target="_top">postalCode</a>-eml-party</dt><dt><a href="./eml-literature.html#presentation" target="_top">presentation</a>-eml-literature</dt><dt><a href="./eml-access.html#principal" target="_top">principal</a>-eml-access</dt><dt><a href="./eml-resource.html#pubDate" target="_top">pubDate</a>-eml-resource</dt><dt><a href="./eml-literature.html#publicationPlace" target="_top">publicationPlace</a>-eml-literature</dt><dt><a href="./eml-literature.html#publicationPlace" target="_top">publicationPlace</a>-eml-literature</dt><dt><a href="./eml-literature.html#publicationPlace" target="_top">publicationPlace</a>-eml-literature</dt><dt><a href="./eml-literature.html#publicationPlace" target="_top">publicationPlace</a>-eml-literature</dt><dt><a href="./eml-literature.html#publicationPlace" target="_top">publicationPlace</a>-eml-literature</dt><dt><a href="./eml-literature.html#publicationPlace" target="_top">publicationPlace</a>-eml-literature</dt><dt><a href="./eml-literature.html#publisher" target="_top">publisher</a>-eml-literature</dt><dt><a href="./eml-literature.html#publisher" target="_top">publisher</a>-eml-literature</dt><dt><a href="./eml-literature.html#publisher" target="_top">publisher</a>-eml-literature</dt><dt><a href="./eml-literature.html#publisher" target="_top">publisher</a>-eml-literature</dt><dt><a href="./eml-literature.html#publisher" target="_top">publisher</a>-eml-literature</dt><dt><a href="./eml-literature.html#publisher" target="_top">publisher</a>-eml-literature</dt><dt><a href="./eml-literature.html#publisher" target="_top">publisher</a>-eml-literature</dt></dl></div><div class="indexdiv">Q<dl><dt><a href="./eml-physical.html#quoteCharacter" target="_top">quoteCharacter</a>-eml-physical</dt><dt><a href="./eml-physical.html#quoteCharacter" target="_top">quoteCharacter</a>-eml-physical</dt></dl></div><div class="indexdiv"><dl><dt><a href="./eml-coverage.html#rangeOfDates" target="_top">rangeOfDates</a>-eml-coverage</dt><dt><a href="./eml-literature.html#recipient" target="_top">recipient</a>-eml-literature</dt><dt><a href="./eml-physical.html#recordDelimiter" target="_top">recordDelimiter</a>-eml-physical</dt><dt><a href="./eml-literature.html#referenceType" target="_top">referenceType</a>-eml-literature</dt><dt><a href="./eml-resource.html#references" target="_top">references</a>-eml-resource</dt><dt><a href="./eml-literature.html#report" target="_top">report</a>-eml-literature</dt><dt><a href="./eml-literature.html#reportNumber" target="_top">reportNumber</a>-eml-literature</dt><dt><a href="./eml-project.html#reportSection" target="_top">reportSection</a>-eml-project</dt><dt><a href="./eml-project.html#reportValue" target="_top">reportValue</a>-eml-project</dt><dt><a href="./eml-project.html#reporting" target="_top">reporting</a>-eml-project</dt><dt><a href="./eml-coverage.html#repository" target="_top">repository</a>-eml-coverage</dt><dt><a href="./eml-literature.html#reprintEdition" target="_top">reprintEdition</a>-eml-literature</dt><dt><a href="./eml-project.html#researchProject" target="_top">researchProject</a>-eml-project</dt><dt><a href="./eml-literature.html#reviewedItem" target="_top">reviewedItem</a>-eml-literature</dt><dt><a href="./eml-resource.html#role" target="_top">role</a>-eml-resource</dt><dt><a href="./eml-physical.html#rowColumnOrientation" target="_top">rowColumnOrientation</a>-eml-physical</dt></dl></div><div class="indexdiv">S<dl><dt><a href="./eml-party.html#salutation" target="_top">salutation</a>-eml-party</dt><dt><a href="./eml-literature.html#scale" target="_top">scale</a>-eml-literature</dt><dt><a href="./eml-resource.html#schemeName" target="_top">schemeName</a>-eml-resource</dt><dt><a href="./eml-text.html#section" target="_top">section</a>-eml-text</dt><dt><a href="./eml-text.html#section" target="_top">section</a>-eml-text</dt><dt><a href="./eml-resource.html#series" target="_top">series</a>-eml-resource</dt><dt><a href="./eml-resource.html#shortName" target="_top">shortName</a>-eml-resource</dt><dt><a href="./eml-physical.html#simpleDelimited" target="_top">simpleDelimited</a>-eml-physical</dt><dt><a href="./eml-coverage.html#singleDateTime" target="_top">singleDateTime</a>-eml-coverage</dt><dt><a href="./eml-physical.html#size" target="_top">size</a>-eml-physical</dt><dt><a href="./eml-physical.html#skipbytes" target="_top">skipbytes</a>-eml-physical</dt><dt><a href="./eml-coverage.html#southBoundingCoordinate" target="_top">southBoundingCoordinate</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#specimen" target="_top">specimen</a>-eml-coverage</dt><dt><a href="./eml-project.html#studyAreaDescription" target="_top">studyAreaDescription</a>-eml-project</dt><dt><a href="./eml-text.html#subscript" target="_top">subscript</a>-eml-text</dt><dt><a href="./eml-text.html#subscript" target="_top">subscript</a>-eml-text</dt><dt><a href="./eml-text.html#superscript" target="_top">superscript</a>-eml-text</dt><dt><a href="./eml-text.html#superscript" target="_top">superscript</a>-eml-text</dt><dt><a href="./eml-party.html#surName" target="_top">surName</a>-eml-party</dt></dl></div><div class="indexdiv">T<dl><dt><a href="./eml-coverage.html#taxonRankName" target="_top">taxonRankName</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#taxonRankValue" target="_top">taxonRankValue</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#taxonomicClassification" target="_top">taxonomicClassification</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#taxonomicClassification" target="_top">taxonomicClassification</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#taxonomicCompleteness" target="_top">taxonomicCompleteness</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#taxonomicCoverage" target="_top">taxonomicCoverage</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#taxonomicProcedures" target="_top">taxonomicProcedures</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#taxonomicSystem" target="_top">taxonomicSystem</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#temporalCoverage" target="_top">temporalCoverage</a>-eml-coverage</dt><dt><a href="./eml-text.html#text" target="_top">text</a>-eml-text</dt><dt><a href="./eml-physical.html#textDelimited" target="_top">textDelimited</a>-eml-physical</dt><dt><a href="./eml-physical.html#textFixed" target="_top">textFixed</a>-eml-physical</dt><dt><a href="./eml-physical.html#textFormat" target="_top">textFormat</a>-eml-physical</dt><dt><a href="./eml-literature.html#thesis" target="_top">thesis</a>-eml-literature</dt><dt><a href="./eml-coverage.html#time" target="_top">time</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#timeScaleAgeEstimate" target="_top">timeScaleAgeEstimate</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#timeScaleAgeExplanation" target="_top">timeScaleAgeExplanation</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#timeScaleAgeUncertainty" target="_top">timeScaleAgeUncertainty</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#timeScaleCitation" target="_top">timeScaleCitation</a>-eml-coverage</dt><dt><a href="./eml-coverage.html#timeScaleName" target="_top">timeScaleName</a>-eml-coverage</dt><dt><a href="./eml-resource.html#title" target="_top">title</a>-eml-resource</dt><dt><a href="./eml-text.html#title" target="_top">title</a>-eml-text</dt><dt><a href="./eml-literature.html#totalFigures" target="_top">totalFigures</a>-eml-literature</dt><dt><a href="./eml-literature.html#totalFigures" target="_top">totalFigures</a>-eml-literature</dt><dt><a href="./eml-literature.html#totalPages" target="_top">totalPages</a>-eml-literature</dt><dt><a href="./eml-literature.html#totalPages" target="_top">totalPages</a>-eml-literature</dt><dt><a href="./eml-literature.html#totalPages" target="_top">totalPages</a>-eml-literature</dt><dt><a href="./eml-literature.html#totalPages" target="_top">totalPages</a>-eml-literature</dt><dt><a href="./eml-literature.html#totalPages" target="_top">totalPages</a>-eml-literature</dt><dt><a href="./eml-literature.html#totalTables" target="_top">totalTables</a>-eml-literature</dt><dt><a href="./eml-literature.html#totalTables" target="_top">totalTables</a>-eml-literature</dt><dt><a href="./eml-physical.html#totalrowbytes" target="_top">totalrowbytes</a>-eml-physical</dt></dl></div><div class="indexdiv">U<dl><dt><a href="./eml-text.html#ulink" target="_top">ulink</a>-eml-text</dt><dt><a href="./eml-physical.html#url" target="_top">url</a>-eml-physical</dt><dt><a href="./eml-resource.html#url" target="_top">url</a>-eml-resource</dt><dt><a href="./eml-party.html#userId" target="_top">userId</a>-eml-party</dt></dl></div><div class="indexdiv">V<dl><dt><a href="./eml-resource.html#value" target="_top">value</a>-eml-resource</dt><dt><a href="./eml-literature.html#volume" target="_top">volume</a>-eml-literature</dt><dt><a href="./eml-literature.html#volume" target="_top">volume</a>-eml-literature</dt><dt><a href="./eml-literature.html#volume" target="_top">volume</a>-eml-literature</dt><dt><a href="./eml-coverage.html#vouchers" target="_top">vouchers</a>-eml-coverage</dt></dl></div><div class="indexdiv">W<dl><dt><a href="./eml-coverage.html#westBoundingCoordinate" target="_top">westBoundingCoordinate</a>-eml-coverage</dt></dl></div><div class="indexdiv">X<dl></dl></div><div class="indexdiv">Y<dl></dl></div><div class="indexdiv">Z<dl><dt></dt></dl></div></div></div></body></html>
+           </p></div></div></div><div class="chapter"><div class="titlepage"><div><h2 class="title"><a name="moduleDescriptions"></a>Chapter 4. Module Descriptions (Normative)</h2></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt>4.1. <a href="#lter-project">lter-project</a></dt><dt>4.2. <a href="#eml-access">eml-access</a></dt><dt>4.3. <a href="#eml-coverage">eml-coverage</a></dt><dt>4.4. <a href="#eml-literature">eml-literature</a></dt><dt>4.5. <a href="#eml-party">eml-party</a></dt><dt>4.6. <a href="#eml-physical">eml-physical</a></dt><dt>4.7. <a href="#eml-resource">eml-resource</a></dt><dt>4.8. <a href="#eml-text">eml-text</a></dt><dt>4.9. <a href="#eml-unitTypeDefinitions">eml-unitTypeDefinitions</a></dt></dl></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="lter-project"></a>4.1. lter-project</h2></div></div><p>Normative technical docs for <a href="./lter-project.html" target="_top">lter-project</a>
+         </p></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="eml-access"></a>4.2. eml-access</h2></div></div><p>Normative technical docs for <a href="./eml-access.html" target="_top">eml-access</a>
+         </p></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="eml-coverage"></a>4.3. eml-coverage</h2></div></div><p>Normative technical docs for <a href="./eml-coverage.html" target="_top">eml-coverage</a>
+         </p></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="eml-literature"></a>4.4. eml-literature</h2></div></div><p>Normative technical docs for <a href="./eml-literature.html" target="_top">eml-literature</a>
+         </p></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="eml-party"></a>4.5. eml-party</h2></div></div><p>Normative technical docs for <a href="./eml-party.html" target="_top">eml-party</a>
+         </p></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="eml-physical"></a>4.6. eml-physical</h2></div></div><p>Normative technical docs for <a href="./eml-physical.html" target="_top">eml-physical</a>
+         </p></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="eml-resource"></a>4.7. eml-resource</h2></div></div><p>Normative technical docs for <a href="./eml-resource.html" target="_top">eml-resource</a>
+         </p></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="eml-text"></a>4.8. eml-text</h2></div></div><p>Normative technical docs for <a href="./eml-text.html" target="_top">eml-text</a>
+         </p></div><div class="section"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="eml-unitTypeDefinitions"></a>4.9. eml-unitTypeDefinitions</h2></div></div><p>Normative technical docs for <a href="./eml-unitTypeDefinitions.html" target="_top">eml-unitTypeDefinitions</a>
+         </p></div></div><div class="index"><a name="index"></a><div class="titlepage"><div><h2 class="title"><a name="index"></a>Index</h2></div></div><div class="indexdiv">A<dl><dt>
+               <a href="./lter-project.html#associatedMaterial" target="_top">associatedMaterial</a>-lter-project</dt><dt>
+               <a href="./lter-project.html#associatedMaterial" target="_top">associatedMaterial</a>-lter-project</dt><dt>
+               <a href="./lter-project.html#associatedMaterial" target="_top">associatedMaterial</a>-lter-project</dt><dt>
+               <a href="./lter-project.html#associatedMaterial" target="_top">associatedMaterial</a>-lter-project</dt><dt>
+               <a href="./lter-project.html#associatedProject" target="_top">associatedProject</a>-lter-project</dt><dt>
+               <a href="./eml-access.html#access" target="_top">access</a>-eml-access</dt><dt>
+               <a href="./eml-access.html#allow" target="_top">allow</a>-eml-access</dt><dt>
+               <a href="./eml-coverage.html#alternativeTimeScale" target="_top">alternativeTimeScale</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#altitudeMaximum" target="_top">altitudeMaximum</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#altitudeMinimum" target="_top">altitudeMinimum</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#altitudeUnits" target="_top">altitudeUnits</a>-eml-coverage</dt><dt>
+               <a href="./eml-literature.html#article" target="_top">article</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#audioVisual" target="_top">audioVisual</a>-eml-literature</dt><dt>
+               <a href="./eml-party.html#address" target="_top">address</a>-eml-party</dt><dt>
+               <a href="./eml-party.html#administrativeArea" target="_top">administrativeArea</a>-eml-party</dt><dt>
+               <a href="./eml-physical.html#access" target="_top">access</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#attributeOrientation" target="_top">attributeOrientation</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#authentication" target="_top">authentication</a>-eml-physical</dt><dt>
+               <a href="./eml-resource.html#abstract" target="_top">abstract</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#additionalInfo" target="_top">additionalInfo</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#alternateIdentifier" target="_top">alternateIdentifier</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#associatedParty" target="_top">associatedParty</a>-eml-resource</dt></dl></div><div class="indexdiv">B<dl><dt>
+               <a href="./eml-coverage.html#beginDate" target="_top">beginDate</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#beginDate" target="_top">beginDate</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#boundingCoordinates" target="_top">boundingCoordinates</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#boundingAltitudes" target="_top">boundingAltitudes</a>-eml-coverage</dt><dt>
+               <a href="./eml-literature.html#book" target="_top">book</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#bookTitle" target="_top">bookTitle</a>-eml-literature</dt><dt>
+               <a href="./eml-physical.html#binaryRasterFormat" target="_top">binaryRasterFormat</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#byteorder" target="_top">byteorder</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#bandrowbytes" target="_top">bandrowbytes</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#bandgapbytes" target="_top">bandgapbytes</a>-eml-physical</dt></dl></div><div class="indexdiv">C<dl><dt>
+               <a href="./lter-project.html#citation" target="_top">citation</a>-lter-project</dt><dt>
+               <a href="./lter-project.html#citation" target="_top">citation</a>-lter-project</dt><dt>
+               <a href="./lter-project.html#coverage" target="_top">coverage</a>-lter-project</dt><dt>
+               <a href="./lter-project.html#citation" target="_top">citation</a>-lter-project</dt><dt>
+               <a href="./lter-project.html#categoryTitle" target="_top">categoryTitle</a>-lter-project</dt><dt>
+               <a href="./lter-project.html#categoryValue" target="_top">categoryValue</a>-lter-project</dt><dt>
+               <a href="./eml-coverage.html#calendarDate" target="_top">calendarDate</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#classificationSystem" target="_top">classificationSystem</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#classificationSystemCitation" target="_top">classificationSystemCitation</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#classificationSystemModifications" target="_top">classificationSystemModifications</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#commonName" target="_top">commonName</a>-eml-coverage</dt><dt>
+               <a href="./eml-literature.html#citation" target="_top">citation</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#contact" target="_top">contact</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#chapter" target="_top">chapter</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#conferenceProceedings" target="_top">conferenceProceedings</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#chapterNumber" target="_top">chapterNumber</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#conferenceName" target="_top">conferenceName</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#conferenceDate" target="_top">conferenceDate</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#conferenceLocation" target="_top">conferenceLocation</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#communicationType" target="_top">communicationType</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#conferenceName" target="_top">conferenceName</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#conferenceDate" target="_top">conferenceDate</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#conferenceLocation" target="_top">conferenceLocation</a>-eml-literature</dt><dt>
+               <a href="./eml-party.html#city" target="_top">city</a>-eml-party</dt><dt>
+               <a href="./eml-party.html#country" target="_top">country</a>-eml-party</dt><dt>
+               <a href="./eml-physical.html#compressionMethod" target="_top">compressionMethod</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#characterEncoding" target="_top">characterEncoding</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#collapseDelimiters" target="_top">collapseDelimiters</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#complex" target="_top">complex</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#collapseDelimiters" target="_top">collapseDelimiters</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#citation" target="_top">citation</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#connection" target="_top">connection</a>-eml-physical</dt><dt>
+               <a href="./eml-resource.html#creator" target="_top">creator</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#coverage" target="_top">coverage</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#connection" target="_top">connection</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#connectionDefinition" target="_top">connectionDefinition</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#connectionDefinition" target="_top">connectionDefinition</a>-eml-resource</dt><dt>
+               <a href="./eml-text.html#citetitle" target="_top">citetitle</a>-eml-text</dt></dl></div><div class="indexdiv">D<dl><dt>
+               <a href="./lter-project.html#descriptor" target="_top">descriptor</a>-lter-project</dt><dt>
+               <a href="./lter-project.html#descriptorValue" target="_top">descriptorValue</a>-lter-project</dt><dt>
+               <a href="./lter-project.html#designDescription" target="_top">designDescription</a>-lter-project</dt><dt>
+               <a href="./lter-project.html#description" target="_top">description</a>-lter-project</dt><dt>
+               <a href="./lter-project.html#distribution" target="_top">distribution</a>-lter-project</dt><dt>
+               <a href="./lter-project.html#description" target="_top">description</a>-lter-project</dt><dt>
+               <a href="./eml-access.html#deny" target="_top">deny</a>-eml-access</dt><dt>
+               <a href="./eml-coverage.html#datasetGPolygon" target="_top">datasetGPolygon</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#datasetGPolygonOuterGRing" target="_top">datasetGPolygonOuterGRing</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#datasetGPolygonExclusionGRing" target="_top">datasetGPolygonExclusionGRing</a>-eml-coverage</dt><dt>
+               <a href="./eml-literature.html#degree" target="_top">degree</a>-eml-literature</dt><dt>
+               <a href="./eml-party.html#deliveryPoint" target="_top">deliveryPoint</a>-eml-party</dt><dt>
+               <a href="./eml-physical.html#dataFormat" target="_top">dataFormat</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#distribution" target="_top">distribution</a>-eml-physical</dt><dt>
+               <a href="./eml-resource.html#distribution" target="_top">distribution</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#description" target="_top">description</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#definition" target="_top">definition</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#defaultValue" target="_top">defaultValue</a>-eml-resource</dt></dl></div><div class="indexdiv">E<dl><dt>
+               <a href="./eml-coverage.html#endDate" target="_top">endDate</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#eastBoundingCoordinate" target="_top">eastBoundingCoordinate</a>-eml-coverage</dt><dt>
+               <a href="./eml-literature.html#editedBook" target="_top">editedBook</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#edition" target="_top">edition</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#editor" target="_top">editor</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#edition" target="_top">edition</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#edition" target="_top">edition</a>-eml-literature</dt><dt>
+               <a href="./eml-party.html#electronicMailAddress" target="_top">electronicMailAddress</a>-eml-party</dt><dt>
+               <a href="./eml-physical.html#encodingMethod" target="_top">encodingMethod</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#externallyDefinedFormat" target="_top">externallyDefinedFormat</a>-eml-physical</dt><dt>
+               <a href="./eml-text.html#emphasis" target="_top">emphasis</a>-eml-text</dt></dl></div><div class="indexdiv">F<dl><dt>
+               <a href="./lter-project.html#funding" target="_top">funding</a>-lter-project</dt><dt>
+               <a href="./eml-physical.html#fieldDelimiter" target="_top">fieldDelimiter</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#fieldWidth" target="_top">fieldWidth</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#fieldStartColumn" target="_top">fieldStartColumn</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#fieldDelimiter" target="_top">fieldDelimiter</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#formatName" target="_top">formatName</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#formatVersion" target="_top">formatVersion</a>-eml-physical</dt></dl></div><div class="indexdiv">G<dl><dt>
+               <a href="./eml-coverage.html#geographicCoverage" target="_top">geographicCoverage</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#geographicDescription" target="_top">geographicDescription</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#gRingPoint" target="_top">gRingPoint</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#gRing" target="_top">gRing</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#gRingPoint" target="_top">gRingPoint</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#gRing" target="_top">gRing</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#gRingLatitude" target="_top">gRingLatitude</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#gRingLongitude" target="_top">gRingLongitude</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#generalTaxonomicCoverage" target="_top">generalTaxonomicCoverage</a>-eml-coverage</dt><dt>
+               <a href="./eml-literature.html#generic" target="_top">generic</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#geographicCoverage" target="_top">geographicCoverage</a>-eml-literature</dt><dt>
+               <a href="./eml-party.html#givenName" target="_top">givenName</a>-eml-party</dt></dl></div><div class="indexdiv">H<dl></dl></div><div class="indexdiv">I<dl><dt>
+               <a href="./eml-coverage.html#identificationReference" target="_top">identificationReference</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#identifierName" target="_top">identifierName</a>-eml-coverage</dt><dt>
+               <a href="./eml-literature.html#issue" target="_top">issue</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#institution" target="_top">institution</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#institution" target="_top">institution</a>-eml-literature</dt><dt>
+               <a href="./eml-party.html#individualName" target="_top">individualName</a>-eml-party</dt><dt>
+               <a href="./eml-physical.html#inline" target="_top">inline</a>-eml-physical</dt><dt>
+               <a href="./eml-resource.html#intellectualRights" target="_top">intellectualRights</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#inline" target="_top">inline</a>-eml-resource</dt><dt>
+               <a href="./eml-text.html#itemizedlist" target="_top">itemizedlist</a>-eml-text</dt><dt>
+               <a href="./eml-text.html#itemizedlist" target="_top">itemizedlist</a>-eml-text</dt></dl></div><div class="indexdiv">J<dl><dt>
+               <a href="./eml-literature.html#journal" target="_top">journal</a>-eml-literature</dt></dl></div><div class="indexdiv">k<dl><dt>
+               <a href="./eml-resource.html#keywordSet" target="_top">keywordSet</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#keyword" target="_top">keyword</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#keywordThesaurus" target="_top">keywordThesaurus</a>-eml-resource</dt></dl></div><div class="indexdiv">L<dl><dt>
+               <a href="./eml-physical.html#literalCharacter" target="_top">literalCharacter</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#lineNumber" target="_top">lineNumber</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#lineNumber" target="_top">lineNumber</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#literalCharacter" target="_top">literalCharacter</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#layout" target="_top">layout</a>-eml-physical</dt><dt>
+               <a href="./eml-resource.html#language" target="_top">language</a>-eml-resource</dt><dt>
+               <a href="./eml-text.html#literalLayout" target="_top">literalLayout</a>-eml-text</dt><dt>
+               <a href="./eml-text.html#listitem" target="_top">listitem</a>-eml-text</dt></dl></div><div class="indexdiv">M<dl><dt>
+               <a href="./eml-literature.html#manuscript" target="_top">manuscript</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#map" target="_top">map</a>-eml-literature</dt><dt>
+               <a href="./eml-physical.html#maxRecordLength" target="_top">maxRecordLength</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#multiBand" target="_top">multiBand</a>-eml-physical</dt><dt>
+               <a href="./eml-resource.html#metadataProvider" target="_top">metadataProvider</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#mediumName" target="_top">mediumName</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#mediumDensity" target="_top">mediumDensity</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#mediumDensityUnits" target="_top">mediumDensityUnits</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#mediumVolume" target="_top">mediumVolume</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#mediumFormat" target="_top">mediumFormat</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#mediumNote" target="_top">mediumNote</a>-eml-resource</dt></dl></div><div class="indexdiv">N<dl><dt>
+               <a href="./eml-coverage.html#northBoundingCoordinate" target="_top">northBoundingCoordinate</a>-eml-coverage</dt><dt>
+               <a href="./eml-literature.html#numberOfVolumes" target="_top">numberOfVolumes</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#numberOfVolumes" target="_top">numberOfVolumes</a>-eml-literature</dt><dt>
+               <a href="./eml-physical.html#numHeaderLines" target="_top">numHeaderLines</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#numFooterLines" target="_top">numFooterLines</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#numPhysicalLinesPerRecord" target="_top">numPhysicalLinesPerRecord</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#nbands" target="_top">nbands</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#nbits" target="_top">nbits</a>-eml-physical</dt><dt>
+               <a href="./eml-resource.html#name" target="_top">name</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#name" target="_top">name</a>-eml-resource</dt></dl></div><div class="indexdiv">O<dl><dt>
+               <a href="./eml-coverage.html#ongoing" target="_top">ongoing</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#originator" target="_top">originator</a>-eml-coverage</dt><dt>
+               <a href="./eml-literature.html#originalPublication" target="_top">originalPublication</a>-eml-literature</dt><dt>
+               <a href="./eml-party.html#organizationName" target="_top">organizationName</a>-eml-party</dt><dt>
+               <a href="./eml-party.html#onlineUrl" target="_top">onlineUrl</a>-eml-party</dt><dt>
+               <a href="./eml-physical.html#objectName" target="_top">objectName</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#online" target="_top">online</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#offline" target="_top">offline</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#onlineDescription" target="_top">onlineDescription</a>-eml-physical</dt><dt>
+               <a href="./eml-resource.html#online" target="_top">online</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#offline" target="_top">offline</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#onlineDescription" target="_top">onlineDescription</a>-eml-resource</dt><dt>
+               <a href="./eml-text.html#orderedlist" target="_top">orderedlist</a>-eml-text</dt><dt>
+               <a href="./eml-text.html#orderedlist" target="_top">orderedlist</a>-eml-text</dt></dl></div><div class="indexdiv">P<dl><dt>
+               <a href="./lter-project.html#permissions" target="_top">permissions</a>-lter-project</dt><dt>
+               <a href="./lter-project.html#permissionCategory" target="_top">permissionCategory</a>-lter-project</dt><dt>
+               <a href="./eml-access.html#principal" target="_top">principal</a>-eml-access</dt><dt>
+               <a href="./eml-access.html#permission" target="_top">permission</a>-eml-access</dt><dt>
+               <a href="./eml-literature.html#personalCommunication" target="_top">personalCommunication</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#presentation" target="_top">presentation</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#pageRange" target="_top">pageRange</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#publisher" target="_top">publisher</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#publicationPlace" target="_top">publicationPlace</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#publisher" target="_top">publisher</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#publicationPlace" target="_top">publicationPlace</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#pageRange" target="_top">pageRange</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#publisher" target="_top">publisher</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#publicationPlace" target="_top">publicationPlace</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#publisher" target="_top">publisher</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#publicationPlace" target="_top">publicationPlace</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#publisher" target="_top">publisher</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#publisher" target="_top">publisher</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#publicationPlace" target="_top">publicationPlace</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#performer" target="_top">performer</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#publisher" target="_top">publisher</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#publicationPlace" target="_top">publicationPlace</a>-eml-literature</dt><dt>
+               <a href="./eml-party.html#positionName" target="_top">positionName</a>-eml-party</dt><dt>
+               <a href="./eml-party.html#phone" target="_top">phone</a>-eml-party</dt><dt>
+               <a href="./eml-party.html#postalCode" target="_top">postalCode</a>-eml-party</dt><dt>
+               <a href="./eml-party.html#party" target="_top">party</a>-eml-party</dt><dt>
+               <a href="./eml-physical.html#physical" target="_top">physical</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#physicalLineDelimiter" target="_top">physicalLineDelimiter</a>-eml-physical</dt><dt>
+               <a href="./eml-resource.html#pubDate" target="_top">pubDate</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#parameterDefinition" target="_top">parameterDefinition</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#parameter" target="_top">parameter</a>-eml-resource</dt><dt>
+               <a href="./eml-text.html#para" target="_top">para</a>-eml-text</dt><dt>
+               <a href="./eml-text.html#para" target="_top">para</a>-eml-text</dt><dt>
+               <a href="./eml-text.html#para" target="_top">para</a>-eml-text</dt></dl></div><div class="indexdiv">Q<dl><dt>
+               <a href="./eml-physical.html#quoteCharacter" target="_top">quoteCharacter</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#quoteCharacter" target="_top">quoteCharacter</a>-eml-physical</dt></dl></div><div class="indexdiv"><dl><dt>
+               <a href="./lter-project.html#researchProject" target="_top">researchProject</a>-lter-project</dt><dt>
+               <a href="./lter-project.html#reporting" target="_top">reporting</a>-lter-project</dt><dt>
+               <a href="./lter-project.html#reportSection" target="_top">reportSection</a>-lter-project</dt><dt>
+               <a href="./eml-coverage.html#rangeOfDates" target="_top">rangeOfDates</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#repository" target="_top">repository</a>-eml-coverage</dt><dt>
+               <a href="./eml-literature.html#report" target="_top">report</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#reportNumber" target="_top">reportNumber</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#recipient" target="_top">recipient</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#referenceType" target="_top">referenceType</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#reprintEdition" target="_top">reprintEdition</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#reviewedItem" target="_top">reviewedItem</a>-eml-literature</dt><dt>
+               <a href="./eml-physical.html#recordDelimiter" target="_top">recordDelimiter</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#rowColumnOrientation" target="_top">rowColumnOrientation</a>-eml-physical</dt><dt>
+               <a href="./eml-resource.html#role" target="_top">role</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#references" target="_top">references</a>-eml-resource</dt></dl></div><div class="indexdiv">S<dl><dt>
+               <a href="./lter-project.html#studyAreaDescription" target="_top">studyAreaDescription</a>-lter-project</dt><dt>
+               <a href="./lter-project.html#sectionTitle" target="_top">sectionTitle</a>-lter-project</dt><dt>
+               <a href="./lter-project.html#sectionValue" target="_top">sectionValue</a>-lter-project</dt><dt>
+               <a href="./eml-coverage.html#singleDateTime" target="_top">singleDateTime</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#southBoundingCoordinate" target="_top">southBoundingCoordinate</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#specimen" target="_top">specimen</a>-eml-coverage</dt><dt>
+               <a href="./eml-literature.html#scale" target="_top">scale</a>-eml-literature</dt><dt>
+               <a href="./eml-party.html#salutation" target="_top">salutation</a>-eml-party</dt><dt>
+               <a href="./eml-party.html#surName" target="_top">surName</a>-eml-party</dt><dt>
+               <a href="./eml-physical.html#size" target="_top">size</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#simpleDelimited" target="_top">simpleDelimited</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#skipbytes" target="_top">skipbytes</a>-eml-physical</dt><dt>
+               <a href="./eml-resource.html#shortName" target="_top">shortName</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#series" target="_top">series</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#schemeName" target="_top">schemeName</a>-eml-resource</dt><dt>
+               <a href="./eml-text.html#section" target="_top">section</a>-eml-text</dt><dt>
+               <a href="./eml-text.html#subscript" target="_top">subscript</a>-eml-text</dt><dt>
+               <a href="./eml-text.html#superscript" target="_top">superscript</a>-eml-text</dt><dt>
+               <a href="./eml-text.html#section" target="_top">section</a>-eml-text</dt><dt>
+               <a href="./eml-text.html#subscript" target="_top">subscript</a>-eml-text</dt><dt>
+               <a href="./eml-text.html#superscript" target="_top">superscript</a>-eml-text</dt></dl></div><div class="indexdiv">T<dl><dt>
+               <a href="./lter-project.html#temporalCoverage" target="_top">temporalCoverage</a>-lter-project</dt><dt>
+               <a href="./eml-coverage.html#temporalCoverage" target="_top">temporalCoverage</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#taxonomicCoverage" target="_top">taxonomicCoverage</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#time" target="_top">time</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#timeScaleName" target="_top">timeScaleName</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#timeScaleAgeEstimate" target="_top">timeScaleAgeEstimate</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#timeScaleAgeUncertainty" target="_top">timeScaleAgeUncertainty</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#timeScaleAgeExplanation" target="_top">timeScaleAgeExplanation</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#timeScaleCitation" target="_top">timeScaleCitation</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#taxonomicSystem" target="_top">taxonomicSystem</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#taxonomicProcedures" target="_top">taxonomicProcedures</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#taxonomicCompleteness" target="_top">taxonomicCompleteness</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#taxonomicClassification" target="_top">taxonomicClassification</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#taxonRankName" target="_top">taxonRankName</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#taxonRankValue" target="_top">taxonRankValue</a>-eml-coverage</dt><dt>
+               <a href="./eml-coverage.html#taxonomicClassification" target="_top">taxonomicClassification</a>-eml-coverage</dt><dt>
+               <a href="./eml-literature.html#thesis" target="_top">thesis</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#totalPages" target="_top">totalPages</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#totalFigures" target="_top">totalFigures</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#totalTables" target="_top">totalTables</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#totalPages" target="_top">totalPages</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#totalPages" target="_top">totalPages</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#totalPages" target="_top">totalPages</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#totalFigures" target="_top">totalFigures</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#totalTables" target="_top">totalTables</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#totalPages" target="_top">totalPages</a>-eml-literature</dt><dt>
+               <a href="./eml-physical.html#textFormat" target="_top">textFormat</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#textFixed" target="_top">textFixed</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#textDelimited" target="_top">textDelimited</a>-eml-physical</dt><dt>
+               <a href="./eml-physical.html#totalrowbytes" target="_top">totalrowbytes</a>-eml-physical</dt><dt>
+               <a href="./eml-resource.html#title" target="_top">title</a>-eml-resource</dt><dt>
+               <a href="./eml-resource.html#temporalCoverage" target="_top">temporalCoverage</a>-eml-resource</dt><dt>
+               <a href="./eml-text.html#text" target="_top">text</a>-eml-text</dt><dt>
+               <a href="./eml-text.html#title" target="_top">title</a>-eml-text</dt></dl></div><div class="indexdiv">U<dl><dt>
+               <a href="./eml-party.html#userId" target="_top">userId</a>-eml-party</dt><dt>
+               <a href="./eml-physical.html#url" target="_top">url</a>-eml-physical</dt><dt>
+               <a href="./eml-resource.html#url" target="_top">url</a>-eml-resource</dt><dt>
+               <a href="./eml-text.html#ulink" target="_top">ulink</a>-eml-text</dt></dl></div><div class="indexdiv">V<dl><dt>
+               <a href="./eml-coverage.html#vouchers" target="_top">vouchers</a>-eml-coverage</dt><dt>
+               <a href="./eml-literature.html#volume" target="_top">volume</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#volume" target="_top">volume</a>-eml-literature</dt><dt>
+               <a href="./eml-literature.html#volume" target="_top">volume</a>-eml-literature</dt><dt>
+               <a href="./eml-resource.html#value" target="_top">value</a>-eml-resource</dt></dl></div><div class="indexdiv">W<dl><dt>
+               <a href="./eml-coverage.html#westBoundingCoordinate" target="_top">westBoundingCoordinate</a>-eml-coverage</dt></dl></div><div class="indexdiv">X<dl></dl></div><div class="indexdiv">Y<dl></dl></div><div class="indexdiv">Z<dl><dt></dt></dl></div></div></div></body></html>
