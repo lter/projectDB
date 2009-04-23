@@ -1,10 +1,10 @@
-(:	getProjectsByDateRange.xql: XQuery to return all projects or projects from a site by searching
-the temporal coverage to see if its's between the min and max dates.
+(:	getProjectsPermissions.xql: XQuery to return all projects that have a permission temporal coverage 
+	within the query dates..
 	
 		Parameters:	
-			siteID = the three letter site acronym 
+			siteId = the three letter site acronym 
 			id = (optional) the project ID
-			sortBy = default by title, other values id, surName
+			sortBy = (optional) default by title, possible (legal?) values id, surName
 			startYear = the earlier date boundary
 			endYear = the later date boundary
 			xslt = the xslt styelsheet reference to include (not implemented)
@@ -29,7 +29,6 @@ the temporal coverage to see if its's between the min and max dates.
         59 Temple Place, Suite 330, Boston, MA  02111-1307  USA)
 :)
 
-xquery version "1.0";
 declare namespace eml="eml://ecoinformatics.org/project-2.1.0";
 
 declare option exist:serialize "method=xml";
@@ -39,34 +38,46 @@ declare option exist:serialize "indent=yes";
 declare function local:yearDate($datestring as xs:string) 
 	as xs:gYear {
 	    xs:gYear(substring($datestring, 0, 5))};
-
-(: return true if the project is in the current date interval or if the id matches :)
+	
 declare function local:currentProject($project, $id, $start_date as xs:string, $end_date as xs:string) 
 	as xs:boolean {
 	if ($id = '') then
 		$project/@id = $id
-	else 
-		(($project/coverage/temporalCoverage/rangeOfDates/beginDate >= $start_date)
-				and ($project/coverage/temporalCoverage/rangeOfDates/endDate <= $end_date)) 
+	else then
+		(($project/coverage/temporalCoverage/rangeOfDates/beginDate > $start_date)
+				and ($project/coverage/temporalCoverage/rangeOfDates/endDate < $end_date)) 
 			or $project/coverage/temporalCoverage/ongoing
-			or (($project/coverage/temporalCoverage/singleDateTime/calendarDate >= $start_date) 
-				and ($project/coverage/temporalCoverage/singleDateTime/calendarDate <= $end_date))
+			or (($project/coverage/temporalCoverage/singleDateTime/calendarDate > $start_date) 
+				and ($project/coverage/temporalCoverage/singleDateTime/calendarDate < $end_date))
 			)
 	};
+	
+	(: Map query field parameter to xpath selection :)
+	declare function local:query-field($field as xs:string) as xs:string
+	{
+	    if ($field = "au") then
+	        "creator/individualName/surName"
+	    else if ($field = "ti") then
+	        "title"
+	    else if ($field = "ye") then
+	        "pubDate"
+	    else
+	        "."
+	};
+	
 
- 
-(: grab the request parameters :)
-let $site := request:get-parameter("siteID",'')
+let $site := request:get-parameter("siteId",'')
 let $id := request:get-parameter("id", '')
-let $sortBy := request:get-parameter("sortBy", "title")
+let $sortBy := request:get-parameter("sortBy", 'title')
 let $xslt := request:get-parameter("xlst",'')
-let $min_date := request:get-parameter('startYear', '' ) cast as xs:string
-let $max_date := request:get-parameter('endYear', '' ) cast as xs:string
+let $startYear := request:get-parameter('startYear','1900') cast as xs:string
+let $endYear := request:get-parameter('endYear', fn:current_date()) cast as xs:string
 
-(: find the relevant projects within the date range :)
+(: find the relevant projects within the date range  unless we have an id :)
+
 for $projects in collection(concat('/db/projects/',lower-case($site)))/*:researchProject
-where local:currentProject($projects, $id, $start_date, $end_date)
-order by $sortField
+where local:currentProject($projects, $id, $startYear, $endYear)
+order by $sortBy
 return
 <projects>{
 	<project id="{$projects/@id}">
@@ -88,5 +99,6 @@ return
 			<keyword>{$keyword}</keyword>}
 			</keywordSet>
 			{$projects/time}
+			{$projects/permissions}
 	</project>}
 </projects>

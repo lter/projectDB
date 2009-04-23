@@ -1,18 +1,19 @@
-(:	getPermissions.xql: XQuery to return all projects that have a permission temporal coverage 
-	within the query dates..
-	
+(:	getProjectsReporting.xql: XQuery to return reports from the projects
+
 		Parameters:	
-			site = the three letter site acronym 
-			min_date = the earlier date boundary
-			max_date = the later date boundary
-			recipient = the recipient for the report
+			siteId = the three letter site acronym 
+			id = (optional) the project id
+			sortsBy = default title, other values id, surname
+			startYear = the earlier date boundary
+			endYear = the later date boundary
+			recipient = the recipient of the report
 			xslt = the xslt styelsheet reference to include (not implemented)
 			
 		Usage Notes:
 		
 		Attribution:
        Author: Sven Böhm <bohms@lternet.edu>
-       Date: 22-Apr-2009
+       Date: 23-Apr-2009
        Revision: 0.1
 	
 		License:
@@ -27,7 +28,7 @@
         GNU General Public License for more details (Free Software Foundation, Inc., 
         59 Temple Place, Suite 330, Boston, MA  02111-1307  USA)
 :)
-xquery version "1.0";
+
 declare namespace eml="eml://ecoinformatics.org/project-2.1.0";
 
 declare option exist:serialize "method=xml";
@@ -38,23 +39,27 @@ declare function local:yearDate($datestring as xs:string)
 	as xs:gYear {
 	    xs:gYear(substring($datestring, 1, 4))};
 
+
 let $site := request:get-parameter("site",'')
 let $xslt := request:get-parameter("xlst",'')
 let $recipient := request:get-parameter('recipient','')
-let $min_date := local:yearDate(request:get-parameter('min_date',current-date()))
-let $max_date := local:yearDate(request:get-parameter('max_date', current_date())) (: minus 1 year? :)
+let $sortBy := request:get-parameter('sortBy', 'title')
+let $min_date := request:get-parameter('startYear', '') cast as xs:string
+let $max_date := request:get-parameter('endYear', '') cast as xs:string
 
-for $projects in collection(concat('/db/projects/',lower-case($site)))/*:researchProject
-	let $ids := $projects/@id
-	let $dates := $projects/permissions/temporalCoverage
-where ((: $projects/reporting[@recipient = $recipient]
- 	and :)($dates/ongoing 
-	or (($dates/rangeOfDates/beginDate >= $min_date)
-			and ($dates/rangeOfDates/endDate <= $max_date))
-	or (($dates/singleDateTime/calendarDate >= $min_date) 
-			and ($dates/singleDateTime/calendarDate <= $max_date)))
-	)
-order by $ids
+(: TODO: check that values are legal :)
+
+(: find the relevant projects within the date range :)
+
+let $ongoingProjects := collection(concat('/db/projects/',lower-case($site)))/*:researchProject[./coverage/temporalCoverage/ongoing/beginDate > $min_date]
+let $singleDateProjects := collection(concat('/db/projects/',lower-case($site)))/*:researchProject[./coverage/temporalCoverage/singleDateTime/calendarDate > $min_date]
+let $multiDateProjects := collection(concat('/db/projects/',lower-case($site)))/*:researchProject[./coverage/temporalCoverage/rangeOfDates/beginDate > $min_date and ./coverage/temporalCoverage/rangeOfDates/endDate < $max_date]
+
+let $possible_projects := $multiDateProjects union $ongoingProjects union $singleDateProjects
+
+for $project in $possible_projects
+where ( $project/reporting[@recipient = $recipient]
+order by $sortBy
 return
 <projects>{
 	<project id="{$projects/@id}">
@@ -76,6 +81,6 @@ return
 			<keyword>{$keyword}</keyword>}
 			</keywordSet>
 			{$projects/time}
-			{$projects/permissions}
+			{$projects/reporting}
 	</project>}
 </projects>
