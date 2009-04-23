@@ -2,8 +2,9 @@
 for a string in title, creator/individualName/surname, keywordSet/keyword, or any para tags
 	
 		Parameters:	
-			site = the three letter site acronym 
+			siteId = the three letter site acronym 
 			keyword = the word or sentence to search for 
+			sortBy = (optional) default title
 			
 		Usage Notes:
 			search is case sensitive, but can use regex.
@@ -31,18 +32,20 @@ declare namespace eml="eml://ecoinformatics.org/project-2.1.0";
 declare option exist:serialize "method=xml";
 declare option exist:serialize "omit-xml-declaration=no";
 declare option exist:serialize "indent=yes";
+declare option exist:serialize 'media-type=text/xhtml'
+
 
 (: currently a single keyword or phrase is supported :)
 let $keyword := request:get-parameter("keyword",'')
-let $site := request:get-parameter("site",'')
+let $site := request:get-parameter("siteId",'')
+let $sortBy := request:get-parameter('sortBy','title')
  
-
 for $projects in collection(concat('/db/projects/',lower-case($site)))/*:researchProject
 where (matches($projects/title, $keyword)
 	or matches($projects/creator/individualName/surName, $keyword)
 	or matches($projects/keywordSet/keyword, $keyword)
 	or matches($projects//para, $keyword))
-	
+order by $sortBy
 return
 <projects>{
 	<project id="{$projects/@id}">

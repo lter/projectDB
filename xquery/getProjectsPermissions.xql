@@ -7,7 +7,6 @@
 			sortBy = (optional) default by title, possible (legal?) values id, surName
 			startYear = the earlier date boundary
 			endYear = the later date boundary
-			xslt = the xslt styelsheet reference to include (not implemented)
 			
 		Usage Notes:
 		
@@ -34,6 +33,8 @@ declare namespace eml="eml://ecoinformatics.org/project-2.1.0";
 declare option exist:serialize "method=xml";
 declare option exist:serialize "omit-xml-declaration=no";
 declare option exist:serialize "indent=yes";
+declare option exist:serialize 'media-type=text/xhtml'
+
 
 declare function local:yearDate($datestring as xs:string) 
 	as xs:gYear {
@@ -55,7 +56,6 @@ declare function local:yearDate($datestring as xs:string)
 let $site := request:get-parameter("siteId",'')
 let $id := request:get-parameter("id", '')
 let $sortBy := request:get-parameter("sortBy", 'title')
-let $xslt := request:get-parameter("xlst",'')
 let $startYear := request:get-parameter('startYear','1900') cast as xs:string
 let $endYear := request:get-parameter('endYear', current-date()) cast as xs:string
 
