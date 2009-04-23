@@ -1,3 +1,4 @@
+xquery version "1.0";
 (:	getProjectsReporting.xql: XQuery to return reports from the projects
 
 		Parameters:	
@@ -7,6 +8,7 @@
 			startYear = the earlier date boundary
 			endYear = the later date boundary
 			recipient = the recipient of the report
+			xslt = the xslt styelsheet reference to include (not implemented)
 			
 		Usage Notes:
 		
@@ -30,10 +32,7 @@
 
 declare namespace eml="eml://ecoinformatics.org/project-2.1.0";
 
-declare option exist:serialize "method=xml";
-declare option exist:serialize "omit-xml-declaration=no";
-declare option exist:serialize "indent=yes";
-declare option exist:serialize 'media-type=text/xhtml'
+declare option exist:serialize "method=xhtml media-type=text/html";
 
 declare function local:yearDate($datestring as xs:string) 
 	as xs:gYear {
@@ -54,11 +53,15 @@ declare function local:yearDate($datestring as xs:string)
 
 
 let $site := request:get-parameter("siteId",'')
+let $xslt := request:get-parameter("xlst",'')
 let $id := request:get-parameter('id', '')
 let $recipient := request:get-parameter('recipient','')
 let $sortBy := request:get-parameter('sortBy', 'title')
 let $min_date := request:get-parameter('startYear', '') cast as xs:string
 let $max_date := request:get-parameter('endYear', '') cast as xs:string
+
+(: TODO: check that values are legal :)
+
 
 for $projects in collection(concat('/db/projects/',lower-case($site)))/*:researchProject/reporting[@recipient = $recipient]
 		where local:currentProject($projects, $id, $min_date, $max_date)

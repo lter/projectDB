@@ -1,3 +1,4 @@
+xquery version "1.0";
 (:	getProjectsByTextSearch.xql: XQuery to return all projects or projects from a site by searching
 for a string in title, creator/individualName/surname, keywordSet/keyword, or any para tags
 	
@@ -26,14 +27,9 @@ for a string in title, creator/individualName/surname, keywordSet/keyword, or an
         GNU General Public License for more details (Free Software Foundation, Inc., 
         59 Temple Place, Suite 330, Boston, MA  02111-1307  USA)
 :)
-xquery version "1.0";
 declare namespace eml="eml://ecoinformatics.org/project-2.1.0";
 
-declare option exist:serialize "method=xml";
-declare option exist:serialize "omit-xml-declaration=no";
-declare option exist:serialize "indent=yes";
-declare option exist:serialize 'media-type=text/xhtml'
-
+declare option exist:serialize "method=xhtml media-type=text/html";
 
 (: currently a single keyword or phrase is supported :)
 let $keyword := request:get-parameter("keyword",'')

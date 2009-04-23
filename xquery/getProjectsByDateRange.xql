@@ -1,3 +1,4 @@
+xquery version "1.0";
 (:	getProjectsByDateRange.xql: XQuery to return all projects or projects from a site by searching
 the temporal coverage to see if its's between the min and max dates.
 	
@@ -7,6 +8,7 @@ the temporal coverage to see if its's between the min and max dates.
 			sortBy = default by title, other values id, surName
 			startYear = the earlier date boundary
 			endYear = the later date boundary
+			xslt = the xslt styelsheet reference to include (not implemented)
 			
 		Usage Notes:
 		
@@ -28,13 +30,9 @@ the temporal coverage to see if its's between the min and max dates.
         59 Temple Place, Suite 330, Boston, MA  02111-1307  USA)
 :)
 
-xquery version "1.0";
 declare namespace eml="eml://ecoinformatics.org/project-2.1.0";
 
-declare option exist:serialize "method=xml";
-declare option exist:serialize "omit-xml-declaration=no";
-declare option exist:serialize "indent=yes";
-declare option exist:serialize 'media-type=text/xhtml'
+declare option exist:serialize "method=xhtml media-type=text/html";
 
 declare function local:yearDate($datestring as xs:string) 
 	as xs:gYear {
@@ -58,6 +56,7 @@ declare function local:yearDate($datestring as xs:string)
 let $site := request:get-parameter("siteID",'')
 let $id := request:get-parameter("id", '')
 let $sortBy := request:get-parameter("sortBy", "title")
+let $xslt := request:get-parameter("xlst",'')
 let $min_date := request:get-parameter('startYear', '' ) cast as xs:string
 let $max_date := request:get-parameter('endYear', '' ) cast as xs:string
 
@@ -87,4 +86,4 @@ return
 			</keywordSet>
 			{$projects/time}
 	</project>}
-
+</projects>

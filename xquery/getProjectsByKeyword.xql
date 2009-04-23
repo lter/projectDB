@@ -1,3 +1,4 @@
+xquery version "1.0";
 (: Xquery to return LTER research projects matching a specified keyword
 
    Parameters:
@@ -34,9 +35,7 @@ declare namespace request="http://exist-db.org/xquery/request";
 declare namespace xs="http://www.w3.org/2001/XMLSchema";
  
 (: set output to xml :)
-declare option exist:serialize "method=xml";
-declare option exist:serialize "omit-xml-declaration=no";
-declare option exist:serialize "indent=yes";
+declare option exist:serialize "method=xhtml media-type=text/html";
 
 (: get input arguments :)
 let $keyword := request:get-parameter("keyword","")

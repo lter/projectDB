@@ -1,9 +1,9 @@
+xquery version "1.0";
 declare namespace eml="eml://ecoinformatics.org/project-2.1.0";
-declare option exist:serialize "method=xml";
-declare option exist:serialize "omit-xml-declaration=no";
-declare option exist:serialize "indent=yes";
+declare option exist:serialize "method=xhtml media-type=text/html";
+
 <projects>{
-for $p in collection("/db/projects")/*:researchProject
+for $p in collection("/db/projects")/eml:researchProject
 	let $title := $p/title/text()
 	let $idstr := $p/@id
 	let $time := $p/coverage/temporalCoverage
