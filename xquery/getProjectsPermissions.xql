@@ -60,7 +60,7 @@ let $endYear := request:get-parameter('endYear', current-date()) cast as xs:stri
 
 (: find the relevant projects within the date range  unless we have an id :)
 
-for $projects in collection(concat('/db/projects/',lower-case($site)))/*:researchProject
+for $projects in collection(concat('/db/projects/',lower-case($site)))/lter:researchProject
 where local:currentProject($projects, $id, $startYear, $endYear)
 order by $sortBy
 return

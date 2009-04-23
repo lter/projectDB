@@ -36,7 +36,7 @@ let $keyword := request:get-parameter("keyword",'')
 let $site := request:get-parameter("siteId",'')
 let $sortBy := request:get-parameter('sortBy','title')
  
-for $projects in collection(concat('/db/projects/',lower-case($site)))/*:researchProject
+for $projects in collection(concat('/db/projects/',lower-case($site)))/lter:researchProject
 where (matches($projects/title, $keyword)
 	or matches($projects/creator/individualName/surName, $keyword)
 	or matches($projects/keywordSet/keyword, $keyword)

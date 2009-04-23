@@ -57,7 +57,7 @@ let $xslt := request:get-parameter("xlst",'')
 let $min_date := request:get-parameter('startYear', '1900' ) cast as xs:string
 let $max_date := request:get-parameter('endYear', current-date ) cast as xs:string
 
-for $projects in collection('/db/projects')/*:researchProject[./associatedMaterial[lower-case(@category)='dataset']
+for $projects in collection('/db/projects')/lter:researchProject[./associatedMaterial[lower-case(@category)='dataset']
 where local:currentProject($projects, $id, $min_date, $max_date)
 order by $sortBy
 return
