@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<markers>
+    <marker lat="33.6667" long="-111.1667" html="site ID 1" label="site ID 1"/>
+    <marker lat="33.5333" long="-111.4333" html="site ID 2" label="site ID 2"/>
+    <marker lat="33.5" long="-111.6414" html="site ID 3" label="site ID 3"/>
+    <marker lat="33.55" long="-111.65" html="site ID 4" label="site ID 4"/>
+    <marker lat="33.85" long="-111.4667" html="site ID 5" label="site ID 5"/>
+    <marker lat="33.8667" long="-111.4667" html="site ID 6" label="site ID 6"/>
+    <marker lat="33.8667" long="-111.8833" html="site ID 7" label="site ID 7"/>
+    <marker lat="33.7333" long="-111.8667" html="site ID 8" label="site ID 8"/>
+    <marker lat="33.6167" long="-111.8167" html="site ID 9" label="site ID 9"/>
+    <marker lat="33.5167" long="-111.95" html="site ID 10" label="site ID 10"/>
+    <marker lat="33.3333" long="-112.0833" html="site ID 12" label="site ID 12"/>
+    <marker lat="33.2833" long="-112.3333" html="site ID 13" label="site ID 13"/>
+    <marker lat="33.6" long="-112.5333" html="site ID 14" label="site ID 14"/>
+    <marker lat="34.0708" long="-112.15" html="site ID 15" label="site ID 15"/>
+    <marker lat="33.8667" long="-112.6667" html="site ID 16" label="site ID 16"/>
+    <marker lat="33.65" long="-112.9167" html="site ID 19" label="site ID 19"/>
+    <marker lat="32.8472221846" long="-112.300003023" html="site ID 20" label="site ID 20"/>
+    <marker lat="33.1744414818" long="-112.633300897" html="site ID 22" label="site ID 22"/>
+    <marker lat="33.2833" long="-113.1167" html="site ID 24" label="site ID 24"/>
+    <marker lat="32.5667" long="-112.8833" html="site ID 25" label="site ID 25"/>
+    <marker lat="33.9167" long="-112.1306" html="site ID 26" label="site ID 26"/>
+    <marker lat="33.4281" long="-111.935" html="site ID 27" label="site ID 27"/>
+    <marker lat="33.5472" long="-112.02" html="site ID 28" label="site ID 28"/>
+    <marker lat="33.4069" long="-111.9664" html="site ID 29" label="site ID 29"/>
+    <marker lat="33.6125" long="-112.0917" html="site ID 30" label="site ID 30"/>
+    <marker lat="33.6231" long="-112.0467" html="site ID 31" label="site ID 31"/>
+    <marker lat="33.4133" long="-111.6506" html="site ID 32" label="site ID 32"/>
+ </markers>
