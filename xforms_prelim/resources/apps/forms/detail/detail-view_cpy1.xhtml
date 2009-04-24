@@ -1,0 +1,790 @@
+<!--
+    Copyright (C) 2006 Orbeon, Inc.
+
+    This program is free software; you can redistribute it and/or modify it under the terms of the
+    GNU Lesser General Public License as published by the Free Software Foundation; either version
+    2.1 of the License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+    without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU Lesser General Public License for more details.
+
+    The full text of the license is available at http://www.gnu.org/copyleft/lesser.html
+-->
+<html 
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xforms="http://www.w3.org/2002/xforms"
+  xmlns:ev="http://www.w3.org/2001/xml-events"
+  xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"
+  xmlns:exforms="http://www.exforms.org/exf/1-0"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:f="http://orbeon.org/oxf/xml/formatting"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:xxi="http://orbeon.org/oxf/xml/xinclude"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xsl:version="2.0">
+
+  <head>
+
+    <title>Metadata Editor v0.3 at the ASU Global Institute of Sustainability</title>
+    <link rel="stylesheet" type="text/css" href="/apps/forms/style.css"/>
+
+    <!-- Global model -->
+    <xforms:model
+      id="common-model"
+      xxforms:readonly-appearance="{if (doc('input:instance')/*/readonly = 'true') then 'static' else 'dynamic'}"
+      xxforms:state-handling="session">
+
+      <xforms:instance id="widget-instance">
+        <root xmlns="">
+          <show>on</show>
+        </root>
+      </xforms:instance>
+
+      <xforms:instance id="show-instance">
+        <show xmlns="" show="on">
+          <show show="on"/>
+        </show>
+      </xforms:instance>
+      
+      
+      <!-- This is called when the XForms engine is ready -->
+      <xforms:action ev:event="xforms-ready">
+      
+        <!-- Load document if specified -->
+        <xforms:send if="instance('parameters-instance')/document-id != ''" submission="load-submission"/>
+        
+        <!-- Create document id if not specified -->
+        <xforms:setvalue 
+          if="instance('parameters-instance')/document-id = '-'"
+          ref="instance('parameters-instance')/document-id"
+          value="digest(string(random(true)), 'MD5', 'hex')"/>
+          
+      </xforms:action>
+      
+      <xforms:instance>
+        <entityName xmlns=""/>
+      </xforms:instance>
+      
+      <xforms:instance id="carriers-instance">
+        <carriers xmlns="">
+          <carrier value="ups">
+            <label>UPS</label>
+          </carrier>
+          <carrier value="fedex">
+            <label>FedEx</label>
+          </carrier>
+          <carrier value="dhl">
+            <label>DHL</label>
+          </carrier>
+        </carriers>
+      </xforms:instance>
+  
+      <!-- Instance containing the page parameters -->
+      <xforms:instance id="parameters-instance">
+        <xi:include href="input:instance" xxi:omit-xml-base="true"/>
+      </xforms:instance>
+
+      <xforms:instance id="vars-instance">
+        <root xmlns="">
+          <var1/>
+        </root>
+      </xforms:instance>
+    
+      <!-- XForms instance for widget control information -->
+      <xforms:instance id="control-instance">
+        <control xmlns="">
+          <data-status/>
+          <back-trigger/>
+          <save-trigger/>
+          <errors-on-page/>
+        </control>
+      </xforms:instance>
+
+      <xforms:bind nodeset="instance('control-instance')">
+        <xforms:bind nodeset="back-trigger" readonly="../data-status = 'dirty' and not(instance('parameters-instance')/readonly = 'true')"/>
+        <xforms:bind nodeset="save-trigger" readonly="not(../data-status = 'dirty' and count(instance('errors-instance')/error) = 0) or instance('parameters-instance')/readonly = 'true'"/>
+        <xforms:bind nodeset="errors-on-page" relevant="count(instance('errors-instance')/error) != 0"/>
+      </xforms:bind>
+
+      <!-- XForms instance for error information -->
+      <xforms:instance id="errors-instance">
+        <errors xmlns=""/>
+      </xforms:instance>
+
+      <xforms:instance id="error-template">
+        <error xmlns="" id="" indexes="" label="" alert=""/>
+      </xforms:instance>
+      
+    </xforms:model>
+    
+    <!-- Form-specific model -->
+    <!-- <xsl:copy-of select="doc(concat('../forms/', doc('input:instance')/*/eml-ver, '/', doc('input:instance')/*/page-name, '/model.xml'))/*"/> -->
+    <xforms:model id="eml-model">
+
+      <!-- This is called when the XForms engine is ready -->
+      <xforms:action ev:event="xforms-ready">
+        <!-- Make sure we look clean after initialization, as insertions can take place above -->
+        <xforms:setvalue ref="xxforms:instance('control-instance')/data-status"/>
+      </xforms:action>
+
+      <!-- Mark document as dirty in case of insertion or deletion -->
+      <xforms:setvalue ev:event="xforms-insert" ref="xxforms:instance('control-instance')/data-status">dirty</xforms:setvalue>
+      <xforms:setvalue ev:event="xforms-delete" ref="xxforms:instance('control-instance')/data-status">dirty</xforms:setvalue>
+
+      <!-- Main XForms instance -->
+      <xforms:instance id="document-instance" src="oxf:/apps/forms/forms/v201/template-form.xml"/>
+
+
+<xforms:instance id="inject-title" src="oxf:/apps/forms/forms/v201/inject-title.xml"/>
+<xforms:instance id="inject-dataset" src="oxf:/apps/forms/forms/v201/inject-dataset.xml"/>
+
+      <xforms:instance id="admin-access-allow">
+        <allow xmlns="">
+          <principal/>
+          <permission/>
+        </allow>
+      </xforms:instance>
+
+      <xforms:instance id="admin-access-deny">
+        <deny xmlns="">
+          <principal/>
+          <permission/>
+        </deny>
+      </xforms:instance>
+
+      <xforms:instance id="admin-maintenance">
+        <section xmlns="">
+          <title/>
+          <para/>
+        </section>
+      </xforms:instance>
+
+      <!-- taxonomicCoverage-taxonomicClassification -->
+      <xforms:instance id="taxonomicCoverage-taxonomicClassification">
+        <taxonomicClassification xmlns="">
+          <taxonRankName/>
+          <taxonRankValue/>
+          <commonName/>
+        </taxonomicClassification>
+      </xforms:instance>
+
+      <xforms:instance id="lookup_phonetype">
+        <phone xmlns="">
+          <phonetypeOptions>
+            <option value="v">voice</option>
+            <option value="f">fax</option>
+          </phonetypeOptions>
+        </phone>
+      </xforms:instance>
+      
+      <xforms:instance id="lookup_keywordType">
+        <keywordType xmlns="">
+          <keywordTypeOptions>
+            <option value="place">place</option>
+            <option value="theme">theme</option>
+          </keywordTypeOptions>
+        </keywordType>
+      </xforms:instance>
+
+      <xforms:instance id="creator-responsibleParty-Individual">
+        <creator xmlns="">
+          <individual/>
+          <address>
+            <deliveryPoint/>
+            <city/>
+            <administrativeArea/>
+            <postalCode/>
+          </address>
+          <phone phonetype="v"/>
+          <electronicMailAddress/>
+          <onlineUrl/>
+          <userId/>
+        </creator>
+      </xforms:instance>
+
+      <xforms:instance id="creator-responsibleParty-Organization">
+        <creator xmlns="">
+          <organizationName/>
+          <address>
+            <deliveryPoint/>
+            <city/>
+            <administrativeArea/>
+            <postalCode/>
+          </address>
+          <phone phonetype="v"/>
+          <electronicMailAddress/>
+          <onlineUrl/>
+          <userId/>
+        </creator>
+      </xforms:instance>
+      
+      <xforms:instance id="contact-responsibleParty-Individual">
+        <contact xmlns="">
+          <individual/>
+          <address>
+            <deliveryPoint/>
+            <city/>
+            <administrativeArea/>
+            <postalCode/>
+          </address>
+          <phone phonetype="v"/>
+          <electronicMailAddress/>
+          <onlineUrl/>
+          <userId/>
+        </contact>
+      </xforms:instance>
+
+      <xforms:instance id="contact-responsibleParty-Organization">
+        <contact xmlns="">
+          <organizationName/>
+          <address>
+            <deliveryPoint/>
+            <city/>
+            <administrativeArea/>
+            <postalCode/>
+          </address>
+          <phone phonetype="v"/>
+          <electronicMailAddress/>
+          <onlineUrl/>
+          <userId/>
+        </contact>
+      </xforms:instance>
+      
+      <xforms:instance id="metadataProvider-responsibleParty-Individual">
+        <metadataProvider xmlns="">
+          <individual/>
+          <address>
+            <deliveryPoint/>
+            <city/>
+            <administrativeArea/>
+            <postalCode/>
+          </address>
+          <phone phonetype="v"/>
+          <electronicMailAddress/>
+          <onlineUrl/>
+          <userId/>
+        </metadataProvider>
+      </xforms:instance>
+
+      <xforms:instance id="metadataProvider-responsibleParty-Organization">
+        <metadataProvider xmlns="">
+          <organizationName/>
+          <address>
+            <deliveryPoint/>
+            <city/>
+            <administrativeArea/>
+            <postalCode/>
+          </address>
+          <phone phonetype="v"/>
+          <electronicMailAddress/>
+          <onlineUrl/>
+          <userId/>
+        </metadataProvider>
+      </xforms:instance>
+      
+      <xforms:instance id="associatedParty-responsibleParty-Individual">
+        <associatedParty xmlns="">
+          <individual/>
+          <address>
+            <deliveryPoint/>
+            <city/>
+            <administrativeArea/>
+            <postalCode/>
+          </address>
+          <phone phonetype="v"/>
+          <electronicMailAddress/>
+          <onlineUrl/>
+          <userId/>
+        </associatedParty>
+      </xforms:instance>
+
+      <xforms:instance id="associatedParty-responsibleParty-Organization">
+        <associatedParty xmlns="">
+          <organizationName/>
+          <address>
+            <deliveryPoint/>
+            <city/>
+            <administrativeArea/>
+            <postalCode/>
+          </address>
+          <phone phonetype="v"/>
+          <electronicMailAddress/>
+          <onlineUrl/>
+          <userId/>
+        </associatedParty>
+      </xforms:instance>
+      
+      <xforms:instance id="publisher-responsibleParty-Individual">
+        <publisher xmlns="">
+          <individual/>
+          <address>
+            <deliveryPoint/>
+            <city/>
+            <administrativeArea/>
+            <postalCode/>
+          </address>
+          <phone phonetype="v"/>
+          <electronicMailAddress/>
+          <onlineUrl/>
+          <userId/>
+        </publisher>
+      </xforms:instance>
+
+      <xforms:instance id="publisher-responsibleParty-Organization">
+        <publisher xmlns="">
+          <organizationName/>
+          <address>
+            <deliveryPoint/>
+            <city/>
+            <administrativeArea/>
+            <postalCode/>
+          </address>
+          <phone phonetype="v"/>
+          <electronicMailAddress/>
+          <onlineUrl/>
+          <userId/>
+        </publisher>
+      </xforms:instance>
+      
+    </xforms:model>
+
+    <!-- Model to handle persistence -->
+    <xi:include href="oxf:/apps/forms/common/persistence-model.xml" xxi:omit-xml-base="true"/>
+    <!-- Model to handle resources -->
+    <xi:include href="oxf:/apps/forms/common/resources-model.xml" xxi:omit-xml-base="true"/>
+    
+  </head>
+
+  <body>
+
+    <table>
+    <tr>
+    <td>
+      <xforms:group xmlns:xforms="http://www.w3.org/2002/xforms">
+        <xforms:load ev:event="DOMActivate" resource="/summary"/>
+        <xforms:trigger appearance="xxforms:image">
+          <xforms:label/>
+          <xxforms:img src="/apps/forms/images/head_ahis.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+        </xforms:trigger>
+      </xforms:group>
+    </td>
+    <td>......</td>
+    <td>
+      <xforms:group ref="instance('control-instance')/save-trigger">
+        <xforms:trigger>
+          <xforms:label xhtml:style="vertical-align: bottom;">
+            <xhtml:img src="/apps/forms/images/save.gif" alt="Save"/>
+            <xforms:output model="resources-model" ref="instance('resources-instance')/label/detail/save-document"/>
+          </xforms:label>
+          <xforms:action ev:event="DOMActivate">
+            <xforms:send submission="save-submission"/>
+          </xforms:action>
+        </xforms:trigger>
+      </xforms:group>
+    </td>
+    </tr>
+    </table>
+    <br/>
+    <br/>
+
+    <!-- Error summary -->
+    <xxforms:dialog level="modal" close="true" id="error-summary-dialog">
+      <xforms:label>Errors</xforms:label>
+      <xforms:group model="common-model" ref="instance('errors-instance')/error">
+        <table class="forms-errors-table">
+          <xforms:repeat nodeset="instance('errors-instance')/error" id="errors-repeat">
+            <tr>
+              <th>
+                <xforms:output value="@label"/>
+              </th>
+              <td>
+                <i>
+                  <xforms:output value="if (string-length(@indexes) > 0) then concat('(Row ', @indexes, ')') else ''"/>
+                </i>
+              </td>
+              <td>
+                <xforms:output value="@alert"/>
+              </td>
+            </tr>
+          </xforms:repeat>
+        </table>
+        <div class="forms-error-actions">
+          <xforms:trigger id="errors-close-trigger">
+            <xforms:label>
+              <xhtml:img src="/apps/forms/images/close.gif" alt="Close"/>
+              <xforms:output model="resources-model" ref="instance('resources-instance')/label/detail/close"/>
+            </xforms:label>
+            <xxforms:hide dialog="error-summary-dialog" ev:event="DOMActivate"/>
+          </xforms:trigger>
+        </div>
+      </xforms:group>
+    </xxforms:dialog>
+
+    <xforms:group model="common-model">
+    
+      <!-- Clear messages upon user moving around in the form -->
+      <xforms:toggle ev:event="DOMFocusIn" case="no-message"/>
+
+      <table class="forms-main-table">
+        <xforms:group model="common-model">
+        
+          <!-- Handle invalid and valid events in order to update error summary -->
+          <xforms:action ev:event="xforms-invalid" if="normalize-space(event('alert')) != ''">
+            <xforms:action if="not(instance('errors-instance')/error[@id = event('target') and @indexes = string-join(event('repeat-indexes'), '-')])">
+              <xforms:insert context="instance('errors-instance')" nodeset="error" origin="instance('error-template')"/>
+              <xforms:setvalue ref="instance('errors-instance')/error[index('errors-repeat')]/@id" value="event('target')"/>
+              <xforms:setvalue ref="instance('errors-instance')/error[index('errors-repeat')]/@indexes" value="string-join(event('repeat-indexes'), '-')"/>
+            </xforms:action>
+            <xforms:setvalue ref="instance('errors-instance')/error[@id = event('target') and @indexes = string-join(event('repeat-indexes'), '-')]/@alert" value="event('alert')"/>
+            <xforms:setvalue ref="instance('errors-instance')/error[@id = event('target') and @indexes = string-join(event('repeat-indexes'), '-')]/@label" value="event('label')"/>
+          </xforms:action>
+          <xforms:action ev:event="xforms-valid" if="instance('errors-instance')/error[@id = event('target') and @indexes = string-join(event('repeat-indexes'), '-')]">
+            <xforms:delete nodeset="instance('errors-instance')/error[@id = event('target') and @indexes = string-join(event('repeat-indexes'), '-')]"/>
+          </xforms:action>
+          
+          <!-- Mark that data has changed -->
+          <xforms:action ev:event="xforms-value-changed">
+            <xforms:setvalue model="common-model" ref="instance('control-instance')/data-status">dirty</xforms:setvalue>
+          </xforms:action>
+<!--
+          page-name:<xforms:output value="instance('parameters-instance')/page-name"/><br/>
+          document-id:<xforms:output value="instance('parameters-instance')/document-id"/><br/>
+          entityName:<xforms:output value="instance('parameters-instance')/entityName"/><br/>
+          deep2:<xforms:output value="instance('parameters-instance')/deep2"/><br/>
+-->
+
+          <!-- eml-entity-dataTable-list -->
+          <xforms:group ref=".[(instance('parameters-instance')/page-name = 'eml-entity-dataTable-list')]">
+            <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity/page"/>
+            ->
+            <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable/page"/>
+            .
+            <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-list/page"/>
+          </xforms:group>
+          
+          <!-- eml-entity-dataTable-basic -->
+          <xforms:group ref=".[(instance('parameters-instance')/page-name = 'eml-entity-dataTable-basic')]">
+            <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity/page"/>
+            ->
+            <xforms:trigger appearance="xxforms:link">
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{{xxforms:instance('parameters-instance')/eml-ver}}/eml-entity-dataTable-list/{{xxforms:instance('parameters-instance')/document-id}}/-/-/-/-"/>
+              </xforms:action>
+              <xforms:label>
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable/page"/>
+                .
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-list/page"/>
+              </xforms:label>
+            </xforms:trigger>
+            ->
+            <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable/page"/>
+            .
+            <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-basic/page"/>
+          </xforms:group>
+
+          <!-- eml-entity-dataTable-attribute-list -->
+          <xforms:group ref=".[(instance('parameters-instance')/page-name = 'eml-entity-dataTable-attribute-list')]">
+            <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity/page"/>
+
+            ->
+            <xforms:trigger appearance="xxforms:link">
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{{xxforms:instance('parameters-instance')/eml-ver}}/eml-entity-dataTable-list/{{xxforms:instance('parameters-instance')/document-id}}/-/-/-/-"/>
+              </xforms:action>
+              <xforms:label>
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable/page"/>
+                .
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-list/page"/>
+              </xforms:label>
+            </xforms:trigger>
+
+            ->            
+            <xforms:trigger appearance="xxforms:link">
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{{xxforms:instance('parameters-instance')/eml-ver}}/eml-entity-dataTable-basic/{{xxforms:instance('parameters-instance')/document-id}}/{{xxforms:instance('parameters-instance')/entityName}}/-/-/-"/>
+              </xforms:action>
+              <xforms:label>
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable/page"/>
+                .
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-basic/page"/>
+              </xforms:label>
+            </xforms:trigger>
+
+            ->
+            <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-attribute/page"/>
+            .
+            <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-attribute-list/page"/>
+          </xforms:group>
+
+          <!-- 'eml-entity-dataTable-attribute-basic -->
+          <xforms:group ref=".[(instance('parameters-instance')/page-name = 'eml-entity-dataTable-attribute-basic')]">
+            <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity/page"/>
+            
+            ->
+            <xforms:trigger appearance="xxforms:link">
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{{xxforms:instance('parameters-instance')/eml-ver}}/eml-entity-dataTable-list/{{xxforms:instance('parameters-instance')/document-id}}/-/-/-/-"/>
+              </xforms:action>
+              <xforms:label>
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable/page"/>
+                .
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-list/page"/>
+              </xforms:label>
+            </xforms:trigger>
+            
+            ->            
+            <xforms:trigger appearance="xxforms:link">
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{{xxforms:instance('parameters-instance')/eml-ver}}/eml-entity-dataTable-basic/{{xxforms:instance('parameters-instance')/document-id}}/{{xxforms:instance('parameters-instance')/entityName}}/-/-/-"/>
+              </xforms:action>
+              <xforms:label>
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable/page"/>
+                .
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-basic/page"/>
+              </xforms:label>
+            </xforms:trigger>
+
+            ->
+            <xforms:trigger appearance="xxforms:link">
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{{xxforms:instance('parameters-instance')/eml-ver}}/eml-entity-dataTable-attribute-list/{{xxforms:instance('parameters-instance')/document-id}}/{{xxforms:instance('parameters-instance')/entityName}}/-/-/-"/>
+              </xforms:action>
+              <xforms:label>
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-attribute/page"/>
+                .
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-attribute-list/page"/>
+              </xforms:label>
+            </xforms:trigger>
+
+            ->
+            <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-attribute/page"/>
+            .
+            <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-attribute-basic/page"/>
+
+          </xforms:group>
+
+          <!-- eml-entity-dataTable-attribute-measurementScale -->
+          <xforms:group ref=".[(instance('parameters-instance')/page-name = 'eml-entity-dataTable-attribute-measurementScale')]">
+            <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity/page"/>
+            
+            ->
+            <xforms:trigger appearance="xxforms:link">
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{{xxforms:instance('parameters-instance')/eml-ver}}/eml-entity-dataTable-list/{{xxforms:instance('parameters-instance')/document-id}}/-/-/-/-"/>
+              </xforms:action>
+              <xforms:label>
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable/page"/>
+                .
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-list/page"/>
+              </xforms:label>
+            </xforms:trigger>
+            
+            ->            
+            <xforms:trigger appearance="xxforms:link">
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{{xxforms:instance('parameters-instance')/eml-ver}}/eml-entity-dataTable-basic/{{xxforms:instance('parameters-instance')/document-id}}/{{xxforms:instance('parameters-instance')/entityName}}/-/-/-"/>
+              </xforms:action>
+              <xforms:label>
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable/page"/>
+                .
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-basic/page"/>
+              </xforms:label>
+            </xforms:trigger>
+
+            ->
+            <xforms:trigger appearance="xxforms:link">
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{{xxforms:instance('parameters-instance')/eml-ver}}/eml-entity-dataTable-attribute-list/{{xxforms:instance('parameters-instance')/document-id}}/{{xxforms:instance('parameters-instance')/entityName}}/-/-/-"/>
+              </xforms:action>
+              <xforms:label>
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-attribute/page"/>
+                .
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-attribute-list/page"/>
+              </xforms:label>
+            </xforms:trigger>
+
+            ->
+            <xforms:trigger appearance="xxforms:link">
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{{xxforms:instance('parameters-instance')/eml-ver}}/eml-entity-dataTable-attribute-basic/{{xxforms:instance('parameters-instance')/document-id}}/{{xxforms:instance('parameters-instance')/entityName}}/{{xxforms:instance('parameters-instance')/deep2}}/-/-"/>
+              </xforms:action>
+              <xforms:label>
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-attribute/page"/>
+                .
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-attribute-basic/page"/>
+              </xforms:label>
+            </xforms:trigger>
+
+            ->
+            <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-attribute-measurementScale/page"/>
+
+          </xforms:group>
+          
+          <!-- eml-entity-dataTable-attribute-measurementScale-nominal -->
+          <xforms:group ref=".[
+            (instance('parameters-instance')/page-name = 'eml-entity-dataTable-attribute-measurementScale-nominal')  or
+            (instance('parameters-instance')/page-name = 'eml-entity-dataTable-attribute-measurementScale-ordinal')  or
+            (instance('parameters-instance')/page-name = 'eml-entity-dataTable-attribute-measurementScale-interval') or
+            (instance('parameters-instance')/page-name = 'eml-entity-dataTable-attribute-measurementScale-ratio')    or
+            (instance('parameters-instance')/page-name = 'eml-entity-dataTable-attribute-measurementScale-datetime')
+            ]"> 
+            <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity/page"/>
+            
+            ->
+            <xforms:trigger appearance="xxforms:link">
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{{xxforms:instance('parameters-instance')/eml-ver}}/eml-entity-dataTable-list/{{xxforms:instance('parameters-instance')/document-id}}/-/-/-/-"/>
+              </xforms:action>
+              <xforms:label>
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable/page"/>
+                .
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-list/page"/>
+              </xforms:label>
+            </xforms:trigger>
+            
+            ->            
+            <xforms:trigger appearance="xxforms:link">
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{{xxforms:instance('parameters-instance')/eml-ver}}/eml-entity-dataTable-basic/{{xxforms:instance('parameters-instance')/document-id}}/{{xxforms:instance('parameters-instance')/entityName}}/-/-/-"/>
+              </xforms:action>
+              <xforms:label>
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable/page"/>
+                .
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-basic/page"/>
+              </xforms:label>
+            </xforms:trigger>
+
+            ->
+            <xforms:trigger appearance="xxforms:link">
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{{xxforms:instance('parameters-instance')/eml-ver}}/eml-entity-dataTable-attribute-list/{{xxforms:instance('parameters-instance')/document-id}}/{{xxforms:instance('parameters-instance')/entityName}}/-/-/-"/>
+              </xforms:action>
+              <xforms:label>
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-attribute/page"/>
+                .
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-attribute-list/page"/>
+              </xforms:label>
+            </xforms:trigger>
+
+            ->
+            <xforms:trigger appearance="xxforms:link">
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{{xxforms:instance('parameters-instance')/eml-ver}}/eml-entity-dataTable-attribute-basic/{{xxforms:instance('parameters-instance')/document-id}}/{{xxforms:instance('parameters-instance')/entityName}}/{{xxforms:instance('parameters-instance')/deep2}}/-/-"/>
+              </xforms:action>
+              <xforms:label>
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-attribute/page"/>
+                .
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-attribute-basic/page"/>
+              </xforms:label>
+            </xforms:trigger>
+
+            ->
+            <xforms:trigger appearance="xxforms:link">
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{{xxforms:instance('parameters-instance')/eml-ver}}/eml-entity-dataTable-attribute-measurementScale/{{xxforms:instance('parameters-instance')/document-id}}/{{xxforms:instance('parameters-instance')/entityName}}/{{xxforms:instance('parameters-instance')/deep2}}/-/-"/>
+              </xforms:action>
+              <xforms:label>
+                <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-attribute-measurementScale/page"/>
+              </xforms:label>
+            </xforms:trigger>
+
+            ->
+            <xforms:output model="resources-model" value="instance('resources-instance')/label/eml-entity-dataTable-attribute-measurementScale-nominal/page"/>
+
+          </xforms:group>
+
+          
+          
+          
+          
+          
+              <!-- apply form-specific cookie-trail -->
+<!--
+          <xsl:choose>
+            <xsl:when test="xxforms:instance('parameters-instance')/page-name = 'eml-entity-dataTable-attribute-measurementScale-ordinal'">
+              <xsl:copy-of select="doc(concat('../forms/', doc('input:instance')/*/eml-ver, '/', 'cookie-trail.', doc('input:instance')/*/page-name, '.xml'))/*"/>
+            </xsl:when>
+            <xsl:otherwise/>
+          </xsl:choose>
+-->
+          
+          
+          
+          
+          
+          
+          <!-- Form-specific widget screen -->
+          <xsl:copy-of select="doc(concat('../forms/', doc('input:instance')/*/eml-ver, '/', doc('input:instance')/*/page-name, '.xml'))/*"/>
+          
+        </xforms:group>
+      </table>
+
+      <table class="forms-action-table" id="main-action-table">
+        <tr>
+          <td>
+            <xforms:group ref="instance('control-instance')/errors-on-page">
+              <xforms:output class="forms-message-fatal" model="resources-model" ref="instance('resources-instance')/label/detail/check-errors-in-form"/>
+              <xforms:trigger appearance="minimal">
+                <xforms:label>
+                  <xforms:output model="resources-model" ref="instance('resources-instance')/label/detail/error-details"/>
+                </xforms:label>
+                <xforms:action ev:event="DOMActivate">
+                  <xxforms:show dialog="error-summary-dialog"/>
+                  <xforms:setfocus control="errors-close-trigger"/> 
+                </xforms:action>
+              </xforms:trigger>
+            </xforms:group>
+            <xforms:switch>
+              <xforms:case id="no-message">
+                <span/>
+              </xforms:case>
+              <xforms:case id="ok-message">
+                <span class="forms-message-positive">
+                  <xforms:output model="persistence-model" ref="instance('persistence-instance')/message"/>
+                </span>
+              </xforms:case>
+              <xforms:case id="validation-error-message">
+                <span class="forms-message-negative">
+                  <xforms:output model="persistence-model" ref="instance('persistence-instance')/message"/>
+                </span>
+              </xforms:case>
+              <xforms:case id="fatal-error-message">
+                <span class="forms-message-fatal">
+                  <xforms:output model="persistence-model" ref="instance('persistence-instance')/message"/>
+                </span>
+              </xforms:case>
+            </xforms:switch>
+          </td>
+        </tr>
+      </table>
+
+    </xforms:group>
+
+    <br/>
+    <br/>
+    <xhtml:hr/>
+    debug<br/>
+    <br/>
+    <widget:xforms-instance-inspector xmlns:widget="http://orbeon.org/oxf/xml/widget"/>
+    <br/>
+    <br/>
+
+    </body>
+</html>

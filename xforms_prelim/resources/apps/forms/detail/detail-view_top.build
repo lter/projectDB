@@ -1,0 +1,92 @@
+<html 
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xforms="http://www.w3.org/2002/xforms"
+  xmlns:ev="http://www.w3.org/2001/xml-events"
+  xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"
+  xmlns:exforms="http://www.exforms.org/exf/1-0"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:f="http://orbeon.org/oxf/xml/formatting"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:xxi="http://orbeon.org/oxf/xml/xinclude"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xsl:version="2.0">
+
+  <head>
+
+    <title>Metadata Editor v0.4.1 at the ASU Global Institute of Sustainability</title>
+    <link rel="stylesheet" type="text/css" href="/apps/forms/style.css"/>
+
+    <!-- Global model -->
+    <xforms:model
+      id="common-model"
+      xxforms:readonly-appearance="{if (doc('input:instance')/*/readonly = 'true') then 'static' else 'dynamic'}"
+      xxforms:state-handling="session">
+      
+      
+      <!-- This is called when the XForms engine is ready -->
+      <xforms:action ev:event="xforms-ready">
+      
+        <!-- Load document if specified -->
+        <xforms:send if="instance('parameters-instance')/document-id != ''" submission="load-submission"/>
+        
+        <!-- Create document id if not specified -->
+        <xforms:setvalue 
+          if="instance('parameters-instance')/document-id = '-'"
+          ref="instance('parameters-instance')/document-id"
+          value="digest(string(random(true)), 'MD5', 'hex')"/>
+          
+      </xforms:action>
+      
+      <!-- Instance containing the page parameters -->
+      <xforms:instance id="parameters-instance">
+        <xi:include href="input:instance" xxi:omit-xml-base="true"/>
+      </xforms:instance>
+
+      <!-- XForms instance for widget control information -->
+      <xforms:instance id="control-instance">
+        <control xmlns="">
+          <data-status/>
+          <back-trigger/>
+          <save-trigger/>
+          <errors-on-page/>
+        </control>
+      </xforms:instance>
+
+      <xforms:bind nodeset="instance('control-instance')">
+        <xforms:bind nodeset="back-trigger" readonly="../data-status = 'dirty' and not(instance('parameters-instance')/readonly = 'true')"/>
+        <xforms:bind nodeset="save-trigger" readonly="not(../data-status = 'dirty' and count(instance('errors-instance')/error) = 0) or instance('parameters-instance')/readonly = 'true'"/>
+        <xforms:bind nodeset="errors-on-page" relevant="count(instance('errors-instance')/error) != 0"/>
+      </xforms:bind>
+
+      <!-- XForms instance for error information -->
+      <xforms:instance id="errors-instance">
+        <errors xmlns=""/>
+      </xforms:instance>
+
+      <xforms:instance id="error-template">
+        <error xmlns="" id="" indexes="" label="" alert=""/>
+      </xforms:instance>
+      
+    </xforms:model>
+    
+    <!-- Form-specific model -->
+    <!-- <xsl:copy-of select="doc(concat('../forms/', doc('input:instance')/*/eml-ver, '/', doc('input:instance')/*/page-name, '/model.xml'))/*"/> -->
+    <xforms:model id="eml-model">
+
+      <!-- This is called when the XForms engine is ready -->
+      <xforms:action ev:event="xforms-ready">
+        <!-- Make sure we look clean after initialization, as insertions can take place above -->
+        <xforms:setvalue ref="xxforms:instance('control-instance')/data-status"/>
+      </xforms:action>
+
+      <!-- Mark document as dirty in case of insertion or deletion -->
+      <xforms:setvalue ev:event="xforms-insert" ref="xxforms:instance('control-instance')/data-status">dirty</xforms:setvalue>
+      <xforms:setvalue ev:event="xforms-delete" ref="xxforms:instance('control-instance')/data-status">dirty</xforms:setvalue>
+
+      <!-- Main XForms instance -->
+      <xforms:instance id="document-instance" src="oxf:/apps/forms/forms/projectdb/template-form.xml"/>
+<!--
+      <xforms:instance id="document-instance" src="oxf:/apps/forms/forms/v201/template-form.xml"/>
+-->
+

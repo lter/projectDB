@@ -1,0 +1,355 @@
+<html 
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xforms="http://www.w3.org/2002/xforms"
+  xmlns:ev="http://www.w3.org/2001/xml-events"
+  xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"
+  xmlns:exforms="http://www.exforms.org/exf/1-0"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:f="http://orbeon.org/oxf/xml/formatting"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:xxi="http://orbeon.org/oxf/xml/xinclude"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xsl:version="2.0">
+
+  <head>
+
+    <title>Metadata Editor v0.4.1 at the ASU Global Institute of Sustainability</title>
+    <link rel="stylesheet" type="text/css" href="/apps/forms/style.css"/>
+
+    <!-- Global model -->
+    <xforms:model
+      id="common-model"
+      xxforms:readonly-appearance="{if (doc('input:instance')/*/readonly = 'true') then 'static' else 'dynamic'}"
+      xxforms:state-handling="session">
+      
+      
+      <!-- This is called when the XForms engine is ready -->
+      <xforms:action ev:event="xforms-ready">
+      
+        <!-- Load document if specified -->
+        <xforms:send if="instance('parameters-instance')/document-id != ''" submission="load-submission"/>
+        
+        <!-- Create document id if not specified -->
+        <xforms:setvalue 
+          if="instance('parameters-instance')/document-id = '-'"
+          ref="instance('parameters-instance')/document-id"
+          value="digest(string(random(true)), 'MD5', 'hex')"/>
+          
+      </xforms:action>
+      
+      <!-- Instance containing the page parameters -->
+      <xforms:instance id="parameters-instance">
+        <xi:include href="input:instance" xxi:omit-xml-base="true"/>
+      </xforms:instance>
+
+      <!-- XForms instance for widget control information -->
+      <xforms:instance id="control-instance">
+        <control xmlns="">
+          <data-status/>
+          <back-trigger/>
+          <save-trigger/>
+          <errors-on-page/>
+        </control>
+      </xforms:instance>
+
+      <xforms:bind nodeset="instance('control-instance')">
+        <xforms:bind nodeset="back-trigger" readonly="../data-status = 'dirty' and not(instance('parameters-instance')/readonly = 'true')"/>
+        <xforms:bind nodeset="save-trigger" readonly="not(../data-status = 'dirty' and count(instance('errors-instance')/error) = 0) or instance('parameters-instance')/readonly = 'true'"/>
+        <xforms:bind nodeset="errors-on-page" relevant="count(instance('errors-instance')/error) != 0"/>
+      </xforms:bind>
+
+      <!-- XForms instance for error information -->
+      <xforms:instance id="errors-instance">
+        <errors xmlns=""/>
+      </xforms:instance>
+
+      <xforms:instance id="error-template">
+        <error xmlns="" id="" indexes="" label="" alert=""/>
+      </xforms:instance>
+      
+    </xforms:model>
+    
+    <!-- Form-specific model -->
+    <!-- <xsl:copy-of select="doc(concat('../forms/', doc('input:instance')/*/eml-ver, '/', doc('input:instance')/*/page-name, '/model.xml'))/*"/> -->
+    <xforms:model id="eml-model">
+
+      <!-- This is called when the XForms engine is ready -->
+      <xforms:action ev:event="xforms-ready">
+        <!-- Make sure we look clean after initialization, as insertions can take place above -->
+        <xforms:setvalue ref="xxforms:instance('control-instance')/data-status"/>
+      </xforms:action>
+
+      <!-- Mark document as dirty in case of insertion or deletion -->
+      <xforms:setvalue ev:event="xforms-insert" ref="xxforms:instance('control-instance')/data-status">dirty</xforms:setvalue>
+      <xforms:setvalue ev:event="xforms-delete" ref="xxforms:instance('control-instance')/data-status">dirty</xforms:setvalue>
+
+      <!-- Main XForms instance -->
+      <xforms:instance id="document-instance" src="oxf:/apps/forms/forms/projectdb/template-form.xml"/>
+<!--
+      <xforms:instance id="document-instance" src="oxf:/apps/forms/forms/v201/template-form.xml"/>
+-->
+
+<xforms:instance id="inject-phone" src="oxf:/apps/forms/forms/projectdb/inject-phone.xml"/>
+<xforms:instance id="inject-administrativeArea" src="oxf:/apps/forms/forms/projectdb/inject-administrativeArea.xml"/>
+<xforms:instance id="inject-surName" src="oxf:/apps/forms/forms/projectdb/inject-surName.xml"/>
+<xforms:instance id="inject-associatedParty" src="oxf:/apps/forms/forms/projectdb/inject-associatedParty.xml"/>
+<xforms:instance id="inject-endDate" src="oxf:/apps/forms/forms/projectdb/inject-endDate.xml"/>
+<xforms:instance id="inject-westBoundingCoordinate" src="oxf:/apps/forms/forms/projectdb/inject-westBoundingCoordinate.xml"/>
+<xforms:instance id="inject-beginDate" src="oxf:/apps/forms/forms/projectdb/inject-beginDate.xml"/>
+<xforms:instance id="inject-city" src="oxf:/apps/forms/forms/projectdb/inject-city.xml"/>
+<xforms:instance id="inject-references" src="oxf:/apps/forms/forms/projectdb/inject-references.xml"/>
+<xforms:instance id="inject-postalCode" src="oxf:/apps/forms/forms/projectdb/inject-postalCode.xml"/>
+<xforms:instance id="inject-sectionValue" src="oxf:/apps/forms/forms/projectdb/inject-sectionValue.xml"/>
+<xforms:instance id="inject-associatedProject" src="oxf:/apps/forms/forms/projectdb/inject-associatedProject.xml"/>
+<xforms:instance id="inject-description" src="oxf:/apps/forms/forms/projectdb/inject-description.xml"/>
+<xforms:instance id="inject-deliveryPoint" src="oxf:/apps/forms/forms/projectdb/inject-deliveryPoint.xml"/>
+<xforms:instance id="inject-permissions" src="oxf:/apps/forms/forms/projectdb/inject-permissions.xml"/>
+<xforms:instance id="inject-value" src="oxf:/apps/forms/forms/projectdb/inject-value.xml"/>
+<xforms:instance id="inject-designDescription" src="oxf:/apps/forms/forms/projectdb/inject-designDescription.xml"/>
+<xforms:instance id="inject-role" src="oxf:/apps/forms/forms/projectdb/inject-role.xml"/>
+<xforms:instance id="inject-geographicDescription" src="oxf:/apps/forms/forms/projectdb/inject-geographicDescription.xml"/>
+<xforms:instance id="inject-pubDate" src="oxf:/apps/forms/forms/projectdb/inject-pubDate.xml"/>
+<xforms:instance id="inject-connection" src="oxf:/apps/forms/forms/projectdb/inject-connection.xml"/>
+<xforms:instance id="inject-onlineDescription" src="oxf:/apps/forms/forms/projectdb/inject-onlineDescription.xml"/>
+<xforms:instance id="inject-altitudeUnits" src="oxf:/apps/forms/forms/projectdb/inject-altitudeUnits.xml"/>
+<xforms:instance id="inject-keywordSet" src="oxf:/apps/forms/forms/projectdb/inject-keywordSet.xml"/>
+<xforms:instance id="inject-individualName" src="oxf:/apps/forms/forms/projectdb/inject-individualName.xml"/>
+<xforms:instance id="inject-schemeName" src="oxf:/apps/forms/forms/projectdb/inject-schemeName.xml"/>
+<xforms:instance id="inject-distribution" src="oxf:/apps/forms/forms/projectdb/inject-distribution.xml"/>
+<xforms:instance id="inject-boundingAltitudes" src="oxf:/apps/forms/forms/projectdb/inject-boundingAltitudes.xml"/>
+<xforms:instance id="inject-url" src="oxf:/apps/forms/forms/projectdb/inject-url.xml"/>
+<xforms:instance id="inject-taxonomicClassification" src="oxf:/apps/forms/forms/projectdb/inject-taxonomicClassification.xml"/>
+<xforms:instance id="inject-country" src="oxf:/apps/forms/forms/projectdb/inject-country.xml"/>
+<xforms:instance id="inject-onlineUrl" src="oxf:/apps/forms/forms/projectdb/inject-onlineUrl.xml"/>
+<xforms:instance id="inject-taxonRankValue" src="oxf:/apps/forms/forms/projectdb/inject-taxonRankValue.xml"/>
+<xforms:instance id="inject-geographicCoverage" src="oxf:/apps/forms/forms/projectdb/inject-geographicCoverage.xml"/>
+<xforms:instance id="inject-temporalCoverage" src="oxf:/apps/forms/forms/projectdb/inject-temporalCoverage.xml"/>
+<xforms:instance id="inject-eastBoundingCoordinate" src="oxf:/apps/forms/forms/projectdb/inject-eastBoundingCoordinate.xml"/>
+<xforms:instance id="inject-reporting" src="oxf:/apps/forms/forms/projectdb/inject-reporting.xml"/>
+<xforms:instance id="inject-altitudeMaximum" src="oxf:/apps/forms/forms/projectdb/inject-altitudeMaximum.xml"/>
+<xforms:instance id="inject-language" src="oxf:/apps/forms/forms/projectdb/inject-language.xml"/>
+<xforms:instance id="inject-connectionDefinition" src="oxf:/apps/forms/forms/projectdb/inject-connectionDefinition.xml"/>
+<xforms:instance id="inject-categoryValue" src="oxf:/apps/forms/forms/projectdb/inject-categoryValue.xml"/>
+<xforms:instance id="inject-organizationName" src="oxf:/apps/forms/forms/projectdb/inject-organizationName.xml"/>
+<xforms:instance id="inject-northBoundingCoordinate" src="oxf:/apps/forms/forms/projectdb/inject-northBoundingCoordinate.xml"/>
+<xforms:instance id="inject-electronicMailAddress" src="oxf:/apps/forms/forms/projectdb/inject-electronicMailAddress.xml"/>
+<xforms:instance id="inject-givenName" src="oxf:/apps/forms/forms/projectdb/inject-givenName.xml"/>
+<xforms:instance id="inject-creator" src="oxf:/apps/forms/forms/projectdb/inject-creator.xml"/>
+<xforms:instance id="inject-online" src="oxf:/apps/forms/forms/projectdb/inject-online.xml"/>
+<xforms:instance id="inject-permissionCategory" src="oxf:/apps/forms/forms/projectdb/inject-permissionCategory.xml"/>
+<xforms:instance id="inject-reportSection" src="oxf:/apps/forms/forms/projectdb/inject-reportSection.xml"/>
+<xforms:instance id="inject-title" src="oxf:/apps/forms/forms/projectdb/inject-title.xml"/>
+<xforms:instance id="inject-parameter" src="oxf:/apps/forms/forms/projectdb/inject-parameter.xml"/>
+<xforms:instance id="inject-singleDateTime" src="oxf:/apps/forms/forms/projectdb/inject-singleDateTime.xml"/>
+<xforms:instance id="inject-name" src="oxf:/apps/forms/forms/projectdb/inject-name.xml"/>
+<xforms:instance id="inject-southBoundingCoordinate" src="oxf:/apps/forms/forms/projectdb/inject-southBoundingCoordinate.xml"/>
+<xforms:instance id="inject-positionName" src="oxf:/apps/forms/forms/projectdb/inject-positionName.xml"/>
+<xforms:instance id="inject-rangeOfDates" src="oxf:/apps/forms/forms/projectdb/inject-rangeOfDates.xml"/>
+<xforms:instance id="inject-abstract" src="oxf:/apps/forms/forms/projectdb/inject-abstract.xml"/>
+<xforms:instance id="inject-calendarDate" src="oxf:/apps/forms/forms/projectdb/inject-calendarDate.xml"/>
+<xforms:instance id="inject-sectionTitle" src="oxf:/apps/forms/forms/projectdb/inject-sectionTitle.xml"/>
+<xforms:instance id="inject-commonName" src="oxf:/apps/forms/forms/projectdb/inject-commonName.xml"/>
+<xforms:instance id="inject-keywordThesaurus" src="oxf:/apps/forms/forms/projectdb/inject-keywordThesaurus.xml"/>
+<xforms:instance id="inject-parameterDefinition" src="oxf:/apps/forms/forms/projectdb/inject-parameterDefinition.xml"/>
+<xforms:instance id="inject-categoryTitle" src="oxf:/apps/forms/forms/projectdb/inject-categoryTitle.xml"/>
+<xforms:instance id="inject-definition" src="oxf:/apps/forms/forms/projectdb/inject-definition.xml"/>
+<xforms:instance id="inject-keyword" src="oxf:/apps/forms/forms/projectdb/inject-keyword.xml"/>
+<xforms:instance id="inject-alternateIdentifier" src="oxf:/apps/forms/forms/projectdb/inject-alternateIdentifier.xml"/>
+<xforms:instance id="inject-section" src="oxf:/apps/forms/forms/projectdb/inject-section.xml"/>
+<xforms:instance id="inject-para" src="oxf:/apps/forms/forms/projectdb/inject-para.xml"/>
+<xforms:instance id="inject-associatedMaterial" src="oxf:/apps/forms/forms/projectdb/inject-associatedMaterial.xml"/>
+<xforms:instance id="inject-taxonRankName" src="oxf:/apps/forms/forms/projectdb/inject-taxonRankName.xml"/>
+<xforms:instance id="inject-taxonomicCoverage" src="oxf:/apps/forms/forms/projectdb/inject-taxonomicCoverage.xml"/>
+<xforms:instance id="inject-altitudeMinimum" src="oxf:/apps/forms/forms/projectdb/inject-altitudeMinimum.xml"/>
+<xforms:instance id="inject-ongoing" src="oxf:/apps/forms/forms/projectdb/inject-ongoing.xml"/>
+<xforms:instance id="inject-address" src="oxf:/apps/forms/forms/projectdb/inject-address.xml"/>
+<xforms:instance id="inject-coverage" src="oxf:/apps/forms/forms/projectdb/inject-coverage.xml"/>
+<xforms:instance id="inject-boundingCoordinates" src="oxf:/apps/forms/forms/projectdb/inject-boundingCoordinates.xml"/>
+<xforms:instance id="inject-salutation" src="oxf:/apps/forms/forms/projectdb/inject-salutation.xml"/>
+
+    </xforms:model>
+
+    <!-- Model to handle persistence -->
+    <xi:include href="oxf:/apps/forms/common/persistence-model.xml" xxi:omit-xml-base="true"/>
+    <!-- Model to handle resources -->
+    <xi:include href="oxf:/apps/forms/common/resources-model.xml" xxi:omit-xml-base="true"/>
+    
+  </head>
+
+  <body>
+
+    <table>
+    <tr>
+    <td>
+      <xforms:group xmlns:xforms="http://www.w3.org/2002/xforms">
+        <xforms:load ev:event="DOMActivate" resource="/summary"/>
+        <xforms:trigger appearance="xxforms:image">
+          <xforms:label/>
+          <xxforms:img src="/apps/forms/images/lterleft.jpg" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+        </xforms:trigger>
+      </xforms:group>
+    </td>
+    <td>......</td>
+    <td>
+      <xforms:group ref="instance('control-instance')/save-trigger">
+        <xforms:action ev:event="DOMActivate">
+          <xforms:send submission="save-submission"/>
+        </xforms:action>
+        <xforms:trigger>
+          <xforms:label>
+            <input type="button">
+              <img src="/apps/forms/images/save.gif" alt="save"/>
+              <b>save</b>
+            </input>
+          </xforms:label>
+        </xforms:trigger>
+      </xforms:group>
+    </td>
+    <td>......</td>
+    <td>
+      <xforms:group ref="instance('control-instance')/save-trigger">
+        <xforms:action ev:event="DOMActivate">
+          <xforms:send submission="export-submission"/>
+        </xforms:action>
+        <xforms:trigger>
+          <xforms:label xhtml:style="vertical-align: bottom;">
+            <input type="button">
+              <img src="/apps/forms/images/save.gif" alt="export"/>
+              <b>export</b>
+            </input>
+          </xforms:label>
+        </xforms:trigger>
+      </xforms:group>
+    </td>
+    </tr>
+    </table>
+    <br/>
+    <br/>
+
+    <!-- Error summary -->
+    <xxforms:dialog level="modal" close="true" id="error-summary-dialog">
+      <xforms:label>Errors</xforms:label>
+      <xforms:group model="common-model" ref="instance('errors-instance')/error">
+        <table class="forms-errors-table">
+          <xforms:repeat nodeset="instance('errors-instance')/error" id="errors-repeat">
+            <tr>
+              <th>
+                <xforms:output value="@label"/>
+              </th>
+              <td>
+                <i>
+                  <xforms:output value="if (string-length(@indexes) > 0) then concat('(Row ', @indexes, ')') else ''"/>
+                </i>
+              </td>
+              <td>
+                <xforms:output value="@alert"/>
+              </td>
+            </tr>
+          </xforms:repeat>
+        </table>
+        <div class="forms-error-actions">
+          <xforms:trigger id="errors-close-trigger">
+            <xforms:label>
+              <xhtml:img src="/apps/forms/images/close.gif" alt="Close"/>
+              <xforms:output model="resources-model" ref="instance('resources-instance')/label/detail/close"/>
+            </xforms:label>
+            <xxforms:hide dialog="error-summary-dialog" ev:event="DOMActivate"/>
+          </xforms:trigger>
+        </div>
+      </xforms:group>
+    </xxforms:dialog>
+
+    <xforms:group model="common-model">
+    
+      <!-- Clear messages upon user moving around in the form -->
+      <xforms:toggle ev:event="DOMFocusIn" case="no-message"/>
+
+      <table class="forms-main-table">
+        <xforms:group model="common-model">
+        
+          <!-- Handle invalid and valid events in order to update error summary -->
+          <xforms:action ev:event="xforms-invalid" if="normalize-space(event('alert')) != ''">
+            <xforms:action if="not(instance('errors-instance')/error[@id = event('target') and @indexes = string-join(event('repeat-indexes'), '-')])">
+              <xforms:insert context="instance('errors-instance')" nodeset="error" origin="instance('error-template')"/>
+              <xforms:setvalue ref="instance('errors-instance')/error[index('errors-repeat')]/@id" value="event('target')"/>
+              <xforms:setvalue ref="instance('errors-instance')/error[index('errors-repeat')]/@indexes" value="string-join(event('repeat-indexes'), '-')"/>
+            </xforms:action>
+            <xforms:setvalue ref="instance('errors-instance')/error[@id = event('target') and @indexes = string-join(event('repeat-indexes'), '-')]/@alert" value="event('alert')"/>
+            <xforms:setvalue ref="instance('errors-instance')/error[@id = event('target') and @indexes = string-join(event('repeat-indexes'), '-')]/@label" value="event('label')"/>
+          </xforms:action>
+          <xforms:action ev:event="xforms-valid" if="instance('errors-instance')/error[@id = event('target') and @indexes = string-join(event('repeat-indexes'), '-')]">
+            <xforms:delete nodeset="instance('errors-instance')/error[@id = event('target') and @indexes = string-join(event('repeat-indexes'), '-')]"/>
+          </xforms:action>
+          
+          <!-- Mark that data has changed -->
+          <xforms:action ev:event="xforms-value-changed">
+            <xforms:setvalue model="common-model" ref="instance('control-instance')/data-status">dirty</xforms:setvalue>
+          </xforms:action>
+<!--
+          page-name:<xforms:output value="instance('parameters-instance')/page-name"/><br/>
+          document-id:<xforms:output value="instance('parameters-instance')/document-id"/><br/>
+          entityName:<xforms:output value="instance('parameters-instance')/entityName"/><br/>
+          deep2:<xforms:output value="instance('parameters-instance')/deep2"/><br/>
+-->
+
+          <!-- Form-specific widget screen -->
+          <xsl:copy-of select="doc(concat('../forms/', doc('input:instance')/*/eml-ver, '/', doc('input:instance')/*/page-name, '.xml'))/*"/>
+          
+        </xforms:group>
+      </table>
+
+      <table class="forms-action-table" id="main-action-table">
+        <tr>
+          <td>
+            <xforms:group ref="instance('control-instance')/errors-on-page">
+              <xforms:output class="forms-message-fatal" model="resources-model" ref="instance('resources-instance')/label/detail/check-errors-in-form"/>
+              <xforms:trigger appearance="minimal">
+                <xforms:label>
+                  <xforms:output model="resources-model" ref="instance('resources-instance')/label/detail/error-details"/>
+                </xforms:label>
+                <xforms:action ev:event="DOMActivate">
+                  <xxforms:show dialog="error-summary-dialog"/>
+                  <xforms:setfocus control="errors-close-trigger"/> 
+                </xforms:action>
+              </xforms:trigger>
+            </xforms:group>
+            <xforms:switch>
+              <xforms:case id="no-message">
+                <span/>
+              </xforms:case>
+              <xforms:case id="ok-message">
+                <span class="forms-message-positive">
+                  <xforms:output model="persistence-model" ref="instance('persistence-instance')/message"/>
+                </span>
+              </xforms:case>
+              <xforms:case id="validation-error-message">
+                <span class="forms-message-negative">
+                  <xforms:output model="persistence-model" ref="instance('persistence-instance')/message"/>
+                </span>
+              </xforms:case>
+              <xforms:case id="fatal-error-message">
+                <span class="forms-message-fatal">
+                  <xforms:output model="persistence-model" ref="instance('persistence-instance')/message"/>
+                </span>
+              </xforms:case>
+            </xforms:switch>
+          </td>
+        </tr>
+      </table>
+
+    </xforms:group>
+
+    <br/>
+    <br/>
+    <!--
+    <xhtml:hr/>
+    debug<br/>
+    <br/>
+    <widget:xforms-instance-inspector xmlns:widget="http://orbeon.org/oxf/xml/widget"/>
+    <br/>
+    <br/>
+  -->
+    </body>
+</html>
+

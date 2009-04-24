@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2006 Orbeon, Inc.
+
+    This program is free software; you can redistribute it and/or modify it under the terms of the
+    GNU Lesser General Public License as published by the Free Software Foundation; either version
+    2.1 of the License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+    without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU Lesser General Public License for more details.
+
+    The full text of the license is available at http://www.gnu.org/copyleft/lesser.html
+-->
+<resources xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xsl:version="2.0">
+  <xsl:copy-of select="doc('../../common/resources_en.xml')/*/*"/>
+  <label>
+  
+    <eml-people-creator>
+      <page>Creator</page>
+      <individual>Individual</individual>
+      <individualName>Individual Name</individualName>
+      <organization>Organization</organization>
+      <organizationName>Organization Name</organizationName>
+      <address>Address</address>
+      <deliveryPoint>Delivery Point</deliveryPoint>
+      <city>City</city>
+      <administrativeArea>Administrative Area</administrativeArea>
+      <postalCode>Postal Code</postalCode>
+      <phone>Phone</phone>
+      <electronicMailAddress>Email</electronicMailAddress>
+      <onlineUrl>URL</onlineUrl>
+      <userId>User Id</userId>
+    </eml-people-creator>
+    
+    <eml-people-contact>
+      <page>Contact</page>
+      <individual>Individual</individual>
+      <individualName>Individual Name</individualName>
+      <organization>Organization</organization>
+      <organizationName>Organization Name</organizationName>
+      <address>Address</address>
+      <deliveryPoint>Delivery Point</deliveryPoint>
+      <city>City</city>
+      <administrativeArea>Administrative Area</administrativeArea>
+      <postalCode>Postal Code</postalCode>
+      <phone>Phone</phone>
+      <electronicMailAddress>Email</electronicMailAddress>
+      <onlineUrl>URL</onlineUrl>
+      <userId>User Id</userId>
+    </eml-people-contact>
+    
+    <eml-people-metadataProvider>
+      <page>Metadata Provider</page>
+      <individual>Individual</individual>
+      <individualName>Individual Name</individualName>
+      <organization>Organization</organization>
+      <organizationName>Organization Name</organizationName>
+      <address>Address</address>
+      <deliveryPoint>Delivery Point</deliveryPoint>
+      <city>City</city>
+      <administrativeArea>Administrative Area</administrativeArea>
+      <postalCode>Postal Code</postalCode>
+      <phone>Phone</phone>
+      <electronicMailAddress>Email</electronicMailAddress>
+      <onlineUrl>URL</onlineUrl>
+      <userId>User Id</userId>
+    </eml-people-metadataProvider>
+    
+    <eml-people-associatedParty>
+      <page>Associated Party</page>
+      <individual>Individual</individual>
+      <individualName>Individual Name</individualName>
+      <organization>Organization</organization>
+      <organizationName>Organization Name</organizationName>
+      <address>Address</address>
+      <deliveryPoint>Delivery Point</deliveryPoint>
+      <city>City</city>
+      <administrativeArea>Administrative Area</administrativeArea>
+      <postalCode>Postal Code</postalCode>
+      <phone>Phone</phone>
+      <electronicMailAddress>Email</electronicMailAddress>
+      <onlineUrl>URL</onlineUrl>
+      <userId>User Id</userId>
+    </eml-people-associatedParty>
+    
+    <eml-people-publisher>
+      <page>Publisher</page>
+      <individual>Individual</individual>
+      <individualName>Individual Name</individualName>
+      <organization>Organization</organization>
+      <organizationName>Organization Name</organizationName>
+      <address>Address</address>
+      <deliveryPoint>Delivery Point</deliveryPoint>
+      <city>City</city>
+      <administrativeArea>Administrative Area</administrativeArea>
+      <postalCode>Postal Code</postalCode>
+      <phone>Phone</phone>
+      <electronicMailAddress>Email</electronicMailAddress>
+      <onlineUrl>URL</onlineUrl>
+      <userId>User Id</userId>
+    </eml-people-publisher>
+    
+    <eml-main>
+      <page>Basic</page>
+      <title>Title</title>
+      <alternateIdentifier>Alternate Identifier</alternateIdentifier>
+      <shortName>Short Name</shortName>
+      <pubDate>Publication Date</pubDate>
+      <language>Language</language>
+      <series>Series</series>
+      <pubPlace>Publication Place</pubPlace>
+    </eml-main>
+    
+    <eml-main-abstract>
+      <page>Abstract</page>
+      <header>Header</header>
+      <body>Body...</body>
+    </eml-main-abstract>
+    <eml-main-additionalInfo>
+    
+      <page>Additional Info</page>
+      <header>Header</header>
+      <body>Body...</body>
+    </eml-main-additionalInfo>
+    
+    <eml-main-intellectualRights>
+      <page>Intellectual Rights</page>
+      <header>Header</header>
+      <body>Body...</body>
+    </eml-main-intellectualRights>
+    
+    <eml-main-purpose>
+      <page>Purpose</page>
+      <header>Header</header>
+      <body>Body...</body>
+    </eml-main-purpose>
+    
+    <eml-main-distribution>
+      <page>Distribution</page>
+      <url>URL</url>
+    </eml-main-distribution>
+    
+    <eml-main-coverage>
+      <page>Coverage</page>
+      <geographicDescription>Geographic Description</geographicDescription>
+      <westBoundingCoordinate>West Bounding Coordinate</westBoundingCoordinate>
+      <eastBoundingCoordinate>East Bounding Coordinate</eastBoundingCoordinate>
+      <northBoundingCoordinate>North Bounding Coordinate</northBoundingCoordinate>
+      <southBoundingCoordinate>South Bounding Coordinate</southBoundingCoordinate>
+      <altitudeMinimum>Altitude Minimum</altitudeMinimum>
+      <altitudeMaximum>Altitude Maximum</altitudeMaximum>
+      <altitudeUnits>Altitude Units</altitudeUnits>
+      <beginDate>
+        <calendarDate>Begin Date</calendarDate>
+      </beginDate>
+      <endDate>
+        <calendarDate>End Date</calendarDate>
+      </endDate>
+      <singleDateTime>Single DateTime</singleDateTime>
+      <taxonomicClassification>Taxonomic Classification</taxonomicClassification>
+      <taxonRankName>Taxonomy Rank Name</taxonRankName>
+      <taxonRankValue>Taxonomy Rank Value</taxonRankValue>
+      <commonName>Common Name</commonName>
+    </eml-main-coverage>
+
+    <eml-main-methods>
+      <methods>
+        Method
+        <methodStep>
+          Method Step
+          <description>
+            Description
+            <section>
+              Section
+              <title>Title</title>
+              <para>Description</para>
+            </section>
+          </description>
+          <citation>Citation</citation>
+          <protocol>Protocol</protocol>
+          <instrumentation>Instrumentation</instrumentation>
+          <software>Software</software>
+          <subStep>Sub-Step</subStep>
+          <dataSource>Data Source</dataSource>
+        </methodStep>
+        <sampling>
+          Sampling
+          <studyExtent>
+            Study Extent
+            <coverage>
+              Coverage
+              <geographicCoverage>
+                Geographic Coverage
+                <geographicDescription>Geographic Description</geographicDescription>
+                <boundingCoordinates>
+                  Bounding Coordinates
+                  <westBoundingCoordinate>West Bounding Coordinate</westBoundingCoordinate>
+                  <eastBoundingCoordinate>East Bounding Coordinate</eastBoundingCoordinate>
+                  <northBoundingCoordinate>North Bounding Coordinate</northBoundingCoordinate>
+                  <southBoundingCoordinate>South Bounding Coordinate</southBoundingCoordinate>
+                  <boundingAltitudes>
+                    Bounding Altitudes
+                    <altitudeMinimum>Altitude Minimum</altitudeMinimum>
+                    <altitudeMaximum>Altitude Maximum</altitudeMaximum>
+                    <altitudeUnits>Altitude Units</altitudeUnits>
+                  </boundingAltitudes>
+                </boundingCoordinates>
+                <datasetGPolygon>
+                  Dataset G Polygon
+                  <datasetGPolygonOuterGRing>
+                    Dataset G Polygon Outer G Ring
+                    <gRingPoint>
+                      G Ring Point
+                      <gRingLatitude>G Ring Latitude</gRingLatitude>
+                      <gRingLongitude>G Ring Longitude</gRingLongitude>
+                    </gRingPoint>
+                    <gRing>
+                      G Ring
+                      <gRingLatitude>G Ring Latitude</gRingLatitude>
+                      <gRingLongitude>G Ring Longitude</gRingLongitude>
+                    </gRing>
+                  </datasetGPolygonOuterGRing>
+                  <datasetGPolygonExclusionGRing>
+                    Dataset G Polygon Exclusion GRing
+                  </datasetGPolygonExclusionGRing>
+                </datasetGPolygon>
+              </geographicCoverage>
+              <temporalCoverage>
+                Temporal Coverage
+                <singleDateTime>Single DateTime</singleDateTime>
+                <rangeOfDates>
+                  Range Of Dates
+                  <beginDate>Begin Date</beginDate>
+                  <endDate>End Date</endDate>
+                </rangeOfDates>
+              </temporalCoverage>
+              <taxonomicCoverage>
+                Taxonomic Coverage
+                <taxonomicSystem>
+                  Taxonomic System
+                  <classificationSystem>
+                    Classification System
+                    <classificationSystemCitation>Classification System Citation</classificationSystemCitation>
+                    <classificationSystemModifications>Classification System Modifications</classificationSystemModifications>
+                  </classificationSystem>
+                  <identificationReference>Identification Reference</identificationReference>
+                  <identifierName>
+                    Identifier Name
+                    <individualName>
+                      Individual Name
+                      <salutation>Salutation</salutation>
+                      <givenName>GivenName</givenName>
+                      <surName>Sur-Name</surName>
+                    </individualName>
+                    <organizationName>Organization Name</organizationName>
+                    <positionName>Position Name</positionName>
+                    <address>
+                      Address
+                      <deliveryPoint>Delivery Point</deliveryPoint>
+                      <city>City</city>
+                      <administrativeArea>Administrative Area</administrativeArea>
+                      <postalCode>Postal Code</postalCode>
+                      <country>Country</country>
+                    </address>
+                    <phone>Phone</phone>
+                    <electronicMailAddress>Email</electronicMailAddress>
+                    <onlineUrl>Online URL</onlineUrl>
+                    <userId>User Id</userId>
+                  </identifierName>
+                  <taxonomicProcedures>Taxonomic Procedures</taxonomicProcedures>
+                  <taxonomicCompleteness>Taxonomic Completeness</taxonomicCompleteness>
+                  <vouchers>
+                    Vouchers
+                    <specimen>Specimen</specimen>
+                    <repository>
+                      Repository
+                      <originator>
+                        Originator
+                        <build/>
+                      </originator>
+                    </repository>
+                  </vouchers>
+                </taxonomicSystem>
+                <generalTaxonomicCoverage>General Taxonomic Coverage</generalTaxonomicCoverage>
+                <taxonomicClassification>
+                  Taxonomic Classification
+                  <taxonRankName>Taxon Rank Name</taxonRankName>
+                  <taxonRankValue>Taxon Rank Value</taxonRankValue>
+                  <commonName>Common Name</commonName>
+                  <taxonomicClassification>Taxonomic Classification</taxonomicClassification>
+                </taxonomicClassification>
+              </taxonomicCoverage>
+            </coverage>
+            <description>
+              Description
+              <section>
+                Section
+                <title>Title..........</title>
+                <para>Description</para>
+              </section>
+            </description>
+          </studyExtent>
+          <samplingDescription>
+            Sampling Description
+            <section>
+              Section
+              <title>Title..........</title>
+              <para>Description</para>
+            </section>
+          </samplingDescription>
+          <spatialSamplingUnits>
+            Spatial Sampling Units
+            <referencedEntityId>Referenced Entity Id</referencedEntityId>
+            <coverage>
+              Coverage
+              <geographicDescription>Geographic Description</geographicDescription>
+              <boundingCoordinates>
+                Bounding Coordinates
+                <westBoundingCoordinate>West Bounding Coordinate</westBoundingCoordinate>
+                <eastBoundingCoordinate>East Bounding Coordinate</eastBoundingCoordinate>
+                <northBoundingCoordinate>North Bounding Coordinate</northBoundingCoordinate>
+                <southBoundingCoordinate>South Bounding Coordinate</southBoundingCoordinate>
+                <boundingAltitudes>
+                  Bounding Altitudes
+                  <altitudeMinimum>Altitude Minimum</altitudeMinimum>
+                  <altitudeMaximum>Altitude Maximum</altitudeMaximum>
+                  <altitudeUnits>Altitude Units</altitudeUnits>
+                </boundingAltitudes>
+              </boundingCoordinates>
+              <datasetGPolygon>
+                Dataset G Polygon
+                <datasetGPolygonOuterGRing>
+                  Dataset G Polygon Outer G Ring
+                  <gRingPoint>
+                    G Ring Point
+                    <gRingLatitude>G Ring Latitude</gRingLatitude>
+                    <gRingLongitude>G Ring Longitude</gRingLongitude>
+                  </gRingPoint>
+                  <gRing>
+                    G Ring
+                    <gRingLatitude>G Ring Latitude</gRingLatitude>
+                    <gRingLongitude>G Ring Longitude</gRingLongitude>
+                  </gRing>
+                </datasetGPolygonOuterGRing>
+                <datasetGPolygonExclusionGRing>
+                  Dataset G Polygon Exclusion GRing
+                </datasetGPolygonExclusionGRing>
+              </datasetGPolygon>
+            </coverage>
+          </spatialSamplingUnits>
+          <citation>Citation</citation>
+        </sampling>
+        <qualityControl>
+          Quality Control
+          <description>Description</description>
+          <citation>Citation</citation>
+          <protocol>Protocol</protocol>
+          <instrumentation>Instrumentation</instrumentation>
+          <software>Software</software>
+          <subStep>Sub-Step</subStep>
+        </qualityControl>
+      </methods>
+    </eml-main-methods>
+    
+    <eml-keywordSet>
+      <page>Keyword Set</page>
+      <keyword>Keyword</keyword>
+    </eml-keywordSet>
+    
+    <eml-admin-access-allow>
+      <page>Access - Allow</page>
+      <principal>Principal....</principal>
+      <permission>Permission</permission>
+    </eml-admin-access-allow>
+    
+    <eml-admin-access-deny>
+      <page>Access - Deny</page>
+      <principal>Principal....</principal>
+      <permission>Permission</permission>
+    </eml-admin-access-deny>
+    
+    <eml-admin-maintenance>
+      <page>Maintenance</page>
+      <header>Header</header>
+      <body>Body...</body>
+    </eml-admin-maintenance>
+
+    <eml-entity>
+      <page>Entity</page>
+    </eml-entity>
+    
+    <eml-entity-dataTable>
+      <page>Data Table</page>
+    </eml-entity-dataTable>
+    
+    <eml-entity-dataTable-list>
+      <page>List</page>
+      <entityName>Entity Name</entityName>
+    </eml-entity-dataTable-list>
+
+    <eml-entity-dataTable-basic>
+      <page>Basic</page>
+      <alternateIdentifier>Alternate Identifier</alternateIdentifier>
+      <entityName>Entity Name</entityName>
+      <entityDescription>Entity Description</entityDescription>
+      <additionalInfo>
+        Additional Info
+        <header>Header</header>
+        <body>Body...</body>
+      </additionalInfo>
+      <caseSensitive>Case Sensitive</caseSensitive>
+      <numberOfRecords>Number Of Records</numberOfRecords>
+    </eml-entity-dataTable-basic>
+    
+    <eml-entity-dataTable-physical>
+      <page>Physical</page>
+    </eml-entity-dataTable-physical>
+    
+    <eml-entity-dataTable-coverage>
+      <page>Coverage</page>
+    </eml-entity-dataTable-coverage>
+    
+    <eml-entity-dataTable-method>
+      <page>Method</page>
+    </eml-entity-dataTable-method>
+    
+    <eml-entity-dataTable-attribute>
+      <page>Attribute</page>
+    </eml-entity-dataTable-attribute>
+    
+    <eml-entity-dataTable-attribute-list>
+      <page>List</page>
+      <attributeName>Attribute Name</attributeName>
+    </eml-entity-dataTable-attribute-list>
+    
+    <eml-entity-dataTable-attribute-basic>
+      <page>Basic</page>
+      <attribute>
+        <attributeName>Name</attributeName>
+        <attributeLabel>Label</attributeLabel>
+        <attributeDefinition>Definition</attributeDefinition>
+        <storageType>Storage Type</storageType>
+        <missingValueCode>
+          Missing Value Code
+          <code>Code</code>
+          <codeExplanation>Code Explanation</codeExplanation>
+        </missingValueCode>
+        <accuracy>
+          Accuracy
+          <attributeAccuracyReport>Attribute Accuracy Report</attributeAccuracyReport>
+          <quantitativeAttributeAccuracyAssessment>
+            Quantitative Attribute Accuracy Assessment
+            <attributeAccuracyValue>Attribute Accuracy Value</attributeAccuracyValue>
+            <attributeAccuracyExplanation>Attribute Accuracy Explanation</attributeAccuracyExplanation>
+          </quantitativeAttributeAccuracyAssessment>
+        </accuracy>
+      </attribute>
+    </eml-entity-dataTable-attribute-basic>
+    
+    <eml-entity-dataTable-attribute-measurementScale>
+      <page>Measurement Scale</page>
+      <description>(select)</description>
+    </eml-entity-dataTable-attribute-measurementScale>
+
+    <eml-entity-dataTable-attribute-measurementScale-nominal>
+      <page>Nominal</page>
+      <nonNumericDomain>
+        <enumeratedDomain>
+          Enumerated Domain
+          <show>on</show>
+          <codeDefinition>
+            Code Definition
+            <code>Code</code>
+            <definition>Definition</definition>
+            <source>Source</source>
+          </codeDefinition>
+          <externalCodeSet>
+            External Codeset
+            <codesetName>Codeset Name</codesetName>
+            <citation>Citation</citation>
+            <codesetURL>Codeset URL</codesetURL>
+          </externalCodeSet>
+          <entityCodeList>
+            Entity Code List
+            <entityReference>Entity Reference</entityReference>
+            <valueAttributeReference>Value Attribute Reference</valueAttributeReference>
+            <definitionAttributeReference>Definition Attribute Reference</definitionAttributeReference>
+            <orderAttributeReference>Order Attribute Reference</orderAttributeReference>
+          </entityCodeList>
+        </enumeratedDomain>
+        <textDomain>
+          Text Domain
+          <definition>Definition</definition>
+          <pattern>Pattern</pattern>
+          <source>Source</source>
+        </textDomain>
+      </nonNumericDomain>
+    </eml-entity-dataTable-attribute-measurementScale-nominal>
+    
+    <eml-entity-dataTable-attribute-measurementScale-ordinal>
+      <page>Ordinal</page>
+      <nonNumericDomain>
+        <enumeratedDomain>
+          Enumerated Domain
+          <codeDefinition>
+            Code Definition
+            <code>Code</code>
+            <definition>Definition</definition>
+            <source>Source</source>
+          </codeDefinition>
+          <externalCodeSet>
+            External Codeset
+            <codesetName>Codeset Name</codesetName>
+            <citation>Citation</citation>
+            <codesetURL>Codeset URL</codesetURL>
+          </externalCodeSet>
+          <entityCodeList>
+            Entity Code List
+            <entityReference>Entity Reference</entityReference>
+            <valueAttributeReference>Value Attribute Reference</valueAttributeReference>
+            <definitionAttributeReference>Definition Attribute Reference</definitionAttributeReference>
+            <orderAttributeReference>Order Attribute Reference</orderAttributeReference>
+          </entityCodeList>
+        </enumeratedDomain>
+        <textDomain>
+          Text Domain
+          <definition>Definition</definition>
+          <pattern>Pattern</pattern>
+          <source>Source</source>
+        </textDomain>
+      </nonNumericDomain>
+    </eml-entity-dataTable-attribute-measurementScale-ordinal>
+    
+    <eml-entity-dataTable-attribute-measurementScale-interval>
+      <page>Interval</page>
+      <interval>
+        Interval
+        <unit>
+          Unit
+          <standardUnit>Standard Unit</standardUnit>
+          <customUnit>Custom Unit</customUnit>
+        </unit>
+        <precision>Precision</precision>
+        <numericDomain>
+          Numeric Domain
+          <numberType>Number Type</numberType>
+          <bounds>
+            Bounds
+            <minimum>Minimum</minimum>
+            <maximum>Maximum</maximum>
+          </bounds>
+        </numericDomain>
+      </interval>
+    </eml-entity-dataTable-attribute-measurementScale-interval>
+    
+    <eml-entity-dataTable-attribute-measurementScale-ratio>
+      <page>Ratio</page>
+      <ratio>
+        Interval
+        <unit>
+          Unit
+          <standardUnit>Standard Unit</standardUnit>
+          <customUnit>Custom Unit</customUnit>
+        </unit>
+        <precision>Precision</precision>
+        <numericDomain>
+          Numeric Domain
+          <numberType>Number Type</numberType>
+          <bounds>
+            Bounds
+            <minimum>Minimum</minimum>
+            <maximum>Maximum</maximum>
+          </bounds>
+        </numericDomain>
+      </ratio>
+    </eml-entity-dataTable-attribute-measurementScale-ratio>
+
+    <eml-entity-dataTable-attribute-measurementScale-datetime>
+      <page>Date Time</page>
+      <datetime>
+        Date Time
+        <formatString>Format String</formatString>
+        <dateTimePrecision>Date Time Precision</dateTimePrecision>
+        <dateTimeDomain>
+          Date Time Domain
+          <bounds>
+            Bounds
+            <minimum>Minimum</minimum>
+            <maximum>Maximum</maximum>
+          </bounds>
+        </dateTimeDomain>
+      </datetime>
+    </eml-entity-dataTable-attribute-measurementScale-datetime>
+
+    <eml-entity-dataTable-attribute-coverage>
+      <page>Coverage</page>
+    </eml-entity-dataTable-attribute-coverage>
+    
+    <eml-entity-dataTable-attribute-method>
+      <method>
+        Method
+        <methodStep>
+          Method Step
+          <description>
+            Description
+            <section>
+              Section
+              <title>Title</title>
+              <para>Description</para>
+            </section>
+          </description>
+          <citation>Citation</citation>
+          <protocol>Protocol</protocol>
+          <instrumentation>Instrumentation</instrumentation>
+          <software>Software</software>
+          <subStep>Sub-Step</subStep>
+          <dataSource>Data Source</dataSource>
+        </methodStep>
+        <sampling>
+          Sampling
+          <studyExtent>
+            Study Extent
+            <coverage>
+              Coverage
+              <geographicCoverage>
+                Geographic Coverage
+                <geographicDescription>Geographic Description</geographicDescription>
+                <boundingCoordinates>
+                  Bounding Coordinates
+                  <westBoundingCoordinate>West Bounding Coordinate</westBoundingCoordinate>
+                  <eastBoundingCoordinate>East Bounding Coordinate</eastBoundingCoordinate>
+                  <northBoundingCoordinate>North Bounding Coordinate</northBoundingCoordinate>
+                  <southBoundingCoordinate>South Bounding Coordinate</southBoundingCoordinate>
+                  <boundingAltitudes>
+                    Bounding Altitudes
+                    <altitudeMinimum>Altitude Minimum</altitudeMinimum>
+                    <altitudeMaximum>Altitude Maximum</altitudeMaximum>
+                    <altitudeUnits>Altitude Units</altitudeUnits>
+                  </boundingAltitudes>
+                </boundingCoordinates>
+                <datasetGPolygon>
+                  Dataset G Polygon
+                  <datasetGPolygonOuterGRing>
+                    Dataset G Polygon Outer G Ring
+                    <gRingPoint>
+                      G Ring Point
+                      <gRingLatitude>G Ring Latitude</gRingLatitude>
+                      <gRingLongitude>G Ring Longitude</gRingLongitude>
+                    </gRingPoint>
+                    <gRing>
+                      G Ring
+                      <gRingLatitude>G Ring Latitude</gRingLatitude>
+                      <gRingLongitude>G Ring Longitude</gRingLongitude>
+                    </gRing>
+                  </datasetGPolygonOuterGRing>
+                  <datasetGPolygonExclusionGRing>
+                    Dataset G Polygon Exclusion GRing
+                  </datasetGPolygonExclusionGRing>
+                </datasetGPolygon>
+              </geographicCoverage>
+              <temporalCoverage>
+                Temporal Coverage
+                <singleDateTime>Single DateTime</singleDateTime>
+                <rangeOfDates>
+                  Range Of Dates
+                  <beginDate>Begin Date</beginDate>
+                  <endDate>End Date</endDate>
+                </rangeOfDates>
+              </temporalCoverage>
+              <taxonomicCoverage>
+                Taxonomic Coverage
+                <taxonomicSystem>
+                  Taxonomic System
+                  <classificationSystem>
+                    Classification System
+                    <classificationSystemCitation>Classification System Citation</classificationSystemCitation>
+                    <classificationSystemModifications>Classification System Modifications</classificationSystemModifications>
+                  </classificationSystem>
+                  <identificationReference>Identification Reference</identificationReference>
+                  <identifierName>
+                    Identifier Name
+                    <individualName>
+                      Individual Name
+                      <salutation>Salutation</salutation>
+                      <givenName>GivenName</givenName>
+                      <surName>Sur-Name</surName>
+                    </individualName>
+                    <organizationName>Organization Name</organizationName>
+                    <positionName>Position Name</positionName>
+                    <address>
+                      Address
+                      <deliveryPoint>Delivery Point</deliveryPoint>
+                      <city>City</city>
+                      <administrativeArea>Administrative Area</administrativeArea>
+                      <postalCode>Postal Code</postalCode>
+                      <country>Country</country>
+                    </address>
+                    <phone>Phone</phone>
+                    <electronicMailAddress>Email</electronicMailAddress>
+                    <onlineUrl>Online URL</onlineUrl>
+                    <userId>User Id</userId>
+                  </identifierName>
+                  <taxonomicProcedures>Taxonomic Procedures</taxonomicProcedures>
+                  <taxonomicCompleteness>Taxonomic Completeness</taxonomicCompleteness>
+                  <vouchers>
+                    Vouchers
+                    <specimen>Specimen</specimen>
+                    <repository>
+                      Repository
+                      <originator>
+                        Originator
+                        <build/>
+                      </originator>
+                    </repository>
+                  </vouchers>
+                </taxonomicSystem>
+                <generalTaxonomicCoverage>General Taxonomic Coverage</generalTaxonomicCoverage>
+                <taxonomicClassification>
+                  Taxonomic Classification
+                  <taxonRankName>Taxon Rank Name</taxonRankName>
+                  <taxonRankValue>Taxon Rank Value</taxonRankValue>
+                  <commonName>Common Name</commonName>
+                  <taxonomicClassification>Taxonomic Classification</taxonomicClassification>
+                </taxonomicClassification>
+              </taxonomicCoverage>
+            </coverage>
+            <description>
+              Description
+              <section>
+                Section
+                <title>Title..........</title>
+                <para>Description</para>
+              </section>
+            </description>
+          </studyExtent>
+          <samplingDescription>
+            Sampling Description
+            <section>
+              Section
+              <title>Title..........</title>
+              <para>Description</para>
+            </section>
+          </samplingDescription>
+          <spatialSamplingUnits>
+            Spatial Sampling Units
+            <referencedEntityId>Referenced Entity Id</referencedEntityId>
+            <coverage>
+              Coverage
+              <geographicDescription>Geographic Description</geographicDescription>
+              <boundingCoordinates>
+                Bounding Coordinates
+                <westBoundingCoordinate>West Bounding Coordinate</westBoundingCoordinate>
+                <eastBoundingCoordinate>East Bounding Coordinate</eastBoundingCoordinate>
+                <northBoundingCoordinate>North Bounding Coordinate</northBoundingCoordinate>
+                <southBoundingCoordinate>South Bounding Coordinate</southBoundingCoordinate>
+                <boundingAltitudes>
+                  Bounding Altitudes
+                  <altitudeMinimum>Altitude Minimum</altitudeMinimum>
+                  <altitudeMaximum>Altitude Maximum</altitudeMaximum>
+                  <altitudeUnits>Altitude Units</altitudeUnits>
+                </boundingAltitudes>
+              </boundingCoordinates>
+              <datasetGPolygon>
+                Dataset G Polygon
+                <datasetGPolygonOuterGRing>
+                  Dataset G Polygon Outer G Ring
+                  <gRingPoint>
+                    G Ring Point
+                    <gRingLatitude>G Ring Latitude</gRingLatitude>
+                    <gRingLongitude>G Ring Longitude</gRingLongitude>
+                  </gRingPoint>
+                  <gRing>
+                    G Ring
+                    <gRingLatitude>G Ring Latitude</gRingLatitude>
+                    <gRingLongitude>G Ring Longitude</gRingLongitude>
+                  </gRing>
+                </datasetGPolygonOuterGRing>
+                <datasetGPolygonExclusionGRing>
+                  Dataset G Polygon Exclusion GRing
+                </datasetGPolygonExclusionGRing>
+              </datasetGPolygon>
+            </coverage>
+          </spatialSamplingUnits>
+          <citation>Citation</citation>
+        </sampling>
+        <qualityControl>
+          Quality Control
+          <description>Description</description>
+          <citation>Citation</citation>
+          <protocol>Protocol</protocol>
+          <instrumentation>Instrumentation</instrumentation>
+          <software>Software</software>
+          <subStep>Sub-Step</subStep>
+        </qualityControl>
+      </method>
+    </eml-entity-dataTable-attribute-method>
+      
+    <eml-entity-dataTable-constraint>
+      <page>Constraint</page>
+    </eml-entity-dataTable-constraint>
+    
+    <eml-entity-spatialRaster>
+      <page>Spatial Raster</page>
+    </eml-entity-spatialRaster>
+    
+    <eml-entity-spatialVector>
+      <page>Spatial Vector</page>
+    </eml-entity-spatialVector>
+    
+    <eml-entity-storedProcedure>
+      <page>Stored Procedure</page>
+    </eml-entity-storedProcedure>
+    
+    <eml-entity-view>
+      <page>View</page>
+    </eml-entity-view>
+    
+    <eml-entity-otherEntity>
+      <page>Other Entity</page>
+    </eml-entity-otherEntity>
+    
+  </label>
+</resources>

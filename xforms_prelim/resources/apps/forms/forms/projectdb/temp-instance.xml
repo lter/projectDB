@@ -1,0 +1,8 @@
+<lter:researchProject 
+xmlns:lter="eml://ecoinformatics.org/lter-project-2.1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="eml://ecoinformatics.org/lter-project-2.1.0 lter-project.xsd"
+id="knb-lter-cap.8.1" scope="system" system="knb"/>
+
+
+

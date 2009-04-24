@@ -1,0 +1,14 @@
+          <xsl:variable name="text" as="xs:string" select="replace(., 'strong', 'emphasis')"/>
+        <xforms:setvalue ref="." value="whatever1610"/>
+			  <xforms:delete context="xxforms:instance('str-instance')/*"/>
+			  <xforms:insert context="xxforms:instance('str-instance')//str-node" origin="xxforms:instance('temp-instance')/."/>
+
+
+<xu:transformations>
+ <xu:rename select="./strong">
+   emphasis
+ </xu:rename>
+</xu:transformations> 
+
+
+

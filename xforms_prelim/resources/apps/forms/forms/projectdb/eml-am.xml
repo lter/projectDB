@@ -1,0 +1,2525 @@
+<xforms:group
+  model="eml-model"
+  ref="instance('document-instance')"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xforms="http://www.w3.org/2002/xforms"
+  xmlns:ev="http://www.w3.org/2001/xml-events"
+  xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"
+  xmlns:exforms="http://www.exforms.org/exf/1-0"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:f="http://orbeon.org/oxf/xml/formatting"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:xxi="http://orbeon.org/oxf/xml/xinclude"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:eml="eml://ecoinformatics.org/eml-2.1.0"
+  xmlns:lter="eml://ecoinformatics.org/lter-project-2.1.0">
+  <tr>
+    <td class="eml-navigation-border">
+      <!-- navigation start -->
+      <table>
+        <tr>
+          <td align="left">
+            <xforms:group>
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{xxforms:instance('parameters-instance')/eml-ver}/eml-base/{xxforms:instance('parameters-instance')/document-id}/-/-/-/-"/>
+              </xforms:action>
+              <xforms:trigger>
+                <xforms:label><input type="button"><img src="/apps/forms/images/menu_ProjectDB.gif" width="16" height="16" alt="home"/><b>ProjectDB</b></input></xforms:label>
+              </xforms:trigger>
+            </xforms:group>
+          </td>
+        </tr>
+        <tr>
+          <td>.</td>
+        </tr>
+      </table>
+      <!-- navigation end menu -->
+      <!-- navigation start -->
+      <table>
+        <tr>
+          <td align="left">
+            <xforms:group>
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{xxforms:instance('parameters-instance')/eml-ver}/eml-base/{xxforms:instance('parameters-instance')/document-id}/-/-/-/-"/>
+              </xforms:action>
+              <xforms:trigger appearance="minimal">
+                <xforms:label>General Information</xforms:label>
+              </xforms:trigger>
+            </xforms:group>
+          </td>
+        </tr>
+        <tr>
+          <td align="left">
+            <xforms:group>
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{xxforms:instance('parameters-instance')/eml-ver}/eml-people/{xxforms:instance('parameters-instance')/document-id}/-/-/-/-"/>
+              </xforms:action>
+              <xforms:trigger appearance="minimal">
+                <xforms:label>People</xforms:label>
+              </xforms:trigger>
+            </xforms:group>
+          </td>
+        </tr>
+        <tr>
+          <td align="left">
+            <xforms:group>
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{xxforms:instance('parameters-instance')/eml-ver}/eml-coverage/{xxforms:instance('parameters-instance')/document-id}/-/-/-/-"/>
+              </xforms:action>
+              <xforms:trigger appearance="minimal">
+                <xforms:label>Project Coverage</xforms:label>
+              </xforms:trigger>
+            </xforms:group>
+          </td>
+        </tr>
+        <tr>
+          <td align="left">
+            <xforms:group>
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{xxforms:instance('parameters-instance')/eml-ver}/eml-keywords/{xxforms:instance('parameters-instance')/document-id}/-/-/-/-"/>
+              </xforms:action>
+              <xforms:trigger appearance="minimal">
+                <xforms:label>Keywords</xforms:label>
+              </xforms:trigger>
+            </xforms:group>
+          </td>
+        </tr>
+        <tr>
+          <td align="left">
+            <xforms:group>
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{xxforms:instance('parameters-instance')/eml-ver}/eml-desgindescription/{xxforms:instance('parameters-instance')/document-id}/-/-/-/-"/>
+              </xforms:action>
+              <xforms:trigger appearance="minimal">
+                <xforms:label>Design Description</xforms:label>
+              </xforms:trigger>
+            </xforms:group>
+          </td>
+        </tr>
+        <tr>
+          <td align="left">
+            <xforms:group>
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{xxforms:instance('parameters-instance')/eml-ver}/eml-am/{xxforms:instance('parameters-instance')/document-id}/-/-/-/-"/>
+              </xforms:action>
+              <xforms:trigger appearance="minimal">
+                <xforms:label>Associated Material</xforms:label>
+              </xforms:trigger>
+            </xforms:group>
+          </td>
+        </tr>
+        <tr>
+          <td align="left">
+            <xforms:group>
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{xxforms:instance('parameters-instance')/eml-ver}/eml-ap/{xxforms:instance('parameters-instance')/document-id}/-/-/-/-"/>
+              </xforms:action>
+              <xforms:trigger appearance="minimal">
+                <xforms:label>Associated Projects</xforms:label>
+              </xforms:trigger>
+            </xforms:group>
+          </td>
+        </tr>
+        <tr>
+          <td align="left">
+            <xforms:group>
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{xxforms:instance('parameters-instance')/eml-ver}/eml-reports/{xxforms:instance('parameters-instance')/document-id}/-/-/-/-"/>
+              </xforms:action>
+              <xforms:trigger appearance="minimal">
+                <xforms:label>Reports</xforms:label>
+              </xforms:trigger>
+            </xforms:group>
+          </td>
+        </tr>
+        <tr>
+          <td align="left">
+            <xforms:group>
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{xxforms:instance('parameters-instance')/eml-ver}/eml-Permissions/{xxforms:instance('parameters-instance')/document-id}/-/-/-/-"/>
+              </xforms:action>
+              <xforms:trigger appearance="minimal">
+                <xforms:label>Permissions</xforms:label>
+              </xforms:trigger>
+            </xforms:group>
+          </td>
+        </tr>
+      </table>
+      <!-- navigation end -->
+    </td>
+    <td style="width: 20px">
+    </td>
+    <td align="left">
+
+      <!-- content start -->
+
+      <span class="eml-level-0 eml-page-node">Associated Material</span>
+      <br/>
+      <br/>
+      <xforms:group ref=".">
+     
+     <!-- associatedMaterial start -->
+     <div>
+       <table width="100%"><tr><td>
+         <!-- associatedMaterial name -->
+         <xforms:group>
+           <xforms:trigger class="eml-level-1 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+             <xforms:label>associatedMaterial</xforms:label>
+           </xforms:trigger>
+         </xforms:group>
+       </td><td align="right">
+         <!-- set stat attribute incrementally -->
+         <xforms:action ev:event="DOMActivate">
+           <xforms:setvalue ref="./associatedMaterial/@stat" value="last()"/>
+         </xforms:action>
+         <!-- show/hide add image -->
+         <xforms:group ref="if(999999 &gt; count(./associatedMaterial)) then . else ()">
+           <xforms:action ev:event="DOMActivate">
+             <xforms:insert context="." at="1" position="after" origin="instance('inject-associatedMaterial')"/>
+           </xforms:action>
+           <xforms:trigger appearance="xxforms:image">
+             <xforms:label/>
+             <xxforms:img src="/apps/forms/images/add.gif"/>
+           </xforms:trigger>
+         </xforms:group>
+         <xforms:group ref=".[exists(child::associatedMaterial)]">
+           <!-- associatedMaterial show -->
+           <xforms:group ref=".[./associatedMaterial[1]/@show='y']">
+             <xforms:trigger appearance="xxforms:image">
+               <xforms:label/>
+               <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+               <xforms:action ev:event="DOMActivate">
+                 <xforms:setvalue ref="./associatedMaterial[1]/@show">n</xforms:setvalue>
+               </xforms:action>
+             </xforms:trigger>
+             <!-- show/hide first associatedMaterial remove -->
+             <!-- nothing to remove -->
+             <xforms:group ref="if(0 = number(./associatedMaterial[1]/@stat)) then . else ()">
+               <xforms:trigger appearance="xxforms:image">
+                 <xforms:label/>
+                 <xxforms:img src="/apps/forms/images/clear.gif"/>
+               </xforms:trigger>
+             </xforms:group>
+             <!-- minimum exceeded so allow remove -->
+             <xforms:group ref="if(0 &lt; number(./associatedMaterial[1]/@stat)) then . else ()">
+               <xforms:action ev:event="DOMActivate">
+                 <xforms:delete nodeset="./associatedMaterial" at="1"/>
+               </xforms:action>
+               <xforms:trigger appearance="xxforms:image">
+                 <xforms:label/>
+                 <xxforms:img src="/apps/forms/images/remove.gif"/>
+               </xforms:trigger>
+             </xforms:group>
+             <!-- default if not previous removes -->
+             <xforms:group ref="if(not(0 = number(./associatedMaterial[1]/@stat)) and not(0 &lt; number(./associatedMaterial[1]/@stat))) then . else ()">
+               <xforms:action ev:event="DOMActivate">
+                 <xforms:delete nodeset="./associatedMaterial" at="1"/>
+               </xforms:action>
+               <xforms:trigger appearance="xxforms:image">
+                 <xforms:label/>
+                 <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+               </xforms:trigger>
+             </xforms:group>
+           </xforms:group>
+           <xforms:group ref=".[./associatedMaterial[1]/@show='n']">
+             <xforms:trigger appearance="xxforms:image">
+               <xforms:label/>
+               <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+               <xforms:action ev:event="DOMActivate">
+                 <xforms:setvalue ref="./associatedMaterial[1]/@show">y</xforms:setvalue>
+               </xforms:action>
+             </xforms:trigger>
+             <xforms:trigger appearance="xxforms:image">
+               <xforms:label/>
+               <xxforms:img src="/apps/forms/images/clear.gif"/>
+             </xforms:trigger>
+           </xforms:group>
+         </xforms:group>
+         <xforms:group ref=".[not(exists(child::associatedMaterial))]">
+           <xforms:trigger appearance="xxforms:image">
+             <xforms:label/>
+             <xxforms:img src="/apps/forms/images/clear.gif"/>
+           </xforms:trigger>
+           <xforms:trigger appearance="xxforms:image">
+             <xforms:label/>
+             <xxforms:img src="/apps/forms/images/clear.gif"/>
+           </xforms:trigger>
+         </xforms:group>
+       </td></tr></table>
+     </div>
+     <!-- associatedMaterial-repeat start -->
+     <xforms:repeat nodeset="associatedMaterial" id="associatedMaterial1-repeat">
+       <div>
+         <table width="100%"><tr><td>
+           <xforms:group ref=".[exists(preceding-sibling::associatedMaterial)]">
+             <!-- display a clear alpha image for spacing only  -->
+             <xforms:trigger class="eml-level-1 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+               <xforms:label>associatedMaterial</xforms:label>
+             </xforms:trigger>
+           </xforms:group>
+         </td><td align="right">
+           <xforms:group ref=".[exists(preceding-sibling::associatedMaterial)]">
+             <!-- associatedMaterial show -->
+             <xforms:group ref=".[./@show='y']">
+               <xforms:trigger appearance="xxforms:image">
+                 <xforms:label/>
+                 <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                 <xforms:action ev:event="DOMActivate">
+                   <xforms:setvalue ref="./@show">n</xforms:setvalue>
+                 </xforms:action>
+               </xforms:trigger>
+               <!-- show/hide repeat associatedMaterial remove -->
+               <xforms:group ref="if(0 &lt; number(../associatedMaterial[1]/@stat)) then . else ()">
+                 <xforms:action ev:event="DOMActivate">
+                   <xforms:delete nodeset="." at="index('associatedMaterial1-repeat')"/>
+                 </xforms:action>
+                 <xforms:trigger appearance="xxforms:image">
+                   <xforms:label/>
+                   <xxforms:img src="/apps/forms/images/remove.gif"/>
+                 </xforms:trigger>
+               </xforms:group>
+               <!-- default if not previous remove -->
+               <xforms:group ref="if(not(0 &lt; number(../associatedMaterial[1]/@stat))) then . else ()">
+                 <xforms:action ev:event="DOMActivate">
+                   <xforms:delete nodeset="." at="index('associatedMaterial1-repeat')"/>
+                 </xforms:action>
+                 <xforms:trigger appearance="xxforms:image">
+                   <xforms:label/>
+                   <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                 </xforms:trigger>
+               </xforms:group>
+             </xforms:group>
+             <xforms:group ref=".[./@show='n']">
+               <xforms:trigger appearance="xxforms:image">
+                 <xforms:label/>
+                 <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                 <xforms:action ev:event="DOMActivate">
+                   <xforms:setvalue ref="./@show">y</xforms:setvalue>
+                 </xforms:action>
+               </xforms:trigger>
+               <xforms:trigger appearance="xxforms:image">
+                 <xforms:label/>
+                 <xxforms:img src="/apps/forms/images/clear.gif"/>
+               </xforms:trigger>
+             </xforms:group>
+           </xforms:group>
+         </td></tr></table>
+         <xforms:group ref=".[./@show='y']">
+          
+          <!-- distribution start -->
+          <div>
+            <table width="100%"><tr><td>
+              <!-- distribution name -->
+              <xforms:group>
+                <xforms:trigger class="eml-level-2 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                  <xforms:label></xforms:label>
+                </xforms:trigger>
+              </xforms:group>
+            </td><td align="right">
+              <!-- set stat attribute incrementally -->
+              <xforms:action ev:event="DOMActivate">
+                <xforms:setvalue ref="./distribution/@stat" value="last()"/>
+              </xforms:action>
+              <!-- show/hide add image -->
+              <xforms:group ref="if(1 &gt; count(./distribution)) then . else ()">
+                <xforms:action ev:event="DOMActivate">
+                  <xforms:insert context="." at="1" position="after" origin="instance('inject-distribution')"/>
+                </xforms:action>
+                <xforms:trigger appearance="xxforms:image">
+                  <xforms:label/>
+                  <xxforms:img src="/apps/forms/images/add.gif"/>
+                </xforms:trigger>
+              </xforms:group>
+              <xforms:group ref=".[exists(child::distribution)]">
+                <!-- distribution show -->
+                <xforms:group ref=".[./distribution[1]/@show='y']">
+                  <xforms:trigger appearance="xxforms:image">
+                    <xforms:label/>
+                    <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                    <xforms:action ev:event="DOMActivate">
+                      <xforms:setvalue ref="./distribution[1]/@show">n</xforms:setvalue>
+                    </xforms:action>
+                  </xforms:trigger>
+                  <!-- show/hide first distribution remove -->
+                  <!-- nothing to remove -->
+                  <xforms:group ref="if(0 = number(./distribution[1]/@stat)) then . else ()">
+                    <xforms:trigger appearance="xxforms:image">
+                      <xforms:label/>
+                      <xxforms:img src="/apps/forms/images/clear.gif"/>
+                    </xforms:trigger>
+                  </xforms:group>
+                  <!-- minimum exceeded so allow remove -->
+                  <xforms:group ref="if(1 &lt; number(./distribution[1]/@stat)) then . else ()">
+                    <xforms:action ev:event="DOMActivate">
+                      <xforms:delete nodeset="./distribution" at="1"/>
+                    </xforms:action>
+                    <xforms:trigger appearance="xxforms:image">
+                      <xforms:label/>
+                      <xxforms:img src="/apps/forms/images/remove.gif"/>
+                    </xforms:trigger>
+                  </xforms:group>
+                  <!-- default if not previous removes -->
+                  <xforms:group ref="if(not(0 = number(./distribution[1]/@stat)) and not(1 &lt; number(./distribution[1]/@stat))) then . else ()">
+                    <xforms:action ev:event="DOMActivate">
+                      <xforms:delete nodeset="./distribution" at="1"/>
+                    </xforms:action>
+                    <xforms:trigger appearance="xxforms:image">
+                      <xforms:label/>
+                      <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                    </xforms:trigger>
+                  </xforms:group>
+                </xforms:group>
+                <xforms:group ref=".[./distribution[1]/@show='n']">
+                  <xforms:trigger appearance="xxforms:image">
+                    <xforms:label/>
+                    <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                    <xforms:action ev:event="DOMActivate">
+                      <xforms:setvalue ref="./distribution[1]/@show">y</xforms:setvalue>
+                    </xforms:action>
+                  </xforms:trigger>
+                  <xforms:trigger appearance="xxforms:image">
+                    <xforms:label/>
+                    <xxforms:img src="/apps/forms/images/clear.gif"/>
+                  </xforms:trigger>
+                </xforms:group>
+              </xforms:group>
+              <xforms:group ref=".[not(exists(child::distribution))]">
+                <xforms:trigger appearance="xxforms:image">
+                  <xforms:label/>
+                  <xxforms:img src="/apps/forms/images/clear.gif"/>
+                </xforms:trigger>
+                <xforms:trigger appearance="xxforms:image">
+                  <xforms:label/>
+                  <xxforms:img src="/apps/forms/images/clear.gif"/>
+                </xforms:trigger>
+              </xforms:group>
+            </td></tr></table>
+          </div>
+          <!-- distribution-repeat start -->
+          <xforms:repeat nodeset="distribution" id="distribution2-repeat">
+            <div>
+              <table width="100%"><tr><td>
+                <xforms:group ref=".[exists(preceding-sibling::distribution)]">
+                  <!-- display a clear alpha image for spacing only  -->
+                  <xforms:trigger class="eml-level-2 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                    <xforms:label></xforms:label>
+                  </xforms:trigger>
+                </xforms:group>
+              </td><td align="right">
+                <xforms:group ref=".[exists(preceding-sibling::distribution)]">
+                  <!-- distribution show -->
+                  <xforms:group ref=".[./@show='y']">
+                    <xforms:trigger appearance="xxforms:image">
+                      <xforms:label/>
+                      <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                      <xforms:action ev:event="DOMActivate">
+                        <xforms:setvalue ref="./@show">n</xforms:setvalue>
+                      </xforms:action>
+                    </xforms:trigger>
+                    <!-- show/hide repeat distribution remove -->
+                    <xforms:group ref="if(1 &lt; number(../distribution[1]/@stat)) then . else ()">
+                      <xforms:action ev:event="DOMActivate">
+                        <xforms:delete nodeset="." at="index('distribution2-repeat')"/>
+                      </xforms:action>
+                      <xforms:trigger appearance="xxforms:image">
+                        <xforms:label/>
+                        <xxforms:img src="/apps/forms/images/remove.gif"/>
+                      </xforms:trigger>
+                    </xforms:group>
+                    <!-- default if not previous remove -->
+                    <xforms:group ref="if(not(1 &lt; number(../distribution[1]/@stat))) then . else ()">
+                      <xforms:action ev:event="DOMActivate">
+                        <xforms:delete nodeset="." at="index('distribution2-repeat')"/>
+                      </xforms:action>
+                      <xforms:trigger appearance="xxforms:image">
+                        <xforms:label/>
+                        <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                      </xforms:trigger>
+                    </xforms:group>
+                  </xforms:group>
+                  <xforms:group ref=".[./@show='n']">
+                    <xforms:trigger appearance="xxforms:image">
+                      <xforms:label/>
+                      <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                      <xforms:action ev:event="DOMActivate">
+                        <xforms:setvalue ref="./@show">y</xforms:setvalue>
+                      </xforms:action>
+                    </xforms:trigger>
+                    <xforms:trigger appearance="xxforms:image">
+                      <xforms:label/>
+                      <xxforms:img src="/apps/forms/images/clear.gif"/>
+                    </xforms:trigger>
+                  </xforms:group>
+                </xforms:group>
+              </td></tr></table>
+              <xforms:group ref=".[./@show='y']">
+               
+               <!-- online start -->
+               <div>
+                 <table width="100%"><tr><td>
+                   <!-- online name -->
+                   <xforms:group>
+                     <xforms:trigger class="eml-level-3 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                       <xforms:label>online</xforms:label>
+                     </xforms:trigger>
+                   </xforms:group>
+                 </td><td align="right">
+                   <!-- set stat attribute incrementally -->
+                   <xforms:action ev:event="DOMActivate">
+                     <xforms:setvalue ref="./online/@stat" value="last()"/>
+                   </xforms:action>
+                   <!-- show/hide add image -->
+                   <xforms:group ref="if(1 &gt; count(./online)) then . else ()">
+                     <xforms:action ev:event="DOMActivate">
+                       <xforms:insert context="." at="1" position="after" origin="instance('inject-online')"/>
+                     </xforms:action>
+                     <xforms:trigger appearance="xxforms:image">
+                       <xforms:label/>
+                       <xxforms:img src="/apps/forms/images/add.gif"/>
+                     </xforms:trigger>
+                   </xforms:group>
+                   <xforms:group ref=".[exists(child::online)]">
+                     <!-- online show -->
+                     <xforms:group ref=".[./online[1]/@show='y']">
+                       <xforms:trigger appearance="xxforms:image">
+                         <xforms:label/>
+                         <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                         <xforms:action ev:event="DOMActivate">
+                           <xforms:setvalue ref="./online[1]/@show">n</xforms:setvalue>
+                         </xforms:action>
+                       </xforms:trigger>
+                       <!-- show/hide first online remove -->
+                       <!-- nothing to remove -->
+                       <xforms:group ref="if(0 = number(./online[1]/@stat)) then . else ()">
+                         <xforms:trigger appearance="xxforms:image">
+                           <xforms:label/>
+                           <xxforms:img src="/apps/forms/images/clear.gif"/>
+                         </xforms:trigger>
+                       </xforms:group>
+                       <!-- minimum exceeded so allow remove -->
+                       <xforms:group ref="if(1 &lt; number(./online[1]/@stat)) then . else ()">
+                         <xforms:action ev:event="DOMActivate">
+                           <xforms:delete nodeset="./online" at="1"/>
+                         </xforms:action>
+                         <xforms:trigger appearance="xxforms:image">
+                           <xforms:label/>
+                           <xxforms:img src="/apps/forms/images/remove.gif"/>
+                         </xforms:trigger>
+                       </xforms:group>
+                       <!-- default if not previous removes -->
+                       <xforms:group ref="if(not(0 = number(./online[1]/@stat)) and not(1 &lt; number(./online[1]/@stat))) then . else ()">
+                         <xforms:action ev:event="DOMActivate">
+                           <xforms:delete nodeset="./online" at="1"/>
+                         </xforms:action>
+                         <xforms:trigger appearance="xxforms:image">
+                           <xforms:label/>
+                           <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                         </xforms:trigger>
+                       </xforms:group>
+                     </xforms:group>
+                     <xforms:group ref=".[./online[1]/@show='n']">
+                       <xforms:trigger appearance="xxforms:image">
+                         <xforms:label/>
+                         <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                         <xforms:action ev:event="DOMActivate">
+                           <xforms:setvalue ref="./online[1]/@show">y</xforms:setvalue>
+                         </xforms:action>
+                       </xforms:trigger>
+                       <xforms:trigger appearance="xxforms:image">
+                         <xforms:label/>
+                         <xxforms:img src="/apps/forms/images/clear.gif"/>
+                       </xforms:trigger>
+                     </xforms:group>
+                   </xforms:group>
+                   <xforms:group ref=".[not(exists(child::online))]">
+                     <xforms:trigger appearance="xxforms:image">
+                       <xforms:label/>
+                       <xxforms:img src="/apps/forms/images/clear.gif"/>
+                     </xforms:trigger>
+                     <xforms:trigger appearance="xxforms:image">
+                       <xforms:label/>
+                       <xxforms:img src="/apps/forms/images/clear.gif"/>
+                     </xforms:trigger>
+                   </xforms:group>
+                 </td></tr></table>
+               </div>
+               <!-- online-repeat start -->
+               <xforms:repeat nodeset="online" id="online3-repeat">
+                 <div>
+                   <table width="100%"><tr><td>
+                     <xforms:group ref=".[exists(preceding-sibling::online)]">
+                       <!-- display a clear alpha image for spacing only  -->
+                       <xforms:trigger class="eml-level-3 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                         <xforms:label>online</xforms:label>
+                       </xforms:trigger>
+                     </xforms:group>
+                   </td><td align="right">
+                     <xforms:group ref=".[exists(preceding-sibling::online)]">
+                       <!-- online show -->
+                       <xforms:group ref=".[./@show='y']">
+                         <xforms:trigger appearance="xxforms:image">
+                           <xforms:label/>
+                           <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                           <xforms:action ev:event="DOMActivate">
+                             <xforms:setvalue ref="./@show">n</xforms:setvalue>
+                           </xforms:action>
+                         </xforms:trigger>
+                         <!-- show/hide repeat online remove -->
+                         <xforms:group ref="if(1 &lt; number(../online[1]/@stat)) then . else ()">
+                           <xforms:action ev:event="DOMActivate">
+                             <xforms:delete nodeset="." at="index('online3-repeat')"/>
+                           </xforms:action>
+                           <xforms:trigger appearance="xxforms:image">
+                             <xforms:label/>
+                             <xxforms:img src="/apps/forms/images/remove.gif"/>
+                           </xforms:trigger>
+                         </xforms:group>
+                         <!-- default if not previous remove -->
+                         <xforms:group ref="if(not(1 &lt; number(../online[1]/@stat))) then . else ()">
+                           <xforms:action ev:event="DOMActivate">
+                             <xforms:delete nodeset="." at="index('online3-repeat')"/>
+                           </xforms:action>
+                           <xforms:trigger appearance="xxforms:image">
+                             <xforms:label/>
+                             <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                           </xforms:trigger>
+                         </xforms:group>
+                       </xforms:group>
+                       <xforms:group ref=".[./@show='n']">
+                         <xforms:trigger appearance="xxforms:image">
+                           <xforms:label/>
+                           <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                           <xforms:action ev:event="DOMActivate">
+                             <xforms:setvalue ref="./@show">y</xforms:setvalue>
+                           </xforms:action>
+                         </xforms:trigger>
+                         <xforms:trigger appearance="xxforms:image">
+                           <xforms:label/>
+                           <xxforms:img src="/apps/forms/images/clear.gif"/>
+                         </xforms:trigger>
+                       </xforms:group>
+                     </xforms:group>
+                   </td></tr></table>
+                   <xforms:group ref=".[./@show='y']">
+                    
+                    <!-- onlineDescription start -->
+                    <div>
+                      <table width="100%"><tr><td>
+                        <!-- onlineDescription name -->
+                        <xforms:group>
+                          <xforms:trigger class="eml-level-4 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                            <xforms:label>Description</xforms:label>
+                          </xforms:trigger>
+                        </xforms:group>
+                      </td><td align="right">
+                        <!-- set stat attribute incrementally -->
+                        <xforms:action ev:event="DOMActivate">
+                          <xforms:setvalue ref="./onlineDescription/@stat" value="last()"/>
+                        </xforms:action>
+                        <!-- show/hide add image -->
+                        <xforms:group ref="if(1 &gt; count(./onlineDescription)) then . else ()">
+                          <xforms:action ev:event="DOMActivate">
+                            <xforms:insert context="." at="1" position="after" origin="instance('inject-onlineDescription')"/>
+                          </xforms:action>
+                          <xforms:trigger appearance="xxforms:image">
+                            <xforms:label/>
+                            <xxforms:img src="/apps/forms/images/add.gif"/>
+                          </xforms:trigger>
+                        </xforms:group>
+                        <xforms:group ref=".[exists(child::onlineDescription)]">
+                          <!-- onlineDescription show -->
+                          <xforms:group ref=".[./onlineDescription[1]/@show='y']">
+                            <xforms:trigger appearance="xxforms:image">
+                              <xforms:label/>
+                              <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                              <xforms:action ev:event="DOMActivate">
+                                <xforms:setvalue ref="./onlineDescription[1]/@show">n</xforms:setvalue>
+                              </xforms:action>
+                            </xforms:trigger>
+                            <!-- show/hide first onlineDescription remove -->
+                            <!-- nothing to remove -->
+                            <xforms:group ref="if(0 = number(./onlineDescription[1]/@stat)) then . else ()">
+                              <xforms:trigger appearance="xxforms:image">
+                                <xforms:label/>
+                                <xxforms:img src="/apps/forms/images/clear.gif"/>
+                              </xforms:trigger>
+                            </xforms:group>
+                            <!-- minimum exceeded so allow remove -->
+                            <xforms:group ref="if(0 &lt; number(./onlineDescription[1]/@stat)) then . else ()">
+                              <xforms:action ev:event="DOMActivate">
+                                <xforms:delete nodeset="./onlineDescription" at="1"/>
+                              </xforms:action>
+                              <xforms:trigger appearance="xxforms:image">
+                                <xforms:label/>
+                                <xxforms:img src="/apps/forms/images/remove.gif"/>
+                              </xforms:trigger>
+                            </xforms:group>
+                            <!-- default if not previous removes -->
+                            <xforms:group ref="if(not(0 = number(./onlineDescription[1]/@stat)) and not(0 &lt; number(./onlineDescription[1]/@stat))) then . else ()">
+                              <xforms:action ev:event="DOMActivate">
+                                <xforms:delete nodeset="./onlineDescription" at="1"/>
+                              </xforms:action>
+                              <xforms:trigger appearance="xxforms:image">
+                                <xforms:label/>
+                                <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                              </xforms:trigger>
+                            </xforms:group>
+                          </xforms:group>
+                          <xforms:group ref=".[./onlineDescription[1]/@show='n']">
+                            <xforms:trigger appearance="xxforms:image">
+                              <xforms:label/>
+                              <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                              <xforms:action ev:event="DOMActivate">
+                                <xforms:setvalue ref="./onlineDescription[1]/@show">y</xforms:setvalue>
+                              </xforms:action>
+                            </xforms:trigger>
+                            <xforms:trigger appearance="xxforms:image">
+                              <xforms:label/>
+                              <xxforms:img src="/apps/forms/images/clear.gif"/>
+                            </xforms:trigger>
+                          </xforms:group>
+                        </xforms:group>
+                        <xforms:group ref=".[not(exists(child::onlineDescription))]">
+                          <xforms:trigger appearance="xxforms:image">
+                            <xforms:label/>
+                            <xxforms:img src="/apps/forms/images/clear.gif"/>
+                          </xforms:trigger>
+                          <xforms:trigger appearance="xxforms:image">
+                            <xforms:label/>
+                            <xxforms:img src="/apps/forms/images/clear.gif"/>
+                          </xforms:trigger>
+                        </xforms:group>
+                      </td></tr></table>
+                    </div>
+                    <!-- onlineDescription-repeat start -->
+                    <xforms:repeat nodeset="onlineDescription" id="onlineDescription4-repeat">
+                      <div>
+                        <table width="100%"><tr><td>
+                          <xforms:group ref=".[exists(preceding-sibling::onlineDescription)]">
+                            <!-- display a clear alpha image for spacing only  -->
+                            <xforms:trigger class="eml-level-4 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                              <xforms:label>Description</xforms:label>
+                            </xforms:trigger>
+                          </xforms:group>
+                        </td><td align="right">
+                          <xforms:group ref=".[exists(preceding-sibling::onlineDescription)]">
+                            <!-- onlineDescription show -->
+                            <xforms:group ref=".[./@show='y']">
+                              <xforms:trigger appearance="xxforms:image">
+                                <xforms:label/>
+                                <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                <xforms:action ev:event="DOMActivate">
+                                  <xforms:setvalue ref="./@show">n</xforms:setvalue>
+                                </xforms:action>
+                              </xforms:trigger>
+                              <!-- show/hide repeat onlineDescription remove -->
+                              <xforms:group ref="if(0 &lt; number(../onlineDescription[1]/@stat)) then . else ()">
+                                <xforms:action ev:event="DOMActivate">
+                                  <xforms:delete nodeset="." at="index('onlineDescription4-repeat')"/>
+                                </xforms:action>
+                                <xforms:trigger appearance="xxforms:image">
+                                  <xforms:label/>
+                                  <xxforms:img src="/apps/forms/images/remove.gif"/>
+                                </xforms:trigger>
+                              </xforms:group>
+                              <!-- default if not previous remove -->
+                              <xforms:group ref="if(not(0 &lt; number(../onlineDescription[1]/@stat))) then . else ()">
+                                <xforms:action ev:event="DOMActivate">
+                                  <xforms:delete nodeset="." at="index('onlineDescription4-repeat')"/>
+                                </xforms:action>
+                                <xforms:trigger appearance="xxforms:image">
+                                  <xforms:label/>
+                                  <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                                </xforms:trigger>
+                              </xforms:group>
+                            </xforms:group>
+                            <xforms:group ref=".[./@show='n']">
+                              <xforms:trigger appearance="xxforms:image">
+                                <xforms:label/>
+                                <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                <xforms:action ev:event="DOMActivate">
+                                  <xforms:setvalue ref="./@show">y</xforms:setvalue>
+                                </xforms:action>
+                              </xforms:trigger>
+                              <xforms:trigger appearance="xxforms:image">
+                                <xforms:label/>
+                                <xxforms:img src="/apps/forms/images/clear.gif"/>
+                              </xforms:trigger>
+                            </xforms:group>
+                          </xforms:group>
+                        </td></tr></table>
+                        <xforms:group ref=".[./@show='y']">
+                    
+                          <style type="text/css">.xf-value5 input {width:500px}</style>
+                          <xforms:input incremental="true" ref="." class="eml-level-4 eml-entry xf-value5">
+                            <xforms:label/>
+                          </xforms:input>
+                    
+                        </xforms:group>
+                      </div>
+                    </xforms:repeat>
+                    <!-- onlineDescription-repeat end -->
+                    <br/>
+                    
+                    <!-- url start -->
+                    <div>
+                      <table width="100%"><tr><td>
+                        <!-- url name -->
+                        <xforms:group>
+                          <xforms:trigger class="eml-level-4 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                            <xforms:label>URL</xforms:label>
+                          </xforms:trigger>
+                        </xforms:group>
+                      </td><td align="right">
+                        <!-- set stat attribute incrementally -->
+                        <xforms:action ev:event="DOMActivate">
+                          <xforms:setvalue ref="./url/@stat" value="last()"/>
+                        </xforms:action>
+                        <!-- show/hide add image -->
+                        <xforms:group ref="if(1 &gt; count(./url)) then . else ()">
+                          <xforms:action ev:event="DOMActivate">
+                            <xforms:insert context="." at="1" position="after" origin="instance('inject-url')"/>
+                          </xforms:action>
+                          <xforms:trigger appearance="xxforms:image">
+                            <xforms:label/>
+                            <xxforms:img src="/apps/forms/images/add.gif"/>
+                          </xforms:trigger>
+                        </xforms:group>
+                        <xforms:group ref=".[exists(child::url)]">
+                          <!-- url show -->
+                          <xforms:group ref=".[./url[1]/@show='y']">
+                            <xforms:trigger appearance="xxforms:image">
+                              <xforms:label/>
+                              <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                              <xforms:action ev:event="DOMActivate">
+                                <xforms:setvalue ref="./url[1]/@show">n</xforms:setvalue>
+                              </xforms:action>
+                            </xforms:trigger>
+                            <!-- show/hide first url remove -->
+                            <!-- nothing to remove -->
+                            <xforms:group ref="if(0 = number(./url[1]/@stat)) then . else ()">
+                              <xforms:trigger appearance="xxforms:image">
+                                <xforms:label/>
+                                <xxforms:img src="/apps/forms/images/clear.gif"/>
+                              </xforms:trigger>
+                            </xforms:group>
+                            <!-- minimum exceeded so allow remove -->
+                            <xforms:group ref="if(1 &lt; number(./url[1]/@stat)) then . else ()">
+                              <xforms:action ev:event="DOMActivate">
+                                <xforms:delete nodeset="./url" at="1"/>
+                              </xforms:action>
+                              <xforms:trigger appearance="xxforms:image">
+                                <xforms:label/>
+                                <xxforms:img src="/apps/forms/images/remove.gif"/>
+                              </xforms:trigger>
+                            </xforms:group>
+                            <!-- default if not previous removes -->
+                            <xforms:group ref="if(not(0 = number(./url[1]/@stat)) and not(1 &lt; number(./url[1]/@stat))) then . else ()">
+                              <xforms:action ev:event="DOMActivate">
+                                <xforms:delete nodeset="./url" at="1"/>
+                              </xforms:action>
+                              <xforms:trigger appearance="xxforms:image">
+                                <xforms:label/>
+                                <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                              </xforms:trigger>
+                            </xforms:group>
+                          </xforms:group>
+                          <xforms:group ref=".[./url[1]/@show='n']">
+                            <xforms:trigger appearance="xxforms:image">
+                              <xforms:label/>
+                              <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                              <xforms:action ev:event="DOMActivate">
+                                <xforms:setvalue ref="./url[1]/@show">y</xforms:setvalue>
+                              </xforms:action>
+                            </xforms:trigger>
+                            <xforms:trigger appearance="xxforms:image">
+                              <xforms:label/>
+                              <xxforms:img src="/apps/forms/images/clear.gif"/>
+                            </xforms:trigger>
+                          </xforms:group>
+                        </xforms:group>
+                        <xforms:group ref=".[not(exists(child::url))]">
+                          <xforms:trigger appearance="xxforms:image">
+                            <xforms:label/>
+                            <xxforms:img src="/apps/forms/images/clear.gif"/>
+                          </xforms:trigger>
+                          <xforms:trigger appearance="xxforms:image">
+                            <xforms:label/>
+                            <xxforms:img src="/apps/forms/images/clear.gif"/>
+                          </xforms:trigger>
+                        </xforms:group>
+                      </td></tr></table>
+                    </div>
+                    <!-- url-repeat start -->
+                    <xforms:repeat nodeset="url" id="url6-repeat">
+                      <div>
+                        <table width="100%"><tr><td>
+                          <xforms:group ref=".[exists(preceding-sibling::url)]">
+                            <!-- display a clear alpha image for spacing only  -->
+                            <xforms:trigger class="eml-level-4 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                              <xforms:label>URL</xforms:label>
+                            </xforms:trigger>
+                          </xforms:group>
+                        </td><td align="right">
+                          <xforms:group ref=".[exists(preceding-sibling::url)]">
+                            <!-- url show -->
+                            <xforms:group ref=".[./@show='y']">
+                              <xforms:trigger appearance="xxforms:image">
+                                <xforms:label/>
+                                <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                <xforms:action ev:event="DOMActivate">
+                                  <xforms:setvalue ref="./@show">n</xforms:setvalue>
+                                </xforms:action>
+                              </xforms:trigger>
+                              <!-- show/hide repeat url remove -->
+                              <xforms:group ref="if(1 &lt; number(../url[1]/@stat)) then . else ()">
+                                <xforms:action ev:event="DOMActivate">
+                                  <xforms:delete nodeset="." at="index('url6-repeat')"/>
+                                </xforms:action>
+                                <xforms:trigger appearance="xxforms:image">
+                                  <xforms:label/>
+                                  <xxforms:img src="/apps/forms/images/remove.gif"/>
+                                </xforms:trigger>
+                              </xforms:group>
+                              <!-- default if not previous remove -->
+                              <xforms:group ref="if(not(1 &lt; number(../url[1]/@stat))) then . else ()">
+                                <xforms:action ev:event="DOMActivate">
+                                  <xforms:delete nodeset="." at="index('url6-repeat')"/>
+                                </xforms:action>
+                                <xforms:trigger appearance="xxforms:image">
+                                  <xforms:label/>
+                                  <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                                </xforms:trigger>
+                              </xforms:group>
+                            </xforms:group>
+                            <xforms:group ref=".[./@show='n']">
+                              <xforms:trigger appearance="xxforms:image">
+                                <xforms:label/>
+                                <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                <xforms:action ev:event="DOMActivate">
+                                  <xforms:setvalue ref="./@show">y</xforms:setvalue>
+                                </xforms:action>
+                              </xforms:trigger>
+                              <xforms:trigger appearance="xxforms:image">
+                                <xforms:label/>
+                                <xxforms:img src="/apps/forms/images/clear.gif"/>
+                              </xforms:trigger>
+                            </xforms:group>
+                          </xforms:group>
+                        </td></tr></table>
+                        <xforms:group ref=".[./@show='y']">
+                    
+                          <style type="text/css">.xf-value7 input {width:500px}</style>
+                          <xforms:input incremental="true" ref="." class="eml-level-4 eml-entry xf-value7">
+                            <xforms:label/>
+                          </xforms:input>
+                    
+                        </xforms:group>
+                      </div>
+                    </xforms:repeat>
+                    <!-- url-repeat end -->
+                    <br/>
+                    
+                    <!-- connection start -->
+                    <div>
+                      <table width="100%"><tr><td>
+                        <!-- connection name -->
+                        <xforms:group>
+                          <xforms:trigger class="eml-level-4 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                            <xforms:label>connection</xforms:label>
+                          </xforms:trigger>
+                        </xforms:group>
+                      </td><td align="right">
+                        <!-- set stat attribute incrementally -->
+                        <xforms:action ev:event="DOMActivate">
+                          <xforms:setvalue ref="./connection/@stat" value="last()"/>
+                        </xforms:action>
+                        <!-- show/hide add image -->
+                        <xforms:group ref="if(1 &gt; count(./connection)) then . else ()">
+                          <xforms:action ev:event="DOMActivate">
+                            <xforms:insert context="." at="1" position="after" origin="instance('inject-connection')"/>
+                          </xforms:action>
+                          <xforms:trigger appearance="xxforms:image">
+                            <xforms:label/>
+                            <xxforms:img src="/apps/forms/images/add.gif"/>
+                          </xforms:trigger>
+                        </xforms:group>
+                        <xforms:group ref=".[exists(child::connection)]">
+                          <!-- connection show -->
+                          <xforms:group ref=".[./connection[1]/@show='y']">
+                            <xforms:trigger appearance="xxforms:image">
+                              <xforms:label/>
+                              <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                              <xforms:action ev:event="DOMActivate">
+                                <xforms:setvalue ref="./connection[1]/@show">n</xforms:setvalue>
+                              </xforms:action>
+                            </xforms:trigger>
+                            <!-- show/hide first connection remove -->
+                            <!-- nothing to remove -->
+                            <xforms:group ref="if(0 = number(./connection[1]/@stat)) then . else ()">
+                              <xforms:trigger appearance="xxforms:image">
+                                <xforms:label/>
+                                <xxforms:img src="/apps/forms/images/clear.gif"/>
+                              </xforms:trigger>
+                            </xforms:group>
+                            <!-- minimum exceeded so allow remove -->
+                            <xforms:group ref="if(1 &lt; number(./connection[1]/@stat)) then . else ()">
+                              <xforms:action ev:event="DOMActivate">
+                                <xforms:delete nodeset="./connection" at="1"/>
+                              </xforms:action>
+                              <xforms:trigger appearance="xxforms:image">
+                                <xforms:label/>
+                                <xxforms:img src="/apps/forms/images/remove.gif"/>
+                              </xforms:trigger>
+                            </xforms:group>
+                            <!-- default if not previous removes -->
+                            <xforms:group ref="if(not(0 = number(./connection[1]/@stat)) and not(1 &lt; number(./connection[1]/@stat))) then . else ()">
+                              <xforms:action ev:event="DOMActivate">
+                                <xforms:delete nodeset="./connection" at="1"/>
+                              </xforms:action>
+                              <xforms:trigger appearance="xxforms:image">
+                                <xforms:label/>
+                                <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                              </xforms:trigger>
+                            </xforms:group>
+                          </xforms:group>
+                          <xforms:group ref=".[./connection[1]/@show='n']">
+                            <xforms:trigger appearance="xxforms:image">
+                              <xforms:label/>
+                              <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                              <xforms:action ev:event="DOMActivate">
+                                <xforms:setvalue ref="./connection[1]/@show">y</xforms:setvalue>
+                              </xforms:action>
+                            </xforms:trigger>
+                            <xforms:trigger appearance="xxforms:image">
+                              <xforms:label/>
+                              <xxforms:img src="/apps/forms/images/clear.gif"/>
+                            </xforms:trigger>
+                          </xforms:group>
+                        </xforms:group>
+                        <xforms:group ref=".[not(exists(child::connection))]">
+                          <xforms:trigger appearance="xxforms:image">
+                            <xforms:label/>
+                            <xxforms:img src="/apps/forms/images/clear.gif"/>
+                          </xforms:trigger>
+                          <xforms:trigger appearance="xxforms:image">
+                            <xforms:label/>
+                            <xxforms:img src="/apps/forms/images/clear.gif"/>
+                          </xforms:trigger>
+                        </xforms:group>
+                      </td></tr></table>
+                    </div>
+                    <!-- connection-repeat start -->
+                    <xforms:repeat nodeset="connection" id="connection8-repeat">
+                      <div>
+                        <table width="100%"><tr><td>
+                          <xforms:group ref=".[exists(preceding-sibling::connection)]">
+                            <!-- display a clear alpha image for spacing only  -->
+                            <xforms:trigger class="eml-level-4 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                              <xforms:label>connection</xforms:label>
+                            </xforms:trigger>
+                          </xforms:group>
+                        </td><td align="right">
+                          <xforms:group ref=".[exists(preceding-sibling::connection)]">
+                            <!-- connection show -->
+                            <xforms:group ref=".[./@show='y']">
+                              <xforms:trigger appearance="xxforms:image">
+                                <xforms:label/>
+                                <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                <xforms:action ev:event="DOMActivate">
+                                  <xforms:setvalue ref="./@show">n</xforms:setvalue>
+                                </xforms:action>
+                              </xforms:trigger>
+                              <!-- show/hide repeat connection remove -->
+                              <xforms:group ref="if(1 &lt; number(../connection[1]/@stat)) then . else ()">
+                                <xforms:action ev:event="DOMActivate">
+                                  <xforms:delete nodeset="." at="index('connection8-repeat')"/>
+                                </xforms:action>
+                                <xforms:trigger appearance="xxforms:image">
+                                  <xforms:label/>
+                                  <xxforms:img src="/apps/forms/images/remove.gif"/>
+                                </xforms:trigger>
+                              </xforms:group>
+                              <!-- default if not previous remove -->
+                              <xforms:group ref="if(not(1 &lt; number(../connection[1]/@stat))) then . else ()">
+                                <xforms:action ev:event="DOMActivate">
+                                  <xforms:delete nodeset="." at="index('connection8-repeat')"/>
+                                </xforms:action>
+                                <xforms:trigger appearance="xxforms:image">
+                                  <xforms:label/>
+                                  <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                                </xforms:trigger>
+                              </xforms:group>
+                            </xforms:group>
+                            <xforms:group ref=".[./@show='n']">
+                              <xforms:trigger appearance="xxforms:image">
+                                <xforms:label/>
+                                <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                <xforms:action ev:event="DOMActivate">
+                                  <xforms:setvalue ref="./@show">y</xforms:setvalue>
+                                </xforms:action>
+                              </xforms:trigger>
+                              <xforms:trigger appearance="xxforms:image">
+                                <xforms:label/>
+                                <xxforms:img src="/apps/forms/images/clear.gif"/>
+                              </xforms:trigger>
+                            </xforms:group>
+                          </xforms:group>
+                        </td></tr></table>
+                        <xforms:group ref=".[./@show='y']">
+                         
+                         <!-- connectionDefinition start -->
+                         <div>
+                           <table width="100%"><tr><td>
+                             <!-- connectionDefinition name -->
+                             <xforms:group>
+                               <xforms:trigger class="eml-level-5 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                                 <xforms:label>connectionDefinition</xforms:label>
+                               </xforms:trigger>
+                             </xforms:group>
+                           </td><td align="right">
+                             <!-- set stat attribute incrementally -->
+                             <xforms:action ev:event="DOMActivate">
+                               <xforms:setvalue ref="./connectionDefinition/@stat" value="last()"/>
+                             </xforms:action>
+                             <!-- show/hide add image -->
+                             <xforms:group ref="if(1 &gt; count(./connectionDefinition)) then . else ()">
+                               <xforms:action ev:event="DOMActivate">
+                                 <xforms:insert context="." at="1" position="after" origin="instance('inject-connectionDefinition')"/>
+                               </xforms:action>
+                               <xforms:trigger appearance="xxforms:image">
+                                 <xforms:label/>
+                                 <xxforms:img src="/apps/forms/images/add.gif"/>
+                               </xforms:trigger>
+                             </xforms:group>
+                             <xforms:group ref=".[exists(child::connectionDefinition)]">
+                               <!-- connectionDefinition show -->
+                               <xforms:group ref=".[./connectionDefinition[1]/@show='y']">
+                                 <xforms:trigger appearance="xxforms:image">
+                                   <xforms:label/>
+                                   <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                   <xforms:action ev:event="DOMActivate">
+                                     <xforms:setvalue ref="./connectionDefinition[1]/@show">n</xforms:setvalue>
+                                   </xforms:action>
+                                 </xforms:trigger>
+                                 <!-- show/hide first connectionDefinition remove -->
+                                 <!-- nothing to remove -->
+                                 <xforms:group ref="if(0 = number(./connectionDefinition[1]/@stat)) then . else ()">
+                                   <xforms:trigger appearance="xxforms:image">
+                                     <xforms:label/>
+                                     <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                   </xforms:trigger>
+                                 </xforms:group>
+                                 <!-- minimum exceeded so allow remove -->
+                                 <xforms:group ref="if(1 &lt; number(./connectionDefinition[1]/@stat)) then . else ()">
+                                   <xforms:action ev:event="DOMActivate">
+                                     <xforms:delete nodeset="./connectionDefinition" at="1"/>
+                                   </xforms:action>
+                                   <xforms:trigger appearance="xxforms:image">
+                                     <xforms:label/>
+                                     <xxforms:img src="/apps/forms/images/remove.gif"/>
+                                   </xforms:trigger>
+                                 </xforms:group>
+                                 <!-- default if not previous removes -->
+                                 <xforms:group ref="if(not(0 = number(./connectionDefinition[1]/@stat)) and not(1 &lt; number(./connectionDefinition[1]/@stat))) then . else ()">
+                                   <xforms:action ev:event="DOMActivate">
+                                     <xforms:delete nodeset="./connectionDefinition" at="1"/>
+                                   </xforms:action>
+                                   <xforms:trigger appearance="xxforms:image">
+                                     <xforms:label/>
+                                     <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                                   </xforms:trigger>
+                                 </xforms:group>
+                               </xforms:group>
+                               <xforms:group ref=".[./connectionDefinition[1]/@show='n']">
+                                 <xforms:trigger appearance="xxforms:image">
+                                   <xforms:label/>
+                                   <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                   <xforms:action ev:event="DOMActivate">
+                                     <xforms:setvalue ref="./connectionDefinition[1]/@show">y</xforms:setvalue>
+                                   </xforms:action>
+                                 </xforms:trigger>
+                                 <xforms:trigger appearance="xxforms:image">
+                                   <xforms:label/>
+                                   <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                 </xforms:trigger>
+                               </xforms:group>
+                             </xforms:group>
+                             <xforms:group ref=".[not(exists(child::connectionDefinition))]">
+                               <xforms:trigger appearance="xxforms:image">
+                                 <xforms:label/>
+                                 <xxforms:img src="/apps/forms/images/clear.gif"/>
+                               </xforms:trigger>
+                               <xforms:trigger appearance="xxforms:image">
+                                 <xforms:label/>
+                                 <xxforms:img src="/apps/forms/images/clear.gif"/>
+                               </xforms:trigger>
+                             </xforms:group>
+                           </td></tr></table>
+                         </div>
+                         <!-- connectionDefinition-repeat start -->
+                         <xforms:repeat nodeset="connectionDefinition" id="connectionDefinition9-repeat">
+                           <div>
+                             <table width="100%"><tr><td>
+                               <xforms:group ref=".[exists(preceding-sibling::connectionDefinition)]">
+                                 <!-- display a clear alpha image for spacing only  -->
+                                 <xforms:trigger class="eml-level-5 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                                   <xforms:label>connectionDefinition</xforms:label>
+                                 </xforms:trigger>
+                               </xforms:group>
+                             </td><td align="right">
+                               <xforms:group ref=".[exists(preceding-sibling::connectionDefinition)]">
+                                 <!-- connectionDefinition show -->
+                                 <xforms:group ref=".[./@show='y']">
+                                   <xforms:trigger appearance="xxforms:image">
+                                     <xforms:label/>
+                                     <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                     <xforms:action ev:event="DOMActivate">
+                                       <xforms:setvalue ref="./@show">n</xforms:setvalue>
+                                     </xforms:action>
+                                   </xforms:trigger>
+                                   <!-- show/hide repeat connectionDefinition remove -->
+                                   <xforms:group ref="if(1 &lt; number(../connectionDefinition[1]/@stat)) then . else ()">
+                                     <xforms:action ev:event="DOMActivate">
+                                       <xforms:delete nodeset="." at="index('connectionDefinition9-repeat')"/>
+                                     </xforms:action>
+                                     <xforms:trigger appearance="xxforms:image">
+                                       <xforms:label/>
+                                       <xxforms:img src="/apps/forms/images/remove.gif"/>
+                                     </xforms:trigger>
+                                   </xforms:group>
+                                   <!-- default if not previous remove -->
+                                   <xforms:group ref="if(not(1 &lt; number(../connectionDefinition[1]/@stat))) then . else ()">
+                                     <xforms:action ev:event="DOMActivate">
+                                       <xforms:delete nodeset="." at="index('connectionDefinition9-repeat')"/>
+                                     </xforms:action>
+                                     <xforms:trigger appearance="xxforms:image">
+                                       <xforms:label/>
+                                       <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                                     </xforms:trigger>
+                                   </xforms:group>
+                                 </xforms:group>
+                                 <xforms:group ref=".[./@show='n']">
+                                   <xforms:trigger appearance="xxforms:image">
+                                     <xforms:label/>
+                                     <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                     <xforms:action ev:event="DOMActivate">
+                                       <xforms:setvalue ref="./@show">y</xforms:setvalue>
+                                     </xforms:action>
+                                   </xforms:trigger>
+                                   <xforms:trigger appearance="xxforms:image">
+                                     <xforms:label/>
+                                     <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                   </xforms:trigger>
+                                 </xforms:group>
+                               </xforms:group>
+                             </td></tr></table>
+                             <xforms:group ref=".[./@show='y']">
+                              
+                              <!-- schemeName start -->
+                              <div>
+                                <table width="100%"><tr><td>
+                                  <!-- schemeName name -->
+                                  <xforms:group>
+                                    <xforms:trigger class="eml-level-6 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                                      <xforms:label>schemeName</xforms:label>
+                                    </xforms:trigger>
+                                  </xforms:group>
+                                </td><td align="right">
+                                  <!-- set stat attribute incrementally -->
+                                  <xforms:action ev:event="DOMActivate">
+                                    <xforms:setvalue ref="./schemeName/@stat" value="last()"/>
+                                  </xforms:action>
+                                  <!-- show/hide add image -->
+                                  <xforms:group ref="if(1 &gt; count(./schemeName)) then . else ()">
+                                    <xforms:action ev:event="DOMActivate">
+                                      <xforms:insert context="." at="1" position="after" origin="instance('inject-schemeName')"/>
+                                    </xforms:action>
+                                    <xforms:trigger appearance="xxforms:image">
+                                      <xforms:label/>
+                                      <xxforms:img src="/apps/forms/images/add.gif"/>
+                                    </xforms:trigger>
+                                  </xforms:group>
+                                  <xforms:group ref=".[exists(child::schemeName)]">
+                                    <!-- schemeName show -->
+                                    <xforms:group ref=".[./schemeName[1]/@show='y']">
+                                      <xforms:trigger appearance="xxforms:image">
+                                        <xforms:label/>
+                                        <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                        <xforms:action ev:event="DOMActivate">
+                                          <xforms:setvalue ref="./schemeName[1]/@show">n</xforms:setvalue>
+                                        </xforms:action>
+                                      </xforms:trigger>
+                                      <!-- show/hide first schemeName remove -->
+                                      <!-- nothing to remove -->
+                                      <xforms:group ref="if(0 = number(./schemeName[1]/@stat)) then . else ()">
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                        </xforms:trigger>
+                                      </xforms:group>
+                                      <!-- minimum exceeded so allow remove -->
+                                      <xforms:group ref="if(1 &lt; number(./schemeName[1]/@stat)) then . else ()">
+                                        <xforms:action ev:event="DOMActivate">
+                                          <xforms:delete nodeset="./schemeName" at="1"/>
+                                        </xforms:action>
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/remove.gif"/>
+                                        </xforms:trigger>
+                                      </xforms:group>
+                                      <!-- default if not previous removes -->
+                                      <xforms:group ref="if(not(0 = number(./schemeName[1]/@stat)) and not(1 &lt; number(./schemeName[1]/@stat))) then . else ()">
+                                        <xforms:action ev:event="DOMActivate">
+                                          <xforms:delete nodeset="./schemeName" at="1"/>
+                                        </xforms:action>
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                                        </xforms:trigger>
+                                      </xforms:group>
+                                    </xforms:group>
+                                    <xforms:group ref=".[./schemeName[1]/@show='n']">
+                                      <xforms:trigger appearance="xxforms:image">
+                                        <xforms:label/>
+                                        <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                        <xforms:action ev:event="DOMActivate">
+                                          <xforms:setvalue ref="./schemeName[1]/@show">y</xforms:setvalue>
+                                        </xforms:action>
+                                      </xforms:trigger>
+                                      <xforms:trigger appearance="xxforms:image">
+                                        <xforms:label/>
+                                        <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                      </xforms:trigger>
+                                    </xforms:group>
+                                  </xforms:group>
+                                  <xforms:group ref=".[not(exists(child::schemeName))]">
+                                    <xforms:trigger appearance="xxforms:image">
+                                      <xforms:label/>
+                                      <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                    </xforms:trigger>
+                                    <xforms:trigger appearance="xxforms:image">
+                                      <xforms:label/>
+                                      <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                    </xforms:trigger>
+                                  </xforms:group>
+                                </td></tr></table>
+                              </div>
+                              <!-- schemeName-repeat start -->
+                              <xforms:repeat nodeset="schemeName" id="schemeName10-repeat">
+                                <div>
+                                  <table width="100%"><tr><td>
+                                    <xforms:group ref=".[exists(preceding-sibling::schemeName)]">
+                                      <!-- display a clear alpha image for spacing only  -->
+                                      <xforms:trigger class="eml-level-6 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                                        <xforms:label>schemeName</xforms:label>
+                                      </xforms:trigger>
+                                    </xforms:group>
+                                  </td><td align="right">
+                                    <xforms:group ref=".[exists(preceding-sibling::schemeName)]">
+                                      <!-- schemeName show -->
+                                      <xforms:group ref=".[./@show='y']">
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                          <xforms:action ev:event="DOMActivate">
+                                            <xforms:setvalue ref="./@show">n</xforms:setvalue>
+                                          </xforms:action>
+                                        </xforms:trigger>
+                                        <!-- show/hide repeat schemeName remove -->
+                                        <xforms:group ref="if(1 &lt; number(../schemeName[1]/@stat)) then . else ()">
+                                          <xforms:action ev:event="DOMActivate">
+                                            <xforms:delete nodeset="." at="index('schemeName10-repeat')"/>
+                                          </xforms:action>
+                                          <xforms:trigger appearance="xxforms:image">
+                                            <xforms:label/>
+                                            <xxforms:img src="/apps/forms/images/remove.gif"/>
+                                          </xforms:trigger>
+                                        </xforms:group>
+                                        <!-- default if not previous remove -->
+                                        <xforms:group ref="if(not(1 &lt; number(../schemeName[1]/@stat))) then . else ()">
+                                          <xforms:action ev:event="DOMActivate">
+                                            <xforms:delete nodeset="." at="index('schemeName10-repeat')"/>
+                                          </xforms:action>
+                                          <xforms:trigger appearance="xxforms:image">
+                                            <xforms:label/>
+                                            <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                                          </xforms:trigger>
+                                        </xforms:group>
+                                      </xforms:group>
+                                      <xforms:group ref=".[./@show='n']">
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                          <xforms:action ev:event="DOMActivate">
+                                            <xforms:setvalue ref="./@show">y</xforms:setvalue>
+                                          </xforms:action>
+                                        </xforms:trigger>
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                        </xforms:trigger>
+                                      </xforms:group>
+                                    </xforms:group>
+                                  </td></tr></table>
+                                  <xforms:group ref=".[./@show='y']">
+                              
+                                    <xforms:input incremental="true" ref="." class="eml-level-6 eml-entry">
+                                      <xforms:label/>
+                                    </xforms:input>
+                              
+                                  </xforms:group>
+                                </div>
+                              </xforms:repeat>
+                              <!-- schemeName-repeat end -->
+                              <br/>
+                              
+                              <!-- description start -->
+                              <div>
+                                <table width="100%"><tr><td>
+                                  <!-- description name -->
+                                  <xforms:group>
+                                    <xforms:trigger class="eml-level-6 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                                      <xforms:label>description</xforms:label>
+                                    </xforms:trigger>
+                                  </xforms:group>
+                                </td><td align="right">
+                                  <!-- set stat attribute incrementally -->
+                                  <xforms:action ev:event="DOMActivate">
+                                    <xforms:setvalue ref="./description/@stat" value="last()"/>
+                                  </xforms:action>
+                                  <!-- show/hide add image -->
+                                  <xforms:group ref="if(1 &gt; count(./description)) then . else ()">
+                                    <xforms:action ev:event="DOMActivate">
+                                      <xforms:insert context="." at="1" position="after" origin="instance('inject-description')"/>
+                                    </xforms:action>
+                                    <xforms:trigger appearance="xxforms:image">
+                                      <xforms:label/>
+                                      <xxforms:img src="/apps/forms/images/add.gif"/>
+                                    </xforms:trigger>
+                                  </xforms:group>
+                                  <xforms:group ref=".[exists(child::description)]">
+                                    <!-- description show -->
+                                    <xforms:group ref=".[./description[1]/@show='y']">
+                                      <xforms:trigger appearance="xxforms:image">
+                                        <xforms:label/>
+                                        <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                        <xforms:action ev:event="DOMActivate">
+                                          <xforms:setvalue ref="./description[1]/@show">n</xforms:setvalue>
+                                        </xforms:action>
+                                      </xforms:trigger>
+                                      <!-- show/hide first description remove -->
+                                      <!-- nothing to remove -->
+                                      <xforms:group ref="if(0 = number(./description[1]/@stat)) then . else ()">
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                        </xforms:trigger>
+                                      </xforms:group>
+                                      <!-- minimum exceeded so allow remove -->
+                                      <xforms:group ref="if(1 &lt; number(./description[1]/@stat)) then . else ()">
+                                        <xforms:action ev:event="DOMActivate">
+                                          <xforms:delete nodeset="./description" at="1"/>
+                                        </xforms:action>
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/remove.gif"/>
+                                        </xforms:trigger>
+                                      </xforms:group>
+                                      <!-- default if not previous removes -->
+                                      <xforms:group ref="if(not(0 = number(./description[1]/@stat)) and not(1 &lt; number(./description[1]/@stat))) then . else ()">
+                                        <xforms:action ev:event="DOMActivate">
+                                          <xforms:delete nodeset="./description" at="1"/>
+                                        </xforms:action>
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                                        </xforms:trigger>
+                                      </xforms:group>
+                                    </xforms:group>
+                                    <xforms:group ref=".[./description[1]/@show='n']">
+                                      <xforms:trigger appearance="xxforms:image">
+                                        <xforms:label/>
+                                        <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                        <xforms:action ev:event="DOMActivate">
+                                          <xforms:setvalue ref="./description[1]/@show">y</xforms:setvalue>
+                                        </xforms:action>
+                                      </xforms:trigger>
+                                      <xforms:trigger appearance="xxforms:image">
+                                        <xforms:label/>
+                                        <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                      </xforms:trigger>
+                                    </xforms:group>
+                                  </xforms:group>
+                                  <xforms:group ref=".[not(exists(child::description))]">
+                                    <xforms:trigger appearance="xxforms:image">
+                                      <xforms:label/>
+                                      <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                    </xforms:trigger>
+                                    <xforms:trigger appearance="xxforms:image">
+                                      <xforms:label/>
+                                      <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                    </xforms:trigger>
+                                  </xforms:group>
+                                </td></tr></table>
+                              </div>
+                              <!-- description-repeat start -->
+                              <xforms:repeat nodeset="description" id="description12-repeat">
+                                <div>
+                                  <table width="100%"><tr><td>
+                                    <xforms:group ref=".[exists(preceding-sibling::description)]">
+                                      <!-- display a clear alpha image for spacing only  -->
+                                      <xforms:trigger class="eml-level-6 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                                        <xforms:label>description</xforms:label>
+                                      </xforms:trigger>
+                                    </xforms:group>
+                                  </td><td align="right">
+                                    <xforms:group ref=".[exists(preceding-sibling::description)]">
+                                      <!-- description show -->
+                                      <xforms:group ref=".[./@show='y']">
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                          <xforms:action ev:event="DOMActivate">
+                                            <xforms:setvalue ref="./@show">n</xforms:setvalue>
+                                          </xforms:action>
+                                        </xforms:trigger>
+                                        <!-- show/hide repeat description remove -->
+                                        <xforms:group ref="if(1 &lt; number(../description[1]/@stat)) then . else ()">
+                                          <xforms:action ev:event="DOMActivate">
+                                            <xforms:delete nodeset="." at="index('description12-repeat')"/>
+                                          </xforms:action>
+                                          <xforms:trigger appearance="xxforms:image">
+                                            <xforms:label/>
+                                            <xxforms:img src="/apps/forms/images/remove.gif"/>
+                                          </xforms:trigger>
+                                        </xforms:group>
+                                        <!-- default if not previous remove -->
+                                        <xforms:group ref="if(not(1 &lt; number(../description[1]/@stat))) then . else ()">
+                                          <xforms:action ev:event="DOMActivate">
+                                            <xforms:delete nodeset="." at="index('description12-repeat')"/>
+                                          </xforms:action>
+                                          <xforms:trigger appearance="xxforms:image">
+                                            <xforms:label/>
+                                            <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                                          </xforms:trigger>
+                                        </xforms:group>
+                                      </xforms:group>
+                                      <xforms:group ref=".[./@show='n']">
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                          <xforms:action ev:event="DOMActivate">
+                                            <xforms:setvalue ref="./@show">y</xforms:setvalue>
+                                          </xforms:action>
+                                        </xforms:trigger>
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                        </xforms:trigger>
+                                      </xforms:group>
+                                    </xforms:group>
+                                  </td></tr></table>
+                                  <xforms:group ref=".[./@show='y']">
+                                   
+                                   <span class="eml-level-7 eml-node">para</span>
+                                   <br/>
+                                         <xhtml:div class="eml-level-7 eml-entry" style="">
+                                           <xforms:textarea mediatype="text/html" incremental="true" ref="parax"/>
+                                         </xhtml:div>
+                                   <br/>
+                                   <br/>
+                         
+                           </xforms:group>
+                         </div>
+                         </xforms:repeat>
+                         <!-- description-repeat end -->
+                         <br/>
+                              
+                              <!-- parameterDefinition start -->
+                              <div>
+                                <table width="100%"><tr><td>
+                                  <!-- parameterDefinition name -->
+                                  <xforms:group>
+                                    <xforms:trigger class="eml-level-6 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                                      <xforms:label>parameterDefinition</xforms:label>
+                                    </xforms:trigger>
+                                  </xforms:group>
+                                </td><td align="right">
+                                  <!-- set stat attribute incrementally -->
+                                  <xforms:action ev:event="DOMActivate">
+                                    <xforms:setvalue ref="./parameterDefinition/@stat" value="last()"/>
+                                  </xforms:action>
+                                  <!-- show/hide add image -->
+                                  <xforms:group ref="if(999999 &gt; count(./parameterDefinition)) then . else ()">
+                                    <xforms:action ev:event="DOMActivate">
+                                      <xforms:insert context="." at="1" position="after" origin="instance('inject-parameterDefinition')"/>
+                                    </xforms:action>
+                                    <xforms:trigger appearance="xxforms:image">
+                                      <xforms:label/>
+                                      <xxforms:img src="/apps/forms/images/add.gif"/>
+                                    </xforms:trigger>
+                                  </xforms:group>
+                                  <xforms:group ref=".[exists(child::parameterDefinition)]">
+                                    <!-- parameterDefinition show -->
+                                    <xforms:group ref=".[./parameterDefinition[1]/@show='y']">
+                                      <xforms:trigger appearance="xxforms:image">
+                                        <xforms:label/>
+                                        <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                        <xforms:action ev:event="DOMActivate">
+                                          <xforms:setvalue ref="./parameterDefinition[1]/@show">n</xforms:setvalue>
+                                        </xforms:action>
+                                      </xforms:trigger>
+                                      <!-- show/hide first parameterDefinition remove -->
+                                      <!-- nothing to remove -->
+                                      <xforms:group ref="if(0 = number(./parameterDefinition[1]/@stat)) then . else ()">
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                        </xforms:trigger>
+                                      </xforms:group>
+                                      <!-- minimum exceeded so allow remove -->
+                                      <xforms:group ref="if(1 &lt; number(./parameterDefinition[1]/@stat)) then . else ()">
+                                        <xforms:action ev:event="DOMActivate">
+                                          <xforms:delete nodeset="./parameterDefinition" at="1"/>
+                                        </xforms:action>
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/remove.gif"/>
+                                        </xforms:trigger>
+                                      </xforms:group>
+                                      <!-- default if not previous removes -->
+                                      <xforms:group ref="if(not(0 = number(./parameterDefinition[1]/@stat)) and not(1 &lt; number(./parameterDefinition[1]/@stat))) then . else ()">
+                                        <xforms:action ev:event="DOMActivate">
+                                          <xforms:delete nodeset="./parameterDefinition" at="1"/>
+                                        </xforms:action>
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                                        </xforms:trigger>
+                                      </xforms:group>
+                                    </xforms:group>
+                                    <xforms:group ref=".[./parameterDefinition[1]/@show='n']">
+                                      <xforms:trigger appearance="xxforms:image">
+                                        <xforms:label/>
+                                        <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                        <xforms:action ev:event="DOMActivate">
+                                          <xforms:setvalue ref="./parameterDefinition[1]/@show">y</xforms:setvalue>
+                                        </xforms:action>
+                                      </xforms:trigger>
+                                      <xforms:trigger appearance="xxforms:image">
+                                        <xforms:label/>
+                                        <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                      </xforms:trigger>
+                                    </xforms:group>
+                                  </xforms:group>
+                                  <xforms:group ref=".[not(exists(child::parameterDefinition))]">
+                                    <xforms:trigger appearance="xxforms:image">
+                                      <xforms:label/>
+                                      <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                    </xforms:trigger>
+                                    <xforms:trigger appearance="xxforms:image">
+                                      <xforms:label/>
+                                      <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                    </xforms:trigger>
+                                  </xforms:group>
+                                </td></tr></table>
+                              </div>
+                              <!-- parameterDefinition-repeat start -->
+                              <xforms:repeat nodeset="parameterDefinition" id="parameterDefinition14-repeat">
+                                <div>
+                                  <table width="100%"><tr><td>
+                                    <xforms:group ref=".[exists(preceding-sibling::parameterDefinition)]">
+                                      <!-- display a clear alpha image for spacing only  -->
+                                      <xforms:trigger class="eml-level-6 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                                        <xforms:label>parameterDefinition</xforms:label>
+                                      </xforms:trigger>
+                                    </xforms:group>
+                                  </td><td align="right">
+                                    <xforms:group ref=".[exists(preceding-sibling::parameterDefinition)]">
+                                      <!-- parameterDefinition show -->
+                                      <xforms:group ref=".[./@show='y']">
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                          <xforms:action ev:event="DOMActivate">
+                                            <xforms:setvalue ref="./@show">n</xforms:setvalue>
+                                          </xforms:action>
+                                        </xforms:trigger>
+                                        <!-- show/hide repeat parameterDefinition remove -->
+                                        <xforms:group ref="if(1 &lt; number(../parameterDefinition[1]/@stat)) then . else ()">
+                                          <xforms:action ev:event="DOMActivate">
+                                            <xforms:delete nodeset="." at="index('parameterDefinition14-repeat')"/>
+                                          </xforms:action>
+                                          <xforms:trigger appearance="xxforms:image">
+                                            <xforms:label/>
+                                            <xxforms:img src="/apps/forms/images/remove.gif"/>
+                                          </xforms:trigger>
+                                        </xforms:group>
+                                        <!-- default if not previous remove -->
+                                        <xforms:group ref="if(not(1 &lt; number(../parameterDefinition[1]/@stat))) then . else ()">
+                                          <xforms:action ev:event="DOMActivate">
+                                            <xforms:delete nodeset="." at="index('parameterDefinition14-repeat')"/>
+                                          </xforms:action>
+                                          <xforms:trigger appearance="xxforms:image">
+                                            <xforms:label/>
+                                            <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                                          </xforms:trigger>
+                                        </xforms:group>
+                                      </xforms:group>
+                                      <xforms:group ref=".[./@show='n']">
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                          <xforms:action ev:event="DOMActivate">
+                                            <xforms:setvalue ref="./@show">y</xforms:setvalue>
+                                          </xforms:action>
+                                        </xforms:trigger>
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                        </xforms:trigger>
+                                      </xforms:group>
+                                    </xforms:group>
+                                  </td></tr></table>
+                                  <xforms:group ref=".[./@show='y']">
+                                   
+                                   <!-- name start -->
+                                   <div>
+                                     <table width="100%"><tr><td>
+                                       <!-- name name -->
+                                       <xforms:group>
+                                         <xforms:trigger class="eml-level-7 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                                           <xforms:label>name</xforms:label>
+                                         </xforms:trigger>
+                                       </xforms:group>
+                                     </td><td align="right">
+                                       <!-- set stat attribute incrementally -->
+                                       <xforms:action ev:event="DOMActivate">
+                                         <xforms:setvalue ref="./name/@stat" value="last()"/>
+                                       </xforms:action>
+                                       <!-- show/hide add image -->
+                                       <xforms:group ref="if(1 &gt; count(./name)) then . else ()">
+                                         <xforms:action ev:event="DOMActivate">
+                                           <xforms:insert context="." at="1" position="after" origin="instance('inject-name')"/>
+                                         </xforms:action>
+                                         <xforms:trigger appearance="xxforms:image">
+                                           <xforms:label/>
+                                           <xxforms:img src="/apps/forms/images/add.gif"/>
+                                         </xforms:trigger>
+                                       </xforms:group>
+                                       <xforms:group ref=".[exists(child::name)]">
+                                         <!-- name show -->
+                                         <xforms:group ref=".[./name[1]/@show='y']">
+                                           <xforms:trigger appearance="xxforms:image">
+                                             <xforms:label/>
+                                             <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                             <xforms:action ev:event="DOMActivate">
+                                               <xforms:setvalue ref="./name[1]/@show">n</xforms:setvalue>
+                                             </xforms:action>
+                                           </xforms:trigger>
+                                           <!-- show/hide first name remove -->
+                                           <!-- nothing to remove -->
+                                           <xforms:group ref="if(0 = number(./name[1]/@stat)) then . else ()">
+                                             <xforms:trigger appearance="xxforms:image">
+                                               <xforms:label/>
+                                               <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                             </xforms:trigger>
+                                           </xforms:group>
+                                           <!-- minimum exceeded so allow remove -->
+                                           <xforms:group ref="if(1 &lt; number(./name[1]/@stat)) then . else ()">
+                                             <xforms:action ev:event="DOMActivate">
+                                               <xforms:delete nodeset="./name" at="1"/>
+                                             </xforms:action>
+                                             <xforms:trigger appearance="xxforms:image">
+                                               <xforms:label/>
+                                               <xxforms:img src="/apps/forms/images/remove.gif"/>
+                                             </xforms:trigger>
+                                           </xforms:group>
+                                           <!-- default if not previous removes -->
+                                           <xforms:group ref="if(not(0 = number(./name[1]/@stat)) and not(1 &lt; number(./name[1]/@stat))) then . else ()">
+                                             <xforms:action ev:event="DOMActivate">
+                                               <xforms:delete nodeset="./name" at="1"/>
+                                             </xforms:action>
+                                             <xforms:trigger appearance="xxforms:image">
+                                               <xforms:label/>
+                                               <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                                             </xforms:trigger>
+                                           </xforms:group>
+                                         </xforms:group>
+                                         <xforms:group ref=".[./name[1]/@show='n']">
+                                           <xforms:trigger appearance="xxforms:image">
+                                             <xforms:label/>
+                                             <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                             <xforms:action ev:event="DOMActivate">
+                                               <xforms:setvalue ref="./name[1]/@show">y</xforms:setvalue>
+                                             </xforms:action>
+                                           </xforms:trigger>
+                                           <xforms:trigger appearance="xxforms:image">
+                                             <xforms:label/>
+                                             <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                           </xforms:trigger>
+                                         </xforms:group>
+                                       </xforms:group>
+                                       <xforms:group ref=".[not(exists(child::name))]">
+                                         <xforms:trigger appearance="xxforms:image">
+                                           <xforms:label/>
+                                           <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                         </xforms:trigger>
+                                         <xforms:trigger appearance="xxforms:image">
+                                           <xforms:label/>
+                                           <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                         </xforms:trigger>
+                                       </xforms:group>
+                                     </td></tr></table>
+                                   </div>
+                                   <!-- name-repeat start -->
+                                   <xforms:repeat nodeset="name" id="name15-repeat">
+                                     <div>
+                                       <table width="100%"><tr><td>
+                                         <xforms:group ref=".[exists(preceding-sibling::name)]">
+                                           <!-- display a clear alpha image for spacing only  -->
+                                           <xforms:trigger class="eml-level-7 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                                             <xforms:label>name</xforms:label>
+                                           </xforms:trigger>
+                                         </xforms:group>
+                                       </td><td align="right">
+                                         <xforms:group ref=".[exists(preceding-sibling::name)]">
+                                           <!-- name show -->
+                                           <xforms:group ref=".[./@show='y']">
+                                             <xforms:trigger appearance="xxforms:image">
+                                               <xforms:label/>
+                                               <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                               <xforms:action ev:event="DOMActivate">
+                                                 <xforms:setvalue ref="./@show">n</xforms:setvalue>
+                                               </xforms:action>
+                                             </xforms:trigger>
+                                             <!-- show/hide repeat name remove -->
+                                             <xforms:group ref="if(1 &lt; number(../name[1]/@stat)) then . else ()">
+                                               <xforms:action ev:event="DOMActivate">
+                                                 <xforms:delete nodeset="." at="index('name15-repeat')"/>
+                                               </xforms:action>
+                                               <xforms:trigger appearance="xxforms:image">
+                                                 <xforms:label/>
+                                                 <xxforms:img src="/apps/forms/images/remove.gif"/>
+                                               </xforms:trigger>
+                                             </xforms:group>
+                                             <!-- default if not previous remove -->
+                                             <xforms:group ref="if(not(1 &lt; number(../name[1]/@stat))) then . else ()">
+                                               <xforms:action ev:event="DOMActivate">
+                                                 <xforms:delete nodeset="." at="index('name15-repeat')"/>
+                                               </xforms:action>
+                                               <xforms:trigger appearance="xxforms:image">
+                                                 <xforms:label/>
+                                                 <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                                               </xforms:trigger>
+                                             </xforms:group>
+                                           </xforms:group>
+                                           <xforms:group ref=".[./@show='n']">
+                                             <xforms:trigger appearance="xxforms:image">
+                                               <xforms:label/>
+                                               <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                               <xforms:action ev:event="DOMActivate">
+                                                 <xforms:setvalue ref="./@show">y</xforms:setvalue>
+                                               </xforms:action>
+                                             </xforms:trigger>
+                                             <xforms:trigger appearance="xxforms:image">
+                                               <xforms:label/>
+                                               <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                             </xforms:trigger>
+                                           </xforms:group>
+                                         </xforms:group>
+                                       </td></tr></table>
+                                       <xforms:group ref=".[./@show='y']">
+                                   
+                                         <xforms:input incremental="true" ref="." class="eml-level-7 eml-entry">
+                                           <xforms:label/>
+                                         </xforms:input>
+                                   
+                                       </xforms:group>
+                                     </div>
+                                   </xforms:repeat>
+                                   <!-- name-repeat end -->
+                                   <br/>
+                                   
+                                   <!-- definition start -->
+                                   <div>
+                                     <table width="100%"><tr><td>
+                                       <!-- definition name -->
+                                       <xforms:group>
+                                         <xforms:trigger class="eml-level-7 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                                           <xforms:label>definition</xforms:label>
+                                         </xforms:trigger>
+                                       </xforms:group>
+                                     </td><td align="right">
+                                       <!-- set stat attribute incrementally -->
+                                       <xforms:action ev:event="DOMActivate">
+                                         <xforms:setvalue ref="./definition/@stat" value="last()"/>
+                                       </xforms:action>
+                                       <!-- show/hide add image -->
+                                       <xforms:group ref="if(1 &gt; count(./definition)) then . else ()">
+                                         <xforms:action ev:event="DOMActivate">
+                                           <xforms:insert context="." at="1" position="after" origin="instance('inject-definition')"/>
+                                         </xforms:action>
+                                         <xforms:trigger appearance="xxforms:image">
+                                           <xforms:label/>
+                                           <xxforms:img src="/apps/forms/images/add.gif"/>
+                                         </xforms:trigger>
+                                       </xforms:group>
+                                       <xforms:group ref=".[exists(child::definition)]">
+                                         <!-- definition show -->
+                                         <xforms:group ref=".[./definition[1]/@show='y']">
+                                           <xforms:trigger appearance="xxforms:image">
+                                             <xforms:label/>
+                                             <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                             <xforms:action ev:event="DOMActivate">
+                                               <xforms:setvalue ref="./definition[1]/@show">n</xforms:setvalue>
+                                             </xforms:action>
+                                           </xforms:trigger>
+                                           <!-- show/hide first definition remove -->
+                                           <!-- nothing to remove -->
+                                           <xforms:group ref="if(0 = number(./definition[1]/@stat)) then . else ()">
+                                             <xforms:trigger appearance="xxforms:image">
+                                               <xforms:label/>
+                                               <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                             </xforms:trigger>
+                                           </xforms:group>
+                                           <!-- minimum exceeded so allow remove -->
+                                           <xforms:group ref="if(1 &lt; number(./definition[1]/@stat)) then . else ()">
+                                             <xforms:action ev:event="DOMActivate">
+                                               <xforms:delete nodeset="./definition" at="1"/>
+                                             </xforms:action>
+                                             <xforms:trigger appearance="xxforms:image">
+                                               <xforms:label/>
+                                               <xxforms:img src="/apps/forms/images/remove.gif"/>
+                                             </xforms:trigger>
+                                           </xforms:group>
+                                           <!-- default if not previous removes -->
+                                           <xforms:group ref="if(not(0 = number(./definition[1]/@stat)) and not(1 &lt; number(./definition[1]/@stat))) then . else ()">
+                                             <xforms:action ev:event="DOMActivate">
+                                               <xforms:delete nodeset="./definition" at="1"/>
+                                             </xforms:action>
+                                             <xforms:trigger appearance="xxforms:image">
+                                               <xforms:label/>
+                                               <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                                             </xforms:trigger>
+                                           </xforms:group>
+                                         </xforms:group>
+                                         <xforms:group ref=".[./definition[1]/@show='n']">
+                                           <xforms:trigger appearance="xxforms:image">
+                                             <xforms:label/>
+                                             <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                             <xforms:action ev:event="DOMActivate">
+                                               <xforms:setvalue ref="./definition[1]/@show">y</xforms:setvalue>
+                                             </xforms:action>
+                                           </xforms:trigger>
+                                           <xforms:trigger appearance="xxforms:image">
+                                             <xforms:label/>
+                                             <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                           </xforms:trigger>
+                                         </xforms:group>
+                                       </xforms:group>
+                                       <xforms:group ref=".[not(exists(child::definition))]">
+                                         <xforms:trigger appearance="xxforms:image">
+                                           <xforms:label/>
+                                           <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                         </xforms:trigger>
+                                         <xforms:trigger appearance="xxforms:image">
+                                           <xforms:label/>
+                                           <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                         </xforms:trigger>
+                                       </xforms:group>
+                                     </td></tr></table>
+                                   </div>
+                                   <!-- definition-repeat start -->
+                                   <xforms:repeat nodeset="definition" id="definition17-repeat">
+                                     <div>
+                                       <table width="100%"><tr><td>
+                                         <xforms:group ref=".[exists(preceding-sibling::definition)]">
+                                           <!-- display a clear alpha image for spacing only  -->
+                                           <xforms:trigger class="eml-level-7 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                                             <xforms:label>definition</xforms:label>
+                                           </xforms:trigger>
+                                         </xforms:group>
+                                       </td><td align="right">
+                                         <xforms:group ref=".[exists(preceding-sibling::definition)]">
+                                           <!-- definition show -->
+                                           <xforms:group ref=".[./@show='y']">
+                                             <xforms:trigger appearance="xxforms:image">
+                                               <xforms:label/>
+                                               <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                               <xforms:action ev:event="DOMActivate">
+                                                 <xforms:setvalue ref="./@show">n</xforms:setvalue>
+                                               </xforms:action>
+                                             </xforms:trigger>
+                                             <!-- show/hide repeat definition remove -->
+                                             <xforms:group ref="if(1 &lt; number(../definition[1]/@stat)) then . else ()">
+                                               <xforms:action ev:event="DOMActivate">
+                                                 <xforms:delete nodeset="." at="index('definition17-repeat')"/>
+                                               </xforms:action>
+                                               <xforms:trigger appearance="xxforms:image">
+                                                 <xforms:label/>
+                                                 <xxforms:img src="/apps/forms/images/remove.gif"/>
+                                               </xforms:trigger>
+                                             </xforms:group>
+                                             <!-- default if not previous remove -->
+                                             <xforms:group ref="if(not(1 &lt; number(../definition[1]/@stat))) then . else ()">
+                                               <xforms:action ev:event="DOMActivate">
+                                                 <xforms:delete nodeset="." at="index('definition17-repeat')"/>
+                                               </xforms:action>
+                                               <xforms:trigger appearance="xxforms:image">
+                                                 <xforms:label/>
+                                                 <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                                               </xforms:trigger>
+                                             </xforms:group>
+                                           </xforms:group>
+                                           <xforms:group ref=".[./@show='n']">
+                                             <xforms:trigger appearance="xxforms:image">
+                                               <xforms:label/>
+                                               <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                               <xforms:action ev:event="DOMActivate">
+                                                 <xforms:setvalue ref="./@show">y</xforms:setvalue>
+                                               </xforms:action>
+                                             </xforms:trigger>
+                                             <xforms:trigger appearance="xxforms:image">
+                                               <xforms:label/>
+                                               <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                             </xforms:trigger>
+                                           </xforms:group>
+                                         </xforms:group>
+                                       </td></tr></table>
+                                       <xforms:group ref=".[./@show='y']">
+                                   
+                                         <xforms:input incremental="true" ref="." class="eml-level-7 eml-entry">
+                                           <xforms:label/>
+                                         </xforms:input>
+                                   
+                                       </xforms:group>
+                                     </div>
+                                   </xforms:repeat>
+                                   <!-- definition-repeat end -->
+                                   <br/>
+                         
+                           </xforms:group>
+                         </div>
+                         </xforms:repeat>
+                         <!-- parameterDefinition-repeat end -->
+                         <br/>
+                    
+                      </xforms:group>
+                    </div>
+                    </xforms:repeat>
+                    <!-- connectionDefinition-repeat end -->
+                    <br/>
+                         
+                         <!-- parameter start -->
+                         <div>
+                           <table width="100%"><tr><td>
+                             <!-- parameter name -->
+                             <xforms:group>
+                               <xforms:trigger class="eml-level-5 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                                 <xforms:label>parameter</xforms:label>
+                               </xforms:trigger>
+                             </xforms:group>
+                           </td><td align="right">
+                             <!-- set stat attribute incrementally -->
+                             <xforms:action ev:event="DOMActivate">
+                               <xforms:setvalue ref="./parameter/@stat" value="last()"/>
+                             </xforms:action>
+                             <!-- show/hide add image -->
+                             <xforms:group ref="if(999999 &gt; count(./parameter)) then . else ()">
+                               <xforms:action ev:event="DOMActivate">
+                                 <xforms:insert context="." at="1" position="after" origin="instance('inject-parameter')"/>
+                               </xforms:action>
+                               <xforms:trigger appearance="xxforms:image">
+                                 <xforms:label/>
+                                 <xxforms:img src="/apps/forms/images/add.gif"/>
+                               </xforms:trigger>
+                             </xforms:group>
+                             <xforms:group ref=".[exists(child::parameter)]">
+                               <!-- parameter show -->
+                               <xforms:group ref=".[./parameter[1]/@show='y']">
+                                 <xforms:trigger appearance="xxforms:image">
+                                   <xforms:label/>
+                                   <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                   <xforms:action ev:event="DOMActivate">
+                                     <xforms:setvalue ref="./parameter[1]/@show">n</xforms:setvalue>
+                                   </xforms:action>
+                                 </xforms:trigger>
+                                 <!-- show/hide first parameter remove -->
+                                 <!-- nothing to remove -->
+                                 <xforms:group ref="if(0 = number(./parameter[1]/@stat)) then . else ()">
+                                   <xforms:trigger appearance="xxforms:image">
+                                     <xforms:label/>
+                                     <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                   </xforms:trigger>
+                                 </xforms:group>
+                                 <!-- minimum exceeded so allow remove -->
+                                 <xforms:group ref="if(0 &lt; number(./parameter[1]/@stat)) then . else ()">
+                                   <xforms:action ev:event="DOMActivate">
+                                     <xforms:delete nodeset="./parameter" at="1"/>
+                                   </xforms:action>
+                                   <xforms:trigger appearance="xxforms:image">
+                                     <xforms:label/>
+                                     <xxforms:img src="/apps/forms/images/remove.gif"/>
+                                   </xforms:trigger>
+                                 </xforms:group>
+                                 <!-- default if not previous removes -->
+                                 <xforms:group ref="if(not(0 = number(./parameter[1]/@stat)) and not(0 &lt; number(./parameter[1]/@stat))) then . else ()">
+                                   <xforms:action ev:event="DOMActivate">
+                                     <xforms:delete nodeset="./parameter" at="1"/>
+                                   </xforms:action>
+                                   <xforms:trigger appearance="xxforms:image">
+                                     <xforms:label/>
+                                     <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                                   </xforms:trigger>
+                                 </xforms:group>
+                               </xforms:group>
+                               <xforms:group ref=".[./parameter[1]/@show='n']">
+                                 <xforms:trigger appearance="xxforms:image">
+                                   <xforms:label/>
+                                   <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                   <xforms:action ev:event="DOMActivate">
+                                     <xforms:setvalue ref="./parameter[1]/@show">y</xforms:setvalue>
+                                   </xforms:action>
+                                 </xforms:trigger>
+                                 <xforms:trigger appearance="xxforms:image">
+                                   <xforms:label/>
+                                   <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                 </xforms:trigger>
+                               </xforms:group>
+                             </xforms:group>
+                             <xforms:group ref=".[not(exists(child::parameter))]">
+                               <xforms:trigger appearance="xxforms:image">
+                                 <xforms:label/>
+                                 <xxforms:img src="/apps/forms/images/clear.gif"/>
+                               </xforms:trigger>
+                               <xforms:trigger appearance="xxforms:image">
+                                 <xforms:label/>
+                                 <xxforms:img src="/apps/forms/images/clear.gif"/>
+                               </xforms:trigger>
+                             </xforms:group>
+                           </td></tr></table>
+                         </div>
+                         <!-- parameter-repeat start -->
+                         <xforms:repeat nodeset="parameter" id="parameter19-repeat">
+                           <div>
+                             <table width="100%"><tr><td>
+                               <xforms:group ref=".[exists(preceding-sibling::parameter)]">
+                                 <!-- display a clear alpha image for spacing only  -->
+                                 <xforms:trigger class="eml-level-5 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                                   <xforms:label>parameter</xforms:label>
+                                 </xforms:trigger>
+                               </xforms:group>
+                             </td><td align="right">
+                               <xforms:group ref=".[exists(preceding-sibling::parameter)]">
+                                 <!-- parameter show -->
+                                 <xforms:group ref=".[./@show='y']">
+                                   <xforms:trigger appearance="xxforms:image">
+                                     <xforms:label/>
+                                     <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                     <xforms:action ev:event="DOMActivate">
+                                       <xforms:setvalue ref="./@show">n</xforms:setvalue>
+                                     </xforms:action>
+                                   </xforms:trigger>
+                                   <!-- show/hide repeat parameter remove -->
+                                   <xforms:group ref="if(0 &lt; number(../parameter[1]/@stat)) then . else ()">
+                                     <xforms:action ev:event="DOMActivate">
+                                       <xforms:delete nodeset="." at="index('parameter19-repeat')"/>
+                                     </xforms:action>
+                                     <xforms:trigger appearance="xxforms:image">
+                                       <xforms:label/>
+                                       <xxforms:img src="/apps/forms/images/remove.gif"/>
+                                     </xforms:trigger>
+                                   </xforms:group>
+                                   <!-- default if not previous remove -->
+                                   <xforms:group ref="if(not(0 &lt; number(../parameter[1]/@stat))) then . else ()">
+                                     <xforms:action ev:event="DOMActivate">
+                                       <xforms:delete nodeset="." at="index('parameter19-repeat')"/>
+                                     </xforms:action>
+                                     <xforms:trigger appearance="xxforms:image">
+                                       <xforms:label/>
+                                       <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                                     </xforms:trigger>
+                                   </xforms:group>
+                                 </xforms:group>
+                                 <xforms:group ref=".[./@show='n']">
+                                   <xforms:trigger appearance="xxforms:image">
+                                     <xforms:label/>
+                                     <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                     <xforms:action ev:event="DOMActivate">
+                                       <xforms:setvalue ref="./@show">y</xforms:setvalue>
+                                     </xforms:action>
+                                   </xforms:trigger>
+                                   <xforms:trigger appearance="xxforms:image">
+                                     <xforms:label/>
+                                     <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                   </xforms:trigger>
+                                 </xforms:group>
+                               </xforms:group>
+                             </td></tr></table>
+                             <xforms:group ref=".[./@show='y']">
+                              
+                              <!-- name start -->
+                              <div>
+                                <table width="100%"><tr><td>
+                                  <!-- name name -->
+                                  <xforms:group>
+                                    <xforms:trigger class="eml-level-6 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                                      <xforms:label>name</xforms:label>
+                                    </xforms:trigger>
+                                  </xforms:group>
+                                </td><td align="right">
+                                  <!-- set stat attribute incrementally -->
+                                  <xforms:action ev:event="DOMActivate">
+                                    <xforms:setvalue ref="./name/@stat" value="last()"/>
+                                  </xforms:action>
+                                  <!-- show/hide add image -->
+                                  <xforms:group ref="if(1 &gt; count(./name)) then . else ()">
+                                    <xforms:action ev:event="DOMActivate">
+                                      <xforms:insert context="." at="1" position="after" origin="instance('inject-name')"/>
+                                    </xforms:action>
+                                    <xforms:trigger appearance="xxforms:image">
+                                      <xforms:label/>
+                                      <xxforms:img src="/apps/forms/images/add.gif"/>
+                                    </xforms:trigger>
+                                  </xforms:group>
+                                  <xforms:group ref=".[exists(child::name)]">
+                                    <!-- name show -->
+                                    <xforms:group ref=".[./name[1]/@show='y']">
+                                      <xforms:trigger appearance="xxforms:image">
+                                        <xforms:label/>
+                                        <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                        <xforms:action ev:event="DOMActivate">
+                                          <xforms:setvalue ref="./name[1]/@show">n</xforms:setvalue>
+                                        </xforms:action>
+                                      </xforms:trigger>
+                                      <!-- show/hide first name remove -->
+                                      <!-- nothing to remove -->
+                                      <xforms:group ref="if(0 = number(./name[1]/@stat)) then . else ()">
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                        </xforms:trigger>
+                                      </xforms:group>
+                                      <!-- minimum exceeded so allow remove -->
+                                      <xforms:group ref="if(1 &lt; number(./name[1]/@stat)) then . else ()">
+                                        <xforms:action ev:event="DOMActivate">
+                                          <xforms:delete nodeset="./name" at="1"/>
+                                        </xforms:action>
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/remove.gif"/>
+                                        </xforms:trigger>
+                                      </xforms:group>
+                                      <!-- default if not previous removes -->
+                                      <xforms:group ref="if(not(0 = number(./name[1]/@stat)) and not(1 &lt; number(./name[1]/@stat))) then . else ()">
+                                        <xforms:action ev:event="DOMActivate">
+                                          <xforms:delete nodeset="./name" at="1"/>
+                                        </xforms:action>
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                                        </xforms:trigger>
+                                      </xforms:group>
+                                    </xforms:group>
+                                    <xforms:group ref=".[./name[1]/@show='n']">
+                                      <xforms:trigger appearance="xxforms:image">
+                                        <xforms:label/>
+                                        <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                        <xforms:action ev:event="DOMActivate">
+                                          <xforms:setvalue ref="./name[1]/@show">y</xforms:setvalue>
+                                        </xforms:action>
+                                      </xforms:trigger>
+                                      <xforms:trigger appearance="xxforms:image">
+                                        <xforms:label/>
+                                        <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                      </xforms:trigger>
+                                    </xforms:group>
+                                  </xforms:group>
+                                  <xforms:group ref=".[not(exists(child::name))]">
+                                    <xforms:trigger appearance="xxforms:image">
+                                      <xforms:label/>
+                                      <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                    </xforms:trigger>
+                                    <xforms:trigger appearance="xxforms:image">
+                                      <xforms:label/>
+                                      <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                    </xforms:trigger>
+                                  </xforms:group>
+                                </td></tr></table>
+                              </div>
+                              <!-- name-repeat start -->
+                              <xforms:repeat nodeset="name" id="name20-repeat">
+                                <div>
+                                  <table width="100%"><tr><td>
+                                    <xforms:group ref=".[exists(preceding-sibling::name)]">
+                                      <!-- display a clear alpha image for spacing only  -->
+                                      <xforms:trigger class="eml-level-6 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                                        <xforms:label>name</xforms:label>
+                                      </xforms:trigger>
+                                    </xforms:group>
+                                  </td><td align="right">
+                                    <xforms:group ref=".[exists(preceding-sibling::name)]">
+                                      <!-- name show -->
+                                      <xforms:group ref=".[./@show='y']">
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                          <xforms:action ev:event="DOMActivate">
+                                            <xforms:setvalue ref="./@show">n</xforms:setvalue>
+                                          </xforms:action>
+                                        </xforms:trigger>
+                                        <!-- show/hide repeat name remove -->
+                                        <xforms:group ref="if(1 &lt; number(../name[1]/@stat)) then . else ()">
+                                          <xforms:action ev:event="DOMActivate">
+                                            <xforms:delete nodeset="." at="index('name20-repeat')"/>
+                                          </xforms:action>
+                                          <xforms:trigger appearance="xxforms:image">
+                                            <xforms:label/>
+                                            <xxforms:img src="/apps/forms/images/remove.gif"/>
+                                          </xforms:trigger>
+                                        </xforms:group>
+                                        <!-- default if not previous remove -->
+                                        <xforms:group ref="if(not(1 &lt; number(../name[1]/@stat))) then . else ()">
+                                          <xforms:action ev:event="DOMActivate">
+                                            <xforms:delete nodeset="." at="index('name20-repeat')"/>
+                                          </xforms:action>
+                                          <xforms:trigger appearance="xxforms:image">
+                                            <xforms:label/>
+                                            <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                                          </xforms:trigger>
+                                        </xforms:group>
+                                      </xforms:group>
+                                      <xforms:group ref=".[./@show='n']">
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                          <xforms:action ev:event="DOMActivate">
+                                            <xforms:setvalue ref="./@show">y</xforms:setvalue>
+                                          </xforms:action>
+                                        </xforms:trigger>
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                        </xforms:trigger>
+                                      </xforms:group>
+                                    </xforms:group>
+                                  </td></tr></table>
+                                  <xforms:group ref=".[./@show='y']">
+                              
+                                    <xforms:input incremental="true" ref="." class="eml-level-6 eml-entry">
+                                      <xforms:label/>
+                                    </xforms:input>
+                              
+                                  </xforms:group>
+                                </div>
+                              </xforms:repeat>
+                              <!-- name-repeat end -->
+                              <br/>
+                              
+                              <!-- value start -->
+                              <div>
+                                <table width="100%"><tr><td>
+                                  <!-- value name -->
+                                  <xforms:group>
+                                    <xforms:trigger class="eml-level-6 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                                      <xforms:label>value</xforms:label>
+                                    </xforms:trigger>
+                                  </xforms:group>
+                                </td><td align="right">
+                                  <!-- set stat attribute incrementally -->
+                                  <xforms:action ev:event="DOMActivate">
+                                    <xforms:setvalue ref="./value/@stat" value="last()"/>
+                                  </xforms:action>
+                                  <!-- show/hide add image -->
+                                  <xforms:group ref="if(1 &gt; count(./value)) then . else ()">
+                                    <xforms:action ev:event="DOMActivate">
+                                      <xforms:insert context="." at="1" position="after" origin="instance('inject-value')"/>
+                                    </xforms:action>
+                                    <xforms:trigger appearance="xxforms:image">
+                                      <xforms:label/>
+                                      <xxforms:img src="/apps/forms/images/add.gif"/>
+                                    </xforms:trigger>
+                                  </xforms:group>
+                                  <xforms:group ref=".[exists(child::value)]">
+                                    <!-- value show -->
+                                    <xforms:group ref=".[./value[1]/@show='y']">
+                                      <xforms:trigger appearance="xxforms:image">
+                                        <xforms:label/>
+                                        <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                        <xforms:action ev:event="DOMActivate">
+                                          <xforms:setvalue ref="./value[1]/@show">n</xforms:setvalue>
+                                        </xforms:action>
+                                      </xforms:trigger>
+                                      <!-- show/hide first value remove -->
+                                      <!-- nothing to remove -->
+                                      <xforms:group ref="if(0 = number(./value[1]/@stat)) then . else ()">
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                        </xforms:trigger>
+                                      </xforms:group>
+                                      <!-- minimum exceeded so allow remove -->
+                                      <xforms:group ref="if(1 &lt; number(./value[1]/@stat)) then . else ()">
+                                        <xforms:action ev:event="DOMActivate">
+                                          <xforms:delete nodeset="./value" at="1"/>
+                                        </xforms:action>
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/remove.gif"/>
+                                        </xforms:trigger>
+                                      </xforms:group>
+                                      <!-- default if not previous removes -->
+                                      <xforms:group ref="if(not(0 = number(./value[1]/@stat)) and not(1 &lt; number(./value[1]/@stat))) then . else ()">
+                                        <xforms:action ev:event="DOMActivate">
+                                          <xforms:delete nodeset="./value" at="1"/>
+                                        </xforms:action>
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                                        </xforms:trigger>
+                                      </xforms:group>
+                                    </xforms:group>
+                                    <xforms:group ref=".[./value[1]/@show='n']">
+                                      <xforms:trigger appearance="xxforms:image">
+                                        <xforms:label/>
+                                        <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                        <xforms:action ev:event="DOMActivate">
+                                          <xforms:setvalue ref="./value[1]/@show">y</xforms:setvalue>
+                                        </xforms:action>
+                                      </xforms:trigger>
+                                      <xforms:trigger appearance="xxforms:image">
+                                        <xforms:label/>
+                                        <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                      </xforms:trigger>
+                                    </xforms:group>
+                                  </xforms:group>
+                                  <xforms:group ref=".[not(exists(child::value))]">
+                                    <xforms:trigger appearance="xxforms:image">
+                                      <xforms:label/>
+                                      <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                    </xforms:trigger>
+                                    <xforms:trigger appearance="xxforms:image">
+                                      <xforms:label/>
+                                      <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                    </xforms:trigger>
+                                  </xforms:group>
+                                </td></tr></table>
+                              </div>
+                              <!-- value-repeat start -->
+                              <xforms:repeat nodeset="value" id="value22-repeat">
+                                <div>
+                                  <table width="100%"><tr><td>
+                                    <xforms:group ref=".[exists(preceding-sibling::value)]">
+                                      <!-- display a clear alpha image for spacing only  -->
+                                      <xforms:trigger class="eml-level-6 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                                        <xforms:label>value</xforms:label>
+                                      </xforms:trigger>
+                                    </xforms:group>
+                                  </td><td align="right">
+                                    <xforms:group ref=".[exists(preceding-sibling::value)]">
+                                      <!-- value show -->
+                                      <xforms:group ref=".[./@show='y']">
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                          <xforms:action ev:event="DOMActivate">
+                                            <xforms:setvalue ref="./@show">n</xforms:setvalue>
+                                          </xforms:action>
+                                        </xforms:trigger>
+                                        <!-- show/hide repeat value remove -->
+                                        <xforms:group ref="if(1 &lt; number(../value[1]/@stat)) then . else ()">
+                                          <xforms:action ev:event="DOMActivate">
+                                            <xforms:delete nodeset="." at="index('value22-repeat')"/>
+                                          </xforms:action>
+                                          <xforms:trigger appearance="xxforms:image">
+                                            <xforms:label/>
+                                            <xxforms:img src="/apps/forms/images/remove.gif"/>
+                                          </xforms:trigger>
+                                        </xforms:group>
+                                        <!-- default if not previous remove -->
+                                        <xforms:group ref="if(not(1 &lt; number(../value[1]/@stat))) then . else ()">
+                                          <xforms:action ev:event="DOMActivate">
+                                            <xforms:delete nodeset="." at="index('value22-repeat')"/>
+                                          </xforms:action>
+                                          <xforms:trigger appearance="xxforms:image">
+                                            <xforms:label/>
+                                            <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                                          </xforms:trigger>
+                                        </xforms:group>
+                                      </xforms:group>
+                                      <xforms:group ref=".[./@show='n']">
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                                          <xforms:action ev:event="DOMActivate">
+                                            <xforms:setvalue ref="./@show">y</xforms:setvalue>
+                                          </xforms:action>
+                                        </xforms:trigger>
+                                        <xforms:trigger appearance="xxforms:image">
+                                          <xforms:label/>
+                                          <xxforms:img src="/apps/forms/images/clear.gif"/>
+                                        </xforms:trigger>
+                                      </xforms:group>
+                                    </xforms:group>
+                                  </td></tr></table>
+                                  <xforms:group ref=".[./@show='y']">
+                              
+                                    <xforms:input incremental="true" ref="." class="eml-level-6 eml-entry">
+                                      <xforms:label/>
+                                    </xforms:input>
+                              
+                                  </xforms:group>
+                                </div>
+                              </xforms:repeat>
+                              <!-- value-repeat end -->
+                              <br/>
+                    
+                      </xforms:group>
+                    </div>
+                    </xforms:repeat>
+                    <!-- parameter-repeat end -->
+                    <br/>
+               
+                 </xforms:group>
+               </div>
+               </xforms:repeat>
+               <!-- connection-repeat end -->
+               <br/>
+          
+            </xforms:group>
+          </div>
+          </xforms:repeat>
+          <!-- online-repeat end -->
+          <br/>
+     
+       </xforms:group>
+     </div>
+     </xforms:repeat>
+     <!-- distribution-repeat end -->
+     <br/>
+
+  </xforms:group>
+</div>
+</xforms:repeat>
+<!-- associatedMaterial-repeat end -->
+<br/>
+
+        <!-- content end -->
+
+      </xforms:group>
+    </td>
+  </tr>
+</xforms:group>

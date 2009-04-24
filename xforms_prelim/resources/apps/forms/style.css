@@ -1,0 +1,161 @@
+/*
+    Copyright (C) 2006 Orbeon, Inc.
+
+    This program is free software; you can redistribute it and/or modify it under the terms of the
+        GNU Lesser General Public License as published by the Free Software Foundation; either version
+    2.1 of the License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+    without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU Lesser General Public License for more details.
+
+    The full text of the license is available at http://www.gnu.org/copyleft/lesser.html
+*/
+th { padding: 1em; padding-top: 0; text-align: left; vertical-align: top }
+td { vertical-align: top }
+
+#main-action-table { width: 65em; margin-top: 1em; margin-bottom: 1em }
+#main-action-table .forms-message-fatal { padding-left: 1em }
+#language-choice-td { width: 100%; text-align: right }
+
+.forms-errors-table { margin: 1em; padding: .5em; border: 1px dotted red; width: 60em; background: #fcc }
+.forms-errors-table .xforms-repeat-selected-item-1 { background: none }
+.forms-errors-table th { padding: 0; color: red; white-space: nowrap }
+.forms-error-actions { text-align: center; margin-bottom: .5em; }
+
+.forms-main-table { border: solid 2px #ffcc66; width: 64em }
+.forms-main-table th p { text-align: center; vertical-align: top }
+.forms-main-table td { white-space: nowrap }
+
+.forms-action-table td { white-space: nowrap; vertical-align: middle }
+.forms-action-table input { vertical-align: middle }
+
+.forms-gridtable { border-collapse: collapse; width: 95%; margin-left: 1em; margin-right: 1em }
+.forms-gridtable th { background-color: #ffcc66; text-align: center; padding: .3em; border: 1px solid #f93 }
+.forms-gridtable td { padding: .3em; border: 1px solid #f93; margin: 0; cursor: pointer; vertical-align: middle }
+.forms-gridtable .xforms-label { display: none }
+
+.forms-title-table { margin-bottom: 1em }
+.forms-title-table td { vertical-align: middle; font-size: 16pt; font-weight: bold; font-family: verdana,sans-serif }
+
+.forms-message-positive { color: green }
+.forms-message-negative { color: orange }
+.forms-message-fatal { color: red }
+
+.forms-hr { height: 2px; border: 0; background-color: #ffcc66; color: #ffcc66 }
+
+.xforms-label { margin-right: 1em; font-style: italic }
+.forms-hidden { display: none }
+.xforms-repeat-selected-item-1 td { cursor: default }
+.xforms-repeat-selected-item-2 td { cursor: default;  }
+.xforms-static.xforms-input { margin-right: 1em; font-variant: small-caps; text-decoration: underline }
+.xforms-static.xforms-select1 { margin-right: 1em; font-variant: small-caps; text-decoration: underline }
+.xforms-trigger-appearance-minimal img { margin-right: 0.5em; vertical-align: middle }
+button.xforms-trigger img { padding: .1em .5em .1em .1em }
+
+.eml-leftBorder { border-left : 1px dotted #66CCCC; }
+.eml-responsibleParty-individualName input { width: 295px }
+.eml-responsibleParty-organizationName input { width: 295px }
+.eml-responsibleParty-deliveryPoint { width: 370px }
+.eml-responsibleParty-city input { width: 210px }
+.eml-responsibleParty-postalCode input { width: 100px }
+.eml-responsibleParty-administrativeArea input { width: 370px }
+.eml-responsibleParty-phonetype { width: 70px }
+.eml-responsibleParty-phone input { width: 200px }
+.eml-responsibleParty-electronicMailAddress { width: 350px }
+.eml-responsibleParty-onlineUrl { width: 350px }
+.eml-responsibleParty-userId { width: 350px }
+.eml-responsibleParty-navigation td {  text-align: center; width: 100px; border: 3px }
+.eml-page-node { vertical-align: middle; font-size: 18pt; font-weight: bold; font-family: verdana }
+.eml-page-title { vertical-align: bottom; font-size: 36pt; font-weight: bold; font-style: italic; font-family: verdana; color:#0000ff }
+.eml-page-subtitle { vertical-align: bottom; font-size: 24pt; font-weight: bold; font-style: italic; font-family: verdana; color:#0000ff }
+.eml-document-id { font-face: verdana; font-size: 8pt; color: #111111 }
+.eml-level-0 { margin-left: 0cm }
+.eml-level-04 { margin-left: 4mm }
+.eml-level-05 { margin-left: 5mm }
+.eml-level-1 { margin-left: 1cm }
+.eml-level-2 { margin-left: 2cm }
+.eml-level-3 { margin-left: 3cm }
+.eml-level-4 { margin-left: 4cm }
+.eml-level-5 { margin-left: 5cm }
+.eml-level-6 { margin-left: 6cm }
+.eml-level-7 { margin-left: 7cm }
+.eml-level-8 { margin-left: 8cm }
+.eml-level-9 { margin-left: 9cm }
+.eml-level-10 { margin-left: 10cm }
+.eml-level-11 { margin-left: 11cm }
+.eml-navigation-section { font-size: 10pt; font-weight: bold; font-family: verdana }
+.eml-remove {  text-align: right }
+.eml-navigation-border { text-align: left; width: 110px; border: 3px solid #0000ff }
+.eml-alternateIdentifier input { width: 255px }
+.eml-shortName input { width: 295px }
+.eml-title input { width: 500px }
+.eml-pubDate input { width: 295px }
+.eml-language input { width: 295px }
+.eml-series input { width: 295px }
+.eml-pubPlace input { width: 295px }
+.eml-abstract-section-title input { width: 370px }
+.eml-abstract-section-para textarea { height: 100px; width: 370px }
+.eml-abstract-para textarea { height: 6em; width: 20em; vertical-align: top;}
+.eml-top { vertical-align: top }
+.eml-additionalInfo-section-title input { width: 370px }
+.eml-intellectualRights-section-title input { width: 370px }
+.eml-purpose-section-title input { width: 370px }     
+.eml-distribution-online-url input { width: 370px }
+.eml-maintenance-description-section-title input { width: 370px }
+.eml-singleDateTime input { width: 255px }
+.eml-geographicCoverage-geographicDescription { width: 370px }
+.eml-taxonomicClassification input { width: 370px }
+.eml-taxonomicClassification-commonName input { width: 370px }
+.eml-keywords-keywordType { width: 70px }
+.eml-keywords-keyword input { width: 295px }
+
+.eml-node { vertical-align: middle; font-size: 10pt; font-weight: bold; font-family: verdana; text-decoration: none; color: #000000; }
+.eml-entry { font-size: 10pt; font-weight: normal; font-family: verdana }
+.eml-input input { width: 255px }
+.eml-input-long input { width: 500px }
+.eml-right-top { align: right; vertical-align: top }
+
+.eml-width-200 input { width: 200px }
+
+
+.dmv-heading-column { padding-top: 1em; padding-bottom: 1em; }
+.dmv-data-column { padding-top: 1em; padding-bottom: 1em; }
+.dmv-last-name input { width: 20em }
+.dmv-driver-license-number input { width: 10em }
+.dmv-first-name input { width: 10em }
+.dmv-initial input { width: 1.5em }
+.dmv-street-number input { width: 5em }
+.dmv-street-name-1 input { width: 21em }
+.dmv-street-name-2 input { width: 21em }
+.dmv-city input { width: 10em }
+.dmv-state input { width: 2em }
+.dmv-zip input { width: 5em }
+.dmv-plate-number input { width: 8em }
+.dmv-vin input { width: 17em }
+.dmv-company-name input { width: 22em }
+.dmv-street-number-name input { width: 22em }
+.dmv-apt-number input { width: 5em }
+.dmv-address-col1-label { display: -moz-inline-box; display: inline-block; width: expression('7em'); min-width: 7em; }
+.dmv-address-col2-label { display: -moz-inline-box; display: inline-block; width: expression('7em'); min-width: 7em; }
+
+
+.dmv-plate-table .xforms-repeat-selected-item-2 { background: none }
+.dmv-plate-table td { background-image: url('images/platetahoe_small.jpg'); width: 100px; height: 51px; display: block; padding: 0; border: none; text-align: center; vertical-align: top }
+.dmv-plate-span { position: relative; top: 19px; background: none }
+
+.g-325a-table input { width: 10em }
+.g-325a-table th { text-align: left }
+.g-325a-table { margin-left: 0; margin-right: 0; width: 100% }
+
+.g-325a-subtitle-row th { background: none }
+
+.g-325a-parents-table { border-collapse: collapse; width: 100%; margin-left: 0; margin-right: 0 }
+.g-325a-parents-table th { background-color: #ffcc66; text-align: left; padding: .3em; border: 1px solid #f93 }
+.g-325a-parents-table td { padding: .3em; border: 1px solid #f93; margin: 0; cursor: pointer; vertical-align: middle }
+.g-325a-parents-table td td { padding: 0; border: none; margin: 0 }
+.g-325a-parents-table .xforms-repeat-selected-item-1 { background: none }
+.g-325a-parents-table .xforms-label { display: inline-block; display: -moz-inline-box; width: 7em }
+
+.g-325a-personal-information-table .xforms-label { display: inline-block; display: -moz-inline-box; width: 7em }
+

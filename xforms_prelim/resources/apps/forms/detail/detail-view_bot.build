@@ -1,0 +1,186 @@
+
+    </xforms:model>
+
+    <!-- Model to handle persistence -->
+    <xi:include href="oxf:/apps/forms/common/persistence-model.xml" xxi:omit-xml-base="true"/>
+    <!-- Model to handle resources -->
+    <xi:include href="oxf:/apps/forms/common/resources-model.xml" xxi:omit-xml-base="true"/>
+    
+  </head>
+
+  <body>
+
+    <table>
+    <tr>
+    <td>
+      <xforms:group xmlns:xforms="http://www.w3.org/2002/xforms">
+        <xforms:load ev:event="DOMActivate" resource="/summary"/>
+        <xforms:trigger appearance="xxforms:image">
+          <xforms:label/>
+          <xxforms:img src="/apps/forms/images/lterleft.jpg" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+        </xforms:trigger>
+      </xforms:group>
+    </td>
+    <td>......</td>
+    <td>
+      <xforms:group ref="instance('control-instance')/save-trigger">
+        <xforms:action ev:event="DOMActivate">
+          <xforms:send submission="save-submission"/>
+        </xforms:action>
+        <xforms:trigger>
+          <xforms:label>
+            <input type="button">
+              <img src="/apps/forms/images/save.gif" alt="save"/>
+              <b>save</b>
+            </input>
+          </xforms:label>
+        </xforms:trigger>
+      </xforms:group>
+    </td>
+    <td>......</td>
+    <td>
+      <xforms:group ref="instance('control-instance')/save-trigger">
+        <xforms:action ev:event="DOMActivate">
+          <xforms:send submission="export-submission"/>
+        </xforms:action>
+        <xforms:trigger>
+          <xforms:label xhtml:style="vertical-align: bottom;">
+            <input type="button">
+              <img src="/apps/forms/images/save.gif" alt="export"/>
+              <b>export</b>
+            </input>
+          </xforms:label>
+        </xforms:trigger>
+      </xforms:group>
+    </td>
+    </tr>
+    </table>
+    <br/>
+    <br/>
+
+    <!-- Error summary -->
+    <xxforms:dialog level="modal" close="true" id="error-summary-dialog">
+      <xforms:label>Errors</xforms:label>
+      <xforms:group model="common-model" ref="instance('errors-instance')/error">
+        <table class="forms-errors-table">
+          <xforms:repeat nodeset="instance('errors-instance')/error" id="errors-repeat">
+            <tr>
+              <th>
+                <xforms:output value="@label"/>
+              </th>
+              <td>
+                <i>
+                  <xforms:output value="if (string-length(@indexes) > 0) then concat('(Row ', @indexes, ')') else ''"/>
+                </i>
+              </td>
+              <td>
+                <xforms:output value="@alert"/>
+              </td>
+            </tr>
+          </xforms:repeat>
+        </table>
+        <div class="forms-error-actions">
+          <xforms:trigger id="errors-close-trigger">
+            <xforms:label>
+              <xhtml:img src="/apps/forms/images/close.gif" alt="Close"/>
+              <xforms:output model="resources-model" ref="instance('resources-instance')/label/detail/close"/>
+            </xforms:label>
+            <xxforms:hide dialog="error-summary-dialog" ev:event="DOMActivate"/>
+          </xforms:trigger>
+        </div>
+      </xforms:group>
+    </xxforms:dialog>
+
+    <xforms:group model="common-model">
+    
+      <!-- Clear messages upon user moving around in the form -->
+      <xforms:toggle ev:event="DOMFocusIn" case="no-message"/>
+
+      <table class="forms-main-table">
+        <xforms:group model="common-model">
+        
+          <!-- Handle invalid and valid events in order to update error summary -->
+          <xforms:action ev:event="xforms-invalid" if="normalize-space(event('alert')) != ''">
+            <xforms:action if="not(instance('errors-instance')/error[@id = event('target') and @indexes = string-join(event('repeat-indexes'), '-')])">
+              <xforms:insert context="instance('errors-instance')" nodeset="error" origin="instance('error-template')"/>
+              <xforms:setvalue ref="instance('errors-instance')/error[index('errors-repeat')]/@id" value="event('target')"/>
+              <xforms:setvalue ref="instance('errors-instance')/error[index('errors-repeat')]/@indexes" value="string-join(event('repeat-indexes'), '-')"/>
+            </xforms:action>
+            <xforms:setvalue ref="instance('errors-instance')/error[@id = event('target') and @indexes = string-join(event('repeat-indexes'), '-')]/@alert" value="event('alert')"/>
+            <xforms:setvalue ref="instance('errors-instance')/error[@id = event('target') and @indexes = string-join(event('repeat-indexes'), '-')]/@label" value="event('label')"/>
+          </xforms:action>
+          <xforms:action ev:event="xforms-valid" if="instance('errors-instance')/error[@id = event('target') and @indexes = string-join(event('repeat-indexes'), '-')]">
+            <xforms:delete nodeset="instance('errors-instance')/error[@id = event('target') and @indexes = string-join(event('repeat-indexes'), '-')]"/>
+          </xforms:action>
+          
+          <!-- Mark that data has changed -->
+          <xforms:action ev:event="xforms-value-changed">
+            <xforms:setvalue model="common-model" ref="instance('control-instance')/data-status">dirty</xforms:setvalue>
+          </xforms:action>
+<!--
+          page-name:<xforms:output value="instance('parameters-instance')/page-name"/><br/>
+          document-id:<xforms:output value="instance('parameters-instance')/document-id"/><br/>
+          entityName:<xforms:output value="instance('parameters-instance')/entityName"/><br/>
+          deep2:<xforms:output value="instance('parameters-instance')/deep2"/><br/>
+-->
+
+          <!-- Form-specific widget screen -->
+          <xsl:copy-of select="doc(concat('../forms/', doc('input:instance')/*/eml-ver, '/', doc('input:instance')/*/page-name, '.xml'))/*"/>
+          
+        </xforms:group>
+      </table>
+
+      <table class="forms-action-table" id="main-action-table">
+        <tr>
+          <td>
+            <xforms:group ref="instance('control-instance')/errors-on-page">
+              <xforms:output class="forms-message-fatal" model="resources-model" ref="instance('resources-instance')/label/detail/check-errors-in-form"/>
+              <xforms:trigger appearance="minimal">
+                <xforms:label>
+                  <xforms:output model="resources-model" ref="instance('resources-instance')/label/detail/error-details"/>
+                </xforms:label>
+                <xforms:action ev:event="DOMActivate">
+                  <xxforms:show dialog="error-summary-dialog"/>
+                  <xforms:setfocus control="errors-close-trigger"/> 
+                </xforms:action>
+              </xforms:trigger>
+            </xforms:group>
+            <xforms:switch>
+              <xforms:case id="no-message">
+                <span/>
+              </xforms:case>
+              <xforms:case id="ok-message">
+                <span class="forms-message-positive">
+                  <xforms:output model="persistence-model" ref="instance('persistence-instance')/message"/>
+                </span>
+              </xforms:case>
+              <xforms:case id="validation-error-message">
+                <span class="forms-message-negative">
+                  <xforms:output model="persistence-model" ref="instance('persistence-instance')/message"/>
+                </span>
+              </xforms:case>
+              <xforms:case id="fatal-error-message">
+                <span class="forms-message-fatal">
+                  <xforms:output model="persistence-model" ref="instance('persistence-instance')/message"/>
+                </span>
+              </xforms:case>
+            </xforms:switch>
+          </td>
+        </tr>
+      </table>
+
+    </xforms:group>
+
+    <br/>
+    <br/>
+    <!--
+    <xhtml:hr/>
+    debug<br/>
+    <br/>
+    <widget:xforms-instance-inspector xmlns:widget="http://orbeon.org/oxf/xml/widget"/>
+    <br/>
+    <br/>
+  -->
+    </body>
+</html>
+

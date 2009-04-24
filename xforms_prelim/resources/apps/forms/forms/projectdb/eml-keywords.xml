@@ -1,0 +1,657 @@
+<xforms:group
+  model="eml-model"
+  ref="instance('document-instance')"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xforms="http://www.w3.org/2002/xforms"
+  xmlns:ev="http://www.w3.org/2001/xml-events"
+  xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"
+  xmlns:exforms="http://www.exforms.org/exf/1-0"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:f="http://orbeon.org/oxf/xml/formatting"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:xxi="http://orbeon.org/oxf/xml/xinclude"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:eml="eml://ecoinformatics.org/eml-2.1.0"
+  xmlns:lter="eml://ecoinformatics.org/lter-project-2.1.0">
+  <tr>
+    <td class="eml-navigation-border">
+      <!-- navigation start -->
+      <table>
+        <tr>
+          <td align="left">
+            <xforms:group>
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{xxforms:instance('parameters-instance')/eml-ver}/eml-base/{xxforms:instance('parameters-instance')/document-id}/-/-/-/-"/>
+              </xforms:action>
+              <xforms:trigger>
+                <xforms:label><input type="button"><img src="/apps/forms/images/menu_ProjectDB.gif" width="16" height="16" alt="home"/><b>ProjectDB</b></input></xforms:label>
+              </xforms:trigger>
+            </xforms:group>
+          </td>
+        </tr>
+        <tr>
+          <td>.</td>
+        </tr>
+      </table>
+      <!-- navigation end menu -->
+      <!-- navigation start -->
+      <table>
+        <tr>
+          <td align="left">
+            <xforms:group>
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{xxforms:instance('parameters-instance')/eml-ver}/eml-base/{xxforms:instance('parameters-instance')/document-id}/-/-/-/-"/>
+              </xforms:action>
+              <xforms:trigger appearance="minimal">
+                <xforms:label>General Information</xforms:label>
+              </xforms:trigger>
+            </xforms:group>
+          </td>
+        </tr>
+        <tr>
+          <td align="left">
+            <xforms:group>
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{xxforms:instance('parameters-instance')/eml-ver}/eml-people/{xxforms:instance('parameters-instance')/document-id}/-/-/-/-"/>
+              </xforms:action>
+              <xforms:trigger appearance="minimal">
+                <xforms:label>People</xforms:label>
+              </xforms:trigger>
+            </xforms:group>
+          </td>
+        </tr>
+        <tr>
+          <td align="left">
+            <xforms:group>
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{xxforms:instance('parameters-instance')/eml-ver}/eml-coverage/{xxforms:instance('parameters-instance')/document-id}/-/-/-/-"/>
+              </xforms:action>
+              <xforms:trigger appearance="minimal">
+                <xforms:label>Project Coverage</xforms:label>
+              </xforms:trigger>
+            </xforms:group>
+          </td>
+        </tr>
+        <tr>
+          <td align="left">
+            <xforms:group>
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{xxforms:instance('parameters-instance')/eml-ver}/eml-keywords/{xxforms:instance('parameters-instance')/document-id}/-/-/-/-"/>
+              </xforms:action>
+              <xforms:trigger appearance="minimal">
+                <xforms:label>Keywords</xforms:label>
+              </xforms:trigger>
+            </xforms:group>
+          </td>
+        </tr>
+        <tr>
+          <td align="left">
+            <xforms:group>
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{xxforms:instance('parameters-instance')/eml-ver}/eml-desgindescription/{xxforms:instance('parameters-instance')/document-id}/-/-/-/-"/>
+              </xforms:action>
+              <xforms:trigger appearance="minimal">
+                <xforms:label>Design Description</xforms:label>
+              </xforms:trigger>
+            </xforms:group>
+          </td>
+        </tr>
+        <tr>
+          <td align="left">
+            <xforms:group>
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{xxforms:instance('parameters-instance')/eml-ver}/eml-am/{xxforms:instance('parameters-instance')/document-id}/-/-/-/-"/>
+              </xforms:action>
+              <xforms:trigger appearance="minimal">
+                <xforms:label>Associated Material</xforms:label>
+              </xforms:trigger>
+            </xforms:group>
+          </td>
+        </tr>
+        <tr>
+          <td align="left">
+            <xforms:group>
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{xxforms:instance('parameters-instance')/eml-ver}/eml-ap/{xxforms:instance('parameters-instance')/document-id}/-/-/-/-"/>
+              </xforms:action>
+              <xforms:trigger appearance="minimal">
+                <xforms:label>Associated Projects</xforms:label>
+              </xforms:trigger>
+            </xforms:group>
+          </td>
+        </tr>
+        <tr>
+          <td align="left">
+            <xforms:group>
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{xxforms:instance('parameters-instance')/eml-ver}/eml-reports/{xxforms:instance('parameters-instance')/document-id}/-/-/-/-"/>
+              </xforms:action>
+              <xforms:trigger appearance="minimal">
+                <xforms:label>Reports</xforms:label>
+              </xforms:trigger>
+            </xforms:group>
+          </td>
+        </tr>
+        <tr>
+          <td align="left">
+            <xforms:group>
+              <xforms:action ev:event="DOMActivate">
+                <xforms:send submission="save-submission"/>
+                <xforms:load resource="/forms/detail/{xxforms:instance('parameters-instance')/eml-ver}/eml-Permissions/{xxforms:instance('parameters-instance')/document-id}/-/-/-/-"/>
+              </xforms:action>
+              <xforms:trigger appearance="minimal">
+                <xforms:label>Permissions</xforms:label>
+              </xforms:trigger>
+            </xforms:group>
+          </td>
+        </tr>
+      </table>
+      <!-- navigation end -->
+    </td>
+    <td style="width: 20px">
+    </td>
+    <td align="left">
+
+      <!-- content start -->
+
+      <span class="eml-level-0 eml-page-node">Keywords</span>
+      <br/>
+      <br/>
+      <xforms:group ref=".">
+     
+     <!-- keywordSet start -->
+     <div>
+       <table width="100%"><tr><td>
+         <!-- keywordSet name -->
+         <xforms:group>
+           <xforms:trigger class="eml-level-1 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+             <xforms:label>Keyword Set</xforms:label>
+           </xforms:trigger>
+         </xforms:group>
+       </td><td align="right">
+         <!-- set stat attribute incrementally -->
+         <xforms:action ev:event="DOMActivate">
+           <xforms:setvalue ref="./keywordSet/@stat" value="last()"/>
+         </xforms:action>
+         <!-- show/hide add image -->
+         <xforms:group ref="if(999999 &gt; count(./keywordSet)) then . else ()">
+           <xforms:action ev:event="DOMActivate">
+             <xforms:insert context="." at="1" position="after" origin="instance('inject-keywordSet')"/>
+           </xforms:action>
+           <xforms:trigger appearance="xxforms:image">
+             <xforms:label/>
+             <xxforms:img src="/apps/forms/images/add.gif"/>
+           </xforms:trigger>
+         </xforms:group>
+         <xforms:group ref=".[exists(child::keywordSet)]">
+           <!-- keywordSet show -->
+           <xforms:group ref=".[./keywordSet[1]/@show='y']">
+             <xforms:trigger appearance="xxforms:image">
+               <xforms:label/>
+               <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+               <xforms:action ev:event="DOMActivate">
+                 <xforms:setvalue ref="./keywordSet[1]/@show">n</xforms:setvalue>
+               </xforms:action>
+             </xforms:trigger>
+             <!-- show/hide first keywordSet remove -->
+             <!-- nothing to remove -->
+             <xforms:group ref="if(0 = number(./keywordSet[1]/@stat)) then . else ()">
+               <xforms:trigger appearance="xxforms:image">
+                 <xforms:label/>
+                 <xxforms:img src="/apps/forms/images/clear.gif"/>
+               </xforms:trigger>
+             </xforms:group>
+             <!-- minimum exceeded so allow remove -->
+             <xforms:group ref="if(0 &lt; number(./keywordSet[1]/@stat)) then . else ()">
+               <xforms:action ev:event="DOMActivate">
+                 <xforms:delete nodeset="./keywordSet" at="1"/>
+               </xforms:action>
+               <xforms:trigger appearance="xxforms:image">
+                 <xforms:label/>
+                 <xxforms:img src="/apps/forms/images/remove.gif"/>
+               </xforms:trigger>
+             </xforms:group>
+             <!-- default if not previous removes -->
+             <xforms:group ref="if(not(0 = number(./keywordSet[1]/@stat)) and not(0 &lt; number(./keywordSet[1]/@stat))) then . else ()">
+               <xforms:action ev:event="DOMActivate">
+                 <xforms:delete nodeset="./keywordSet" at="1"/>
+               </xforms:action>
+               <xforms:trigger appearance="xxforms:image">
+                 <xforms:label/>
+                 <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+               </xforms:trigger>
+             </xforms:group>
+           </xforms:group>
+           <xforms:group ref=".[./keywordSet[1]/@show='n']">
+             <xforms:trigger appearance="xxforms:image">
+               <xforms:label/>
+               <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+               <xforms:action ev:event="DOMActivate">
+                 <xforms:setvalue ref="./keywordSet[1]/@show">y</xforms:setvalue>
+               </xforms:action>
+             </xforms:trigger>
+             <xforms:trigger appearance="xxforms:image">
+               <xforms:label/>
+               <xxforms:img src="/apps/forms/images/clear.gif"/>
+             </xforms:trigger>
+           </xforms:group>
+         </xforms:group>
+         <xforms:group ref=".[not(exists(child::keywordSet))]">
+           <xforms:trigger appearance="xxforms:image">
+             <xforms:label/>
+             <xxforms:img src="/apps/forms/images/clear.gif"/>
+           </xforms:trigger>
+           <xforms:trigger appearance="xxforms:image">
+             <xforms:label/>
+             <xxforms:img src="/apps/forms/images/clear.gif"/>
+           </xforms:trigger>
+         </xforms:group>
+       </td></tr></table>
+     </div>
+     <!-- keywordSet-repeat start -->
+     <xforms:repeat nodeset="keywordSet" id="keywordSet1-repeat">
+       <div>
+         <table width="100%"><tr><td>
+           <xforms:group ref=".[exists(preceding-sibling::keywordSet)]">
+             <!-- display a clear alpha image for spacing only  -->
+             <xforms:trigger class="eml-level-1 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+               <xforms:label>Keyword Set</xforms:label>
+             </xforms:trigger>
+           </xforms:group>
+         </td><td align="right">
+           <xforms:group ref=".[exists(preceding-sibling::keywordSet)]">
+             <!-- keywordSet show -->
+             <xforms:group ref=".[./@show='y']">
+               <xforms:trigger appearance="xxforms:image">
+                 <xforms:label/>
+                 <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                 <xforms:action ev:event="DOMActivate">
+                   <xforms:setvalue ref="./@show">n</xforms:setvalue>
+                 </xforms:action>
+               </xforms:trigger>
+               <!-- show/hide repeat keywordSet remove -->
+               <xforms:group ref="if(0 &lt; number(../keywordSet[1]/@stat)) then . else ()">
+                 <xforms:action ev:event="DOMActivate">
+                   <xforms:delete nodeset="." at="index('keywordSet1-repeat')"/>
+                 </xforms:action>
+                 <xforms:trigger appearance="xxforms:image">
+                   <xforms:label/>
+                   <xxforms:img src="/apps/forms/images/remove.gif"/>
+                 </xforms:trigger>
+               </xforms:group>
+               <!-- default if not previous remove -->
+               <xforms:group ref="if(not(0 &lt; number(../keywordSet[1]/@stat))) then . else ()">
+                 <xforms:action ev:event="DOMActivate">
+                   <xforms:delete nodeset="." at="index('keywordSet1-repeat')"/>
+                 </xforms:action>
+                 <xforms:trigger appearance="xxforms:image">
+                   <xforms:label/>
+                   <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                 </xforms:trigger>
+               </xforms:group>
+             </xforms:group>
+             <xforms:group ref=".[./@show='n']">
+               <xforms:trigger appearance="xxforms:image">
+                 <xforms:label/>
+                 <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                 <xforms:action ev:event="DOMActivate">
+                   <xforms:setvalue ref="./@show">y</xforms:setvalue>
+                 </xforms:action>
+               </xforms:trigger>
+               <xforms:trigger appearance="xxforms:image">
+                 <xforms:label/>
+                 <xxforms:img src="/apps/forms/images/clear.gif"/>
+               </xforms:trigger>
+             </xforms:group>
+           </xforms:group>
+         </td></tr></table>
+         <xforms:group ref=".[./@show='y']">
+           <style type="text/css">.xf-value2 input {width:300px}</style>
+           <xforms:input incremental="true" ref="./@name" class="eml-entry xf-value2">
+             <xforms:label class="eml-level-1 eml-entry">name</xforms:label>
+           </xforms:input>
+          
+          <!-- keyword start -->
+          <div>
+            <table width="100%"><tr><td>
+              <!-- keyword name -->
+              <xforms:group>
+                <xforms:trigger class="eml-level-2 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                  <xforms:label>keyword</xforms:label>
+                </xforms:trigger>
+              </xforms:group>
+            </td><td align="right">
+              <!-- set stat attribute incrementally -->
+              <xforms:action ev:event="DOMActivate">
+                <xforms:setvalue ref="./keyword/@stat" value="last()"/>
+              </xforms:action>
+              <!-- show/hide add image -->
+              <xforms:group ref="if(999999 &gt; count(./keyword)) then . else ()">
+                <xforms:action ev:event="DOMActivate">
+                  <xforms:insert context="." at="1" position="after" origin="instance('inject-keyword')"/>
+                </xforms:action>
+                <xforms:trigger appearance="xxforms:image">
+                  <xforms:label/>
+                  <xxforms:img src="/apps/forms/images/add.gif"/>
+                </xforms:trigger>
+              </xforms:group>
+              <xforms:group ref=".[exists(child::keyword)]">
+                <!-- keyword show -->
+                <xforms:group ref=".[./keyword[1]/@show='y']">
+                  <xforms:trigger appearance="xxforms:image">
+                    <xforms:label/>
+                    <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                    <xforms:action ev:event="DOMActivate">
+                      <xforms:setvalue ref="./keyword[1]/@show">n</xforms:setvalue>
+                    </xforms:action>
+                  </xforms:trigger>
+                  <!-- show/hide first keyword remove -->
+                  <!-- nothing to remove -->
+                  <xforms:group ref="if(0 = number(./keyword[1]/@stat)) then . else ()">
+                    <xforms:trigger appearance="xxforms:image">
+                      <xforms:label/>
+                      <xxforms:img src="/apps/forms/images/clear.gif"/>
+                    </xforms:trigger>
+                  </xforms:group>
+                  <!-- minimum exceeded so allow remove -->
+                  <xforms:group ref="if(1 &lt; number(./keyword[1]/@stat)) then . else ()">
+                    <xforms:action ev:event="DOMActivate">
+                      <xforms:delete nodeset="./keyword" at="1"/>
+                    </xforms:action>
+                    <xforms:trigger appearance="xxforms:image">
+                      <xforms:label/>
+                      <xxforms:img src="/apps/forms/images/remove.gif"/>
+                    </xforms:trigger>
+                  </xforms:group>
+                  <!-- default if not previous removes -->
+                  <xforms:group ref="if(not(0 = number(./keyword[1]/@stat)) and not(1 &lt; number(./keyword[1]/@stat))) then . else ()">
+                    <xforms:action ev:event="DOMActivate">
+                      <xforms:delete nodeset="./keyword" at="1"/>
+                    </xforms:action>
+                    <xforms:trigger appearance="xxforms:image">
+                      <xforms:label/>
+                      <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                    </xforms:trigger>
+                  </xforms:group>
+                </xforms:group>
+                <xforms:group ref=".[./keyword[1]/@show='n']">
+                  <xforms:trigger appearance="xxforms:image">
+                    <xforms:label/>
+                    <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                    <xforms:action ev:event="DOMActivate">
+                      <xforms:setvalue ref="./keyword[1]/@show">y</xforms:setvalue>
+                    </xforms:action>
+                  </xforms:trigger>
+                  <xforms:trigger appearance="xxforms:image">
+                    <xforms:label/>
+                    <xxforms:img src="/apps/forms/images/clear.gif"/>
+                  </xforms:trigger>
+                </xforms:group>
+              </xforms:group>
+              <xforms:group ref=".[not(exists(child::keyword))]">
+                <xforms:trigger appearance="xxforms:image">
+                  <xforms:label/>
+                  <xxforms:img src="/apps/forms/images/clear.gif"/>
+                </xforms:trigger>
+                <xforms:trigger appearance="xxforms:image">
+                  <xforms:label/>
+                  <xxforms:img src="/apps/forms/images/clear.gif"/>
+                </xforms:trigger>
+              </xforms:group>
+            </td></tr></table>
+          </div>
+          <!-- keyword-repeat start -->
+          <xforms:repeat nodeset="keyword" id="keyword3-repeat">
+            <div>
+              <table width="100%"><tr><td>
+                <xforms:group ref=".[exists(preceding-sibling::keyword)]">
+                  <!-- display a clear alpha image for spacing only  -->
+                  <xforms:trigger class="eml-level-2 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                    <xforms:label>keyword</xforms:label>
+                  </xforms:trigger>
+                </xforms:group>
+              </td><td align="right">
+                <xforms:group ref=".[exists(preceding-sibling::keyword)]">
+                  <!-- keyword show -->
+                  <xforms:group ref=".[./@show='y']">
+                    <xforms:trigger appearance="xxforms:image">
+                      <xforms:label/>
+                      <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                      <xforms:action ev:event="DOMActivate">
+                        <xforms:setvalue ref="./@show">n</xforms:setvalue>
+                      </xforms:action>
+                    </xforms:trigger>
+                    <!-- show/hide repeat keyword remove -->
+                    <xforms:group ref="if(1 &lt; number(../keyword[1]/@stat)) then . else ()">
+                      <xforms:action ev:event="DOMActivate">
+                        <xforms:delete nodeset="." at="index('keyword3-repeat')"/>
+                      </xforms:action>
+                      <xforms:trigger appearance="xxforms:image">
+                        <xforms:label/>
+                        <xxforms:img src="/apps/forms/images/remove.gif"/>
+                      </xforms:trigger>
+                    </xforms:group>
+                    <!-- default if not previous remove -->
+                    <xforms:group ref="if(not(1 &lt; number(../keyword[1]/@stat))) then . else ()">
+                      <xforms:action ev:event="DOMActivate">
+                        <xforms:delete nodeset="." at="index('keyword3-repeat')"/>
+                      </xforms:action>
+                      <xforms:trigger appearance="xxforms:image">
+                        <xforms:label/>
+                        <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                      </xforms:trigger>
+                    </xforms:group>
+                  </xforms:group>
+                  <xforms:group ref=".[./@show='n']">
+                    <xforms:trigger appearance="xxforms:image">
+                      <xforms:label/>
+                      <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                      <xforms:action ev:event="DOMActivate">
+                        <xforms:setvalue ref="./@show">y</xforms:setvalue>
+                      </xforms:action>
+                    </xforms:trigger>
+                    <xforms:trigger appearance="xxforms:image">
+                      <xforms:label/>
+                      <xxforms:img src="/apps/forms/images/clear.gif"/>
+                    </xforms:trigger>
+                  </xforms:group>
+                </xforms:group>
+              </td></tr></table>
+              <xforms:group ref=".[./@show='y']">
+          
+                <xforms:input incremental="true" ref="./@keywordType" class="eml-entry">
+                  <xforms:label class="eml-level-2 eml-entry">keywordType</xforms:label>
+                </xforms:input>
+                <br/>
+                <style type="text/css">.xf-value5 input {width:300px}</style>
+                <xforms:input incremental="true" ref="." class="eml-level-2 eml-entry xf-value5">
+                  <xforms:label/>
+                </xforms:input>
+          
+              </xforms:group>
+            </div>
+          </xforms:repeat>
+          <!-- keyword-repeat end -->
+          <br/>
+          
+          <!-- keywordThesaurus start -->
+          <div>
+            <table width="100%"><tr><td>
+              <!-- keywordThesaurus name -->
+              <xforms:group>
+                <xforms:trigger class="eml-level-2 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                  <xforms:label>Name of Pre-defined Vocabulary (if appropriate)</xforms:label>
+                </xforms:trigger>
+              </xforms:group>
+            </td><td align="right">
+              <!-- set stat attribute incrementally -->
+              <xforms:action ev:event="DOMActivate">
+                <xforms:setvalue ref="./keywordThesaurus/@stat" value="last()"/>
+              </xforms:action>
+              <!-- show/hide add image -->
+              <xforms:group ref="if(1 &gt; count(./keywordThesaurus)) then . else ()">
+                <xforms:action ev:event="DOMActivate">
+                  <xforms:insert context="." at="1" position="after" origin="instance('inject-keywordThesaurus')"/>
+                </xforms:action>
+                <xforms:trigger appearance="xxforms:image">
+                  <xforms:label/>
+                  <xxforms:img src="/apps/forms/images/add.gif"/>
+                </xforms:trigger>
+              </xforms:group>
+              <xforms:group ref=".[exists(child::keywordThesaurus)]">
+                <!-- keywordThesaurus show -->
+                <xforms:group ref=".[./keywordThesaurus[1]/@show='y']">
+                  <xforms:trigger appearance="xxforms:image">
+                    <xforms:label/>
+                    <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                    <xforms:action ev:event="DOMActivate">
+                      <xforms:setvalue ref="./keywordThesaurus[1]/@show">n</xforms:setvalue>
+                    </xforms:action>
+                  </xforms:trigger>
+                  <!-- show/hide first keywordThesaurus remove -->
+                  <!-- nothing to remove -->
+                  <xforms:group ref="if(0 = number(./keywordThesaurus[1]/@stat)) then . else ()">
+                    <xforms:trigger appearance="xxforms:image">
+                      <xforms:label/>
+                      <xxforms:img src="/apps/forms/images/clear.gif"/>
+                    </xforms:trigger>
+                  </xforms:group>
+                  <!-- minimum exceeded so allow remove -->
+                  <xforms:group ref="if(0 &lt; number(./keywordThesaurus[1]/@stat)) then . else ()">
+                    <xforms:action ev:event="DOMActivate">
+                      <xforms:delete nodeset="./keywordThesaurus" at="1"/>
+                    </xforms:action>
+                    <xforms:trigger appearance="xxforms:image">
+                      <xforms:label/>
+                      <xxforms:img src="/apps/forms/images/remove.gif"/>
+                    </xforms:trigger>
+                  </xforms:group>
+                  <!-- default if not previous removes -->
+                  <xforms:group ref="if(not(0 = number(./keywordThesaurus[1]/@stat)) and not(0 &lt; number(./keywordThesaurus[1]/@stat))) then . else ()">
+                    <xforms:action ev:event="DOMActivate">
+                      <xforms:delete nodeset="./keywordThesaurus" at="1"/>
+                    </xforms:action>
+                    <xforms:trigger appearance="xxforms:image">
+                      <xforms:label/>
+                      <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                    </xforms:trigger>
+                  </xforms:group>
+                </xforms:group>
+                <xforms:group ref=".[./keywordThesaurus[1]/@show='n']">
+                  <xforms:trigger appearance="xxforms:image">
+                    <xforms:label/>
+                    <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                    <xforms:action ev:event="DOMActivate">
+                      <xforms:setvalue ref="./keywordThesaurus[1]/@show">y</xforms:setvalue>
+                    </xforms:action>
+                  </xforms:trigger>
+                  <xforms:trigger appearance="xxforms:image">
+                    <xforms:label/>
+                    <xxforms:img src="/apps/forms/images/clear.gif"/>
+                  </xforms:trigger>
+                </xforms:group>
+              </xforms:group>
+              <xforms:group ref=".[not(exists(child::keywordThesaurus))]">
+                <xforms:trigger appearance="xxforms:image">
+                  <xforms:label/>
+                  <xxforms:img src="/apps/forms/images/clear.gif"/>
+                </xforms:trigger>
+                <xforms:trigger appearance="xxforms:image">
+                  <xforms:label/>
+                  <xxforms:img src="/apps/forms/images/clear.gif"/>
+                </xforms:trigger>
+              </xforms:group>
+            </td></tr></table>
+          </div>
+          <!-- keywordThesaurus-repeat start -->
+          <xforms:repeat nodeset="keywordThesaurus" id="keywordThesaurus6-repeat">
+            <div>
+              <table width="100%"><tr><td>
+                <xforms:group ref=".[exists(preceding-sibling::keywordThesaurus)]">
+                  <!-- display a clear alpha image for spacing only  -->
+                  <xforms:trigger class="eml-level-2 eml-node" style="text-decoration: none; color: #000000;" appearance="minimal">
+                    <xforms:label>Name of Pre-defined Vocabulary (if appropriate)</xforms:label>
+                  </xforms:trigger>
+                </xforms:group>
+              </td><td align="right">
+                <xforms:group ref=".[exists(preceding-sibling::keywordThesaurus)]">
+                  <!-- keywordThesaurus show -->
+                  <xforms:group ref=".[./@show='y']">
+                    <xforms:trigger appearance="xxforms:image">
+                      <xforms:label/>
+                      <xxforms:img src="/apps/forms/images/up_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                      <xforms:action ev:event="DOMActivate">
+                        <xforms:setvalue ref="./@show">n</xforms:setvalue>
+                      </xforms:action>
+                    </xforms:trigger>
+                    <!-- show/hide repeat keywordThesaurus remove -->
+                    <xforms:group ref="if(0 &lt; number(../keywordThesaurus[1]/@stat)) then . else ()">
+                      <xforms:action ev:event="DOMActivate">
+                        <xforms:delete nodeset="." at="index('keywordThesaurus6-repeat')"/>
+                      </xforms:action>
+                      <xforms:trigger appearance="xxforms:image">
+                        <xforms:label/>
+                        <xxforms:img src="/apps/forms/images/remove.gif"/>
+                      </xforms:trigger>
+                    </xforms:group>
+                    <!-- default if not previous remove -->
+                    <xforms:group ref="if(not(0 &lt; number(../keywordThesaurus[1]/@stat))) then . else ()">
+                      <xforms:action ev:event="DOMActivate">
+                        <xforms:delete nodeset="." at="index('keywordThesaurus6-repeat')"/>
+                      </xforms:action>
+                      <xforms:trigger appearance="xxforms:image">
+                        <xforms:label/>
+                        <xxforms:img src="/apps/forms/images/remove_caution.gif"/>
+                      </xforms:trigger>
+                    </xforms:group>
+                  </xforms:group>
+                  <xforms:group ref=".[./@show='n']">
+                    <xforms:trigger appearance="xxforms:image">
+                      <xforms:label/>
+                      <xxforms:img src="/apps/forms/images/down_arrow.gif" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"/>
+                      <xforms:action ev:event="DOMActivate">
+                        <xforms:setvalue ref="./@show">y</xforms:setvalue>
+                      </xforms:action>
+                    </xforms:trigger>
+                    <xforms:trigger appearance="xxforms:image">
+                      <xforms:label/>
+                      <xxforms:img src="/apps/forms/images/clear.gif"/>
+                    </xforms:trigger>
+                  </xforms:group>
+                </xforms:group>
+              </td></tr></table>
+              <xforms:group ref=".[./@show='y']">
+          
+                <style type="text/css">.xf-value7 input {width:300px}</style>
+                <xforms:input incremental="true" ref="." class="eml-level-2 eml-entry xf-value7">
+                  <xforms:label/>
+                </xforms:input>
+          
+              </xforms:group>
+            </div>
+          </xforms:repeat>
+          <!-- keywordThesaurus-repeat end -->
+          <br/>
+
+  </xforms:group>
+</div>
+</xforms:repeat>
+<!-- keywordSet-repeat end -->
+<br/>
+
+        <!-- content end -->
+
+      </xforms:group>
+    </td>
+  </tr>
+</xforms:group>
