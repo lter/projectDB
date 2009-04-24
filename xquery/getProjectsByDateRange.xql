@@ -61,7 +61,7 @@ let $min_date := request:get-parameter('startYear', '' ) cast as xs:string
 let $max_date := request:get-parameter('endYear', '' ) cast as xs:string
 
 (: find the relevant projects within the date range :)
-for $projects in collection(concat('/db/projects/',lower-case($site)))/lter:researchProject
+for $projects in collection(concat('/db/projects/',lower-case($site)))/*:researchProject
 where local:currentProject($projects, $id, $min_date, $max_date)
 order by $sortBy
 return

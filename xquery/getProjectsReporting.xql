@@ -63,7 +63,7 @@ let $max_date := request:get-parameter('endYear', '') cast as xs:string
 (: TODO: check that values are legal :)
 
 
-for $projects in collection(concat('/db/projects/',lower-case($site)))/lter:researchProject/reporting[@recipient = $recipient]
+for $projects in collection(concat('/db/projects/',lower-case($site)))/*:researchProject/reporting[@recipient = $recipient]
 		where local:currentProject($projects, $id, $min_date, $max_date)
 order by $sortBy
 return
