@@ -1,0 +1,39 @@
+<!DOCTYPE html SYSTEM "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head><title>LTER Project Manager</title></head>
+    <body>
+        <h1 class="page-h1">LTER Project Manager</h1>
+        <div id="page-content">
+           <h2 class="page-h2">Choose Collection</h2>
+            <form name="input" method="get" action="http://amble.lternet.edu:8080/exist/rest/db/util/xquery/getProjects.xql">
+	    	<input name="_xsl" type="hidden" value="/db/util/xslt/projectdb_make_menu_1.xsl" /> 
+                <input type="radio" name="siteId" value="gce" /> GCE
+                    <br />
+                <input type="radio" name="siteId" value="cap" /> CAP
+                <br />
+                <input type="radio" name="siteId" value="bes" /> BES
+                <br />
+                <input type="radio" name="siteId" value="sbc" /> SBC
+                <br />
+                <input type="radio" name="siteId" value="kbs" /> KBS
+                <br />
+                <input type="radio" name="siteId" value="vcr" /> VCR
+                <br />
+                <input type="radio" name="siteId" value="mcr" /> MCR
+                <br />      
+                <input type="submit" value="submit" />
+                <br/>    <br/>    <br/>
+             <!--   <input type="radio" name="action" value="edit"/> EDIT Existing Project
+                <br/>
+                <input type="radio" name="action" value="create"/> CREATE New Project
+                <br/> -->
+		<!--&_xsl=/db/util/xslt/projectdb_make_menu_1.xsl-->
+            </form>
+            
+        </div>
+        
+<!--        http://amble.lternet.edu:8080/exist/rest/db/projects/xquery/getProjects.xql?site=
+         
+         -->
+    </body>
+</html>
