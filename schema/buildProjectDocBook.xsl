@@ -69,8 +69,8 @@
                 authors creating documents for LTER applications should use the prefix
                 "lter".</listitem>
               <listitem>At some future time, the root level element may become &lt;eml:eml&gt;,
-                and the researchProject elevated to it's first child. This structure 
-                would be analogous to the dataset, citation, software, or protocol 
+                and the researchProject elevated to its first child. This structure 
+                would be analogous to use of the dataset, citation, software, or protocol 
                 modules in EML 2. </listitem>
             </itemizedlist>
           </para>
@@ -85,16 +85,16 @@
           <para>Four new nodes were added to the eml-project schema to accommodate use cases. 
             All are optional and repeatable.
             <orderedlist>
-              <listitem>&lt;reporting&gt;: to contain information about reporting needs.
+              <listitem>&lt;reporting&gt; to contain information about reporting needs.
                 This node is generic, with elements for the name of a report section and a
                 value (text), and attributes desribing the report's recipient and a date. </listitem>
-              <listitem>&lt;permissions&gt;: to contain information about project management.
+              <listitem>&lt;permissions&gt; to contain information about project management.
                 Like reporting, this node is generic,  elements for a permissions category and a
                 value (text), and attributes desribing the premission grantor and a date. </listitem>
-              <listitem> &lt;associatedMaterial&gt;: to contain distribution info about an
+              <listitem> &lt;associatedMaterial&gt; to contain distribution info about an
                 associated resource of the project, such as a dataset or publication 
               </listitem>
-              <listitem> &lt;associatedProject&gt;: to contain the name and relationship of
+              <listitem> &lt;associatedProject&gt; to contain the name and relationship of
                 a project associated with the project being descibed. The relationship is limited to
                 "parent", since this is the only information required to
                 build geneological relationships. In the EML 2.1 project schema module, related 

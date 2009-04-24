@@ -355,6 +355,14 @@
                   </tr>
                </table>
             </td>
+            <td colspan="1" class="tablepanel" valign="top">
+               <blockquote>This choice was added to those already included in the
+                                  EML schema. This field is designed to describing projects which are planned 
+                                  to continue. If a project stops, then its description should be updated
+                                  to exchange this node for a "rangeOfDates" node. 
+                                  See the Type for more information.<br><span class="boldtext">Example(s): </span><br>Please see the individual sub fields for specific
+                                  examples.<br></blockquote>
+            </td>
          </tr>
          <tr>
             <td colspan="1" class="tablehead"><a class="sitelink" name="beginDate">beginDate&nbsp; </a></td>
@@ -371,6 +379,12 @@
                      <td valign="top" class="tablepanel"><span class="boldtext">Type: </span><a class="sitelink" href="#SingleDateTimeType">SingleDateTimeType</a></td>
                   </tr>
                </table>
+            </td>
+            <td colspan="1" class="tablepanel" valign="top">
+               <blockquote>beginDate contains the date when the ongoing
+                                        project began. To specify when the proe
+                                        EML schema. 
+               </blockquote>
             </td>
          </tr>
          <tr>
@@ -1949,6 +1963,15 @@
             <td class="tablepanel">
                <p><span class="boldtext">Type: </span><span class="plaintext"><a class="sitelink" href="eml-resource.html#yearDate">res:yearDate</a></span></p>
             </td>
+            <td colspan="1" class="tablepanel" valign="top">
+               <blockquote>asODate is meant to contain maintenance information. 
+                                      Since descriptions of projects declared
+                                      to be "ongoing" may not change for long periods of time, this attribute
+                                      gives the reader knowledge of the age of a project's description. 
+                                      Authors or project managers should use this attribute to record the date 
+                                      when the project was last updated. 
+               </blockquote>
+            </td>
          </tr>
          <tr>
             <td class="tablehead" colspan="2"><a class="sitelink" name="id">id</a></td>
@@ -2155,9 +2178,12 @@
             </td>
             <td colspan="1" class="tablepanel" valign="top">
                <blockquote>The temporal coverage fields are intended to be used
-                          in describing the date and time of an event. It allows for three
-                          general descriptions: a single date/time, multiple date/times, and a
-                          range of date/times.<br><span class="boldtext">Example(s): </span><br>Please see the individual sub fields for specific
+                          to describe the date and time of an event. In the group of schemas imported
+                          to the lter-project schema, these general descriptions are identical 
+                          to those in EML: a single date/time, multiple date/times (repeated single 
+                          date/times, a range of date/times. An additional field is available in this
+                          schema: &lt;ongoing&gt;, for describing projects which are planned 
+                          to continue.<br><span class="boldtext">Example(s): </span><br>Please see the individual sub fields for specific
                           examples.<br></blockquote>
             </td>
          </tr>
