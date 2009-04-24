@@ -2,55 +2,45 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head><title>LTER Project Manager</title></head>
     <body>
-        <h1 class="page-h1">LTER Project Manager</h1>
-        <div id="page-content">
-           <h2 class="page-h2">Choose Collection</h2>
-            <form name="input" method="get" action="http://amble.lternet.edu:8080/exist/rest/db/util/xquery/getProjects.xql">
-	    	<input name="_xsl" type="hidden" value="/db/util/xslt/projectdb_make_menu_1.xsl" /> 
+	<link rel="stylesheet" type="text/css" href="http://amble.lternet.edu:8080/exist/rest/db/projects/util/web/css/projectdb.css" title="style1" />
 
-				<input type="radio" name="siteId" value="lno" />LTER Network Office (LNO) <br/>
-				<input type="radio" name="siteId" value="and" />Andrews LTER (AND) <br/>
-				<input type="radio" name="siteId" value="arc" />Arctic LTER (ARC) <br/>
-				<input type="radio" name="siteId" value="bes" />Baltimore Ecosystem Study (BES) <br/>
-				<input type="radio" name="siteId" value="bnz" />Bonanza Creek LTER (BNZ) <br/>
-				<input type="radio" name="siteId" value="cce" />California Current (CCE) <br/>
-				<input type="radio" name="siteId" value="cdr" />Cedar Creek (CDR) <br/>
-				<input type="radio" name="siteId" value="cap" />Central Arizona - Phoenix (CAP) <br/>
-				<input type="radio" name="siteId" value="cwt" />Coweeta (CWT) <br/>
-				<input type="radio" name="siteId" value="fce" />Florida Coastal Everglades (FCE) <br/>
-				<input type="radio" name="siteId" value="gce" />Georgia Coastal Ecosystems (GCE) <br/>
-				<input type="radio" name="siteId" value="hfr" />Harvard Forest (HFR) <br/>
-				<input type="radio" name="siteId" value="hbr" />Hubbard Brook (HBR) <br/>
-				<input type="radio" name="siteId" value="jrn" />Jornada Basin (JRN) <br/>
-				<input type="radio" name="siteId" value="kbs" />Kellogg Biological Station (KBS) <br/>
-				<input type="radio" name="siteId" value="knz" />Konza Prairie (KNZ) <br/>
-				<input type="radio" name="siteId" value="luq" />Luquillo (LUQ) <br/>
-				<input type="radio" name="siteId" value="mcm" />McMurdo Dry Valleys (MCM) <br/>
-				<input type="radio" name="siteId" value="mcr" />Moorea Coral Reef (MCR) <br/>
-				<input type="radio" name="siteId" value="nwt" />Niwot Ridge (NWT) <br/>
-				<input type="radio" name="siteId" value="ntl" />North Temperate Lakes (NTL) <br/>
-				<input type="radio" name="siteId" value="pal" />Palmer Station (PAL) <br/>
-				<input type="radio" name="siteId" value="pie" />Plum Island Ecosystem (PIE) <br/>
-				<input type="radio" name="siteId" value="sbc" />Santa Barbara Coastal (SBC) <br/>
-				<input type="radio" name="siteId" value="sev" />Sevilleta (SEV) <br/>
-				<input type="radio" name="siteId" value="sgs" />Shortgrass Steppe (SGS) <br/>
-				<input type="radio" name="siteId" value="vcr" />Virginia Coast Reserve (VCR) <br/>&nbsp;<BR/>
-                <input type="submit" value="submit" />
-            </form>
 
-			 
-			 
-			 
-			 <!--   <input type="radio" name="action" value="edit"/> EDIT Existing Project
-                <br/>
-                <input type="radio" name="action" value="create"/> CREATE New Project
-                <br/> -->
-		<!--&_xsl=/db/util/xslt/projectdb_make_menu_1.xsl-->
-            
-        </div>
-        
-<!--        http://amble.lternet.edu:8080/exist/rest/db/projects/xquery/getProjects.xql?site=
-         
-         -->
+	<h2>LTER Project Manager</h2>
+	<h2>Choose Collection</h2>
+	<form name="input" method="get" action="http://amble.lternet.edu:8080/exist/rest/db/projects/util/xquery/getProjects.xql">
+	<input name="_xsl" type="hidden" value="/db/projects/util/xslt/projectdb_make_menu_1.xsl" /> 
+
+		<input type="radio" name="siteId" value="lno" />LTER Network Office (LNO) <br/>
+		<input type="radio" name="siteId" value="and" />Andrews LTER (AND) <br/>
+		<input type="radio" name="siteId" value="arc" />Arctic LTER (ARC) <br/>
+		<input type="radio" name="siteId" value="bes" />Baltimore Ecosystem Study (BES) <br/>
+		<input type="radio" name="siteId" value="bnz" />Bonanza Creek LTER (BNZ) <br/>
+		<input type="radio" name="siteId" value="cce" />California Current (CCE) <br/>
+		<input type="radio" name="siteId" value="cdr" />Cedar Creek (CDR) <br/>
+		<input type="radio" name="siteId" value="cap" />Central Arizona - Phoenix (CAP) <br/>
+		<input type="radio" name="siteId" value="cwt" />Coweeta (CWT) <br/>
+		<input type="radio" name="siteId" value="fce" />Florida Coastal Everglades (FCE) <br/>
+		<input type="radio" name="siteId" value="gce" />Georgia Coastal Ecosystems (GCE) <br/>
+		<input type="radio" name="siteId" value="hfr" />Harvard Forest (HFR) <br/>
+		<input type="radio" name="siteId" value="hbr" />Hubbard Brook (HBR) <br/>
+		<input type="radio" name="siteId" value="jrn" />Jornada Basin (JRN) <br/>
+		<input type="radio" name="siteId" value="kbs" />Kellogg Biological Station (KBS) <br/>
+		<input type="radio" name="siteId" value="knz" />Konza Prairie (KNZ) <br/>
+		<input type="radio" name="siteId" value="luq" />Luquillo (LUQ) <br/>
+		<input type="radio" name="siteId" value="mcm" />McMurdo Dry Valleys (MCM) <br/>
+		<input type="radio" name="siteId" value="mcr" />Moorea Coral Reef (MCR) <br/>
+		<input type="radio" name="siteId" value="nwt" />Niwot Ridge (NWT) <br/>
+		<input type="radio" name="siteId" value="ntl" />North Temperate Lakes (NTL) <br/>
+		<input type="radio" name="siteId" value="pal" />Palmer Station (PAL) <br/>
+		<input type="radio" name="siteId" value="pie" />Plum Island Ecosystem (PIE) <br/>
+		<input type="radio" name="siteId" value="sbc" />Santa Barbara Coastal (SBC) <br/>
+		<input type="radio" name="siteId" value="sev" />Sevilleta (SEV) <br/>
+		<input type="radio" name="siteId" value="sgs" />Shortgrass Steppe (SGS) <br/>
+		<input type="radio" name="siteId" value="vcr" />Virginia Coast Reserve (VCR) <br/>&nbsp;<BR/>
+		<input type="submit" value="submit" />
+	</form>
+
+	
+	
     </body>
 </html>
