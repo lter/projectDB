@@ -30,7 +30,10 @@ xquery version "1.0";
 :)
 import schema namespace eml="eml://ecoinformatics.org/project-2.1.0";
 
-declare option exist:serialize "method=xhtml media-type=text/html";
+(: set output to xhtml with standards-compliant doctype and no xml declaration for IE compatibility :)
+declare option exist:serialize "method=xhtml media-type=text/html omit-xml-declaration=yes indent=yes 
+        doctype-public=-//W3C//DTD&#160;XHTML&#160;1.0&#160;Transitional//EN
+        doctype-system=http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd";
 
 declare function local:yearDate($datestring as xs:string) 
 	as xs:gYear {
@@ -57,7 +60,7 @@ let $xslt := request:get-parameter("xlst",'')
 let $min_date := request:get-parameter('startYear', '1900' ) cast as xs:string
 let $max_date := request:get-parameter('endYear', current-date ) cast as xs:string
 
-for $projects in collection('/db/projects')/*:researchProject[./associatedMaterial[lower-case(@category)='dataset']
+for $projects in collection('/db/projects/data')/*:researchProject[./associatedMaterial[lower-case(@category)='dataset']
 where local:currentProject($projects, $id, $min_date, $max_date)
 order by $sortBy
 return

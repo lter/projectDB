@@ -1,23 +1,23 @@
 xquery version "1.0";
-(:	getProjectsByDateRange.xql: XQuery to return all projects or projects from a site by searching
+(: getProjectsByDateRange.xql: XQuery to return all projects or projects from a site by searching
 the temporal coverage to see if its's between the min and max dates.
 	
-		Parameters:	
-			siteID = the three letter site acronym 
-			id = (optional) the project ID
-			sortBy = default by title, other values id, surName
-			startYear = the earlier date boundary
-			endYear = the later date boundary
-			xslt = the xslt styelsheet reference to include (not implemented)
+      Parameters:	
+         siteID = the three letter site acronym 
+         id = (optional) the project ID
+         sortBy = default by title, other values id, surName
+         startYear = the earlier date boundary
+         endYear = the later date boundary
+         xslt = the xslt styelsheet reference to include (not implemented)
 			
-		Usage Notes:
+      Usage Notes:
 		
-		Attribution:
-       Author: Sven Böhm <bohms@lternet.edu>
-       Date: 22-Apr-2009
-       Revision: 0.1
+       Attribution:
+           Author: Sven Böhm <bohms@lternet.edu>
+           Date: 22-Apr-2009
+           Revision: 0.1
 	
-		License:
+        License:
         This program is free software; you can redistribute it and/or modify
         it under the terms of the GNU General Public License as published by
         the Free Software Foundation; either version 2 of the License, or
@@ -32,7 +32,10 @@ the temporal coverage to see if its's between the min and max dates.
 
 declare namespace eml="eml://ecoinformatics.org/project-2.1.0";
 
-declare option exist:serialize "method=xhtml media-type=text/html";
+(: set output to xhtml with standards-compliant doctype and no xml declaration for IE compatibility :)
+declare option exist:serialize "method=xhtml media-type=text/html omit-xml-declaration=yes indent=yes 
+        doctype-public=-//W3C//DTD&#160;XHTML&#160;1.0&#160;Transitional//EN
+        doctype-system=http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd";
 
 declare function local:yearDate($datestring as xs:string) 
 	as xs:gYear {
@@ -61,7 +64,7 @@ let $min_date := request:get-parameter('startYear', '' ) cast as xs:string
 let $max_date := request:get-parameter('endYear', '' ) cast as xs:string
 
 (: find the relevant projects within the date range :)
-for $projects in collection(concat('/db/projects/',lower-case($site)))/*:researchProject
+for $projects in collection(concat('/db/projects/data/',lower-case($site)))/*:researchProject
 where local:currentProject($projects, $id, $min_date, $max_date)
 order by $sortBy
 return

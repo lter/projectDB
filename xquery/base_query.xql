@@ -1,9 +1,13 @@
 xquery version "1.0";
-declare namespace eml="eml://ecoinformatics.org/project-2.1.0";
-declare option exist:serialize "method=xhtml media-type=text/html";
+declare namespace lter="eml://ecoinformatics.org/project-2.1.0";
+
+(: set output to xhtml with standards-compliant doctype and no xml declaration for IE compatibility :)
+declare option exist:serialize "method=xhtml media-type=text/html omit-xml-declaration=yes indent=yes 
+        doctype-public=-//W3C//DTD&#160;XHTML&#160;1.0&#160;Transitional//EN
+        doctype-system=http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd";
 
 <projects>{
-for $p in collection("/db/projects")/eml:researchProject
+for $p in collection("/db/projects/data")/lter:researchProject
 	let $title := $p/title/text()
 	let $idstr := $p/@id
 	let $time := $p/coverage/temporalCoverage

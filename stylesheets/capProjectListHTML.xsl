@@ -3,40 +3,25 @@
     <xsl:template match="/">
         <table border="1">
             <tr bgcolor="#eeeeee">
-                <th><xsl:variable name="minLon">
-                        <xsl:value-of select="projects/project[1]/params/param[@name = 'minLon']"/>
-                    </xsl:variable>
-                    <!--
-                         <xsl:choose>
-                            <xsl:when test="projects/project[1]/params/param[@name = 'surName'][. ='^\D*']">
-                                <xsl:variable name="lastName"></xsl:variable>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:variable name="lastName">
-                                    <xsl:value-of select="."/>
-                                </xsl:variable>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    --> 
-                    <xsl:element name="a">
+                <th><xsl:element name="a">
                         <xsl:attribute name="href">
                             <xsl:text>http://amble.lternet.edu:8080/exist/rest/db/util/xquery/getProjects.xql?</xsl:text>
                             <xsl:text>siteId=</xsl:text>
-                            <xsl:value-of select="projects/project[1]/params/param[@name = 'siteId']"/>
+                            <xsl:value-of select="projects/params/param[@name = 'siteId']"/>
                             <xsl:text>&amp;minLon=</xsl:text>
-                            <xsl:value-of select="projects/project[1]/params/param[@name = 'minLon']"/>
+                            <xsl:value-of select="projects/params/param[@name = 'minLon']"/>
                             <xsl:text>&amp;maxLong=</xsl:text>
-                            <xsl:value-of select="projects/project[1]/params/param[@name = 'maxLon']"/>
+                            <xsl:value-of select="projects/params/param[@name = 'maxLon']"/>
                             <xsl:text>&amp;minLat=</xsl:text>
-                            <xsl:value-of select="projects/project[1]/params/param[@name = 'minLat']"/>
+                            <xsl:value-of select="projects/params/param[@name = 'minLat']"/>
                             <xsl:text>&amp;maxLat=</xsl:text>
-                            <xsl:value-of select="projects/project[1]/params/param[@name = 'maxLat']"/>
+                            <xsl:value-of select="projects/params/param[@name = 'maxLat']"/>
                             <xsl:text>&amp;endYear=</xsl:text>
-                            <xsl:value-of select="projects/project[1]/params/param[@name = 'endYear']"/>
+                            <xsl:value-of select="projects/params/param[@name = 'endYear']"/>
                             <xsl:text>&amp;startYear=</xsl:text>
-                            <xsl:value-of select="projects/project[1]/params/param[@name = 'startYear']"/>
+                            <xsl:value-of select="projects/params/param[@name = 'startYear']"/>
                             <xsl:text>&amp;surName=</xsl:text>
-                            <xsl:value-of select="projects/project[1]/params/param[@name = 'surName']"/>
+                            <xsl:value-of select="projects/params/param[@name = 'surName']"/>
                             <xsl:text>&amp;sortBy=title</xsl:text>
                             <xsl:text>&amp;_xsl=http://amble.lternet.edu:8080/exist/rest/db/util/xslt/capProjectListHTML.xsl</xsl:text>
                         </xsl:attribute> Title </xsl:element>
@@ -45,21 +30,21 @@
                         <xsl:attribute name="href">
                             <xsl:text>http://amble.lternet.edu:8080/exist/rest/db/util/xquery/getProjects.xql?</xsl:text>
                             <xsl:text>siteId=</xsl:text>
-                            <xsl:value-of select="projects/project[1]/params/param[@name = 'siteId']"/>
+                            <xsl:value-of select="projects/params/param[@name = 'siteId']"/>
                             <xsl:text>&amp;minLon=</xsl:text>
-                            <xsl:value-of select="projects/project[1]/params/param[@name = 'minLon']"/>
+                            <xsl:value-of select="projects/params/param[@name = 'minLon']"/>
                             <xsl:text>&amp;maxLong=</xsl:text>
-                            <xsl:value-of select="projects/project[1]/params/param[@name = 'maxLon']"/>
+                            <xsl:value-of select="projects/params/param[@name = 'maxLon']"/>
                             <xsl:text>&amp;minLat=</xsl:text>
-                            <xsl:value-of select="projects/project[1]/params/param[@name = 'minLat']"/>
+                            <xsl:value-of select="projects/params/param[@name = 'minLat']"/>
                             <xsl:text>&amp;maxLat=</xsl:text>
-                            <xsl:value-of select="projects/project[1]/params/param[@name = 'maxLat']"/>
+                            <xsl:value-of select="projects/params/param[@name = 'maxLat']"/>
                             <xsl:text>&amp;endYear=</xsl:text>
-                            <xsl:value-of select="projects/project[1]/params/param[@name = 'endYear']"/>
+                            <xsl:value-of select="projects/params/param[@name = 'endYear']"/>
                             <xsl:text>&amp;startYear=</xsl:text>
-                            <xsl:value-of select="projects/project[1]/params/param[@name = 'startYear']"/>
+                            <xsl:value-of select="projects/params/param[@name = 'startYear']"/>
                             <xsl:text>&amp;surName=</xsl:text>
-                            <xsl:value-of select="projects/project[1]/params/param[@name = 'surName']"/>
+                            <xsl:value-of select="projects/params/param[@name = 'surName']"/>
                             <xsl:text>&amp;sortBy=surName</xsl:text>
                             <xsl:text>&amp;_xsl=http://amble.lternet.edu:8080/exist/rest/db/util/xslt/capProjectListHTML.xsl</xsl:text>
                         </xsl:attribute> People </xsl:element>

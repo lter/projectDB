@@ -1,30 +1,33 @@
 xquery version "1.0";
-(: getProjectsByParty: Xquery to return LTER research projects matching specified last name and LTER site criteria
+(: getProjects: Xquery to return LTER research projects matching specified last name and LTER site criteria
 
    Parameters:    
-        optional: surName
-        optional: sortBy, default: "title", possible values: "id", "surName"
-        optional: startYear
-        optional: endYear
-        optional: siteId, default: all sites, possible values: three letter LTER site acronym case insensitive      
-        optional: minLon = minimum longitude / western search boundary (decimal degrees)
-        optional: maxLon = maximum longitude / eastern search boundary (decimal degrees)
-        optional: minLat = minimum latiutde / southern search boundary (decimal degrees)
-        optional: maxLat = maximum latitude / northern search boundary (decimal degrees)
+        optional: surName (string)
+        optional: sortBy, default: "title", other possible values: "id", "surName" (string)
+        optional: startYear (string, first four characters used)
+        optional: endYear (string, first four characters used)
+        optional: siteId, default: all sites, possible values: three letter LTER site acronym case (string, case insensitive)      
+        optional: minLon = minimum longitude / western search boundary (empty string or number, decimal degrees)
+        optional: maxLon = maximum longitude / eastern search boundary (empty string or number, decimal degrees)
+        optional: minLat = minimum latiutde / southern search boundary (empty string or number, decimal degrees)
+        optional: maxLat = maximum latitude / northern search boundary (empty string or number, decimal degrees)
+        optional: keyword = keyword to search / partial string match (string, case-sensitive)
+        optional keywordSet = keyword set name to search (string, optional, case-insensitive)
+        
    Usage notes:
        1. latitudes and longitudes are offset to >=0 to accomodate western and southern hemispheres 
        2. three possible bounding box match cases are evaluated:
               case 1 = project coverage is entirely within query bounds
               case 2 = project coverage overlaps query bounds
               case 3 = project coverage is entirely contained by query bounds
-       3. all parameters are optional - omitting a latitude/longitude boundary removes restrictions for that 
+       3. all parameters are optional - for example, omitting a latitude/longitude boundary removes restrictions for that 
               boundary, and omitting the siteId enables searching across all sites 
        4. an xml document will be returned with a root of <projects>, with a subset of researchProject
               in a <project> element for each match
        
      Attribution:
-        Author: Wade Sheldon <wsheldon@lternet.edu>, Corinna Gries (corinna@asu.edu
-        Date: 22-Apr-2009
+        Authors: Wade Sheldon <wsheldon@lternet.edu>, Corinna Gries (corinna@asu.edu
+        Date: 25-Apr-2009
         Revision: 1.0
 
     License:
@@ -45,29 +48,68 @@ declare namespace lter="eml://ecoinformatics.org/lter-project-2.1.0";
 declare namespace request="http://exist-db.org/xquery/request";
 declare namespace xs="http://www.w3.org/2001/XMLSchema";
 
-(: set output to xml :)
-declare option exist:serialize "method=xhtml media-type=text/html";
-
+(: set output to xhtml for IE compatibility :)
+declare option exist:serialize "method=xhtml media-type=text/html omit-xml-declaration=yes indent=yes 
+        doctype-public=-//W3C//DTD&#160;XHTML&#160;1.0&#160;Transitional//EN
+        doctype-system=http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd";
 
 (:root element:)
 <projects>{
 
-(: get input arguments, offsetting lat/lon to >= 0 for comparisons :)
-    let $minLo := number(request:get-parameter("minLon",-180.0))
-    let $maxLo := number(request:get-parameter("maxLon",180.0))
-    let $minLa := number(request:get-parameter("minLat",-90.0))
-    let $maxLa := number(request:get-parameter("maxLat",90.0))
-    let $minLon := $minLo + 180
-    let $maxLon := $maxLo + 180
-    let $minLat := $minLa + 90
-    let $maxLat := $maxLa + 90
+(: get all input arguments as strings, with default values as appropriate :)
     let $siteId := request:get-parameter("siteId", "")
-    let $startYear := substring(request:get-parameter("startYear", "0"),1,4)
-    let $endYear := substring(request:get-parameter("endYear", "5000"),1,4)
-    let $surNam := request:get-parameter("surName", "\D*")
-    let $surName := concat("^", $surNam)
-    
-for $p in collection(concat('/db/projects/',lower-case($siteId)))/lter:researchProject
+    let $startYr := request:get-parameter("startYear", "")
+    let $endYr := request:get-parameter("endYear", "")
+    let $surNam := request:get-parameter("surName", "")
+    let $minLo := request:get-parameter("minLon","")
+    let $maxLo := request:get-parameter("maxLon","")
+    let $minLa := request:get-parameter("minLat","")
+    let $maxLa := request:get-parameter("maxLat","")
+    let $keywrd := request:get-parameter("keyword","")
+    let $keywdSet := request:get-parameter("keywordSet","")
+
+(: generate single parameter cache :)
+return
+
+          <params>
+            <param name="siteId">{$siteId}</param>
+            <param name="minLon">{$minLo}</param>
+            <param name="maxLon">{$maxLo}</param>
+            <param name="minLat">{$minLa}</param>
+            <param name="maxLat">{$maxLa}</param>
+            <param name="startYear">{$startYr}</param>
+            <param name="endYear">{$endYr}</param>
+            <param name="surName">{$surNam}</param>
+            <param name="keyword">{$keywrd}</param>
+            <param name="keywordSet">{$keywdSet}</param>
+        </params>
+}
+{
+(: get all input arguments as strings, with default values as appropriate :)
+    let $siteId := request:get-parameter("siteId", "")
+    let $startYr := request:get-parameter("startYear", "")
+    let $endYr := request:get-parameter("endYear", "")
+    let $surNam := request:get-parameter("surName", "")
+    let $minLo := request:get-parameter("minLon","")
+    let $maxLo := request:get-parameter("maxLon","")
+    let $minLa := request:get-parameter("minLat","")
+    let $maxLa := request:get-parameter("maxLat","")
+    let $keywrd := request:get-parameter("keyword","")
+    let $keywdSet := request:get-parameter("keywordSet","")
+
+(: calculate derived parameters, dealing with empty input arguments:)
+    let $startYear := if(string-length($startYr)>0) then substring($startYr,1,4) else "0"
+    let $endYear := if(string-length($endYr)>0) then substring($endYr,1,4) else "5000"
+    let $surName := if(string-length($surNam)>0) then concat("^",$surNam) else "^\D*" (: pre-pend carrot to force beginning of string search in regex :)
+    let $keyword := if(string-length($keywrd) > 0) then $keywrd else "\D*" 
+
+ (: convert lat/lon to numeric and offset to >= 0 for comparisons, setting empty values to full geographic extent  :)
+    let $minLon := if(string-length($minLo) > 0) then (number($minLo) + 180.0) else (0)
+    let $maxLon := if(string-length($maxLo) > 0) then (number($maxLo) + 180.0) else (360)
+    let $minLat := if(string-length($minLa) > 0) then (number($minLa) + 90.0) else (0)
+    let $maxLat := if(string-length($maxLa) > 0) then (number($maxLa) + 90.0) else (180)
+
+for $p in collection(concat('/db/projects/data/',lower-case($siteId)))/lter:researchProject
 
 (: note: for the project coverage boundaries, both the original extents and offset extents are instantiated as variables
  to support both searching and inclusion of the overall extents in the output without the offsets :)
@@ -86,7 +128,8 @@ for $p in collection(concat('/db/projects/',lower-case($siteId)))/lter:researchP
 	let $title := $p/title/text()
 	let $idstr := $p/@id
 	let $time := $p/coverage/temporalCoverage
-
+	
+	let $keywordSet := $p/keywordSet[if (string-length($keywdSet)=0) then @* else @name=$keywdSet]
 
 where (($west >= $minLon and $east <= $maxLon and $south >= $minLat and $north <= $maxLat)	
 	    or ((($west >= $minLon and $west <= $maxLon) or ($east >= $minLon and $east <= $maxLon)) 
@@ -95,57 +138,47 @@ where (($west >= $minLon and $east <= $maxLon and $south >= $minLat and $north <
         and (compare(substring(data($p/coverage/temporalCoverage//beginDate/calendarDate),1,4),$startYear) = 1
 	    or compare(substring(data($p/coverage/temporalCoverage/singleDateTime/calendarDate),1,4),$startYear) = 1)
 	    and compare(substring(data($p/coverage/temporalCoverage//beginDate/calendarDate),1,4),$endYear) = -1
-	    and matches($p//surName,$surName,'i')
+	    and matches($p//surName,$surName,'i') and matches($keywordSet/keyword,$keyword,'i') 
 	        
 order by $sort
 
 return
 
-	<project id="{$idstr}">
-	<params>
-        <param name="siteId">{$siteId}</param>
-        <param name="minLon">{$minLo}</param>
-        <param name="maxLon">{$maxLo}</param>
-        <param name="minLat">{$minLa}</param>
-        <param name="maxLat">{$maxLa}</param>
-        <param name="startYear">{$startYear}</param>
-        <param name="endYear">{$endYear}</param>
-        <param name="surNam">{$surName}</param>
-    </params>
+    <project id="{$idstr}">
 
-   	<title>{$title}</title>
-
-  	{for $c in $p/creator
-   	let $individual := $c/individualName
-   	let $userid := $c/userId
-   	return
-   	<creator>{$individual}{$userid}</creator>}
-
-   	{for $ap in $p/associatedParty
-   	let $ap_name := $ap/individualName
-   	let $ap_id := $ap/userId
-   	let $role := $ap/role
-   	return
-   	<associatedParty>{$ap_name}{$ap_id}{$role}</associatedParty>}
-
-   	<keywordSet>{for $k in $p/keywordSet/keyword
-   	let $kw := $k/text()
-   	return
-   	<keyword>{$kw}</keyword>}
-   	</keywordSet>
-   	
-   	<coverage>
-	<geographicCoverage>
-	<geographicDescription> {concat("Overall geographic extent of project ",$idstr)}</geographicDescription>
-        	<boundingCoordinates>
-        	<westBoundingCoordinate>{$west0}</westBoundingCoordinate>
-        	<eastBoundingCoordinate>{$east0}</eastBoundingCoordinate>
-        	<northBoundingCoordinate>{$north0}</northBoundingCoordinate>
-        	<southBoundingCoordinate>{$south0}</southBoundingCoordinate>
-        	</boundingCoordinates>
-	</geographicCoverage>
-	{$time}	
-               </coverage>	
-	</project>
-}	
+          <title>{$title}</title>
+    
+          {for $c in $p/creator
+           let $individual := $c/individualName
+           let $userid := $c/userId
+           return
+           <creator>{$individual}{$userid}</creator>}
+        
+           {for $ap in $p/associatedParty
+           let $ap_name := $ap/individualName
+           let $ap_id := $ap/userId
+           let $role := $ap/role
+           return
+           <associatedParty>{$ap_name}{$ap_id}{$role}</associatedParty>}
+        
+           <keywordSet>{for $k in $p/keywordSet/keyword
+           let $kw := $k/text()
+           return
+           <keyword>{$kw}</keyword>}
+           </keywordSet>
+           
+           <coverage>
+            <geographicCoverage>
+            <geographicDescription> {concat("Overall geographic extent of project ",$idstr)}</geographicDescription>
+                    <boundingCoordinates>
+                    <westBoundingCoordinate>{$west0}</westBoundingCoordinate>
+                    <eastBoundingCoordinate>{$east0}</eastBoundingCoordinate>
+                    <northBoundingCoordinate>{$north0}</northBoundingCoordinate>
+                    <southBoundingCoordinate>{$south0}</southBoundingCoordinate>
+                    </boundingCoordinates>
+            </geographicCoverage>
+            {$time}	
+           </coverage>	
+       </project>
+    }	
 </projects>

@@ -29,14 +29,17 @@ for a string in title, creator/individualName/surname, keywordSet/keyword, or an
 :)
 declare namespace eml="eml://ecoinformatics.org/project-2.1.0";
 
-declare option exist:serialize "method=xhtml media-type=text/html";
+(: set output to xhtml with standards-compliant doctype and no xml declaration for IE compatibility :)
+declare option exist:serialize "method=xhtml media-type=text/html omit-xml-declaration=yes indent=yes 
+        doctype-public=-//W3C//DTD&#160;XHTML&#160;1.0&#160;Transitional//EN
+        doctype-system=http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd";
 
 (: currently a single keyword or phrase is supported :)
 let $keyword := request:get-parameter("keyword",'')
 let $site := request:get-parameter("siteId",'')
 let $sortBy := request:get-parameter('sortBy','title')
  
-for $projects in collection(concat('/db/projects/',lower-case($site)))/*:researchProject
+for $projects in collection(concat('/db/projects/data/',lower-case($site)))/*:researchProject
 where (matches($projects/title, $keyword)
 	or matches($projects/creator/individualName/surName, $keyword)
 	or matches($projects/keywordSet/keyword, $keyword)

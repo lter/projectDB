@@ -33,8 +33,10 @@ xquery version "1.0";
 declare namespace lter="eml://ecoinformatics.org/lter-project-2.1.0";
 declare namespace request="http://exist-db.org/xquery/request";
 
-(: set output to xml :)
-declare option exist:serialize "method=xhtml media-type=text/html";
+(: set output to xhtml with standards-compliant doctype and no xml declaration for IE compatibility :)
+declare option exist:serialize "method=xhtml media-type=text/html omit-xml-declaration=yes indent=yes 
+        doctype-public=-//W3C//DTD&#160;XHTML&#160;1.0&#160;Transitional//EN
+        doctype-system=http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd";
 
 (:root element:)
 <projects>{
@@ -47,7 +49,7 @@ let $siteId := lower-case(request:get-parameter("siteId", ""))
 
 let $surName := concat("^",request:get-parameter("surName", "\D*"))
 
-for $p in collection(concat('/db/projects/',lower-case($siteId)))/*:researchProject
+for $p in collection(concat('/db/projects/data/',lower-case($siteId)))/*:researchProject
 
 	let $sortBy := request:get-parameter("sortBy", "title")
 	let $sort := $p/(if ($sortBy = "id") then @id else (if ($sortBy = "surName") then surName else title))

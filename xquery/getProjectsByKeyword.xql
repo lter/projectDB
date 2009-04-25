@@ -1,8 +1,8 @@
 xquery version "1.0";
-(: Xquery to return LTER research projects matching a specified keyword
+(: getProjectByKeyword: Xquery to return LTER research projects matching a specified keyword
 
    Parameters:
-       keyword = keyword to search / partial string match (string, required, case-sensitive)
+       keyword = keyword to search / partial string match (string, required, case-insensitive)
        keywordSet = keyword set name to search (string, optional, case-insensitive)
        siteID = LTER site 3-letter acronym (string, optional, case-insensitive)
        
@@ -30,12 +30,14 @@ xquery version "1.0";
 :)
 
 (: declare namespaces referenced in the document :)
-declare namespace eml="eml://ecoinformatics.org/project-2.1.0";
+declare namespace lter="eml://ecoinformatics.org/project-2.1.0";
 declare namespace request="http://exist-db.org/xquery/request";
 declare namespace xs="http://www.w3.org/2001/XMLSchema";
  
-(: set output to xml :)
-declare option exist:serialize "method=xhtml media-type=text/html";
+(: set output to xhtml with standards-compliant doctype and no xml declaration for IE compatibility :)
+declare option exist:serialize "method=xhtml media-type=text/html omit-xml-declaration=yes indent=yes 
+        doctype-public=-//W3C//DTD&#160;XHTML&#160;1.0&#160;Transitional//EN
+        doctype-system=http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd";
 
 (: get input arguments :)
 let $keyword := request:get-parameter("keyword","")
@@ -48,7 +50,7 @@ if (string-length($keyword) > 0)
 then (
 <projects>
 { 
-   for $p in collection(concat('/db/projects/',lower-case($siteId)))/*:researchProject
+   for $p in collection(concat('/db/projects/data/',lower-case($siteId)))/lter:researchProject
 
 	let $title := $p/title/text()
 	let $idstr := $p/@id

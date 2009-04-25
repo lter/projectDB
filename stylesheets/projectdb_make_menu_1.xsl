@@ -2,8 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <!--  xsl to output projects for a single site to select one to edit-->
     <xsl:template match="/">
-        <html><body>
-                <style>
+        <html><body><style>
                 body 
                 { 
                 height: auto;  

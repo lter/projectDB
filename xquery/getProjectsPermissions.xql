@@ -32,7 +32,10 @@ xquery version "1.0";
 
 declare namespace eml="eml://ecoinformatics.org/project-2.1.0";
 
-declare option exist:serialize "method=xhtml media-type=text/html";
+(: set output to xhtml with standards-compliant doctype and no xml declaration for IE compatibility :)
+declare option exist:serialize "method=xhtml media-type=text/html omit-xml-declaration=yes indent=yes 
+        doctype-public=-//W3C//DTD&#160;XHTML&#160;1.0&#160;Transitional//EN
+        doctype-system=http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd";
 
 declare function local:yearDate($datestring as xs:string) 
 	as xs:gYear {
@@ -60,7 +63,7 @@ let $endYear := request:get-parameter('endYear', current-date()) cast as xs:stri
 
 (: find the relevant projects within the date range  unless we have an id :)
 
-for $projects in collection(concat('/db/projects/',lower-case($site)))/*:researchProject
+for $projects in collection(concat('/db/projects/data/',lower-case($site)))/*:researchProject
 where local:currentProject($projects, $id, $startYear, $endYear)
 order by $sortBy
 return
