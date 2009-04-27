@@ -1,57 +1,52 @@
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml" version="1.0">
+    
     <xsl:output method="xml" omit-xml-declaration="yes" encoding="UTF-8" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" indent="yes" media-type="text/xml"/>    
     
      <xsl:template name="main">
-        <html>
-            <head>
-                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+         <xsl:param name="css"/>
+         <xsl:param name="navLabel"/>
+         <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
                 <link rel="icon" type="image/x-icon" href="http://gce-lter.marsci.uga.edu/favicon.ico"/>
                 <link rel="shortcut icon" type="image/x-icon" href="http://gce-lter.marsci.uga.edu/favicon.ico"/>
                 <link rel="stylesheet" media="all" type="text/css" href="http://gce-lter.marsci.uga.edu/public/css/gce_main.css"/>
                 <link rel="stylesheet" media="all" type="text/css" href="http://gce-lter.marsci.uga.edu/public/css/gce_topnav.css"/>
                 <link rel="stylesheet" media="all" type="text/css" href="http://gce-lter.marsci.uga.edu/public/css/menu_buttons.css"/>
+                <xsl:element name="link">
+                    <xsl:attribute name="rel">stylesheet</xsl:attribute>
+                    <xsl:attribute name="type">text/css</xsl:attribute>
+                    <xsl:attribute name="href">
+                        <xsl:value-of select="$css"/>
+                    </xsl:attribute>
+                </xsl:element>
                 <script type="text/javascript" src="/exist/rest/db/projects/util/web/js/gce/ajaxUtils.js"/>
                 <script type="text/javascript" src="/exist/rest/db/projects/util/web/js/gce/ajaxLoadLeftNav.js"/>
-                <style type="text/css">
-                    body { height: auto;  }        
-                    #content { width: auto; }
-                    #lter_projects { width: auto; margin: 0 auto 0 auto; padding: 0 }
-                    #lter_projects table { width: 96%; margin: 1em auto 2em auto; padding: 0 }
-                    #lter_projects th { padding: 3px 8px 3px 8px; border-bottom: 1px solid Black; background-color: #F3F3F8; text-align: center; 
-                       border-top: 1px solid Black; border-bottom: 1px solid Black }
-                    #lter_projects td { vertical-align: top; padding: 5px 8px 3px 8px; border-bottom: 1px solid Black }
-                    #lter_projects h2 { margin: 0 auto 0.5em auto; text-align: center }
-                    #lter_projects td.personnel { white-space:nowrap }
-                </style>
                 <title>Georgia Coastal Ecosystems LTER</title>
             </head>
-            <body>
-                <div id="top-border">&#160;</div>
+            <body><div id="top-border">&#160;</div>
                 <table id="pageframe">
-                    <tr>
-                        <td colspan="2" id="heading">
+                    <tr><td colspan="2" id="heading">
                             <div id="banner-image">
                                 <a href="http://gce-lter.marsci.uga.edu/" title="Georgia Coastal Ecosystems LTER">
                                     <img src="http://gce-lter.marsci.uga.edu/public/images/main_logo_vert1.jpg" alt="Georgia Coastal Ecosystems LTER" width="800" height="95" border="0"/>
                                 </a>
                             </div>
                             <div id="top-navbar">
-                                <a href="http://gce-lter.marsci.uga.edu/">Home</a> &gt; <a href="http://gce-lter.marsci.uga.edu/public/research/research.htm">Research</a> &gt; <span class="current-page">Research Project Search</span>
+                                <a href="http://gce-lter.marsci.uga.edu/">Home</a> &gt; <a href="http://gce-lter.marsci.uga.edu/public/research/research.htm">Research</a> &gt; 
+                                <a href="http://amble.lternet.edu:8080/exist/rest/db/projects/util/xquery/getProjectsQueryForm.xql?siteId=gce&amp;xslUrl=http://amble.lternet.edu:8080/exist/rest/db/projects/util/xslt/gceQueryForm.xsl">Research Project Search</a>
+                                <xsl:if test="string-length($navLabel)&gt;0"><xsl:text> &gt; </xsl:text><span class="current-page"><xsl:value-of select="$navLabel"/></span></xsl:if>
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td id="leftnavbar">
-                            <noscript>
-                                <p class="note">(JavaScript required<br/>for navigation menus)</p>
+                    <tr><td id="leftnavbar">
+                            <noscript><p class="note">(JavaScript required<br/>for navigation menus)</p>
                             </noscript>
                         </td>
                         <td id="content">
                             <xsl:call-template name="projects_query"/>
                         </td>
                     </tr>
-                    <tr>
-                        <td id="footer-left">
+                    <tr><td id="footer-left">
                             <em>18-Feb-2008</em>
                         </td>
                         <td id="footer-right">
