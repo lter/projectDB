@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!-- 
     Copyright: 2003 Board of Reagents, Arizona State University
     
@@ -20,7 +19,8 @@
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
---><xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+-->
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:output method="html"/>
 	<!-- root element -->
 	<xsl:template xmlns:lter="eml://ecoinformatics.org/lter-project-2.1.0" match="lter:researchProject">
@@ -35,7 +35,7 @@
 					<xsl:element name="link">
 						<xsl:attribute name="REL">stylesheet</xsl:attribute>
 						<xsl:attribute name="TYPE">text/css</xsl:attribute>
-						<xsl:attribute name="HREF">/exist/rest/util/web/css/caplter.css</xsl:attribute>
+						<xsl:attribute name="HREF">/exist/rest/projects/util/web/css/caplter.css</xsl:attribute>
 					</xsl:element>
 				</xsl:element>
 				<xsl:element name="body">
@@ -109,7 +109,8 @@
 		<br/>
 		<xsl:if test="keywordSet[. !='']">
 			<span class="level3m">Keywords:</span>
-			<div><xsl:for-each select="keywordSet">
+			<div>
+                <xsl:for-each select="keywordSet">
 					<xsl:call-template name="keywordSet"/>
 				</xsl:for-each>
 			</div>

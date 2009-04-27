@@ -1,23 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Sample xsl to output projects --><xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<!-- Sample xsl to output projects -->
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     
     <!-- call main template to generate page layout and scaffolding, which calls topnav and body templates at appropriate points in doc -->
     <xsl:template match="/">
-        <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <html>
+            <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
                 <style type="text/css">                   
                     body { height: auto;  background-color: #360; font-family: Verdana, sans-serif; font-size: 11px }
                     #lter_projects h2  { text-align: center; color: #360; font-size: 16px }
                     #lter_projects h3  { font-size: 12px; color #360 }
                     #lter_projects a, #lter_projects a:link, #lter_projects a:visited  { color: #360; text-decoration: none }
                     #lter_projects a:hover { text-decoration: underline; color: #660 }
-                    #lter_projects { width: 80%; background-color: #fff ;margin: 3em auto 1em 10%; padding: 8px 20px 2em 20px; border-bottom: 1px solid #000 }
+                    #lter_projects { width: 80%; background-color: #fff ;margin: 3em auto 1em auto; padding: 8px 20px 2em 20px; border-bottom: 1px solid #000 }
                     #lter_projects div.lter_project  { width: 100%; margin: 1em 10px 1em 10px; padding: 6px; border-top: 1px solid #000 }
                     #lter_projects p  {  text-indent: -36px; margin: 1em 10px .5em 64px; padding: 0 }
                     #lter_projects em  { font-weight: bold; font-style: italic; color: #360 }
                 </style>
                 <title>LTER Research Projects</title>
             </head>
-            <body><xsl:call-template name="projects_query"/>
+            <body>
+                <xsl:call-template name="projects_query"/>
             </body>
         </html>        
     </xsl:template>
@@ -27,8 +30,9 @@
             <h2>LTER Research Projects</h2>
             <xsl:for-each select="projects/project">
                 <div class="lter_project">
-                    <h3><xsl:element name="a">
-                            <xsl:attribute name="href">/exist/rest/db/util/xquery/getProjectById.xql?_xsl=/db/util/xslt/capProjectHTML.xsl&amp;id=<xsl:value-of select="@id"/>
+                    <h3>
+                        <xsl:element name="a">
+                            <xsl:attribute name="href">/exist/rest/db/projects/util/xquery/getProjectById.xql?_xsl=/db/projects/util/xslt/capProjectHTML.xsl&amp;id=<xsl:value-of select="@id"/>
                             </xsl:attribute>
                             <xsl:value-of select="title"/>
                         </xsl:element>
@@ -57,7 +61,8 @@
                         <em>Time Period</em>&#160;
                         <xsl:for-each select="coverage/temporalCoverage">
                             <xsl:if test="string(rangeOfDates)">                                
-                                <xsl:choose><xsl:when test="string(rangeOfDates/endDate)">
+                                <xsl:choose>
+                                    <xsl:when test="string(rangeOfDates/endDate)">
                                         <xsl:value-of select="rangeOfDates/beginDate/calendarDate"/> to <xsl:value-of select="rangeOfDates/endDate/calendarDate"/>
                                     </xsl:when>
                                     <xsl:otherwise>ongoing (started <xsl:value-of select="rangeOfDates/beginDate/calendarDate"/>)</xsl:otherwise>
