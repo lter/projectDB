@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml" version="1.0">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:import href="http://amble.lternet.edu:8080/exist/rest/db/projects/util/xslt/gceMainTemplate.xsl"/>
     <xsl:output method="xml" omit-xml-declaration="yes" encoding="UTF-8" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" indent="yes" media-type="text/xml"/>
 
@@ -14,17 +13,22 @@
     <xsl:template name="projects_query">
         <div id="lter_projects">
             <h2>LTER Research Projects</h2>
-            <table><tr><th><xsl:call-template name="build_xquery">
+            <table>
+                <tr>
+                    <th>
+                        <xsl:call-template name="build_xquery">
                         <xsl:with-param name="label">Site</xsl:with-param>
                         <xsl:with-param name="sortBy">id</xsl:with-param>
                     </xsl:call-template>
                     </th>
-                    <th><xsl:call-template name="build_xquery">
+                    <th>
+                        <xsl:call-template name="build_xquery">
                         <xsl:with-param name="label">Project Name</xsl:with-param>
                         <xsl:with-param name="sortBy">title</xsl:with-param>
                     </xsl:call-template>
                     </th>
-                    <th><xsl:call-template name="build_xquery">
+                    <th>
+                        <xsl:call-template name="build_xquery">
                         <xsl:with-param name="label">Investigator</xsl:with-param>
                         <xsl:with-param name="sortBy">surName</xsl:with-param>
                     </xsl:call-template>
@@ -33,9 +37,12 @@
                 </tr>
                 <xsl:for-each select="projects/project">
                     <!-- <xsl:sort select="title"/>-->
-                    <tr><td><xsl:value-of select="translate(substring(@id,10,3),'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/>
+                    <tr>
+                        <td>
+                            <xsl:value-of select="translate(substring(@id,10,3),'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/>
                         </td>
-                        <td><xsl:element name="a">
+                        <td>
+                            <xsl:element name="a">
                                 <xsl:attribute name="href">/exist/rest/db/projects/util/xquery/getProjectById.xql?id=<xsl:value-of select="@id"/>&amp;_xsl=http://amble.lternet.edu:8080/exist/rest/db/projects/util/xslt/capProjectHTML.xsl
                                 </xsl:attribute>
                                 <xsl:value-of select="title"/>
@@ -43,8 +50,8 @@
                         </td>
                         <td class="personnel">
                             <xsl:for-each select="creator">
-                                <xsl:value-of select="individualName"/>&#160;<br/>
-                            </xsl:for-each>
+                                <xsl:value-of select="individualName/surName"/>, <xsl:value-of select="individualName/givenName"/><br/>
+                            </xsl:for-each>&#160;
                         </td>
                         <td class="personnel">
                             <xsl:for-each select="associatedParty">
@@ -53,7 +60,8 @@
                                 <xsl:if test="position() != last()">
                                     <br/>
                                 </xsl:if>
-                            </xsl:for-each> &#160; </td>
+                            </xsl:for-each> &#160; 
+                        </td>
                     </tr>
                 </xsl:for-each>
             </table>

@@ -58,14 +58,16 @@
                     <p class="project_investigator">
                         <em>Investigator:</em>&#160;
                         <xsl:for-each select="creator">
-                            <xsl:value-of select="normalize-space(individualName)"/>
+                            <xsl:value-of select="normalize-space(individualName/givenName)"/><xsl:text> </xsl:text>
+                            <xsl:value-of select="individualName/surName"/>
                             <xsl:if test="position() != last()">, </xsl:if>
                         </xsl:for-each>
                     </p>
                     <p class="project_personnel">
                         <em>All Personnel:</em>&#160;
                         <xsl:for-each select="associatedParty">
-                            <xsl:value-of select="normalize-space(individualName)"/> (<xsl:value-of select="role"/>)<xsl:if test="position() != last()">, </xsl:if>
+                            <xsl:value-of select="normalize-space(individualName/givenName)"/><xsl:text>&#160;</xsl:text>
+                            <xsl:value-of select="individualName/surName"/> (<xsl:value-of select="role"/>)<xsl:if test="position() != last()">, </xsl:if>
                         </xsl:for-each>
                     </p>
                     <p class="project_keywords">

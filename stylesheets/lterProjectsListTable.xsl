@@ -67,8 +67,8 @@
                         </td>
                         <td class="personnel">
                             <xsl:for-each select="creator">
-                                <xsl:value-of select="individualName"/>&#160;<br/>
-                            </xsl:for-each>
+                                <xsl:value-of select="individualName/surName"/>, <xsl:value-of select="individualName/givenName"/><br/>
+                            </xsl:for-each>&#160;
                         </td>
                         <td class="personnel">
                             <xsl:for-each select="associatedParty">
@@ -77,7 +77,8 @@
                                 <xsl:if test="position() != last()">
                                     <br/>
                                 </xsl:if>
-                            </xsl:for-each> &#160; </td>
+                            </xsl:for-each> &#160; 
+                        </td>
                     </tr>
                 </xsl:for-each>
             </table>
