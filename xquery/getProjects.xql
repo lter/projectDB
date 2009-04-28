@@ -13,7 +13,8 @@ xquery version "1.0";
         optional: maxLat = maximum latitude / northern search boundary (empty string or number, decimal degrees)
         optional: keyword = keyword to search / partial string match (string, case-sensitive)
         optional keywordSet = keyword set name to search (string, optional, case-insensitive)
-        
+        optional: text = text in the title and abstract to search (string, optional, case-insensitive)
+
    Usage notes:
        1. latitudes and longitudes are offset to >=0 to accomodate western and southern hemispheres 
        2. three possible bounding box match cases are evaluated:
@@ -28,7 +29,7 @@ xquery version "1.0";
      Attribution:
         Authors: Wade Sheldon <wsheldon@lternet.edu>, Corinna Gries (corinna@asu.edu
         Date: 28-Apr-2009
-        Revision: 1.1
+        Revision: 1.2
 
     License:
         This program is free software; you can redistribute it and/or modify
@@ -67,6 +68,7 @@ declare option exist:serialize "method=xhtml media-type=text/html omit-xml-decla
     let $maxLa := request:get-parameter("maxLat","")
     let $keywrd := request:get-parameter("keyword","")
     let $keywdSet := request:get-parameter("keywordSet","")
+    let $txt := request:get-parameter("text","")
 
 (: generate single parameter cache :)
 return
@@ -82,6 +84,7 @@ return
             <param name="surName">{$surNam}</param>
             <param name="keyword">{$keywrd}</param>
             <param name="keywordSet">{$keywdSet}</param>
+            <param name="text">{$txt}</param>
         </params>
 }
 {
@@ -96,12 +99,14 @@ return
     let $maxLa := request:get-parameter("maxLat","")
     let $keywrd := request:get-parameter("keyword","")
     let $keywdSet := request:get-parameter("keywordSet","")
+    let $txt := request:get-parameter("text","")
 
 (: calculate derived parameters, dealing with empty input arguments:)
     let $startYear := if(string-length($startYr)>0) then substring($startYr,1,4) else "0"
     let $endYear := if(string-length($endYr)>0) then substring($endYr,1,4) else "5000"
     let $surName := if(string-length($surNam)>0) then concat("^",$surNam) else "^\D*" (: pre-pend carrot to force beginning of string search in regex :)
     let $keyword := if(string-length($keywrd) > 0) then $keywrd else "\D*" 
+    let $text := if(string-length($txt) > 0) then $txt else "\D*"
 
  (: convert lat/lon to numeric and offset to >= 0 for comparisons, setting empty values to full geographic extent  :)
     let $minLon := if(string-length($minLo) > 0) then (number($minLo) + 180.0) else (0)
@@ -139,7 +144,8 @@ where (($west >= $minLon and $east <= $maxLon and $south >= $minLat and $north <
 	    or compare(substring(data($p/coverage/temporalCoverage/singleDateTime/calendarDate),1,4),$startYear) = 1)
 	    and compare(substring(data($p/coverage/temporalCoverage//endDate/calendarDate),1,4),$endYear) = -1
 	    and matches($p//surName,$surName,'i') and matches($keywordSet/keyword,$keyword,'i') 
-	        
+                   and matches(($p//title | $p/abstract//para/text() | $p/abstract//literalLayout/text()),$text,'i')
+                   
 order by $sort
 
 return
