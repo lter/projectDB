@@ -14,77 +14,88 @@
     <xsl:template name="projects_query">
         <div id="lter_projects">
             <h2>Research Projects</h2>
-            <div style="text-align: right; font-style: italic; color: #360; margin-top: -2.5em">
-                (sorty by: <xsl:call-template name="build_xquery">
-                    <xsl:with-param name="label">Site</xsl:with-param>
-                    <xsl:with-param name="sortBy">id</xsl:with-param>
-                </xsl:call-template>,
-                    <xsl:call-template name="build_xquery">
-                        <xsl:with-param name="label">Title</xsl:with-param>
-                        <xsl:with-param name="sortBy">title</xsl:with-param>
-                    </xsl:call-template>,
-                    <xsl:call-template name="build_xquery">
-                        <xsl:with-param name="label">Investigator</xsl:with-param>
-                        <xsl:with-param name="sortBy">surName</xsl:with-param>
-                    </xsl:call-template>)
-            </div>
-            <xsl:for-each select="projects/project">
-                <div class="lter_project">
-                    <h3>
-                        <xsl:element name="a">
-                            <xsl:attribute name="href">/exist/rest/db/projects/util/xquery/getProjectById.xql?_xsl=/db/projects/util/xslt/capProjectHTML.xsl&amp;id=<xsl:value-of select="@id"/>
-                            </xsl:attribute>
-                            <xsl:value-of select="title"/>
-                        </xsl:element>
-                    </h3>
-                    <p>
-                        <em>LTER Site:</em>&#160;
-                        <xsl:value-of select="translate(substring(@id,10,3),'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/>
-                    </p>
-                    <p class="project_investigator">
-                        <em>Investigator:</em>&#160;
-                        <xsl:for-each select="creator">
-                            <xsl:value-of select="normalize-space(individualName/givenName)"/><xsl:text> </xsl:text>
-                            <xsl:value-of select="individualName/surName"/>
-                            <xsl:if test="position() != last()">, </xsl:if>
-                        </xsl:for-each>
-                    </p>
-                    <p class="project_personnel">
-                        <em>All Personnel:</em>&#160;
-                        <xsl:for-each select="associatedParty">
-                            <xsl:value-of select="normalize-space(individualName/givenName)"/><xsl:text>&#160;</xsl:text>
-                            <xsl:value-of select="individualName/surName"/> (<xsl:value-of select="role"/>)<xsl:if test="position() != last()">, </xsl:if>
-                        </xsl:for-each>
-                    </p>
-                    <p class="project_keywords">
-                        <em>Keywords:</em>&#160;
-                        <xsl:for-each select="keywordSet/keyword">
-                            <xsl:value-of select="."/>
-                            <xsl:if test="position() != last()">, </xsl:if>
-                        </xsl:for-each>
-                    </p>
-                    <p class="project_dates">
-                        <em>Time Period</em>&#160;
-                        <xsl:for-each select="coverage/temporalCoverage">
-                            <xsl:if test="string(rangeOfDates)">                                
-                                <xsl:choose>
-                                    <xsl:when test="string(rangeOfDates/endDate)">
-                                        <xsl:value-of select="rangeOfDates/beginDate/calendarDate"/> to <xsl:value-of select="rangeOfDates/endDate/calendarDate"/>
-                                    </xsl:when>
-                                    <xsl:otherwise>ongoing (started <xsl:value-of select="rangeOfDates/beginDate/calendarDate"/>)</xsl:otherwise>
-                                </xsl:choose>                                    
-                            </xsl:if>
-                            <xsl:if test="string(singleDateTime)">
-                                <xsl:value-of select="singleDateTime/calendarDate"/>
-                            </xsl:if>
-                            <xsl:if test="string(ongoing)">
-                                ongoing (started <xsl:value-of select="ongoing/beginDate/calendarDate"/>)
-                            </xsl:if>
-                         </xsl:for-each>
-                    </p>
-                </div>    
-            </xsl:for-each>
-          </div>
+            <xsl:choose>
+                <xsl:when test="projects/project/*">
+                    <div style="text-align: right; font-style: italic; color: #360; margin-top: -2.5em">
+                        (sorty by: <xsl:call-template name="build_xquery">
+                            <xsl:with-param name="label">Site</xsl:with-param>
+                            <xsl:with-param name="sortBy">id</xsl:with-param>
+                        </xsl:call-template>,
+                            <xsl:call-template name="build_xquery">
+                                <xsl:with-param name="label">Title</xsl:with-param>
+                                <xsl:with-param name="sortBy">title</xsl:with-param>
+                            </xsl:call-template>,
+                            <xsl:call-template name="build_xquery">
+                                <xsl:with-param name="label">Investigator</xsl:with-param>
+                                <xsl:with-param name="sortBy">surName</xsl:with-param>
+                            </xsl:call-template>)
+                    </div>
+                    <xsl:for-each select="projects/project">
+                        <div class="lter_project">
+                            <h3>
+                                <xsl:element name="a">
+                                    <xsl:attribute name="href">/exist/rest/db/projects/util/xquery/getProjectById.xql?_xsl=/db/projects/util/xslt/capProjectHTML.xsl&amp;id=<xsl:value-of select="@id"/>
+                                    </xsl:attribute>
+                                    <xsl:value-of select="title"/>
+                                </xsl:element>
+                            </h3>
+                            <p>
+                                <em>LTER Site:</em>&#160;
+                                <xsl:value-of select="translate(substring(@id,10,3),'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/>
+                            </p>
+                            <p class="project_investigator">
+                                <em>Investigator:</em>&#160;
+                                <xsl:for-each select="creator">
+                                    <xsl:value-of select="normalize-space(individualName/givenName)"/>
+                                    <xsl:text> </xsl:text>
+                                    <xsl:value-of select="individualName/surName"/>
+                                    <xsl:if test="position() != last()">, </xsl:if>
+                                </xsl:for-each>
+                            </p>
+                            <p class="project_personnel">
+                                <em>All Personnel:</em>&#160;
+                                <xsl:for-each select="associatedParty">
+                                    <xsl:value-of select="normalize-space(individualName/givenName)"/>
+                                    <xsl:text>&#160;</xsl:text>
+                                    <xsl:value-of select="individualName/surName"/> (<xsl:value-of select="role"/>)<xsl:if test="position() != last()">, </xsl:if>
+                                </xsl:for-each>
+                            </p>
+                            <p class="project_keywords">
+                                <em>Keywords:</em>&#160;
+                                <xsl:for-each select="keywordSet/keyword">
+                                    <xsl:value-of select="."/>
+                                    <xsl:if test="position() != last()">, </xsl:if>
+                                </xsl:for-each>
+                            </p>
+                            <p class="project_dates">
+                                <em>Time Period</em>&#160;
+                                <xsl:for-each select="coverage/temporalCoverage">
+                                    <xsl:if test="string(rangeOfDates)">                                
+                                        <xsl:choose>
+                                            <xsl:when test="string(rangeOfDates/endDate)">
+                                                <xsl:value-of select="rangeOfDates/beginDate/calendarDate"/> to <xsl:value-of select="rangeOfDates/endDate/calendarDate"/>
+                                            </xsl:when>
+                                            <xsl:otherwise>ongoing (started <xsl:value-of select="rangeOfDates/beginDate/calendarDate"/>)</xsl:otherwise>
+                                        </xsl:choose>                                    
+                                    </xsl:if>
+                                    <xsl:if test="string(singleDateTime)">
+                                        <xsl:value-of select="singleDateTime/calendarDate"/>
+                                    </xsl:if>
+                                    <xsl:if test="string(ongoing)">
+                                        ongoing (started <xsl:value-of select="ongoing/beginDate/calendarDate"/>)
+                                    </xsl:if>
+                                 </xsl:for-each>
+                            </p>
+                        </div>    
+                    </xsl:for-each>
+                </xsl:when>
+                <xsl:otherwise>
+                    <p style="text-align:center; margin-top:3em">Sorry ... no projects were found. Please 
+                        <a href="javascript:history.back(1)" style="text-decoration: underline">return to the search form</a> and select broader
+                        criteria</p>
+                </xsl:otherwise>
+            </xsl:choose>
+        </div>
     </xsl:template>
     
     <xsl:template name="build_xquery">

@@ -13,6 +13,8 @@
     <xsl:template name="projects_query">
         <div id="lter_projects">
             <h2>LTER Research Projects</h2>
+            <xsl:choose>
+                <xsl:when test="projects/project/*">            
             <table>
                 <tr>
                     <th>
@@ -50,7 +52,8 @@
                         </td>
                         <td class="personnel">
                             <xsl:for-each select="creator">
-                                <xsl:value-of select="individualName/surName"/>, <xsl:value-of select="individualName/givenName"/><br/>
+                                <xsl:value-of select="individualName/surName"/>, <xsl:value-of select="individualName/givenName"/>
+                                <br/>
                             </xsl:for-each>&#160;
                         </td>
                         <td class="personnel">
@@ -65,6 +68,9 @@
                     </tr>
                 </xsl:for-each>
             </table>
+                </xsl:when>
+                <xsl:otherwise><p style="text-align:center; margin-top:3em">Sorry ... no projects were found. Please <a href="javascript:history.back(1)">return to the search form</a> and select broader criteria</p></xsl:otherwise>
+            </xsl:choose>
         </div>
     </xsl:template>
     
