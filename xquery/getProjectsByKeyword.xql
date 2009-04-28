@@ -13,8 +13,8 @@ xquery version "1.0";
        
      Attribution:
         Author: Wade Sheldon <wsheldon@lternet.edu>
-        Date: 22-Apr-2009
-        Revision: 1.0
+        Date: 28-Apr-2009
+        Revision: 1.1
 
     License:
         This program is free software; you can redistribute it and/or modify
@@ -56,7 +56,7 @@ then (
 	let $idstr := $p/@id
 	let $time := $p/coverage/temporalCoverage
 
-           let $kw := $p/keywordSet[if (string-length($keywordSet)=0) then @* else @name=$keywordSet]
+           let $kw := if(string-length($keywdSet)>0) then $p/keywordSet[@name=$keywdSet] else $p/keywordSet
            
          	where matches($kw/keyword,$keyword,'i')
               	

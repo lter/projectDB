@@ -27,8 +27,8 @@ xquery version "1.0";
        
      Attribution:
         Authors: Wade Sheldon <wsheldon@lternet.edu>, Corinna Gries (corinna@asu.edu
-        Date: 25-Apr-2009
-        Revision: 1.0
+        Date: 28-Apr-2009
+        Revision: 1.1
 
     License:
         This program is free software; you can redistribute it and/or modify
@@ -129,7 +129,7 @@ for $p in collection(concat('/db/projects/data/',lower-case($siteId)))/lter:rese
 	let $idstr := $p/@id
 	let $time := $p/coverage/temporalCoverage
 	
-	let $keywordSet := $p/keywordSet[if (string-length($keywdSet)=0) then @* else @name=$keywdSet]
+	let $keywordSet := if(string-length($keywdSet)>0) then $p/keywordSet[@name=$keywdSet] else $p/keywordSet
 
 where (($west >= $minLon and $east <= $maxLon and $south >= $minLat and $north <= $maxLat)	
 	    or ((($west >= $minLon and $west <= $maxLon) or ($east >= $minLon and $east <= $maxLon)) 
@@ -137,7 +137,7 @@ where (($west >= $minLon and $east <= $maxLon and $south >= $minLat and $north <
 	    or ($west <= $minLon and $east >= $maxLon and $south <= $minLat and $north >= $maxLat))
         and (compare(substring(data($p/coverage/temporalCoverage//beginDate/calendarDate),1,4),$startYear) = 1
 	    or compare(substring(data($p/coverage/temporalCoverage/singleDateTime/calendarDate),1,4),$startYear) = 1)
-	    and compare(substring(data($p/coverage/temporalCoverage//beginDate/calendarDate),1,4),$endYear) = -1
+	    and compare(substring(data($p/coverage/temporalCoverage//endDate/calendarDate),1,4),$endYear) = -1
 	    and matches($p//surName,$surName,'i') and matches($keywordSet/keyword,$keyword,'i') 
 	        
 order by $sort
@@ -152,7 +152,15 @@ return
            let $individual := $c/individualName
            let $userid := $c/userId
            return
-           <creator>{$individual}{$userid}</creator>}
+           if (not($individual)) then () else <creator>{$individual}{$userid}</creator>}
+        
+          {for $c in $p/creator/references
+           let $id := $c/text()
+           let $ref := $p/associatedParty[@id = $id]
+           let $individual := $ref/individualName
+           let $userid := $ref/userId
+           return
+           if (not($individual)) then <id>{data($id)}</id> else <creator>{$individual}{$userid}</creator>}
         
            {for $ap in $p/associatedParty
            let $ap_name := $ap/individualName
