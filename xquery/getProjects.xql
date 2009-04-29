@@ -137,14 +137,14 @@ for $p in collection(concat('/db/projects/data/',lower-case($siteId)))/lter:rese
 	let $keywordSet := if(string-length($keywdSet)>0) then $p/keywordSet[@name=$keywdSet] else $p/keywordSet
 
 where (($west >= $minLon and $east <= $maxLon and $south >= $minLat and $north <= $maxLat)	
-	    or ((($west >= $minLon and $west <= $maxLon) or ($east >= $minLon and $east <= $maxLon)) 
-	    and (($south >= $minLat and $south <= $maxLat) or ($north >= $minLat and $north <= $maxLat)))	
-	    or ($west <= $minLon and $east >= $maxLon and $south <= $minLat and $north >= $maxLat))
+        or ((($west >= $minLon and $west <= $maxLon) or ($east >= $minLon and $east <= $maxLon)) 
+        and (($south >= $minLat and $south <= $maxLat) or ($north >= $minLat and $north <= $maxLat)))	
+        or ($west <= $minLon and $east >= $maxLon and $south <= $minLat and $north >= $maxLat))
+        and matches($p//surName,$surName,'i') and matches($keywordSet/keyword,$keyword,'i') 
+        and matches(($p//title | $p/abstract//para/text() | $p/abstract//literalLayout/text()),$text,'i')
         and (compare(substring(data($p/coverage/temporalCoverage//beginDate/calendarDate),1,4),$startYear) = 1
-	    or compare(substring(data($p/coverage/temporalCoverage/singleDateTime/calendarDate),1,4),$startYear) = 1)
-	    and compare(substring(data($p/coverage/temporalCoverage//endDate/calendarDate),1,4),$endYear) = -1
-	    and matches($p//surName,$surName,'i') and matches($keywordSet/keyword,$keyword,'i') 
-                   and matches(($p//title | $p/abstract//para/text() | $p/abstract//literalLayout/text()),$text,'i')
+        or compare(substring(data($p/coverage/temporalCoverage/singleDateTime/calendarDate),1,4),$startYear) = 1)
+        and compare(substring(data($p/coverage/temporalCoverage//endDate/calendarDate),1,4),$endYear) = -1        
                    
 order by $sort
 

@@ -9,49 +9,48 @@
                 <style type="text/css">
                     body {
                         height: auto;
-                        background-color: #360;
-                        font-family: Verdana, sans-serif;
-                         font-size: 11px 
-                    }
-                    #lter_projects h2 {
-                        text-align: center;
-                        color: #360;
-                         font-size: 16px 
-                    }
-                    #lter_projects h3 {
-                        font-size: 12px;
-                         color: #360 
-                    }
-                    #lter_projects a, #lter_projects a:link, #lter_projects a:visited {
-                        color: #360;
-                         text-decoration: none 
-                    }
-                    #lter_projects a:hover {
-                        text-decoration: underline;
-                         color: #660 
+                        background-color: transparent;
+                        font-family: Verdana, Arial, sans-serif;
+                        font-size: 11px 
                     }
                     #lter_projects {
-                        width: 80%;
-                        background-color: #fff;
-                        margin: 3em auto 1em auto;
+                        width: 90%;
+                        background-color: White;
+                        margin: 0 auto 1em auto;
                         padding: 8px 20px 2em 20px;
-                         border-bottom: 1px solid #000 
                     }
                     #lter_projects div.lter_project {
                         width: 100%;
-                        margin: 1em 10px 1em 10px;
+                        margin: 1.5em 10px 1em 10px;
                         padding: 6px;
-                         border-top: 1px solid #000 
+                        border-top: 1px solid Black; 
+                    }
+                    #lter_projects h2 {
+                        margin: 0 auto 0.5em auto;
+                        font-size: 16px; 
+                        text-align: center;
+                    }
+                    #lter_projects h3 {
+                        font-size: 12px;
+                        color: Black; 
+                    }
+                    #lter_projects a, #lter_projects a:link, #lter_projects a:visited {
+                        color: Black;
+                        text-decoration: none; 
+                    }
+                    #lter_projects a:hover {
+                        text-decoration: underline;
+                        color: Maroon; 
                     }
                     #lter_projects p {
                         text-indent: -36px;
                         margin: 1em 10px .5em 64px;
-                         padding: 0 
+                        padding: 0; 
                     }
                     #lter_projects em {
                         font-weight: bold;
                         font-style: italic;
-                         color: #360 
+                        color: Black; 
                     }</style>
                 <title>LTER Research Projects</title>
             </head>
@@ -140,7 +139,7 @@
                     </xsl:for-each>
                 </xsl:when>
                 <xsl:otherwise>
-                    <p style="text-align:center; margin-top:3em">Sorry ... no projects were found. Please 
+                    <p style="text-align:center; margin-top:3em; margin-bottom: 20em">Sorry ... no projects were found. Please 
                         <a href="javascript:history.back(1)" style="text-decoration: underline">return to the search form</a> and select broader
                         criteria</p>
                 </xsl:otherwise>
