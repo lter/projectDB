@@ -1,0 +1,12 @@
+#content { width: auto; }
+#lter_projects { width: auto; margin: 0 auto 0 auto; padding: 0 }
+#lter_projects table { width: 96%; margin: 1em auto 2em auto; padding: 0 }
+#lter_projects th { white-space: nowrap; padding: 3px 10px 3px 10px; border-bottom: 1px solid Black; background-color: #F3F3F8; text-align: center;
+   border-top: 1px solid Black; border-bottom: 1px solid Black }
+#lter_projects th a, #lter_projects th a:link, #lter_projects th:visited { color: black }
+#lter_projects th a:hover {color: blue }
+#lter_projects td { vertical-align: top; padding: 5px 10px 3px 10px; border-bottom: 1px solid Black; font-size: 11px }
+#lter_projects td a, #lter_projects td a:link, #lter_projects td a:visited { text-decoration: none; color: black }
+#lter_projects td a:hover { text-decoration:underline; color: blue }
+#lter_projects h2 { margin: 0 auto 0.5em auto; text-align: center }
+#lter_projects td.personnel { white-space:nowrap }

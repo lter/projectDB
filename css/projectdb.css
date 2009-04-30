@@ -1,0 +1,55 @@
+body 
+	{ 
+		height: auto;  
+		background-color: #360; 
+		font-family: Verdana, sans-serif; 
+		font-size: 11px
+	}
+lter_projects h2  
+	{	
+		text-align: center; 
+		color: #360; font-size: 16px 
+	}
+lter_projects h3  
+	{ 
+		font-size: 12px; 
+		color #360 
+	}
+lter_projects a, lter_projects a:link, lter_projects a:visited  
+	{ 
+		color: #360; 
+		text-decoration: none 
+	}
+lter_projects a:hover 
+	{ 
+		text-decoration: underline; 
+		color: #660 
+	}
+lter_projects 
+	{ 
+		width: 80%; 
+		background-color: #fff ;
+		margin: 3em auto 1em 10%; 
+		padding: 8px 20px 2em 20px; 
+		border-bottom: 1px solid #000 
+	}
+lter_projects div.lter_project  
+	{ 
+		width: 100%; 
+		margin: 1em 10px 1em 10px; 
+		padding: 6px; 
+		border-top: 1px solid #000 
+	}
+lter_projects p  
+	{  
+		text-indent: -36px; 
+		margin: 1em 10px .5em 64px; 
+		padding: 0 
+	}
+lter_projects em  
+	{ 
+		font-weight: bold; 
+		font-style: italic; 
+		color: #360 
+	}
+                

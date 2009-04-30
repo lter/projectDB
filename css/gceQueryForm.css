@@ -1,0 +1,11 @@
+  #projects_query { width: 65%; margin: 0 20% 0 auto }
+  #projects_query h2 { font-size: 16px; text-align: center; }
+  #projects_query table { width: 100%; margin: 1em auto 1em auto; border-collapse: collapse; border-top: 2px solid #999; border-bottom: 2px solid #999 }
+  #projects_query th, #projects_query td  { vertical-align: top; white-space: nowrap; border-bottom: 1px solid #EEE; }
+  #projects_query th  { text-align: center; font-weight: bold; padding: 6px 8px 6px 20px; width: 30%; }
+  #projects_query td  { text-align: left; padding: 6px 20px 6px 8px; width: 70%; }
+  #projects_query table.inset-table { margin: 0; width: 400px; border: none; text-align: left; white-space: nowrap; }
+  #projects_query table.inset-table td  { border: none; }
+  #projects_query select, #projects_query input { font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
+  #projects_query em  { font-style: italic; color: #666 }
+  #projects_query td.last  { vertical-align: middle; height: 60px; border: none; text-align: center }               
