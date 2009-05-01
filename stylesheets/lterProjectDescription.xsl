@@ -22,20 +22,19 @@
                         <table>
                             <tr>
                                 <th id="project_summary_tab" class="currentTab">
-                                    <a href="javascript:showSection('project_summary')">Project Summary</a>
+                                    <a href="javascript:showSection('project_summary')">Summary</a>
                                 </th>
                                 <th id="project_personnel_tab">
-                                    <a href="javascript:showSection('project_personnel')">Associated
-                                        Personnel</a>
+                                    <a href="javascript:showSection('project_personnel')">Personnel</a>
                                 </th>
                                 <th id="project_studyArea_tab">
                                     <a href="javascript:showSection('project_studyArea')">Study Area</a>
                                 </th>
                                 <th id="project_reports_tab">
-                                    <a href="javascript:showSection('project_reports')">Project Reports</a>
+                                    <a href="javascript:showSection('project_reports')">Reports</a>
                                 </th>
                                 <th id="project_material_tab">
-                                    <a href="javascript:showSection('project_material')">Additional Material</a>
+                                    <a href="javascript:showSection('project_material')">Ancillary</a>
                                 </th>
                             </tr>
                             <tr id="project_summary" style="display:table-row">
