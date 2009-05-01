@@ -69,6 +69,7 @@ declare option exist:serialize "method=xhtml media-type=text/html omit-xml-decla
     let $keywrd := request:get-parameter("keyword","")
     let $keywdSet := request:get-parameter("keywordSet","")
     let $txt := request:get-parameter("text","")
+    let $sortBy := request:get-parameter("sortBy", "title")
 
 (: generate single parameter cache :)
 return
@@ -85,6 +86,7 @@ return
             <param name="keyword">{$keywrd}</param>
             <param name="keywordSet">{$keywdSet}</param>
             <param name="text">{$txt}</param>
+            <param name="sortBy">{$sortBy}</param>
         </params>
 }
 {
@@ -100,6 +102,7 @@ return
     let $keywrd := request:get-parameter("keyword","")
     let $keywdSet := request:get-parameter("keywordSet","")
     let $txt := request:get-parameter("text","")
+    let $sortBy := request:get-parameter("sortBy", "title")
 
 (: calculate derived parameters, dealing with empty input arguments:)
     let $startYear := number(if(string-length($startYr)>0) then substring($startYr,1,4) else "0")  (: force numeric 4-digit year :)
@@ -116,39 +119,40 @@ return
 
 for $p in collection(concat('/db/projects/data/',lower-case($siteId)))/lter:researchProject
 
-(: note: for the project coverage boundaries, both the original extents and offset extents are instantiated as variables
- to support both searching and inclusion of the overall extents in the output without the offsets :)
+                (: note: for the project coverage boundaries, both the original extents and offset extents are instantiated as variables
+                 to support both searching and inclusion of the overall extents in the output without the offsets :)
 	let $west0 := min($p/coverage/geographicCoverage/boundingCoordinates/westBoundingCoordinate)
 	let $east0 := max($p/coverage/geographicCoverage/boundingCoordinates/eastBoundingCoordinate)
 	let $north0 := max($p/coverage/geographicCoverage/boundingCoordinates/northBoundingCoordinate)
 	let $south0 := min($p/coverage/geographicCoverage/boundingCoordinates/southBoundingCoordinate)
 	
+	(: offset lat/lon for comparisons :)
 	let $west := $west0 + 180
 	let $east := $east0 + 180
 	let $north := $north0 + 90
 	let $south := $south0 + 90
 
-	let $sortBy := request:get-parameter("sortBy", "title")
+               (: get and cache context nodes for comparisons :)
 	let $sort := $p/(if ($sortBy = "id") then @id else (if ($sortBy = "surName") then creator[1]/individualName/surName else title))
 	let $title := $p/title/text()
 	let $idstr := $p/@id
-	let $time := $p/coverage/temporalCoverage
-	
+	let $time := $p/coverage/temporalCoverage	
 	let $keywordSet := if(string-length($keywdSet)>0) then $p/keywordSet[@name=$keywdSet] else $p/keywordSet
+	let $beginDate := number(substring(data($p/coverage/temporalCoverage//beginDate/calendarDate),1,4))
+	let $singleDate := number(substring(data($p/coverage/temporalCoverage/singleDateTime/calendarDate),1,4))
+	let $endDate := number(substring(data($p/coverage/temporalCoverage//endDate/calendarDate),1,4))
 
+(: define query restriction :)
 where (($west >= $minLon and $east <= $maxLon and $south >= $minLat and $north <= $maxLat)	
         or ((($west >= $minLon and $west <= $maxLon) or ($east >= $minLon and $east <= $maxLon)) 
         and (($south >= $minLat and $south <= $maxLat) or ($north >= $minLat and $north <= $maxLat)))	
         or ($west <= $minLon and $east >= $maxLon and $south <= $minLat and $north >= $maxLat))
-        and (number(substring(data($p/coverage/temporalCoverage//beginDate/calendarDate),1,4)) >= $startYear
-        or number(substring(data($p/coverage/temporalCoverage/singleDateTime/calendarDate),1,4)) >= $startYear)
-        and number(substring(data($p/coverage/temporalCoverage//endDate/calendarDate),1,4)) <= $endYear  
-        and (number(substring(data($p/coverage/temporalCoverage//beginDate/calendarDate),1,4)) <= $endYear
-        or number(substring(data($p/coverage/temporalCoverage/singleDateTime/calendarDate),1,4)) <= $endYear)
+        and ($beginDate >= $startYear or $singleDate >= $startYear)
+        and ($endDate <= $endYear or not($endDate))  
+        and ($beginDate <= $endYear or $singleDate <= $endYear)
         and matches($p//surName,$surName,'i') and matches($keywordSet/keyword,$keyword,'i') 
-        and matches(($p//title | $p/abstract//para/text() | $p/abstract//literalLayout/text()),$text,'i')
-             
-                   
+        and matches(($p//title | $p/abstract//para/text() | $p/abstract//literalLayout/text()),$text,'i')             
+   
 order by $sort
 
 return
