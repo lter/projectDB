@@ -375,6 +375,15 @@
         </xsl:if>
     </xsl:template>
     
+    <xsl:template match="ulink">
+        <xsl:element name="a">
+            <xsl:attribute name="href"><xsl:value-of select="@url"/></xsl:attribute>
+            <xsl:attribute name="title"><xsl:value-of select="citetitle"/></xsl:attribute>
+            <xsl:attribute name="target"><xsl:text>_blank</xsl:text></xsl:attribute>
+            <xsl:value-of select="."/>
+        </xsl:element>
+    </xsl:template>
+    
     <!-- Geographic coverage template -->
     <xsl:template name="geoCover">
         <xsl:if test="geographicDescription[. !='']">
