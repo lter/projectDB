@@ -27,9 +27,9 @@ xquery version "1.0";
               in a <project> element for each match
        
      Attribution:
-        Authors: Wade Sheldon <wsheldon@lternet.edu>, Corinna Gries (corinna@asu.edu
-        Date: 28-Apr-2009
-        Revision: 1.2
+        Authors: Wade Sheldon <wsheldon@lternet.edu>, Corinna Gries (cgries@lternet.edu), Sven Bohm <sbohm@lternet.edu>
+        Date: 01-May-2009
+        Revision: 1.3
 
     License:
         This program is free software; you can redistribute it and/or modify
@@ -102,11 +102,11 @@ return
     let $txt := request:get-parameter("text","")
 
 (: calculate derived parameters, dealing with empty input arguments:)
-    let $startYear := if(string-length($startYr)>0) then substring($startYr,1,4) else "0"
-    let $endYear := if(string-length($endYr)>0) then substring($endYr,1,4) else "5000"
+    let $startYear := number(if(string-length($startYr)>0) then substring($startYr,1,4) else "0")  (: force numeric 4-digit year :)
+    let $endYear := number(if(string-length($endYr)>0) then substring($endYr,1,4) else "5000")  (: force numeric 4-digit year :)
     let $surName := if(string-length($surNam)>0) then concat("^",$surNam) else "^\D*" (: pre-pend carrot to force beginning of string search in regex :)
-    let $keyword := if(string-length($keywrd) > 0) then $keywrd else "\D*" 
-    let $text := if(string-length($txt) > 0) then $txt else "\D*"
+    let $keyword := if(string-length($keywrd) > 0) then (if($keywrd = "*") then "\D*" else $keywrd) else "\D*"   (: substitute regex wildcard for empty string or * :)
+    let $text := if(string-length($txt) > 0) then (if($txt = "*") then "\D*" else $txt) else "\D*"   (: substitute regex wildcard for empty string or * :)
 
  (: convert lat/lon to numeric and offset to >= 0 for comparisons, setting empty values to full geographic extent  :)
     let $minLon := if(string-length($minLo) > 0) then (number($minLo) + 180.0) else (0)
@@ -140,9 +140,11 @@ where (($west >= $minLon and $east <= $maxLon and $south >= $minLat and $north <
         or ((($west >= $minLon and $west <= $maxLon) or ($east >= $minLon and $east <= $maxLon)) 
         and (($south >= $minLat and $south <= $maxLat) or ($north >= $minLat and $north <= $maxLat)))	
         or ($west <= $minLon and $east >= $maxLon and $south <= $minLat and $north >= $maxLat))
-        and (compare(substring(data($p/coverage/temporalCoverage//beginDate/calendarDate),1,4),$startYear) = 1
-        or compare(substring(data($p/coverage/temporalCoverage/singleDateTime/calendarDate),1,4),$startYear) = 1)
-        and compare(substring(data($p/coverage/temporalCoverage//endDate/calendarDate),1,4),$endYear) = -1  
+        and (number(substring(data($p/coverage/temporalCoverage//beginDate/calendarDate),1,4)) >= $startYear
+        or number(substring(data($p/coverage/temporalCoverage/singleDateTime/calendarDate),1,4)) >= $startYear)
+        and number(substring(data($p/coverage/temporalCoverage//endDate/calendarDate),1,4)) <= $endYear  
+        and (number(substring(data($p/coverage/temporalCoverage//beginDate/calendarDate),1,4)) <= $endYear
+        or number(substring(data($p/coverage/temporalCoverage/singleDateTime/calendarDate),1,4)) <= $endYear)
         and matches($p//surName,$surName,'i') and matches($keywordSet/keyword,$keyword,'i') 
         and matches(($p//title | $p/abstract//para/text() | $p/abstract//literalLayout/text()),$text,'i')
              
