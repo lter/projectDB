@@ -50,7 +50,7 @@
                             <tr id="project_studyArea" style="display:none">
                                 <td colspan="5">
                                     <xsl:choose>
-                                        <xsl:when test="studyAreaDescription != ''">
+                                        <xsl:when test="./studyAreaDescription != '' or ./coverage/geographicCoverage != ''">
                                             <xsl:call-template name="studyArea"/>
                                         </xsl:when>
                                         <xsl:otherwise>
@@ -377,9 +377,15 @@
     
     <xsl:template match="ulink">
         <xsl:element name="a">
-            <xsl:attribute name="href"><xsl:value-of select="@url"/></xsl:attribute>
-            <xsl:attribute name="title"><xsl:value-of select="citetitle"/></xsl:attribute>
-            <xsl:attribute name="target"><xsl:text>_blank</xsl:text></xsl:attribute>
+            <xsl:attribute name="href">
+                <xsl:value-of select="@url"/>
+            </xsl:attribute>
+            <xsl:attribute name="title">
+                <xsl:value-of select="citetitle"/>
+            </xsl:attribute>
+            <xsl:attribute name="target">
+                <xsl:text>_blank</xsl:text>
+            </xsl:attribute>
             <xsl:value-of select="."/>
         </xsl:element>
     </xsl:template>
@@ -407,10 +413,10 @@
             <br/>
             <span style="padding-left: 14px">
                 <xsl:text>Latitude: </xsl:text>
-                <xsl:value-of select="boundingCoordinates/northBoundingCoordinate"/>
+                <xsl:value-of select="boundingCoordinates/southBoundingCoordinate"/>
                 <xsl:text>°</xsl:text>
                 <xsl:text>&#160;to&#160;</xsl:text>
-                <xsl:value-of select="boundingCoordinates/southBoundingCoordinate"/>
+                <xsl:value-of select="boundingCoordinates/northBoundingCoordinate"/>
                 <xsl:text>°</xsl:text>
             </span>
             </p>
