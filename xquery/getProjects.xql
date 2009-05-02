@@ -48,6 +48,7 @@ xquery version "1.0";
 declare namespace lter="eml://ecoinformatics.org/lter-project-2.1.0";
 declare namespace request="http://exist-db.org/xquery/request";
 declare namespace xs="http://www.w3.org/2001/XMLSchema";
+declare namespace exist = "http://exist.sourceforge.net/NS/exist";
 
 (: set output to xhtml for IE compatibility :)
 declare option exist:serialize "method=xhtml media-type=text/html omit-xml-declaration=yes indent=yes 
