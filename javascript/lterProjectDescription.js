@@ -1,8 +1,13 @@
 function showSection(strId) {
-    // toggle table row displays and table heading classes for tabbed display
-    
+    // toggles table row display and table heading classes to manage tabbed display
+    //
+    //author: Wade Sheldon <wsheldon@lternet.edu>
+    //version 1.0, 01-May-2009
+        
+    // init array of all section ids
     var allIds = new Array('project_summary', 'project_personnel', 'project_studyArea', 'project_reports', 'project_material');
     
+    // loop through ids, toggling display off and setting corresponding tab to default style
     for (i = 0; i < allIds.length; i++) {
     
         var el = document.getElementById(allIds[i]);
@@ -10,10 +15,10 @@ function showSection(strId) {
             el.style.display = 'none';
         }
         catch(err) {
-            el.style.setAttribute('display','block');  //IE
+            el.style.setAttribute('display','block');  //IE syntax
         }
         
-        var tabId = allIds[i] + '_tab';
+        var tabId = allIds[i] + '_tab'; 
         var tab = document.getElementById(tabId);
         try {
             tab.className = '';
@@ -24,6 +29,7 @@ function showSection(strId) {
         
     }
     
+    // get handle for new selection, toggle display option to show
     var el_current = document.getElementById(strId);
     
     try {
@@ -33,6 +39,7 @@ function showSection(strId) {
         el_current.style.setAttribute('display','block');  //IE
      }
     
+    // set corresponding tab to currentTab style
     var tabId_current = strId + '_tab';
     var tab_current = document.getElementById(tabId_current);
     try {
