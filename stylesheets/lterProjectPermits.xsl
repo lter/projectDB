@@ -8,78 +8,62 @@
         <html xmlns="http://www.w3.org/1999/xhtml">
             <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
             <link rel="stylesheet" media="all" type="text/css" href="http://amble.lternet.edu:8080/exist/rest/db/projects/util/web/css/lterProjectDescription.css"/>
-            <title>Reporting for LTER Research Projects</title>
+            <title>Permits for LTER Research Projects</title>
             </head>
-            <body><xsl:call-template name="project_reporting"/>
+            <body><xsl:call-template name="permits"/>
             </body>
         </html>
     </xsl:template>
 
-    <xsl:template name="project_reporting">
-        <div id="lter_projects">
-                 <h2>Reporting for LTER Research Project&#160;
-                <xsl:value-of select="@id"/>
-            </h2>
-                <div class="lter_project">
-                    <h3><xsl:element name="a">
-                            <xsl:attribute name="href">http://amble.lternet.edu:8080/exist/rest/db/projects/util/xquery/getProjectById.xql?_xsl=/db/projects/util/xslt/lterProjectDescription.xsl&amp;id=<xsl:value-of select="@id"/>
-                            </xsl:attribute>
-                            <xsl:value-of select="title"/>
-                        </xsl:element>
-                    </h3>
-                    <br/>
-                <br/>
-                        <em>Investigator:</em>&#160; <xsl:for-each select="creator">
-                            <xsl:value-of select="normalize-space(individualName)"/>
-                            <xsl:if test="position() != last()">, </xsl:if>
-                        </xsl:for-each>
-                    
-                        <xsl:for-each select="reporting">
-                            <xsl:choose><xsl:when test="@date[. !='']">
-                                    <br/>
-                            <br/>
-                                    <h3>Reporting Year: &#160;
-                                        <xsl:value-of select="@date"/>
-                                    </h3>
-                            <br/>
-                                </xsl:when>
-                                <xsl:otherwise><br/>
-                            <br/>
-                                    <h3>Report</h3>
-                                </xsl:otherwise>
-                            </xsl:choose>
-                            <xsl:for-each select="reportSection">
-                                <xsl:if test="sectionTitle[. !='']">
-                                    <div class="report-section">
-                                        <h4 class="reports">Section: 
-                                    <xsl:value-of select="sectionTitle"/>
-                                        </h4>
-                                    </div>
-                                </xsl:if>
-                                <xsl:for-each select="sectionValue">
-                                    <xsl:apply-templates/>
-                                </xsl:for-each>
-                            </xsl:for-each>
-                            <xsl:for-each select="associationMaterial">
-                                <xsl:call-template name="material">
-                                    <xsl:with-param name="category">
-                                        <xsl:value-of select="@category"/>
-                                    </xsl:with-param>
-                                </xsl:call-template>
-                            </xsl:for-each>
-                        </xsl:for-each>
-                 </div>
-        </div>
+    <xsl:template name="permits">
+        <xsl:for-each select="permissions">
+            <h3>Permit for <xsl:value-of select="@date"/><br/>
+                Grantor: <xsl:value-of select="@grantor"/>
+            </h3>
+            <div class="report-section">
+                <xsl:for-each select="description">
+                    <h4 class="reports">
+                        <xsl:value-of select="."/>
+                    </h4>
+                    </xsl:for-each>
+                <xsl:for-each select="temporalCoverage">
+                    <h4>Time Period</h4>
+                    <p class="studyarea">
+                        <xsl:call-template name="tempCover"/>
+                    </p>
+                </xsl:for-each>
+                <xsl:for-each select="permissionCategory">
+                    <xsl:for-each select="categoryTitle">
+                        <h4>
+                        <xsl:value-of select="."/>
+                        </h4>
+                    </xsl:for-each>
+                <xsl:for-each select="categoryValue">
+                    <p>
+                        <xsl:apply-templates/>
+                    </p>
+                    </xsl:for-each>
+                </xsl:for-each>                
+            </div>
+            <xsl:if test="associatedMaterial != ''">
+                <xsl:for-each select="associatedMaterial">
+                    <xsl:call-template name="material">
+                        <xsl:with-param name="category">
+                            <xsl:value-of select="@category"/>
+                            </xsl:with-param>
+                    </xsl:call-template>
+                </xsl:for-each>
+            </xsl:if>
+        </xsl:for-each>
     </xsl:template>
-    
-    
+
     <!-- Templates for textType elements-->
     <xsl:template name="text">
         <xsl:apply-templates/>
     </xsl:template>
     
     <xsl:template match="section">
-        <xsl:apply-templates/>
+            <xsl:apply-templates/>
     </xsl:template>
     
     <xsl:template match="title">
@@ -157,6 +141,22 @@
         </xsl:element>
     </xsl:template>
     
+    <!-- temporal coverage template -->
+    <xsl:template name="tempCover">
+        <xsl:if test="string(rangeOfDates)">
+            <xsl:choose>
+                <xsl:when test="string(rangeOfDates/endDate)">
+                    <xsl:value-of select="rangeOfDates/beginDate/calendarDate"/> to <xsl:value-of select="rangeOfDates/endDate/calendarDate"/>
+                </xsl:when>
+                <xsl:otherwise>ongoing (started <xsl:value-of select="rangeOfDates/beginDate/calendarDate"/>)</xsl:otherwise>
+            </xsl:choose>
+        </xsl:if>
+        <xsl:if test="string(singleDateTime)">
+            <xsl:value-of select="singleDateTime/calendarDate"/>
+        </xsl:if>
+        <xsl:if test="string(ongoing)"> ongoing (started <xsl:value-of select="ongoing/beginDate/calendarDate"/>) </xsl:if>
+    </xsl:template>
+    
     <!-- associated material template -->
     <xsl:template name="material">
         <xsl:param name="category"/>
@@ -182,22 +182,22 @@
             </xsl:when>
             <xsl:when test="$category = 'publication'">
                 <p class="material">Publication:&#160;
-                    <xsl:choose>
+                <xsl:choose>
                         <xsl:when test="distribution/online != ''">
-                            <xsl:element name="a">
-                                <xsl:attribute name="href">
+                        <xsl:element name="a">
+                            <xsl:attribute name="href">
                                     <xsl:value-of select="distribution/online/url"/>
                                 </xsl:attribute>
-                                <xsl:attribute name="title">Link to data set</xsl:attribute>
-                                <xsl:attribute name="target">_blankt</xsl:attribute>
-                                <xsl:value-of select="distribution/online/onlineDescription"/>
-                            </xsl:element>
-                        </xsl:when>
-                        <xsl:when test="distribution/offline != ''">
-                            <xsl:value-of select="normalize-space(offline)"/>
-                        </xsl:when>
-                    </xsl:choose>                    
-                </p>
+                            <xsl:attribute name="title">Link to publication</xsl:attribute>
+                            <xsl:attribute name="target">_blankt</xsl:attribute>
+                            <xsl:value-of select="distribution/online/onlineDescription"/>
+                        </xsl:element>
+                    </xsl:when>
+                    <xsl:when test="distribution/offline != ''">
+                        <xsl:value-of select="normalize-space(offline)"/>
+                    </xsl:when>
+                </xsl:choose>                    
+            </p>
             </xsl:when>
             <xsl:when test="$category = 'image'">
                 <xsl:choose>
@@ -223,6 +223,25 @@
                         </p>
                     </xsl:when>
                 </xsl:choose>                    
+            </xsl:when>
+            <xsl:when test="$category = 'permit'">
+                <p class="material">
+                    <xsl:choose>
+                        <xsl:when test="distribution/online != ''">
+                            <xsl:element name="a">
+                                <xsl:attribute name="href">
+                                    <xsl:value-of select="distribution/online/url"/>
+                                </xsl:attribute>
+                                <xsl:attribute name="title">Link to permit</xsl:attribute>
+                                <xsl:attribute name="target">_blankt</xsl:attribute>
+                                <xsl:value-of select="distribution/online/onlineDescription"/>
+                            </xsl:element>
+                        </xsl:when>
+                        <xsl:when test="distribution/offline != ''">
+                            <xsl:value-of select="normalize-space(offline)"/>
+                        </xsl:when>
+                    </xsl:choose>                    
+                </p>
             </xsl:when>
             <xsl:otherwise>
                 <p class="material">Resource:&#160;
