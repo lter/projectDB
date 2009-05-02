@@ -1,5 +1,5 @@
 <xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:lter="eml://ecoinformatics.org/lter-project-2.1.0" version="1.0">
-    <xsl:output method="xml" omit-xml-declaration="yes" encoding="UTF-8" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" doctype-public="-//W3C//DTD XHTML 1.0         Transitional//EN" indent="yes" media-type="text/xml"/>
+    <xsl:output method="xml" omit-xml-declaration="yes" encoding="UTF-8" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" indent="yes" media-type="text/xml"/>
     <xsl:namespace-alias stylesheet-prefix="lter" result-prefix="xsl"/>
     
      <xsl:template match="/">
@@ -19,41 +19,50 @@
                         <h2>
                             <xsl:value-of select="title"/>
                         </h2>
+                        <noscript>
+                            <p style="text-align: center; margin: 0 auto 1em auto">
+                                <em>(Note: Javascript must be enabled to view contents by section)</em>
+                            </p>
+                        </noscript>
                         <table>
                             <tr>
-                                <th id="project_summary_tab" class="currentTab">
+                                <th id="project_summary_tab" class="currentTab" style="width:16.6%">
                                     <a href="javascript:showSection('project_summary')">Summary</a>
                                 </th>
-                                <th id="project_personnel_tab">
+                                <th id="project_personnel_tab" class="defaultTab" style="width:16.6%">
                                     <a href="javascript:showSection('project_personnel')">Personnel</a>
                                 </th>
-                                <th id="project_studyArea_tab">
+                                <th id="project_studyArea_tab" class="defaultTab" style="width:16.6%">
                                     <a href="javascript:showSection('project_studyArea')">Study Area</a>
                                 </th>
-                                <th id="project_reports_tab">
+                                <th id="project_reports_tab" class="defaultTab" style="width:16.6%">
                                     <a href="javascript:showSection('project_reports')">Reports</a>
                                 </th>
-                                <th id="project_material_tab">
+                                <th id="project_material_tab" class="defaultTab" style="width:16.6%">
                                     <a href="javascript:showSection('project_material')">Ancillary</a>
+                                </th>
+                                <th id="project_showall_tab" class="defaultTab" style="width:17%">
+                                    <a href="javascript:showAll()">Show All</a>
                                 </th>
                             </tr>
                             <tr id="project_summary" style="display:table-row">
-                                <td colspan="5">
+                                <td colspan="6">
                                     <xsl:call-template name="summary"/>
                                 </td>
                             </tr>
-                            <tr id="project_personnel" style="display:none">
-                                <td colspan="5">
+                            <tr id="project_personnel">
+                                <td colspan="6">
                                     <xsl:call-template name="personnel"/>
                                 </td>
                             </tr>
-                            <tr id="project_studyArea" style="display:none">
-                                <td colspan="5">
+                            <tr id="project_studyArea">
+                                <td colspan="6">
                                     <xsl:choose>
                                         <xsl:when test="./studyAreaDescription != '' or ./coverage/geographicCoverage != ''">
                                             <xsl:call-template name="studyArea"/>
                                         </xsl:when>
                                         <xsl:otherwise>
+                                            <h3>Study Area</h3>                                            
                                             <p class="no-info">
                                                 <em>No information available</em>
                                             </p>
@@ -61,13 +70,14 @@
                                     </xsl:choose>
                                 </td>
                             </tr>
-                            <tr id="project_reports" style="display:none">
-                                <td colspan="5">
+                            <tr id="project_reports">
+                                <td colspan="6">
                                     <xsl:choose>
                                         <xsl:when test="reporting != ''">
                                             <xsl:call-template name="reports"/>                                            
                                         </xsl:when>
                                         <xsl:otherwise>
+                                            <h3>Reports</h3>
                                             <p class="no-info">
                                                 <em>No information available</em>
                                             </p>
@@ -75,8 +85,8 @@
                                     </xsl:choose>
                                 </td>
                             </tr>
-                            <tr id="project_material" style="display:none">
-                                <td colspan="5">
+                            <tr id="project_material">
+                                <td colspan="6">
                                     <xsl:choose>
                                         <xsl:when test="associatedMaterial or additionalInfo != ''">
                                             <xsl:if test="additionalInfo != ''">
@@ -95,11 +105,17 @@
                                             </xsl:if>
                                         </xsl:when>
                                         <xsl:otherwise>
+                                            <h3>Additional Information</h3>
                                             <p class="no-info">
                                                 <em>No information available</em>
                                             </p>
                                         </xsl:otherwise>
                                     </xsl:choose>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" class="last">
+                                    &#160;
                                 </td>
                             </tr>
                         </table>

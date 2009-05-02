@@ -21,39 +21,43 @@
                         </h2>
                         <table>
                             <tr>
-                                <th id="project_summary_tab" class="currentTab">
+                                <th id="project_summary_tab" class="currentTab" style="width:16.5%">
                                     <a href="javascript:showSection('project_summary')">Summary</a>
                                 </th>
-                                <th id="project_personnel_tab">
+                                <th id="project_personnel_tab" style="width:16.5%">
                                     <a href="javascript:showSection('project_personnel')">Personnel</a>
                                 </th>
-                                <th id="project_studyArea_tab">
+                                <th id="project_permits_tab" style="width:16.5%">
                                     <a href="javascript:showSection('project_permits')">Permits</a>
                                 </th>
-                                <th id="project_reports_tab">
+                                <th id="project_reports_tab" style="width:16.5%">
                                     <a href="javascript:showSection('project_reports')">Reports</a>
                                 </th>
-                                <th id="project_material_tab">
+                                <th id="project_material_tab" style="width:16.5%">
                                     <a href="javascript:showSection('project_material')">Ancillary</a>
+                                </th>
+                                <th id="project_showall_tab" style="width:17%">
+                                    <a href="javascript:showAll()">Show All</a>
                                 </th>
                             </tr>
                             <tr id="project_summary" style="display:table-row">
-                                <td colspan="5">
+                                <td colspan="6">
                                     <xsl:call-template name="summary"/>
                                 </td>
                             </tr>
-                            <tr id="project_personnel" style="display:none">
-                                <td colspan="5">
+                            <tr id="project_personnel">
+                                <td colspan="6">
                                     <xsl:call-template name="personnel"/>
                                 </td>
                             </tr>
-                            <tr id="project_permits" style="display:none">
-                                <td colspan="5">
+                            <tr id="project_permits">
+                                <td colspan="6">
                                     <xsl:choose>
                                         <xsl:when test="permissions">
                                             <xsl:call-template name="permits"/>
                                         </xsl:when>
                                         <xsl:otherwise>
+                                            <h3>Permits</h3>
                                             <p class="no-info">
                                                 <em>No information available</em>
                                             </p>
@@ -61,13 +65,14 @@
                                     </xsl:choose>
                                 </td>
                             </tr>
-                            <tr id="project_reports" style="display:none">
-                                <td colspan="5">
+                            <tr id="project_reports">
+                                <td colspan="6">
                                     <xsl:choose>
                                         <xsl:when test="reporting != ''">
                                             <xsl:call-template name="reports"/>                                            
                                         </xsl:when>
                                         <xsl:otherwise>
+                                            <h3>Reports</h3>
                                             <p class="no-info">
                                                 <em>No information available</em>
                                             </p>
@@ -75,8 +80,8 @@
                                     </xsl:choose>
                                 </td>
                             </tr>
-                            <tr id="project_material" style="display:none">
-                                <td colspan="5">
+                            <tr id="project_material">
+                                <td colspan="6">
                                     <xsl:choose>
                                         <xsl:when test="associatedMaterial or additionalInfo != ''">
                                             <xsl:if test="additionalInfo != ''">
@@ -95,11 +100,17 @@
                                             </xsl:if>
                                         </xsl:when>
                                         <xsl:otherwise>
+                                            <h3>Additional Information</h3>
                                             <p class="no-info">
                                                 <em>No information available</em>
                                             </p>
                                         </xsl:otherwise>
                                     </xsl:choose>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" class="last">
+                                    &#160;
                                 </td>
                             </tr>
                         </table>
@@ -204,7 +215,8 @@
 
     <xsl:template name="permits">
         <xsl:for-each select="permissions">
-            <h3>Permit for <xsl:value-of select="@date"/><br/>
+            <h3>Permit for <xsl:value-of select="@date"/>
+                <br/>
                 Grantor: <xsl:value-of select="@grantor"/>
             </h3>
             <div class="report-section">
@@ -213,7 +225,7 @@
                         <xsl:value-of select="."/>
                     </h4>
                     </xsl:for-each>
-                <xsl:for-each select="coverage/temporalCoverage">
+                <xsl:for-each select="temporalCoverage">
                     <h4>Time Period</h4>
                     <p class="studyarea">
                         <xsl:call-template name="tempCover"/>
@@ -221,10 +233,14 @@
                 </xsl:for-each>
                 <xsl:for-each select="permissionCategory">
                     <xsl:for-each select="categoryTitle">
-                        <xsl:value-of select="."/>
+                        <h4>
+                            <xsl:value-of select="."/>
+                        </h4>
                     </xsl:for-each>
                 <xsl:for-each select="categoryValue">
-                        <xsl:apply-templates/>
+                    <p>
+                            <xsl:apply-templates/>
+                    </p>
                     </xsl:for-each>
                 </xsl:for-each>                
             </div>
