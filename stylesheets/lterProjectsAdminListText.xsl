@@ -1,9 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Sample xsl to output projects --><xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<!-- Sample xsl to output projects -->
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
     <!-- call main template to generate page layout and scaffolding, which calls topnav and body templates at appropriate points in doc -->
     <xsl:template match="/">
-        <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <html>
+            <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
                 <style type="text/css">
                     body {
                         height: auto;
@@ -34,7 +36,7 @@
                     }
                     #lter_projects a, #lter_projects a:link, #lter_projects a:visited {
                         color: Black;
-                        text-decoration: none; 
+                        text-decoration: underline; 
                     }
                     #lter_projects a:hover {
                         text-decoration: underline;
@@ -52,7 +54,8 @@
                     }</style>
                 <title>LTER Research Projects</title>
             </head>
-            <body><xsl:call-template name="projects_query"/>
+            <body>
+                <xsl:call-template name="projects_query"/>
             </body>
         </html>
     </xsl:template>
@@ -60,7 +63,8 @@
     <xsl:template name="projects_query">
         <div id="lter_projects">
             <h2>Research Projects</h2>
-            <xsl:choose><xsl:when test="projects/project/*">
+            <xsl:choose>
+                <xsl:when test="projects/project/*">
                     <div style="text-align: right; font-style: italic; color: #360; margin-top: -2.5em">
                         (sorty by: <xsl:call-template name="build_xquery">
                             <xsl:with-param name="label">Site</xsl:with-param>
@@ -77,13 +81,15 @@
                     </div>
                     <xsl:for-each select="projects/project">
                         <div class="lter_project">
-                            <h3><xsl:element name="a">
+                            <h3>
+                                <xsl:element name="a">
                                     <xsl:attribute name="href">/exist/rest/db/projects/util/xquery/getProjectById.xql?_xsl=/db/projects/util/xslt/lterProjectAdminDescription.xsl&amp;id=<xsl:value-of select="@id"/>
                                     </xsl:attribute>
                                     <xsl:value-of select="title"/>
                                 </xsl:element>
                             </h3>
-                            <p><em>LTER Site:</em>&#160;
+                            <p>
+                                <em>LTER Site:</em>&#160;
                                 <xsl:value-of select="translate(substring(@id,10,3),'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/>
                             </p>
                             <p class="project_investigator">
@@ -114,7 +120,8 @@
                                 <em>Time Period</em>&#160;
                                 <xsl:for-each select="coverage/temporalCoverage">
                                     <xsl:if test="string(rangeOfDates)">                                
-                                        <xsl:choose><xsl:when test="string(rangeOfDates/endDate)">
+                                        <xsl:choose>
+                                            <xsl:when test="string(rangeOfDates/endDate)">
                                                 <xsl:value-of select="rangeOfDates/beginDate/calendarDate"/> to <xsl:value-of select="rangeOfDates/endDate/calendarDate"/>
                                             </xsl:when>
                                             <xsl:otherwise>ongoing (started <xsl:value-of select="rangeOfDates/beginDate/calendarDate"/>)</xsl:otherwise>
@@ -131,7 +138,8 @@
                         </div>    
                     </xsl:for-each>
                 </xsl:when>
-                <xsl:otherwise><p style="text-align:center; margin-top:3em; margin-bottom: 20em">Sorry ... no projects were found. Please 
+                <xsl:otherwise>
+                    <p style="text-align:center; margin-top:3em; margin-bottom: 20em">Sorry ... no projects were found. Please 
                         <a href="javascript:history.back(1)" style="text-decoration: underline">return to the search form</a> and select broader
                         criteria</p>
                 </xsl:otherwise>

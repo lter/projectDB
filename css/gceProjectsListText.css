@@ -1,7 +1,7 @@
 #content { width: auto; }
 #lter_projects h2  { margin-top: 0; text-align: center; color: #360; font-size: 16px }
 #lter_projects h3  { font-size: 12px; color: #360 }
-#lter_projects a, #lter_projects a:link, #lter_projects a:visited  { color: #360; text-decoration: none }
+#lter_projects a, #lter_projects a:link, #lter_projects a:visited  { color: #360; text-decoration: underline }
 #lter_projects a:hover { text-decoration: underline; color: #660 }
 #lter_projects { width: 90%; background-color: #fff ;margin: 0 8% 1em auto; padding: 8px 20px 2em 20px }
 #lter_projects div.lter_project  { width: 95%; margin: 1em 10px 1em 10px; padding: 10px; border-top: 1px solid #999 }

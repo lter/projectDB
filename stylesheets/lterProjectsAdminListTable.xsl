@@ -1,9 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Sample xsl to output projects --><xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<!-- Sample xsl to output projects -->
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
     <!-- call main template to generate page layout and scaffolding, which calls topnav and body templates at appropriate points in doc -->
     <xsl:template match="/">
-        <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <html>
+            <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
                 <style type="text/css">
                     body {
                         height: auto;
@@ -24,7 +26,7 @@
                     }
                     #lter_projects td a, #lter_projects td a:link, #lter_projects td a:visited {
                         color: Black;
-                        text-decoration: none;
+                        text-decoration: underline;
                     }
                     #lter_projects th a, #lter_projects th a:link, #lter_projects th a:visited {
                         color: Black;
@@ -58,7 +60,8 @@
                     }</style>
                 <title>LTER Research Projects</title>
             </head>
-            <body><xsl:call-template name="projects_query"/>
+            <body>
+                <xsl:call-template name="projects_query"/>
             </body>
         </html>
     </xsl:template>
@@ -66,18 +69,24 @@
     <xsl:template name="projects_query">
         <div id="lter_projects">
             <h2>LTER Research Projects</h2>
-            <xsl:choose><xsl:when test="projects/project/*">
-                    <table><tr><th><xsl:call-template name="build_xquery">
+            <xsl:choose>
+                <xsl:when test="projects/project/*">
+                    <table>
+                        <tr>
+                            <th>
+                                <xsl:call-template name="build_xquery">
                                     <xsl:with-param name="label">Site</xsl:with-param>
                                     <xsl:with-param name="sortBy">id</xsl:with-param>
                                 </xsl:call-template>
                             </th>
-                            <th><xsl:call-template name="build_xquery">
+                            <th>
+                                <xsl:call-template name="build_xquery">
                                     <xsl:with-param name="label">Project Name</xsl:with-param>
                                     <xsl:with-param name="sortBy">title</xsl:with-param>
                                 </xsl:call-template>
                             </th>
-                            <th><xsl:call-template name="build_xquery">
+                            <th>
+                                <xsl:call-template name="build_xquery">
                                     <xsl:with-param name="label">Investigator</xsl:with-param>
                                     <xsl:with-param name="sortBy">surName</xsl:with-param>
                                 </xsl:call-template>
@@ -86,9 +95,12 @@
                         </tr>
                         <xsl:for-each select="projects/project">
                             <!-- <xsl:sort select="title"/>-->
-                            <tr><td><xsl:value-of select="translate(substring(@id,10,3),'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/>
+                            <tr>
+                                <td>
+                                    <xsl:value-of select="translate(substring(@id,10,3),'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/>
                                 </td>
-                                <td><xsl:element name="a">
+                                <td>
+                                    <xsl:element name="a">
                                         <xsl:attribute name="href">
                                             /exist/rest/db/projects/util/xquery/getProjectById.xql?id=<xsl:value-of select="@id"/>&amp;_xsl=http://amble.lternet.edu:8080/exist/rest/db/projects/util/xslt/lterProjectAdminDescription.xsl 
                                         </xsl:attribute>
@@ -111,7 +123,8 @@
                         </xsl:for-each>
                     </table>
                 </xsl:when>
-                <xsl:otherwise><p style="text-align:center; margin-top:3em; margin-bottom: 20em">Sorry ... no projects were found.
+                <xsl:otherwise>
+                    <p style="text-align:center; margin-top:3em; margin-bottom: 20em">Sorry ... no projects were found.
                         Please <a href="javascript:history.back(1)">return to the search form</a> and select broader
                         criteria</p>
                 </xsl:otherwise>
