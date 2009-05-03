@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:lter="eml://ecoinformatics.org/lter-project-2.1.0" version="1.0">
+<xsl:stylesheet xmlns:lter="eml://ecoinformatics.org/lter-project-2.1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml" version="1.0">
     <xsl:output method="xml" omit-xml-declaration="yes" encoding="UTF-8" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" doctype-public="-//W3C//DTD XHTML 1.0         Transitional//EN" indent="yes" media-type="text/xml"/>
     <xsl:namespace-alias stylesheet-prefix="lter" result-prefix="xsl"/>
     
     <!-- call main template to generate page layout and scaffolding, which calls topnav and body templates at appropriate points in doc -->
-    <xsl:template xmlns:lter="eml://ecoinformatics.org/lter-project-2.1.0" match="lter:researchProject">
-        <html xmlns="http://www.w3.org/1999/xhtml">
-            <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <xsl:template match="lter:researchProject">
+        <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
             <link rel="stylesheet" media="all" type="text/css" href="http://amble.lternet.edu:8080/exist/rest/db/projects/util/web/css/lterProjectDescription.css"/>
             <title>Permits for LTER Research Projects</title>
             </head>
@@ -34,13 +33,11 @@
                 </xsl:for-each>
                 <xsl:for-each select="permissionCategory">
                     <xsl:for-each select="categoryTitle">
-                        <h4>
-                        <xsl:value-of select="."/>
+                        <h4><xsl:value-of select="."/>
                         </h4>
                     </xsl:for-each>
                 <xsl:for-each select="categoryValue">
-                    <p>
-                        <xsl:apply-templates/>
+                    <p><xsl:apply-templates/>
                     </p>
                     </xsl:for-each>
                 </xsl:for-each>                
@@ -144,8 +141,7 @@
     <!-- temporal coverage template -->
     <xsl:template name="tempCover">
         <xsl:if test="string(rangeOfDates)">
-            <xsl:choose>
-                <xsl:when test="string(rangeOfDates/endDate)">
+            <xsl:choose><xsl:when test="string(rangeOfDates/endDate)">
                     <xsl:value-of select="rangeOfDates/beginDate/calendarDate"/> to <xsl:value-of select="rangeOfDates/endDate/calendarDate"/>
                 </xsl:when>
                 <xsl:otherwise>ongoing (started <xsl:value-of select="rangeOfDates/beginDate/calendarDate"/>)</xsl:otherwise>
@@ -160,11 +156,9 @@
     <!-- associated material template -->
     <xsl:template name="material">
         <xsl:param name="category"/>
-        <xsl:choose>
-            <xsl:when test="$category = 'data'">
+        <xsl:choose><xsl:when test="$category = 'data'">
                 <p class="material">Dataset:&#160;
-                    <xsl:choose>
-                        <xsl:when test="distribution/online != ''">
+                    <xsl:choose><xsl:when test="distribution/online != ''">
                             <xsl:element name="a">
                                 <xsl:attribute name="href">
                                     <xsl:value-of select="distribution/online/url"/>
@@ -182,8 +176,7 @@
             </xsl:when>
             <xsl:when test="$category = 'publication'">
                 <p class="material">Publication:&#160;
-                <xsl:choose>
-                        <xsl:when test="distribution/online != ''">
+                <xsl:choose><xsl:when test="distribution/online != ''">
                         <xsl:element name="a">
                             <xsl:attribute name="href">
                                     <xsl:value-of select="distribution/online/url"/>
@@ -200,8 +193,7 @@
             </p>
             </xsl:when>
             <xsl:when test="$category = 'image'">
-                <xsl:choose>
-                    <xsl:when test="distribution/online != ''">
+                <xsl:choose><xsl:when test="distribution/online != ''">
                         <p class="material">Image: <xsl:value-of select="distribution/online/onlineDescription"/>
                         </p>
                         <div class="image">
@@ -226,8 +218,7 @@
             </xsl:when>
             <xsl:when test="$category = 'permit'">
                 <p class="material">
-                    <xsl:choose>
-                        <xsl:when test="distribution/online != ''">
+                    <xsl:choose><xsl:when test="distribution/online != ''">
                             <xsl:element name="a">
                                 <xsl:attribute name="href">
                                     <xsl:value-of select="distribution/online/url"/>
@@ -243,18 +234,15 @@
                     </xsl:choose>                    
                 </p>
             </xsl:when>
-            <xsl:otherwise>
-                <p class="material">Resource:&#160;
-                    <xsl:choose>
-                        <xsl:when test="distribution/online != ''">
+            <xsl:otherwise><p class="material">Resource:&#160;
+                    <xsl:choose><xsl:when test="distribution/online != ''">
                             <xsl:element name="a">
                                 <xsl:attribute name="href">
                                     <xsl:value-of select="distribution/online/url"/>
                                 </xsl:attribute>
                                 <xsl:attribute name="title">Link to resource</xsl:attribute>
                                 <xsl:attribute name="target">_blankt</xsl:attribute>
-                                <xsl:choose>
-                                    <xsl:when test="distribution/online/onlineDescription != ''">
+                                <xsl:choose><xsl:when test="distribution/online/onlineDescription != ''">
                                         <xsl:value-of select="distribution/online/onlineDescription"/>                                        
                                     </xsl:when>
                                     <xsl:otherwise>Web link to online resource</xsl:otherwise>

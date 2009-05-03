@@ -5,6 +5,7 @@
     
      <xsl:template name="main">
          <xsl:param name="css"/>
+         <xsl:param name="javascript"/>
          <xsl:param name="navLabel"/>
          <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
                 <link rel="icon" type="image/x-icon" href="http://gce-lter.marsci.uga.edu/favicon.ico"/>
@@ -19,6 +20,14 @@
                         <xsl:value-of select="$css"/>
                     </xsl:attribute>
                 </xsl:element>
+                <xsl:if test="$javascript != ''">
+                    <xsl:element name="script">
+                        <xsl:attribute name="type">text/javascript</xsl:attribute>
+                        <xsl:attribute name="src">
+                            <xsl:value-of select="$javascript"/>
+                        </xsl:attribute>
+                    </xsl:element>
+                </xsl:if>
                 <script type="text/javascript" src="/exist/rest/db/projects/util/web/js/gce/ajaxUtils.js"/>
                 <script type="text/javascript" src="/exist/rest/db/projects/util/web/js/gce/ajaxLoadLeftNav.js"/>
                 <title>Georgia Coastal Ecosystems LTER</title>
@@ -33,7 +42,8 @@
                             </div>
                             <div id="top-navbar">
                                 <a href="http://gce-lter.marsci.uga.edu/">Home</a> &gt; <a href="http://gce-lter.marsci.uga.edu/public/research/research.htm">Research</a> &gt; 
-                                <a href="http://amble.lternet.edu:8080/exist/rest/db/projects/util/xquery/getProjectsQueryForm.xql?siteId=gce&amp;xslUrl=http://amble.lternet.edu:8080/exist/rest/db/projects/util/xslt/gceQueryForm.xsl">Research Project Search</a>
+                                <a href="http://amble.lternet.edu:8080/exist/rest/db/projects/util/xquery/getProjects.xql?siteId=gce&amp;_xsl=http://amble.lternet.edu:8080/exist/rest/db/projects/util/xslt/gceProjectsListText.xsl">Projects</a> &gt;
+                                <a href="http://amble.lternet.edu:8080/exist/rest/db/projects/util/xquery/getProjectsQueryForm.xql?siteId=gce&amp;xslUrl=http://amble.lternet.edu:8080/exist/rest/db/projects/util/xslt/gceQueryForm.xsl">Search Project</a>
                                 <xsl:if test="string-length($navLabel)&gt;0">
                                     <xsl:text> &gt; </xsl:text>
                                     <span class="current-page">

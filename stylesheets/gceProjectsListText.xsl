@@ -32,7 +32,7 @@
                     <xsl:for-each select="projects/project">
                         <div class="lter_project">
                             <h3><xsl:element name="a">
-                                    <xsl:attribute name="href">/exist/rest/db/projects/util/xquery/getProjectById.xql?_xsl=/db/projects/util/xslt/capProjectHTML.xsl&amp;id=<xsl:value-of select="@id"/>
+                                    <xsl:attribute name="href">/exist/rest/db/projects/util/xquery/getProjectById.xql?id=<xsl:value-of select="@id"/>&amp;_xsl=/db/projects/util/xslt/gceProjectDescription.xsl&amp;id=<xsl:value-of select="@id"/>
                                     </xsl:attribute>
                                     <xsl:value-of select="title"/>
                                 </xsl:element>

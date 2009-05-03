@@ -16,7 +16,7 @@
                 <h2>Search for LTER Research Projects</h2>
                 <table><tr><th>LTER Site</th>
                         <td><select name="siteId" size="1">
-                                <option value="">&lt; Any site &gt;</option>
+                                <option selected="selected" value="">&lt; Any site &gt;</option>
                                 <option value="AND">Andrews LTER</option>
                                 <option value="ARC">Arctic LTER</option>
                                 <option value="BES">Baltimore Ecosystem Study</option>
@@ -26,7 +26,7 @@
                                 <option value="CDR">Cedar Creek Natural History Area</option>
                                 <option value="CWT">Coweeta LTER</option>
                                 <option value="FCE">Florida Coastal Everglades LTER</option>
-                                <option selected="selected" value="GCE">Georgia Coastal Ecosystems LTER</option>
+                                <option value="GCE">Georgia Coastal Ecosystems LTER</option>
                                 <option value="HBR">Hubbard Brook LTER</option>
                                 <option value="HFR">Harvard Forest LTER</option>
                                 <option value="JRN">Jornada Basin LTER</option>
@@ -50,16 +50,16 @@
                     </tr>
                     <tr><th>Associated Person</th>
                         <td>Surname <select name="surName" size="1">
-                                <option selected="selected" value="">&lt; Any &gt;</option>
-                                <xsl:for-each select="surNames/surName">
-                                    <xsl:element name="option">
-                                        <xsl:attribute name="value">
-                                            <xsl:value-of select="."/>
-                                        </xsl:attribute>
+                            <option selected="selected" value="">&lt; Any &gt;</option>
+                            <xsl:for-each select="surNames/surName">
+                                <xsl:element name="option">
+                                    <xsl:attribute name="value">
                                         <xsl:value-of select="."/>
-                                    </xsl:element>
-                                </xsl:for-each>
-                            </select>
+                                    </xsl:attribute>
+                                    <xsl:value-of select="."/>
+                                </xsl:element>
+                            </xsl:for-each>
+                        </select>
                         </td>
                     </tr>
                     <tr><th>Subject Keyword</th>

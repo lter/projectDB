@@ -1,111 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:lter="eml://ecoinformatics.org/lter-project-2.1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml" version="1.0">
-    <xsl:output method="xml" omit-xml-declaration="yes" encoding="UTF-8" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" doctype-public="-//W3C//DTD XHTML 1.0         Transitional//EN" indent="yes" media-type="text/xml"/>
+    <xsl:import href="http://amble.lternet.edu:8080/exist/rest/db/projects/util/xslt/gceMainTemplate.xsl"/>
+    <xsl:output method="xml" omit-xml-declaration="yes" encoding="UTF-8" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" indent="yes" media-type="text/xml"/>
     <xsl:namespace-alias stylesheet-prefix="lter" result-prefix="xsl"/>
     
-     <xsl:template match="/">
-
-        <xsl:for-each select="lter:researchProject">
-            <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-                    <link rel="stylesheet" media="all" type="text/css" href="http://amble.lternet.edu:8080/exist/rest/db/projects/util/web/css/lterProjectDescription.css"/>
-                    <script type="text/javascript" language="javascript" src="http://amble.lternet.edu:8080/exist/rest/db/projects/util/web/js/lterProjectAdminDescription.js">
-                         <xsl:comment>prevent self-closing script tag</xsl:comment>
-                     </script>
-                    <title>LTER Research Project Description</title>
-                </head>
-                <body><div id="lter_project">
-                        <h2><xsl:value-of select="title"/>
-                        </h2>
-                        <table><tr><th id="project_summary_tab" class="currentTab" style="width:16.5%">
-                                    <a href="javascript:showSection('project_summary')">Summary</a>
-                                </th>
-                                <th id="project_personnel_tab" style="width:16.5%">
-                                    <a href="javascript:showSection('project_personnel')">Personnel</a>
-                                </th>
-                                <th id="project_permits_tab" style="width:16.5%">
-                                    <a href="javascript:showSection('project_permits')">Permits</a>
-                                </th>
-                                <th id="project_reports_tab" style="width:16.5%">
-                                    <a href="javascript:showSection('project_reports')">Reports</a>
-                                </th>
-                                <th id="project_material_tab" style="width:16.5%">
-                                    <a href="javascript:showSection('project_material')">Ancillary</a>
-                                </th>
-                                <th id="project_showall_tab" style="width:17%">
-                                    <a href="javascript:showAll()">Show All</a>
-                                </th>
-                            </tr>
-                            <tr id="project_summary" style="display:table-row">
-                                <td colspan="6">
-                                    <xsl:call-template name="summary"/>
-                                </td>
-                            </tr>
-                            <tr id="project_personnel">
-                                <td colspan="6">
-                                    <xsl:call-template name="personnel"/>
-                                </td>
-                            </tr>
-                            <tr id="project_permits">
-                                <td colspan="6">
-                                    <xsl:choose><xsl:when test="permissions">
-                                            <xsl:call-template name="permits"/>
-                                        </xsl:when>
-                                        <xsl:otherwise><h3>Permits</h3>
-                                            <p class="no-info">
-                                                <em>No information available</em>
-                                            </p>
-                                        </xsl:otherwise>
-                                    </xsl:choose>
-                                </td>
-                            </tr>
-                            <tr id="project_reports">
-                                <td colspan="6">
-                                    <xsl:choose><xsl:when test="reporting != ''">
-                                            <xsl:call-template name="reports"/>                                            
-                                        </xsl:when>
-                                        <xsl:otherwise><h3>Reports</h3>
-                                            <p class="no-info">
-                                                <em>No information available</em>
-                                            </p>
-                                        </xsl:otherwise>
-                                    </xsl:choose>
-                                </td>
-                            </tr>
-                            <tr id="project_material">
-                                <td colspan="6">
-                                    <xsl:choose><xsl:when test="associatedMaterial or additionalInfo != ''">
-                                            <xsl:if test="additionalInfo != ''">
-                                                <h3>Additional Information</h3>
-                                                <xsl:for-each select="additionalInfo">
-                                                    <xsl:apply-templates/>                                                    
-                                                </xsl:for-each>
-                                            </xsl:if>
-                                            <xsl:if test="associatedMaterial != ''">
-                                                <h3>Associated Material</h3>
-                                                <xsl:for-each select="associatedMaterial">
-                                                    <xsl:call-template name="material">
-                                                        <xsl:with-param name="category" select="@category"/>
-                                                    </xsl:call-template>
-                                                </xsl:for-each>
-                                            </xsl:if>
-                                        </xsl:when>
-                                        <xsl:otherwise><h3>Additional Information</h3>
-                                            <p class="no-info">
-                                                <em>No information available</em>
-                                            </p>
-                                        </xsl:otherwise>
-                                    </xsl:choose>
-                                </td>
-                            </tr>
-                            <tr><td colspan="6" class="last">
-                                    &#160;
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </body>
-            </html>
-        </xsl:for-each>
+    <!-- call main template to generate page layout and scaffolding, which calls topnav and body templates at appropriate points in doc -->
+    <xsl:template match="/">
+        <xsl:call-template name="main">
+            <xsl:with-param name="css">/exist/rest/db/projects/util/web/css/lterProjectDescription.css</xsl:with-param>
+            <xsl:with-param name="javascript">/exist/rest/db/projects/util/web/js/lterProjectDescription.js</xsl:with-param>
+            <xsl:with-param name="navLabel">Search Results</xsl:with-param>
+        </xsl:call-template>
+    </xsl:template>
+    
+    <xsl:template name="projects_query">
+        <xsl:for-each select="lter:researchProject">           
+            <div id="lter_project">
+                <h2><xsl:value-of select="title"/>
+                </h2>
+                <noscript><p style="text-align: center; margin: 0 auto 1em auto">
+                        <em>(Note: Javascript must be enabled to view contents by section)</em>
+                    </p>
+                </noscript>
+                <table><tr><th id="project_summary_tab" class="currentTab" style="width:16.6%">
+                            <a href="javascript:showSection('project_summary')" title="Display summary information for this research project">Summary</a>
+                        </th>
+                        <th id="project_personnel_tab" class="defaultTab" style="width:16.6%">
+                            <a href="javascript:showSection('project_personnel')" title="Display all personnel associated with this research project">Personnel</a>
+                        </th>
+                        <th id="project_studyArea_tab" class="defaultTab" style="width:16.6%">
+                            <a href="javascript:showSection('project_studyArea')" title="Display information about the study area for this research project">Study Area</a>
+                        </th>
+                        <th id="project_reports_tab" class="defaultTab" style="width:16.6%">
+                            <a href="javascript:showSection('project_reports')" title="Display progress reports from this research project">Reports</a>
+                        </th>
+                        <th id="project_material_tab" class="defaultTab" style="width:16.6%">
+                            <a href="javascript:showSection('project_material')" title="Display additional information about this research project">Ancillary</a>
+                        </th>
+                        <th id="project_showall_tab" class="defaultTab" style="width:17%">
+                            <a href="javascript:showAll()" title="Display the entire research project report">Show All</a>
+                        </th>
+                    </tr>
+                    <tr id="project_summary" style="display:table-row">
+                        <td colspan="6">
+                            <xsl:call-template name="summary"/>
+                        </td>
+                    </tr>
+                    <tr id="project_personnel">
+                        <td colspan="6">
+                            <xsl:call-template name="personnel"/>
+                        </td>
+                    </tr>
+                    <tr id="project_studyArea">
+                        <td colspan="6">
+                            <xsl:choose><xsl:when test="./studyAreaDescription != '' or ./coverage/geographicCoverage != ''">
+                                    <xsl:call-template name="studyArea"/>
+                                </xsl:when>
+                                <xsl:otherwise><h3>Study Area</h3>                                            
+                                    <p class="no-info">
+                                        <em>No information available</em>
+                                    </p>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </td>
+                    </tr>
+                    <tr id="project_reports">
+                        <td colspan="6">
+                            <xsl:choose><xsl:when test="reporting != ''">
+                                    <xsl:call-template name="reports"/>                                            
+                                </xsl:when>
+                                <xsl:otherwise><h3>Reports</h3>
+                                    <p class="no-info">
+                                        <em>No information available</em>
+                                    </p>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </td>
+                    </tr>
+                    <tr id="project_material">
+                        <td colspan="6">
+                            <xsl:choose><xsl:when test="associatedMaterial or additionalInfo != ''">
+                                    <xsl:if test="additionalInfo != ''">
+                                        <h3>Additional Information</h3>
+                                        <xsl:for-each select="additionalInfo">
+                                            <xsl:apply-templates/>                                                    
+                                        </xsl:for-each>
+                                    </xsl:if>
+                                    <xsl:if test="associatedMaterial != ''">
+                                        <h3>Associated Material</h3>
+                                        <xsl:for-each select="associatedMaterial">
+                                            <xsl:call-template name="material">
+                                                <xsl:with-param name="category" select="@category"/>
+                                            </xsl:call-template>
+                                        </xsl:for-each>
+                                    </xsl:if>
+                                </xsl:when>
+                                <xsl:otherwise><h3>Additional Information</h3>
+                                    <p class="no-info">
+                                        <em>No information available</em>
+                                    </p>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </td>
+                    </tr>
+                    <tr><td colspan="6" class="last">
+                            &#160;
+                        </td>
+                    </tr>
+                </table>
+            </div>
+          </xsl:for-each>
     </xsl:template>
 
     <xsl:template name="summary">
@@ -197,41 +201,40 @@
         </xsl:if>
     </xsl:template>
 
-    <xsl:template name="permits">
-        <xsl:for-each select="permissions">
-            <h3>Permit for <xsl:value-of select="@date"/>
-                <br/>
-                Grantor: <xsl:value-of select="@grantor"/>
-            </h3>
-            <div class="report-section">
-                <xsl:for-each select="description">
-                    <h4 class="reports">
-                        <xsl:value-of select="."/>
-                    </h4>
-                    </xsl:for-each>
-                <xsl:for-each select="temporalCoverage">
-                    <h4>Time Period</h4>
+    <xsl:template name="studyArea">
+        <xsl:for-each select="coverage/geographicCoverage">
+            <h3>Overall Geographic Coverage</h3>
+            <xsl:call-template name="geoCover"/>            
+        </xsl:for-each>
+        <xsl:for-each select="studyAreaDescription">
+            <h3>Study Site Descriptions</h3>
+            <xsl:if test="descriptor != ''">
+                <h4>Type Descriptors</h4>
+                <xsl:for-each select="descriptor">
                     <p class="studyarea">
-                        <xsl:call-template name="tempCover"/>
+                        <xsl:value-of select="@name"/>: 
+                        <xsl:for-each select="descriptorValue">
+                            <xsl:value-of select="."/>
+                            <xsl:if test="position() != last()">, </xsl:if>
+                        </xsl:for-each>
                     </p>
                 </xsl:for-each>
-                <xsl:for-each select="permissionCategory">
-                    <xsl:for-each select="categoryTitle">
-                        <h4><xsl:value-of select="."/>
-                        </h4>
-                    </xsl:for-each>
-                <xsl:for-each select="categoryValue">
-                    <p><xsl:apply-templates/>
-                    </p>
-                    </xsl:for-each>
-                </xsl:for-each>                
-            </div>
+            </xsl:if>
+            <xsl:for-each select="coverage/geographicCoverage">
+                <h4>Geographic Location</h4>
+                <xsl:call-template name="geoCover"/>
+            </xsl:for-each>
+            <xsl:for-each select="coverage/temporalCoverage">
+                <h4>Time Period</h4>
+                <p class="studyarea">
+                    <xsl:call-template name="tempCover"/>
+                </p>
+            </xsl:for-each>
             <xsl:if test="associatedMaterial != ''">
+                <h4>Associated Material</h4>
                 <xsl:for-each select="associatedMaterial">
                     <xsl:call-template name="material">
-                        <xsl:with-param name="category">
-                            <xsl:value-of select="@category"/>
-                            </xsl:with-param>
+                        <xsl:with-param name="category" select="@category"/>
                     </xsl:call-template>
                 </xsl:for-each>
             </xsl:if>
@@ -462,7 +465,7 @@
                             <xsl:attribute name="href">
                                     <xsl:value-of select="distribution/online/url"/>
                                 </xsl:attribute>
-                            <xsl:attribute name="title">Link to publication</xsl:attribute>
+                            <xsl:attribute name="title">Link to data set</xsl:attribute>
                             <xsl:attribute name="target">_blankt</xsl:attribute>
                             <xsl:value-of select="distribution/online/onlineDescription"/>
                         </xsl:element>
@@ -496,24 +499,6 @@
                         </p>
                     </xsl:when>
                 </xsl:choose>                    
-            </xsl:when>
-            <xsl:when test="$category = 'permit'">
-                <p class="material">
-                    <xsl:choose><xsl:when test="distribution/online != ''">
-                            <xsl:element name="a">
-                                <xsl:attribute name="href">
-                                    <xsl:value-of select="distribution/online/url"/>
-                                </xsl:attribute>
-                                <xsl:attribute name="title">Link to permit</xsl:attribute>
-                                <xsl:attribute name="target">_blankt</xsl:attribute>
-                                <xsl:value-of select="distribution/online/onlineDescription"/>
-                            </xsl:element>
-                        </xsl:when>
-                        <xsl:when test="distribution/offline != ''">
-                            <xsl:value-of select="normalize-space(offline)"/>
-                        </xsl:when>
-                    </xsl:choose>                    
-                </p>
             </xsl:when>
             <xsl:otherwise><p class="material">Resource:&#160;
                     <xsl:choose><xsl:when test="distribution/online != ''">

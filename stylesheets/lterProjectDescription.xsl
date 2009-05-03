@@ -1,48 +1,42 @@
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:lter="eml://ecoinformatics.org/lter-project-2.1.0" version="1.0">
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:lter="eml://ecoinformatics.org/lter-project-2.1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml" version="1.0">
     <xsl:output method="xml" omit-xml-declaration="yes" encoding="UTF-8" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" indent="yes" media-type="text/xml"/>
     <xsl:namespace-alias stylesheet-prefix="lter" result-prefix="xsl"/>
     
      <xsl:template match="/">
 
         <xsl:for-each select="lter:researchProject">
-            <html>
-                <head>
-                    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+            <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
                     <link rel="stylesheet" media="all" type="text/css" href="http://amble.lternet.edu:8080/exist/rest/db/projects/util/web/css/lterProjectDescription.css"/>
                     <script type="text/javascript" language="javascript" src="http://amble.lternet.edu:8080/exist/rest/db/projects/util/web/js/lterProjectDescription.js">
                          <xsl:comment>prevent self-closing script tag</xsl:comment>
                      </script>
                     <title>LTER Research Project Description</title>
                 </head>
-                <body>
-                    <div id="lter_project">
-                        <h2>
-                            <xsl:value-of select="title"/>
+                <body><div id="lter_project">
+                        <h2><xsl:value-of select="title"/>
                         </h2>
-                        <noscript>
-                            <p style="text-align: center; margin: 0 auto 1em auto">
+                        <noscript><p style="text-align: center; margin: 0 auto 1em auto">
                                 <em>(Note: Javascript must be enabled to view contents by section)</em>
                             </p>
                         </noscript>
-                        <table>
-                            <tr>
-                                <th id="project_summary_tab" class="currentTab" style="width:16.6%">
-                                    <a href="javascript:showSection('project_summary')">Summary</a>
+                        <table><tr><th id="project_summary_tab" class="currentTab" style="width:16.6%">
+                                    <a href="javascript:showSection('project_summary')" title="Display summary information for this research project">Summary</a>
                                 </th>
                                 <th id="project_personnel_tab" class="defaultTab" style="width:16.6%">
-                                    <a href="javascript:showSection('project_personnel')">Personnel</a>
+                                    <a href="javascript:showSection('project_personnel')" title="Display all personnel associated with this research project">Personnel</a>
                                 </th>
                                 <th id="project_studyArea_tab" class="defaultTab" style="width:16.6%">
-                                    <a href="javascript:showSection('project_studyArea')">Study Area</a>
+                                    <a href="javascript:showSection('project_studyArea')" title="Display information about the study area for this research project">Study Area</a>
                                 </th>
                                 <th id="project_reports_tab" class="defaultTab" style="width:16.6%">
-                                    <a href="javascript:showSection('project_reports')">Reports</a>
+                                    <a href="javascript:showSection('project_reports')" title="Display progress reports from this research project">Reports</a>
                                 </th>
                                 <th id="project_material_tab" class="defaultTab" style="width:16.6%">
-                                    <a href="javascript:showSection('project_material')">Ancillary</a>
+                                    <a href="javascript:showSection('project_material')" title="Display additional information about this research project">Ancillary</a>
                                 </th>
                                 <th id="project_showall_tab" class="defaultTab" style="width:17%">
-                                    <a href="javascript:showAll()">Show All</a>
+                                    <a href="javascript:showAll()" title="Display the entire research project report">Show All</a>
                                 </th>
                             </tr>
                             <tr id="project_summary" style="display:table-row">
@@ -57,12 +51,10 @@
                             </tr>
                             <tr id="project_studyArea">
                                 <td colspan="6">
-                                    <xsl:choose>
-                                        <xsl:when test="./studyAreaDescription != '' or ./coverage/geographicCoverage != ''">
+                                    <xsl:choose><xsl:when test="./studyAreaDescription != '' or ./coverage/geographicCoverage != ''">
                                             <xsl:call-template name="studyArea"/>
                                         </xsl:when>
-                                        <xsl:otherwise>
-                                            <h3>Study Area</h3>                                            
+                                        <xsl:otherwise><h3>Study Area</h3>                                            
                                             <p class="no-info">
                                                 <em>No information available</em>
                                             </p>
@@ -72,12 +64,10 @@
                             </tr>
                             <tr id="project_reports">
                                 <td colspan="6">
-                                    <xsl:choose>
-                                        <xsl:when test="reporting != ''">
+                                    <xsl:choose><xsl:when test="reporting != ''">
                                             <xsl:call-template name="reports"/>                                            
                                         </xsl:when>
-                                        <xsl:otherwise>
-                                            <h3>Reports</h3>
+                                        <xsl:otherwise><h3>Reports</h3>
                                             <p class="no-info">
                                                 <em>No information available</em>
                                             </p>
@@ -87,8 +77,7 @@
                             </tr>
                             <tr id="project_material">
                                 <td colspan="6">
-                                    <xsl:choose>
-                                        <xsl:when test="associatedMaterial or additionalInfo != ''">
+                                    <xsl:choose><xsl:when test="associatedMaterial or additionalInfo != ''">
                                             <xsl:if test="additionalInfo != ''">
                                                 <h3>Additional Information</h3>
                                                 <xsl:for-each select="additionalInfo">
@@ -104,8 +93,7 @@
                                                 </xsl:for-each>
                                             </xsl:if>
                                         </xsl:when>
-                                        <xsl:otherwise>
-                                            <h3>Additional Information</h3>
+                                        <xsl:otherwise><h3>Additional Information</h3>
                                             <p class="no-info">
                                                 <em>No information available</em>
                                             </p>
@@ -113,8 +101,7 @@
                                     </xsl:choose>
                                 </td>
                             </tr>
-                            <tr>
-                                <td colspan="6" class="last">
+                            <tr><td colspan="6" class="last">
                                     &#160;
                                 </td>
                             </tr>
@@ -150,8 +137,7 @@
         <h3 class="inline">Lead Investigator(s): </h3>
         <p class="inline">
             <xsl:for-each select="creator">
-                <xsl:choose>
-                    <xsl:when test="references != ''">
+                <xsl:choose><xsl:when test="references != ''">
                         <xsl:variable name="ref">
                             <xsl:value-of select="references"/>
                         </xsl:variable>
@@ -159,8 +145,7 @@
                             <xsl:value-of select="normalize-space(individualName)"/>
                         </xsl:for-each>
                     </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:value-of select="normalize-space(individualName)"/>                  
+                    <xsl:otherwise><xsl:value-of select="normalize-space(individualName)"/>                  
                     </xsl:otherwise>
                 </xsl:choose>                
                 <xsl:if test="position() != last()">, </xsl:if>
@@ -192,8 +177,7 @@
         <h3>Lead Project Investigators</h3>
         <xsl:for-each select="creator">
             <p class="party">
-                <xsl:choose>
-                    <xsl:when test="references != ''">
+                <xsl:choose><xsl:when test="references != ''">
                         <xsl:variable name="ref">
                             <xsl:value-of select="references"/>
                         </xsl:variable>
@@ -201,8 +185,7 @@
                             <xsl:call-template name="rp"/>
                         </xsl:for-each>
                     </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:call-template name="rp"/>                        
+                    <xsl:otherwise><xsl:call-template name="rp"/>                        
                     </xsl:otherwise>
                 </xsl:choose>                
             </p>                    
@@ -442,8 +425,7 @@
     <!-- temporal coverage template -->
     <xsl:template name="tempCover">
         <xsl:if test="string(rangeOfDates)">
-            <xsl:choose>
-                <xsl:when test="string(rangeOfDates/endDate)">
+            <xsl:choose><xsl:when test="string(rangeOfDates/endDate)">
                     <xsl:value-of select="rangeOfDates/beginDate/calendarDate"/> to <xsl:value-of select="rangeOfDates/endDate/calendarDate"/>
                 </xsl:when>
                 <xsl:otherwise>ongoing (started <xsl:value-of select="rangeOfDates/beginDate/calendarDate"/>)</xsl:otherwise>
@@ -458,11 +440,9 @@
     <!-- associated material template -->
     <xsl:template name="material">
         <xsl:param name="category"/>
-        <xsl:choose>
-            <xsl:when test="$category = 'data'">
+        <xsl:choose><xsl:when test="$category = 'data'">
                 <p class="material">Dataset:&#160;
-                    <xsl:choose>
-                        <xsl:when test="distribution/online != ''">
+                    <xsl:choose><xsl:when test="distribution/online != ''">
                             <xsl:element name="a">
                                 <xsl:attribute name="href">
                                     <xsl:value-of select="distribution/online/url"/>
@@ -480,8 +460,7 @@
             </xsl:when>
             <xsl:when test="$category = 'publication'">
                 <p class="material">Publication:&#160;
-                <xsl:choose>
-                        <xsl:when test="distribution/online != ''">
+                <xsl:choose><xsl:when test="distribution/online != ''">
                         <xsl:element name="a">
                             <xsl:attribute name="href">
                                     <xsl:value-of select="distribution/online/url"/>
@@ -498,8 +477,7 @@
             </p>
             </xsl:when>
             <xsl:when test="$category = 'image'">
-                <xsl:choose>
-                    <xsl:when test="distribution/online != ''">
+                <xsl:choose><xsl:when test="distribution/online != ''">
                         <p class="material">Image: <xsl:value-of select="distribution/online/onlineDescription"/>
                         </p>
                         <div class="image">
@@ -522,18 +500,15 @@
                     </xsl:when>
                 </xsl:choose>                    
             </xsl:when>
-            <xsl:otherwise>
-                <p class="material">Resource:&#160;
-                    <xsl:choose>
-                        <xsl:when test="distribution/online != ''">
+            <xsl:otherwise><p class="material">Resource:&#160;
+                    <xsl:choose><xsl:when test="distribution/online != ''">
                             <xsl:element name="a">
                                 <xsl:attribute name="href">
                                     <xsl:value-of select="distribution/online/url"/>
                                 </xsl:attribute>
                                 <xsl:attribute name="title">Link to resource</xsl:attribute>
                                 <xsl:attribute name="target">_blankt</xsl:attribute>
-                                <xsl:choose>
-                                    <xsl:when test="distribution/online/onlineDescription != ''">
+                                <xsl:choose><xsl:when test="distribution/online/onlineDescription != ''">
                                         <xsl:value-of select="distribution/online/onlineDescription"/>                                        
                                     </xsl:when>
                                     <xsl:otherwise>Web link to online resource</xsl:otherwise>

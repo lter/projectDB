@@ -37,7 +37,7 @@
                     <tr><td><xsl:value-of select="translate(substring(@id,10,3),'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/>
                         </td>
                         <td><xsl:element name="a">
-                                <xsl:attribute name="href">/exist/rest/db/projects/util/xquery/getProjectById.xql?id=<xsl:value-of select="@id"/>&amp;_xsl=http://amble.lternet.edu:8080/exist/rest/db/projects/util/xslt/capProjectHTML.xsl
+                                <xsl:attribute name="href">/exist/rest/db/projects/util/xquery/getProjectById.xql?id=<xsl:value-of select="@id"/>&amp;_xsl=http://amble.lternet.edu:8080/exist/rest/db/projects/util/xslt/gceProjectDescription.xsl
                                 </xsl:attribute>
                                 <xsl:value-of select="title"/>
                             </xsl:element>
@@ -61,7 +61,8 @@
                 </xsl:for-each>
             </table>
                 </xsl:when>
-                <xsl:otherwise><p style="text-align:center; margin-top:3em">Sorry ... no projects were found. Please <a href="javascript:history.back(1)">return to the search form</a> and select broader criteria</p></xsl:otherwise>
+                <xsl:otherwise><p style="text-align:center; margin-top:3em">Sorry ... no projects were found. Please <a href="javascript:history.back(1)">return to the search form</a> and select broader criteria</p>
+                </xsl:otherwise>
             </xsl:choose>
         </div>
     </xsl:template>
