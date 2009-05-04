@@ -46,7 +46,7 @@
                             <div id="top-navbar">
                                 <a href="http://gce-lter.marsci.uga.edu/">Home</a> &gt; <a href="http://gce-lter.marsci.uga.edu/public/research/research.htm">Research</a> &gt; 
                                 <a href="http://amble.lternet.edu:8080/exist/rest/db/projects/util/xquery/getProjects.xql?siteId=gce&amp;_xsl=http://amble.lternet.edu:8080/exist/rest/db/projects/util/xslt/gceProjectsListText.xsl">Projects</a> &gt;
-                                <a href="http://amble.lternet.edu:8080/exist/rest/db/projects/util/xquery/getProjectsQueryForm.xql?siteId=gce&amp;xslUrl=http://amble.lternet.edu:8080/exist/rest/db/projects/util/xslt/gceQueryForm.xsl">Search Projects</a>
+                                <a href="http://amble.lternet.edu:8080/exist/rest/db/projects/util/xquery/getProjectsQueryForm.xql?xslUrl=http://amble.lternet.edu:8080/exist/rest/db/projects/util/xslt/gceQueryForm.xsl">Search Projects</a>
                                 <xsl:if test="string-length($navLabel)&gt;0">
                                     <xsl:text> &gt; </xsl:text>
                                     <span class="current-page">

@@ -123,7 +123,11 @@ em {
     text-indent: -24px;
 }
 #lter_project p.party {
-    padding-left: 48px;
+    padding-left: 64px;
+    text-indent: -24px;
+}
+#lter_project p.party strong {
+    font-weight: normal;
 }
 #lter_project div.image {
     margin: 0.5em auto 1em auto;
