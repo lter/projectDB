@@ -132,9 +132,11 @@
         </xsl:for-each>
         <br/>
         <xsl:if test="keywordSet">
-            <div>
-                <div style="float:left; width:auto; margin-right: 8px"><h3 class="inline">Keywords:</h3></div>
-                <div style="float:center; margin-left: 36px">
+            <div style="margin:0 0 1em 0">
+                <div style="float:left; width:auto; margin-right: 8px">
+                    <h3 class="inline">Keywords:</h3>
+                </div>
+                <div style="float:none; margin-left: 36px">
                     <p>
                         <xsl:for-each select="keywordSet/keyword">
                             <xsl:value-of select="."/>
@@ -143,7 +145,6 @@
                     </p>
                 </div>
             </div>
-            <br/>
         </xsl:if>
         <h3 class="inline">Lead Investigator(s): </h3>
         <p class="inline">
