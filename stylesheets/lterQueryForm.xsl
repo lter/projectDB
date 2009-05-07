@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
     <xsl:template match="/">
-        <html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+        <html xmlns="http://www.w3.org/1999/xhtml">
+            <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
                 <title>Search for LTER Research Projects</title>
                 <style type="text/css">
-               
+               <![CDATA[
                   body { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px }
                   #projects_query { width: 60%; margin: 0 auto 0 auto; }
                   #projects_query h2 { font-size: 16px; text-align: center; }
@@ -18,14 +19,19 @@
                   #projects_query select, #projects_query input { font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
                   #projects_query em  { font-style: italic; color: #666 }
                   #projects_query td.last  { vertical-align: middle; height: 60px; border: none; text-align: center }               
-               
+               ]]>
             </style>
+            <script type="text/javascript" language="javascript" src="/exist/rest/db/projects/util/web/js/lterQueryForm.js"><!--null--></script>    
             </head>
-            <body><div id="projects_query">
+            <body>
+                <div id="projects_query">
                     <form method="get" action="http://amble.lternet.edu:8080/exist/rest/db/projects/util/xquery/getProjects.xql">
                         <h2>Search for LTER Research Projects</h2>
-                        <table><tr><th>LTER Site</th>
-                                <td><select name="siteId" size="1">
+                        <table>
+                            <tr>
+                                <th>LTER Site</th>
+                                <td>
+                                    <select name="siteId" size="1">
                                         <option selected="selected" value="">&lt; Any site &gt;</option>
                                         <option value="AND">Andrews LTER</option>
                                         <option value="ARC">Arctic LTER</option>
@@ -58,7 +64,8 @@
                                     </select>
                                 </td>
                             </tr>
-                            <tr><th>Associated Person</th>
+                            <tr>
+                                <th>Associated Person</th>
                                 <td>Surname <select name="surName" size="1">
                                         <option selected="selected" value="">&lt; Any &gt;</option>
                                         <xsl:for-each select="surNames/surName">
@@ -72,54 +79,67 @@
                                     </select>
                                 </td>
                             </tr>
-                            <tr><th>Subject Keyword</th>
-                                <td><input name="keyword" value="" size="30"/>
+                            <tr>
+                                <th>Subject Keyword</th>
+                                <td>
+                                    <input id="keyword_fld" name="keyword" value="" size="30" onblur="validate('keyword_fld','alphanumsym')"/>
                                     <em style="padding-left: 10px">partial match</em>
                                 </td>
                             </tr>
-                            <tr><th>Subject Text</th>
-                                <td><input name="text" value="" size="30"/>
+                            <tr>
+                                <th>Subject Text</th>
+                                <td>
+                                    <input id="text_fld" name="text" value="" size="30" onblur="validate('text_fld','alphanumsym')"/>
                                     <em style="padding-left: 10px">partial match</em>
                                 </td>
                             </tr>
-                            <tr><th>Date Range</th>
-                                <td>Starting Year: <input name="startYear" value="" size="6" maxlength="4"/>
+                            <tr>
+                                <th>Date Range</th>
+                                <td>Starting Year: <input id="startYear_fld" name="startYear" value="" size="6" maxlength="4" onblur="validate('startYear_fld','num')"/>
                                     <span style="padding-left: 10px">Ending Year:</span>
-                                    <input name="endYear" value="" size="6" maxlength="4"/>
+                                    <input id="endYear_fld" name="endYear" value="" size="6" maxlength="4" onblur="validate('endYear_fld','num')"/>
                                 </td>
                             </tr>
-                            <tr><th>Geographic Bounds<br/>
+                            <tr>
+                                <th>Geographic Bounds<br/>
                                     <br/>
                                     <em style="font-weight:normal">(decimal degrees)</em>
                                 </th>
-                                <td><table class="inset-table">
-                                        <tr><td colspan="3" style="text-align: center">
-                                                North&#160; <input type="text" name="maxLat" size="10" value=""/>
+                                <td>
+                                    <table class="inset-table">
+                                        <tr>
+                                            <td colspan="3" style="text-align: center">
+                                                North&#160; <input type="text" id="maxLat_fld" name="maxLat" size="10" value="" onblur="validate('maxLat_fld','latitude')"/>
                                             </td>
                                         </tr>
-                                        <tr><td style="text-align: right; width: 50%">
-                                                West&#160; <input type="text" name="minLon" size="10" value=""/>
+                                        <tr>
+                                            <td style="text-align: right; width: 50%">
+                                                West&#160; <input type="text" id="minLon_fld" name="minLon" size="10" value="" onblur="validate('minLon_fld','longitude')"/>
                                             </td>
                                             <td style="width: 5%">&#160;</td>
                                             <td style="width: 45%; text-align:right">
-                                                <input type="text" name="maxLon" size="10" value=""/> &#160;East
+                                                <input type="text" id="maxLon_fld" name="maxLon" size="10" value="" onblur="validate('maxLon_fld','longitude')"/> &#160;East
                                             </td>
                                         </tr>
-                                        <tr><td colspan="3" style="text-align: center">
-                                                South&#160; <input type="text" name="minLat" size="10" value=""/>
+                                        <tr>
+                                            <td colspan="3" style="text-align: center">
+                                                South&#160; <input type="text" id="minLat_fld" name="minLat" size="10" value="" onblur="validate('minLat_fld','latitude')"/>
                                             </td>
                                         </tr>
                                     </table>
                                 </td>
                             </tr>
-                            <tr><th>Report Format</th>
-                                <td><select name="_xsl" size="1">
+                            <tr>
+                                <th>Report Format</th>
+                                <td>
+                                    <select name="_xsl" size="1">
                                         <option selected="selected" value="http://amble.lternet.edu:8080/exist/rest/projects/util/xslt/lterProjectsListTable.xsl">Tabular view</option>
                                         <option value="http://amble.lternet.edu:8080/exist/rest/projects/util/xslt/lterProjectsListText.xsl">Text report view</option>
                                     </select>
                                 </td>
                             </tr>
-                            <tr><td colspan="2" class="last">
+                            <tr>
+                                <td colspan="2" class="last">
                                     <input type="reset" value="Reset"/>
                                     <input type="submit" value="Run Query" style="margin-left: 20px"/>
                                 </td>
