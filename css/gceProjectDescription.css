@@ -1,0 +1,140 @@
+html {
+    height: 101%;
+}
+body {
+    background-color: transparent;
+}
+em {
+    font-style: italic;
+    color: #360;
+}
+#lter_project {
+    width: 98%;
+    margin: 0;
+    padding: 0;
+}
+#lter_project table {
+    width: 98%;
+    margin: 0 auto 1em auto;
+    border-collapse: collapse;
+    background-color: #FFF
+}
+#lter_project th, #lter_project td {
+    padding: 3px;
+}
+#lter_project th {
+    height: 1.5em;
+    white-space: nowrap;
+    text-align: center;
+}
+#lter_project th.defaultTab {
+    color: #999;
+    background-color: #F3F3FF;
+    border: 2px solid #999;
+}
+#lter_project th.currentTab {
+    color: #000;
+    background-color: #FFF;
+    border: 2px solid #999;
+    border-bottom: 2px solid #FFF;
+}
+#lter_project th:hover {
+    background-color: #FFA;
+}
+#lter_project th.currentTab:hover {
+    background-color: #FFF;
+}
+#lter_project th a, #lter_project th a:link, #lter_project th a:visited {
+    color: #000;
+    text-decoration: none;
+    padding: 2px 6px;
+    border: none;
+    outline: none;
+}
+#lter_project th a:hover {
+    color: #00A;
+    text-decoration: none;
+}
+#lter_project th a:active {
+  outline: none;
+}
+#lter_project td {
+    padding: 1em 20px 0.5em 20px;
+    vertical-align: top;
+    border-right: 2px solid #999;
+    border-left: 2px solid #999;
+}
+#lter_project td.last {
+    border-bottom: 2px solid #999;
+    height: 3em;
+}
+#lter_project p.section-title {
+    margin: 1em 20px 0.5em 20px;
+}
+#lter_project p.section-para {
+    margin: 0.5em 36px 0.5em 36px;
+}
+#lter_project .inline {
+    display: inline;
+}
+#lter_project p.inline {
+    display: inline;
+    padding-left: 8px;
+}
+#lter_project p.no-info {
+    margin: 1em auto 1em auto;
+    text-align: center;
+    height: 6em;
+}
+#lter_project h2 {
+    text-align: center;
+    margin: 0 15% 1em 15%;
+}
+#lter_project h3 {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 1.5em 0 1em 0;
+}
+#lter_project h4 {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 1.5em 0 1em 24px;
+}
+#lter_project h4.reports {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 1.5em 0 1em 12px;
+}
+#lter_project p.section-title {
+    font-style: italic;
+}
+#lter_project p.studyarea {
+    padding-left: 48px;
+    text-indent: -14px;
+}
+#lter_project p.material {
+    margin: 1em 64px 1em 64px;
+    text-indent: -24px;
+}
+#lter_project p.party {
+    padding-left: 64px;
+    text-indent: -24px;
+}
+#lter_project p.party strong {
+    font-weight: normal;
+}
+#lter_project div.image {
+    margin: 0.5em auto 1em auto;
+    padding: 0;
+    text-align: center;
+    border: none;
+}
+#lter_project div.report-section {
+    margin: 0.5em 48px 1em 24px;
+}
+#lter_project div.image img {
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+}

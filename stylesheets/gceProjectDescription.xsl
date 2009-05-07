@@ -6,7 +6,7 @@
     <!-- call main template to generate page layout and scaffolding, which calls topnav and body templates at appropriate points in doc -->
     <xsl:template match="/">
         <xsl:call-template name="main">
-            <xsl:with-param name="css">/exist/rest/db/projects/util/web/css/lterProjectDescription.css</xsl:with-param>
+            <xsl:with-param name="css">/exist/rest/db/projects/util/web/css/gceProjectDescription.css</xsl:with-param>
             <xsl:with-param name="javascript">/exist/rest/db/projects/util/web/js/lterProjectDescription.js</xsl:with-param>
             <xsl:with-param name="navLabel">Project Description</xsl:with-param>
         </xsl:call-template>

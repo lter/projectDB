@@ -1,5 +1,5 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-    <xsl:import href="http://gce-svn.marsci.uga.edu:8080/exist/rest/db/projects/util/xslt/gceMainTemplate.xsl"/>
+    <xsl:import href="http://amble.lternet.edu:8080/exist/rest/db/projects/util/xslt/gceMainTemplate.xsl"/>
     <xsl:output method="xml" omit-xml-declaration="yes" encoding="UTF-8" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" indent="yes" media-type="text/xml"/>
     
     <!-- call main template to generate page layout and scaffolding, which calls topnav and body templates at appropriate points in doc -->
@@ -12,9 +12,45 @@
     
     <xsl:template name="projects_query">
         <div id="projects_query">
-            <form method="get" action="http://gce-svn.marsci.uga.edu:8080/exist/rest/db/projects/util/xquery/getProjects.xql">
+            <form method="get" action="http://amble.lternet.edu:8080/exist/rest/db/projects/util/xquery/getProjects.xql">
                 <h2>Search for GCE Research Projects</h2>
                 <table>
+                    <tr>
+                        <th>LTER Site</th>
+                        <td>
+                            <select name="siteId" size="1">
+                                <option selected="selected" value="">&lt; Any site &gt;</option>
+                                <option value="AND">Andrews LTER</option>
+                                <option value="ARC">Arctic LTER</option>
+                                <option value="BES">Baltimore Ecosystem Study</option>
+                                <option value="BNZ">Bonanza Creek LTER</option>
+                                <option value="CAP">Central Arizona - Phoenix Urban LTER</option>
+                                <option value="CCE">California Current Ecosystem</option>
+                                <option value="CDR">Cedar Creek Natural History Area</option>
+                                <option value="CWT">Coweeta LTER</option>
+                                <option value="FCE">Florida Coastal Everglades LTER</option>
+                                <option value="GCE">Georgia Coastal Ecosystems LTER</option>
+                                <option value="HBR">Hubbard Brook LTER</option>
+                                <option value="HFR">Harvard Forest LTER</option>
+                                <option value="JRN">Jornada Basin LTER</option>
+                                <option value="KBS">Kellogg Biological Station LTER</option>
+                                <option value="KNZ">Konza Prairie LTER</option>
+                                <option value="LNO">LTER Network Office</option>
+                                <option value="LUQ">Luquillo LTER</option>
+                                <option value="MCM">McMurdo Dry Valleys LTER</option>
+                                <option value="MCR">Moorea Coral Reef</option>
+                                <option value="NIN">North Inlet LTER</option>
+                                <option value="NTL">North Temperate Lakes LTER</option>
+                                <option value="NWT">Niwot Ridge LTER</option>
+                                <option value="PAL">Palmer Station LTER</option>
+                                <option value="PIE">Plum Island Ecosystem LTER</option>
+                                <option value="SBC">Santa Barbara Coastal LTER</option>
+                                <option value="SEV">Sevilleta LTER</option>
+                                <option value="SGS">Shortgrass Steppe</option>
+                                <option value="VCR">Virginia Coastal Reserve LTER</option>
+                            </select>
+                        </td>
+                    </tr>
                     <tr>
                         <th>Associated Person</th>
                         <td>Surname <select name="surName" size="1">
@@ -84,8 +120,8 @@
                         <th>Report Format</th>
                         <td>
                             <select name="_xsl" size="1">
-                                <option selected="selected" value="http://gce-svn.marsci.uga.edu:8080/exist/rest/projects/util/xslt/gceProjectsListTable.xsl">Tabular view</option>
-                                <option value="http://gce-svn.marsci.uga.edu:8080/exist/rest/projects/util/xslt/gceProjectsListText.xsl">Text report view</option>
+                                <option selected="selected" value="http://amble.lternet.edu:8080/exist/rest/projects/util/xslt/gceProjectsListTable.xsl">Tabular view</option>
+                                <option value="http://amble.lternet.edu:8080/exist/rest/projects/util/xslt/gceProjectsListText.xsl">Text report view</option>
                             </select>
                         </td>
                     </tr>
@@ -93,7 +129,6 @@
                         <td colspan="2" class="last">
                             <input type="reset" value="Reset"/>
                             <input type="submit" value="Run Query" style="margin-left: 20px"/>
-                            <input type="hidden" name="siteId" value="gce"/>
                         </td>
                     </tr>
                 </table>
