@@ -12,9 +12,9 @@ xquery version "1.0";
               in a <project> element for each match
        
      Attribution:
-        Author: Corinna Gries (corinna@asu.edu
-        Date: 22-Apr-2009
-        Revision: 1.0
+        Author: Corinna Gries (cgries@lternet.edu, Wade Sheldon <wsheldon@lternet.edu>
+        Date: 08-Mar-2009
+        Revision: 1.1
 
     License:
         This program is free software; you can redistribute it and/or modify
@@ -30,6 +30,7 @@ xquery version "1.0";
 :)
 
 (: declare namespaces referenced in the document :)
+declare namespace exist = "http://exist.sourceforge.net/NS/exist";
 declare namespace lter="eml://ecoinformatics.org/lter-project-2.1.0";
 declare namespace request="http://exist-db.org/xquery/request";
 
@@ -42,33 +43,38 @@ declare option exist:serialize "method=xhtml media-type=text/html omit-xml-decla
 <projects>{
 
 (:get input parameters:)
-
-let $startYear := substring(request:get-parameter("startYear", "0"),1,4)
-let $endYear := substring(request:get-parameter("endYear", "5000"),1,4)
+let $startYr := request:get-parameter("startYear", "")
+let $endYr := request:get-parameter("endYear", "")
 let $siteId := lower-case(request:get-parameter("siteId", ""))
+let $surNam := concat("^",request:get-parameter("surName", "\D*"))
+let $sortBy := request:get-parameter("sortBy", "title")
 
-let $surName := concat("^",request:get-parameter("surName", "\D*"))
+(: calculate derived parameters, dealing with empty input arguments:)
+let $startYear := number(if(string-length($startYr)>0) then substring($startYr,1,4) else "0")  (: force numeric 4-digit year :)
+let $endYear := number(if(string-length($endYr)>0) then substring($endYr,1,4) else "5000")  (: force numeric 4-digit year :)
+let $surName := if(string-length($surNam)>0) then concat("^",$surNam) else "^\D*" (: pre-pend carrot to force beginning of string search in regex :)
 
 for $p in collection(concat('/db/projects/data/',lower-case($siteId)))/*:researchProject
 
-	let $sortBy := request:get-parameter("sortBy", "title")
-	let $sort := $p/(if ($sortBy = "id") then @id else (if ($sortBy = "surName") then surName else title))
-	let $title := $p/title/text()
-	let $idstr := $p/@id
-	let $time := $p/coverage/temporalCoverage
+   let $title := $p/title/text()
+   let $idstr := $p/@id
+   let $time := $p/coverage/temporalCoverage
+   let $sort := $p/(if ($sortBy = "id") then @id else (if ($sortBy = "surName") then surName else title))
 
-where (compare(substring(data($p/coverage/temporalCoverage//beginDate/calendarDate),1,4),$startYear) = 1
-	or compare(substring(data($p/coverage/temporalCoverage/singleDateTime/calendarDate),1,4),$startYear) = 1)
-	and compare(substring(data($p/coverage/temporalCoverage//beginDate/calendarDate),1,4),$endYear) = -1
-	and matches($p//surName,$surName,'i')
+   let $beginDate := number(substring(data($p/coverage/temporalCoverage//beginDate/calendarDate),1,4))
+   let $singleDate := number(substring(data($p/coverage/temporalCoverage/singleDateTime/calendarDate),1,4))
+   let $endDate := number(substring(data($p/coverage/temporalCoverage//endDate/calendarDate),1,4))
 
+where matches($p//surName,$surName,'i') 
+    and ($beginDate >= $startYear or $singleDate >= $startYear)
+    and ($endDate <= $endYear or not($endDate))  
+    and ($beginDate <= $endYear or $singleDate <= $endYear)
 
 order by $sort
 
 return
- 
 
-    <project id="{$idstr}">
+  <project id="{$idstr}">
 	<title>{$title}</title>
 	{for $c in $p/creator
 	let $individual := $c/individualName
@@ -88,6 +94,6 @@ return
 	</keywordSet>
 	{$time}
     </project>	
-
-    }</projects>
+}
+</projects>
 

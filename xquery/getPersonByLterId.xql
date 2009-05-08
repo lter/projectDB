@@ -1,14 +1,16 @@
 xquery version "1.0";
-(: getPersonByLastname: Xquery to return LTER personnel matching a specified lastname
+(: getPersonByLterId: Xquery to return LTER personnel matching a specified personnel database id
 
    Parameters:
-       lastname = lastname to search / string match (string, required, case-sensitive)
+       required: id = id to retrieve (integer)
      
-   Usage notes:
-      
+    Usage notes:
+        1. output is an xml file with root <people> and a <person> element for each match 
+            containing personnel name and contact information
+            
      Attribution:
-        Author: James Brunt <jbrunt@lternet.edu>
-        Date: 23-Apr-2009
+        Author: James Brunt <jbrunt@lternet.edu>, Wade Sheldon <wsheldon@lternet.edu>
+        Date: 08-May-2009
         Revision: 1.0
 
     License:
@@ -32,19 +34,19 @@ declare namespace request = "http://exist-db.org/xquery/request";
 declare option exist:serialize "method=xml media-type=text/xml omit-xml-declaration=no indent=yes";
 
 (: get input arguments :)
-let $lastname := request:get-parameter("lastname","")
+let $strId := request:get-parameter("id","")
 
 return
 
-if (string-length($lastname) > 0)
+if (string-length($strId) > 0)
 then (
 <people>
 { 
-
 for $p in collection("/db/personnel")/*:root/row
-where contains ($p/lastname, $lastname)
-return $p/row
-
+    let $id := number($strId)
+    where $p/personid = $id
+return 
+<person>{$p/*}</person>
 }
 </people>)
 else (<people/>)

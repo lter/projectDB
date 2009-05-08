@@ -70,7 +70,6 @@ declare option exist:serialize "method=xhtml media-type=text/html omit-xml-decla
     let $keywrd := request:get-parameter("keyword","")
     let $keywdSet := request:get-parameter("keywordSet","")
     let $txt := request:get-parameter("text","")
-    let $sortBy := request:get-parameter("sortBy", "title")
 
 (: generate single parameter cache :)
 return
@@ -87,7 +86,6 @@ return
             <param name="keyword">{$keywrd}</param>
             <param name="keywordSet">{$keywdSet}</param>
             <param name="text">{$txt}</param>
-            <param name="sortBy">{$sortBy}</param>
         </params>
 }
 {
