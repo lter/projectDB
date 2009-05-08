@@ -2,14 +2,16 @@ xquery version "1.0";
 (: getPersonByLastname: Xquery to return LTER personnel matching a specified lastname
 
    Parameters:
-       lastname = lastname to search / string match (string, required, case-sensitive)
+       required: lastname = lastname to search / string match (string, case-sensitive)
      
-   Usage notes:
-      
+    Usage notes:
+        1. output is an xml file with root <people> and a <person> element for each match 
+            containing personnel name and contact information
+            
      Attribution:
-        Author: James Brunt <jbrunt@lternet.edu>
-        Date: 23-Apr-2009
-        Revision: 1.0
+        Author: James Brunt <jbrunt@lternet.edu>, Wade Sheldon <wsheldon@lternet.edu>
+        Date: 08-May-2009
+        Revision: 1.1
 
     License:
         This program is free software; you can redistribute it and/or modify
@@ -43,8 +45,8 @@ then (
 
 for $p in collection("/db/personnel")/*:root/row
 where contains ($p/lastname, $lastname)
-return $p/row
-
+return 
+<person>{$p/*}</person>
 }
 </people>)
 else (<people/>)
