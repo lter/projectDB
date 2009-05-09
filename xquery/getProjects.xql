@@ -28,8 +28,8 @@ xquery version "1.0";
        
      Attribution:
         Authors: Wade Sheldon <wsheldon@lternet.edu>, Corinna Gries (cgries@lternet.edu), Sven Bohm <sbohm@lternet.edu>
-        Date: 01-May-2009
-        Revision: 1.3
+        Date: 09-May-2009
+        Revision: 1.5
 
     License:
         This program is free software; you can redistribute it and/or modify
@@ -47,7 +47,6 @@ xquery version "1.0";
 (: declare namespaces referenced in the document :)
 declare namespace lter="eml://ecoinformatics.org/lter-project-2.1.0";
 declare namespace request="http://exist-db.org/xquery/request";
-declare namespace xs="http://www.w3.org/2001/XMLSchema";
 declare namespace exist = "http://exist.sourceforge.net/NS/exist";
 
 (: set output to xhtml for IE compatibility :)
@@ -89,7 +88,7 @@ return
         </params>
 }
 {
-(: get all input arguments as strings, with default values as appropriate :)
+    (: get all input arguments as strings, with default values as appropriate :)
     let $siteId := request:get-parameter("siteId", "")
     let $startYr := request:get-parameter("startYear", "")
     let $endYr := request:get-parameter("endYear", "")
@@ -102,24 +101,30 @@ return
     let $keywdSet := request:get-parameter("keywordSet","")
     let $txt := request:get-parameter("text","")
     let $sortBy := request:get-parameter("sortBy", "title")
+    
+    let $allparms := concat($startYr,$endYr,$surNam,$minLo,$maxLo,$minLa,$maxLa,$keywrd,$txt)
+    
+    return
+    
+    if (string-length($allparms) > 0) then (
+    
+        (: calculate derived parameters, dealing with empty input arguments:)
+            let $startYear := number(if(string-length($startYr)>0) then substring($startYr,1,4) else "0")  (: force numeric 4-digit year :)
+            let $endYear := number(if(string-length($endYr)>0) then substring($endYr,1,4) else "5000")  (: force numeric 4-digit year :)
+            let $surName := if(string-length($surNam)>0) then concat("^",$surNam) else "^\D*" (: pre-pend carrot to force beginning of string search in regex :)
+            let $keyword := if(string-length($keywrd) > 0) then (if($keywrd = "*") then "\D*" else $keywrd) else "\D*"   (: substitute regex wildcard for empty string or * :)
+            let $text := if(string-length($txt) > 0) then (if($txt = "*") then "\D*" else $txt) else "\D*"   (: substitute regex wildcard for empty string or * :)
+        
+         (: convert lat/lon to numeric and offset to >= 0 for comparisons, setting empty values to full geographic extent  :)
+            let $minLon := if(string-length($minLo) > 0) then (number($minLo) + 180.0) else (0)
+            let $maxLon := if(string-length($maxLo) > 0) then (number($maxLo) + 180.0) else (360)
+            let $minLat := if(string-length($minLa) > 0) then (number($minLa) + 90.0) else (0)
+            let $maxLat := if(string-length($maxLa) > 0) then (number($maxLa) + 90.0) else (180)
+        
+        for $p in collection(concat('/db/projects/data/',lower-case($siteId)))/lter:researchProject
 
-(: calculate derived parameters, dealing with empty input arguments:)
-    let $startYear := number(if(string-length($startYr)>0) then substring($startYr,1,4) else "0")  (: force numeric 4-digit year :)
-    let $endYear := number(if(string-length($endYr)>0) then substring($endYr,1,4) else "5000")  (: force numeric 4-digit year :)
-    let $surName := if(string-length($surNam)>0) then concat("^",$surNam) else "^\D*" (: pre-pend carrot to force beginning of string search in regex :)
-    let $keyword := if(string-length($keywrd) > 0) then (if($keywrd = "*") then "\D*" else $keywrd) else "\D*"   (: substitute regex wildcard for empty string or * :)
-    let $text := if(string-length($txt) > 0) then (if($txt = "*") then "\D*" else $txt) else "\D*"   (: substitute regex wildcard for empty string or * :)
-
- (: convert lat/lon to numeric and offset to >= 0 for comparisons, setting empty values to full geographic extent  :)
-    let $minLon := if(string-length($minLo) > 0) then (number($minLo) + 180.0) else (0)
-    let $maxLon := if(string-length($maxLo) > 0) then (number($maxLo) + 180.0) else (360)
-    let $minLat := if(string-length($minLa) > 0) then (number($minLa) + 90.0) else (0)
-    let $maxLat := if(string-length($maxLa) > 0) then (number($maxLa) + 90.0) else (180)
-
-for $p in collection(concat('/db/projects/data/',lower-case($siteId)))/lter:researchProject
-
-                (: note: for the project coverage boundaries, both the original extents and offset extents are instantiated as variables
-                 to support both searching and inclusion of the overall extents in the output without the offsets :)
+               (: note: for the project coverage boundaries, both the original extents and offset extents are instantiated as variables
+                to support both searching and inclusion of the overall extents in the output without the offsets :)
 	let $west0 := min($p/coverage/geographicCoverage/boundingCoordinates/westBoundingCoordinate)
 	let $east0 := max($p/coverage/geographicCoverage/boundingCoordinates/eastBoundingCoordinate)
 	let $north0 := max($p/coverage/geographicCoverage/boundingCoordinates/northBoundingCoordinate)
@@ -141,23 +146,22 @@ for $p in collection(concat('/db/projects/data/',lower-case($siteId)))/lter:rese
 	let $singleDate := number(substring(data($p/coverage/temporalCoverage/singleDateTime/calendarDate),1,4))
 	let $endDate := number(substring(data($p/coverage/temporalCoverage//endDate/calendarDate),1,4))
 
-(: define query restriction :)
-where (($west >= $minLon and $east <= $maxLon and $south >= $minLat and $north <= $maxLat)	
-        or ((($west >= $minLon and $west <= $maxLon) or ($east >= $minLon and $east <= $maxLon)) 
-        and (($south >= $minLat and $south <= $maxLat) or ($north >= $minLat and $north <= $maxLat)))	
-        or ($west <= $minLon and $east >= $maxLon and $south <= $minLat and $north >= $maxLat))
-        and ($beginDate >= $startYear or $singleDate >= $startYear)
-        and ($endDate <= $endYear or not($endDate))  
-        and ($beginDate <= $endYear or $singleDate <= $endYear)
-        and matches($p//surName,$surName,'i') and matches($keywordSet/keyword,$keyword,'i') 
-        and matches(($p//title | $p/abstract//para/text() | $p/abstract//literalLayout/text()),$text,'i')             
-   
-order by $sort
+        (: define query restriction :)
+        where (($west >= $minLon and $east <= $maxLon and $south >= $minLat and $north <= $maxLat)	
+                or ((($west >= $minLon and $west <= $maxLon) or ($east >= $minLon and $east <= $maxLon)) 
+                and (($south >= $minLat and $south <= $maxLat) or ($north >= $minLat and $north <= $maxLat)))	
+                or ($west <= $minLon and $east >= $maxLon and $south <= $minLat and $north >= $maxLat))
+                and ($beginDate >= $startYear or $singleDate >= $startYear)
+                and ($endDate <= $endYear or not($endDate))  
+                and ($beginDate <= $endYear or $singleDate <= $endYear)
+                and matches($p//surName,$surName,'i') and matches($keywordSet/keyword,$keyword,'i') 
+                and matches(($p//title | $p/abstract//para/text() | $p/abstract//literalLayout/text()),$text,'i')             
+           
+        order by $sort 
+        
+        return
 
-return
-
-    <project id="{$idstr}">
-
+          <project id="{$idstr}">
           <title>{$title}</title>
     
           {for $c in $p/creator
@@ -200,5 +204,71 @@ return
             {$time}	
            </coverage>	
        </project>
-    }	
+)
+
+else (
+
+    for $p in collection(concat('/db/projects/data/',lower-case($siteId)))/lter:researchProject
+    
+        (: define runtime variables :)
+        let $sort := $p/(if ($sortBy = "id") then @id else (if ($sortBy = "surName") then creator[1]/individualName/surName else title))
+        let $title := $p/title/text()
+        let $idstr := $p/@id
+        let $time := $p/coverage/temporalCoverage	
+    
+        (: get overall geographic extent from top-level geographic coverage :)
+        let $west0 := min($p/coverage/geographicCoverage/boundingCoordinates/westBoundingCoordinate)
+        let $east0 := max($p/coverage/geographicCoverage/boundingCoordinates/eastBoundingCoordinate)
+        let $north0 := max($p/coverage/geographicCoverage/boundingCoordinates/northBoundingCoordinate)
+        let $south0 := min($p/coverage/geographicCoverage/boundingCoordinates/southBoundingCoordinate)
+    
+        order by $sort 
+    
+    return
+
+          <project id="{$idstr}">
+          <title>{$title}</title>
+    
+          {for $c in $p/creator
+           let $individual := $c/individualName
+           let $userid := $c/userId
+           return
+           if (not($individual)) then () else <creator>{$individual}{$userid}</creator>}
+        
+          {for $c in $p/creator/references
+           let $id := $c/text()
+           let $ref := $p/associatedParty[@id = $id]
+           let $individual := $ref/individualName
+           let $userid := $ref/userId
+           return
+           if (not($individual)) then <id>{data($id)}</id> else <creator>{$individual}{$userid}</creator>}
+        
+           {for $ap in $p/associatedParty
+           let $ap_name := $ap/individualName
+           let $ap_id := $ap/userId
+           let $role := $ap/role
+           return
+           <associatedParty>{$ap_name}{$ap_id}{$role}</associatedParty>}
+        
+           <keywordSet>{for $k in $p/keywordSet/keyword
+           let $kw := $k/text()
+           return
+           <keyword>{$kw}</keyword>}
+           </keywordSet>
+           
+           <coverage>
+            <geographicCoverage>
+            <geographicDescription> {concat("Overall geographic extent of project ",$idstr)}</geographicDescription>
+                    <boundingCoordinates>
+                    <westBoundingCoordinate>{$west0}</westBoundingCoordinate>
+                    <eastBoundingCoordinate>{$east0}</eastBoundingCoordinate>
+                    <northBoundingCoordinate>{$north0}</northBoundingCoordinate>
+                    <southBoundingCoordinate>{$south0}</southBoundingCoordinate>
+                    </boundingCoordinates>
+            </geographicCoverage>
+            {$time}	
+           </coverage>	
+       </project>
+)
+}	
 </projects>
