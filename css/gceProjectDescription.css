@@ -113,6 +113,10 @@ em {
     padding-left: 48px;
     text-indent: -14px;
 }
+#lter_project p.permit-value {
+    padding-left: 48px;
+    text-indent: -14px;
+}
 #lter_project p.material {
     margin: 1em 64px 1em 64px;
     text-indent: -24px;

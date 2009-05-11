@@ -179,9 +179,14 @@
         </xsl:if>
         <xsl:if test="funding">
             <h3>Funding:</h3>
-            <xsl:for-each select="funding">
-                <xsl:apply-templates/>
-            </xsl:for-each>
+            <xsl:choose>
+                <xsl:when test="funding/section or function/para">
+                    <xsl:apply-templates select="funding"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <p class="section-para"><xsl:value-of select="funding"/></p>
+                </xsl:otherwise>
+            </xsl:choose>
         </xsl:if>
         <xsl:if test="designDescription">
             <h3>Study Design:</h3>
