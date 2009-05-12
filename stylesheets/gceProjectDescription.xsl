@@ -132,9 +132,8 @@
         <xsl:for-each select="abstract">
             <xsl:call-template name="text"/>
         </xsl:for-each>
-        <br/>
         <xsl:if test="keywordSet">
-            <div style="margin:0 0 1em 0">
+            <div style="margin:1.5em 0 1em 0">
                 <div style="float:left; width:auto; margin-right: 8px">
                     <h3 class="inline">Keywords:</h3>
                 </div>
@@ -184,7 +183,9 @@
                     <xsl:apply-templates select="funding"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <p class="section-para"><xsl:value-of select="funding"/></p>
+                    <p class="section-para">
+                        <xsl:value-of select="funding"/>
+                    </p>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:if>
