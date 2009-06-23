@@ -6,8 +6,8 @@ xquery version "1.0";
        
      Attribution:
         Authors: Sven Bohm <sbohm@lternet.edu>
-        Date: 01-May-2009
-        Revision: 1.0
+        Date: 22-Jun-2009
+        Revision: 1.1
 
     License:
         This program is free software; you can redistribute it and/or modify
@@ -32,9 +32,9 @@ declare option exist:serialize "method=xhtml media-type=text/html omit-xml-decla
         doctype-system=http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd";
 
 (: get id parameter from input :)
-let $id:= request:get-parameter("id",0)
+let $id:= request:get-parameter("id","")
 
-for $researchProject in collection('/db/projects/data')//lter:researchProject[@id = $id]
+for $researchProject in collection('/db/projects/data')/lter:researchProject[@id = $id]
 
 return 
 	$researchProject
