@@ -30,10 +30,10 @@ xquery version "1.0";
 :)
 
 (: declare namespaces referenced in the document :)
-declare namespace lter="eml://ecoinformatics.org/project-2.1.0";
+declare namespace lter="eml://ecoinformatics.org/lter-project-2.1.0";
 declare namespace request="http://exist-db.org/xquery/request";
-declare namespace xs="http://www.w3.org/2001/XMLSchema";
- 
+declare namespace exist = "http://exist.sourceforge.net/NS/exist";
+
 (: set output to xhtml with standards-compliant doctype and no xml declaration for IE compatibility :)
 declare option exist:serialize "method=xhtml media-type=text/html omit-xml-declaration=yes indent=yes 
         doctype-public=-//W3C//DTD&#160;XHTML&#160;1.0&#160;Transitional//EN
@@ -56,8 +56,8 @@ then (
 	let $idstr := $p/@id
 	let $time := $p/coverage/temporalCoverage
 
-           let $kw := if(string-length($keywordSet)>0) then $p/keywordSet[@name=$keywordSet] else $p/keywordSet
-           
+	let $kw := if(string-length($keywordSet)>0) then $p/keywordSet[@name=$keywordSet] else $p/keywordSet
+         	
          	where matches($kw/keyword,$keyword,'i')
               	
 	order by $idstr
@@ -81,9 +81,9 @@ then (
    	<associatedParty>{$ap_name}{$ap_id}{$role}</associatedParty>}
 
    	<keywordSet>{for $k in $p/keywordSet/keyword
-   	let $kw := $k/text()
+   	let $kwd := $k/text()
    	return
-   	<keyword>{$kw}</keyword>}
+   	<keyword>{$kwd}</keyword>}
    	</keywordSet>
    	
 	{$time}

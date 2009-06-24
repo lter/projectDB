@@ -11,7 +11,7 @@ xquery version "1.0";
      Attribution:
         Author: James Brunt <jbrunt@lternet.edu>, Wade Sheldon <wsheldon@lternet.edu>
         Date: 08-May-2009
-        Revision: 1.0
+        Revision: 1.1
 
     License:
         This program is free software; you can redistribute it and/or modify

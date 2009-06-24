@@ -2,7 +2,7 @@ xquery version "1.0";
 (: getEmlProjectById: Xquery to return an LTER research project documents for insertion into an EML metadata document
 
    Parameters:    
-       optional: id = document id
+       optional: id = project document id
        optional: siteId, default: all sites, possible values: three letter LTER site acronym case (string, case insensitive)      
 
    Usage notes:

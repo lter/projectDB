@@ -1,16 +1,14 @@
 xquery version "1.0";
-(: getPersonByLastname: Xquery to return LTER personnel matching a specified lastname
+(: Xquery to return LTER personnel matching a specified lastname
 
    Parameters:
        required: lastname = lastname to search / string match (string, case-sensitive)
      
-    Usage notes:
-        1. output is an xml file with root <people> and a <person> element for each match 
-            containing personnel name and contact information
-            
+   Usage notes:
+      
      Attribution:
-        Author: James Brunt <jbrunt@lternet.edu>, Wade Sheldon <wsheldon@lternet.edu>
-        Date: 08-May-2009
+        Author: Wade Sheldon <wsheldon@lternet.edu>
+        Date: 11-Jun-2009
         Revision: 1.1
 
     License:
@@ -27,11 +25,14 @@ xquery version "1.0";
 :)
 
 (: declare namespaces referenced in the document :)
-declare namespace exist = "http://exist.sourceforge.net/NS/exist"; 
-declare namespace request = "http://exist-db.org/xquery/request";
+declare namespace eml="eml://ecoinformatics.org/project-2.1.0";
+declare namespace request="http://exist-db.org/xquery/request";
+declare namespace xs="http://www.w3.org/2001/XMLSchema";
  
-(: set output to xml :)
-declare option exist:serialize "method=xml media-type=text/xml omit-xml-declaration=no indent=yes";
+(: set output to xhtml with standards-compliant doctype and no xml declaration for IE compatibility :)
+declare option exist:serialize "method=xhtml media-type=text/html omit-xml-declaration=yes indent=yes 
+        doctype-public=-//W3C//DTD&#160;XHTML&#160;1.0&#160;Transitional//EN
+        doctype-system=http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd";
 
 (: get input arguments :)
 let $lastname := request:get-parameter("lastname","")
@@ -45,8 +46,8 @@ then (
 
 for $p in collection("/db/personnel")/*:root/row
 where contains ($p/lastname, $lastname)
-return 
-<person>{$p/*}</person>
+return $p
+
 }
 </people>)
 else (<people/>)
