@@ -1,71 +1,103 @@
 html {
-    height: 101%;
+    height: auto;
 }
 body {
-    background-color: transparent;
+	height: auto;
+	background-color: #030;
+}
+#disclaimer {
+	height: 250px;
+	text-align: center;
 }
 em {
     font-style: italic;
     color: #360;
+}
+h1 {
+	margin: 0 auto 0.5 auto;
+	padding: 0;
 }
 #lter_project {
     width: 98%;
     margin: 0;
     padding: 0;
 }
+#lter_project h1, #lter_project h2 {
+	margin: 0 auto 0 auto;
+}
 #lter_project table {
-    width: 98%;
+    width: 96%;
     margin: 0 auto 1em auto;
     border-collapse: collapse;
-    background-color: #FFF
+    background-color: #FFF;
+	padding: 0;
 }
-#lter_project th, #lter_project td {
+#lter_project td {
     padding: 3px;
 }
 #lter_project th {
-    height: 1.5em;
     white-space: nowrap;
+	margin: 0;
+}
+#lter_project th.defaultTab, #lter_project th.currentTab, #lter_project th.noTab {
+	font-size: 11px;
+	height: 1.5em;
+	width: 90px;
     text-align: center;
+	padding: 3px 6px;
+	white-space: nowrap;
 }
 #lter_project th.defaultTab {
-    color: #999;
+    color: #CCC;
     background-color: #F3F3FF;
-    border: 2px solid #999;
+	border: 2px solid #CCC;
 }
 #lter_project th.currentTab {
     color: #000;
-    background-color: #FFF;
-    border: 2px solid #999;
-    border-bottom: 2px solid #FFF;
+	background-color: #FFF;
+	border-top: 2px solid #CCC;
+	border-left: 2px solid #CCC;
+	border-right: 2px solid #CCC;
+	border-bottom: none;
 }
-#lter_project th:hover {
+#lter_project th.noTab {
+	width: auto;
+	background-color: #FFF;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 2px solid #CCC;
+}
+#lter_project th.defaultTab:hover {
+    color: #000;
     background-color: #FFA;
 }
 #lter_project th.currentTab:hover {
-    background-color: #FFF;
+	background-color: #FFF;
 }
-#lter_project th a, #lter_project th a:link, #lter_project th a:visited {
+#lter_project th a, #lter_project th a:link, #lter_project th a:visited, #lter_project th a:active, #lter_project th a:hover {
     color: #000;
     text-decoration: none;
-    padding: 2px 6px;
+    padding: 3px 3px;
     border: none;
     outline: none;
 }
 #lter_project th a:hover {
     color: #00A;
-    text-decoration: none;
 }
-#lter_project th a:active {
-  outline: none;
+#lter_project tr {
+	margin: 0;
+	padding: 0;
 }
 #lter_project td {
+	margin: 0;
     padding: 1em 20px 0.5em 20px;
     vertical-align: top;
-    border-right: 2px solid #999;
-    border-left: 2px solid #999;
+    border-right: 2px solid #CCC;
+    border-left: 2px solid #CCC;
 }
 #lter_project td.last {
-    border-bottom: 2px solid #999;
+    border-bottom: 2px solid #CCC;
     height: 3em;
 }
 #lter_project p.section-title {
@@ -94,7 +126,7 @@ em {
     font-family: Verdana, Arial, sans-serif;
     font-size: 12px;
     font-weight: bold;
-    margin: 1.5em 0 1em 0;
+    margin: 1em 0 1em 0;
 }
 #lter_project h4 {
     font-size: 12px;
@@ -110,10 +142,6 @@ em {
     font-style: italic;
 }
 #lter_project p.studyarea {
-    padding-left: 48px;
-    text-indent: -14px;
-}
-#lter_project p.permit-value {
     padding-left: 48px;
     text-indent: -14px;
 }
@@ -135,10 +163,23 @@ em {
     border: none;
 }
 #lter_project div.report-section {
-    margin: 0.5em 48px 1em 24px;
+    margin: 0.5em 48px 0 24px;
 }
 #lter_project div.image img {
     text-align: center;
     margin: 0;
     padding: 10px;
+}
+div.browser {
+	display: inline;
+	float: left;
+	padding-left: 15%;
+	font-style: italic;
+	color: #360;
+	font-size: 11px;
+}
+#lter_project ul, #lter_project ol {
+	padding-left: 64px;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
 }

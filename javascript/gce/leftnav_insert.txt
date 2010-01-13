@@ -1,6 +1,6 @@
 <div class="menu">
 <ul>
-<li><a href="/">Home</a></li>
+<li><a href="http://gce-lter.marsci.uga.edu/">Home</a></li>
 <li><a href="http://gce-lter.marsci.uga.edu/public/app/news.asp">GCE News &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
 <!--[if lte IE 6]><table><tr><td><![endif]-->
 	<ul>
@@ -8,16 +8,66 @@
 	<li><a href="http://gce-lter.marsci.uga.edu/public/app/calendar.asp">GCE Calendar &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
 	<!--[if lte IE 6]><table><tr><td><![endif]-->
 		<ul>
-		<li><a href="http://gce-lter.marsci.uga.edu/public/app/calendar.asp">Calendar</a></li>
+		<li><a href="http://gce-lter.marsci.uga.edu/public/app/calendar.asp">View Calendar</a></li>
 		<li><a href="http://gce-lter.marsci.uga.edu/public/app/calendar_browse.asp">Search Events</a></li>
 		</ul>
 	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
 	</li>
 	<li><a href="http://gce-lter.marsci.uga.edu/public/app/announcements.asp">Announcements</a></li>
-	<li><a href="http://gce-lter.marsci.uga.edu/public/app/conditions.asp">Site Conditions</a></li>
 	<li><a href="http://www.lternet.edu/news/">LTER Network</a></li>
 	</ul>
 <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li><a href="http://gce-lter.marsci.uga.edu/public/research/research.htm">Research &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+	<ul>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/research/research.htm">Overview</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/research/gce2_q1.asp">Q1 External<br/>&#160;&#160;&#160;&#160; Forcing</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/research/gce2_q2.asp">Q2 Domain<br/>&#160;&#160;&#160;&#160; Patterns</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/research/gce2_q3.asp">Q3 Longitudinal<br/>&#160;&#160;&#160;&#160; Gradients</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/research/gce2_q4.asp">Q4 Lateral<br/>&#160;&#160;&#160;&#160; Gradients</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/research/gce2_q5.asp">Q5 Organism<br/>&#160;&#160;&#160;&#160; Distribution</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/research/projects.asp">Projects List</a></li>
+	<li><a href="http://www.lternet.edu/coreareas/coreintro.html">LTER Network &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<ul>
+		<li><a href="http://www.lternet.edu/coreareas/coreintro.html">LTER Core Areas</a></li>
+		<li><a href="http://www.lternet.edu/collaborations/">Collaborations</a></li>
+		<li><a href="http://www.lternet.edu/technology/ltergis/">Remote Sensing</a></li>
+		</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+	</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li><a href="http://gce-lter.marsci.uga.edu/public/site/site_info.htm">Study Site &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+	<ul>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/site/site_info.htm">Study Site Info</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/gis/gcewebmap.html">Study Area Map</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/studysites.asp">Marsh Sites</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/transects.asp">Survey Transects</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/geo_query.asp">Location Search</a></li>
+	<li><a href="http://www.lternet.edu/sites/">LTER Network &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<ul>
+		<li><a href="http://www.lternet.edu/sites/">Site Profiles</a></li>
+		<li><a href="http://www.lternet.edu/sites/site_coordinates.php">Site Coordinates</a></li>
+		</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+	</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li><a href="http://gce-lter.marsci.uga.edu/public/site/logistics.htm">Field Planning &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+	<ul>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/site/logistics.htm">Visiting Sapelo</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/calendar.asp">GCE Calendar</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/site/tides.htm">Tide Tables</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/conditions.asp">Site Conditions</a></li>
+	</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
 </li>
 <li><a href="http://gce-lter.marsci.uga.edu/public/app/biblio_query.asp">Bibliography &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
 	<!--[if lte IE 6]><table><tr><td><![endif]-->
@@ -36,9 +86,15 @@
 	<li><a href="http://gce-lter.marsci.uga.edu/public/data/data.htm">GCE Data</a> </li>
 	<li><a href="http://gce-lter.marsci.uga.edu/public/app/data_catalog.asp">Data Catalog</a></li>
 	<li><a href="http://gce-lter.marsci.uga.edu/portal/monitoring.htm">Data Portal</a></li>
-	<li><a href="http://gce-lter.marsci.uga.edu/public/app/resources.asp?type=gisvectordata">GIS Vector Data</a></li>
-	<li><a href="http://gce-lter.marsci.uga.edu/public/app/resources.asp?type=gisrasterdata">GIS Raster Data</a></li>
-	<li><a href="http://gce-lter.marsci.uga.edu/public/app/realtime_data.asp">Near-real-time</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/gis/Data_Resources.html">GIS Data &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<ul>
+		<li><a href="http://gce-lter.marsci.uga.edu/public/app/resources.asp?type=gisvectordata">GIS Vector Data</a></li>
+		<li><a href="http://gce-lter.marsci.uga.edu/public/app/resources.asp?type=gisrasterdata">GIS Raster Data</a></li>
+		</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/all_species_lists.asp">Species Lists</a></li>
 	<li><a href="http://gce-lter.marsci.uga.edu/public/im/data_submission.htm">Data Submission &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
 	<!--[if lte IE 6]><table><tr><td><![endif]-->
 		<ul>
@@ -58,94 +114,15 @@
 	</ul>
 	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
 </li>
-<li><a href="http://gce-lter.marsci.uga.edu/public/app/personnel.asp">Personnel &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
-	<!--[if lte IE 6]><table><tr><td><![endif]-->
-	<ul>
-	<li><a href="http://gce-lter.marsci.uga.edu/public/app/personnel.asp?display=all">GCE Personnel</a></li>
-	<li><a href="http://gce-lter.marsci.uga.edu/public/app/personnel.asp?display=committees">GCE Committees</a></li>
-	<li><a href="http://search.lternet.edu/dir.php">LTER Network</a></li>
-	</ul>
-	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
-</li>
-<li><a href="http://gce-lter.marsci.uga.edu/public/research/research.htm">Research &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
-	<!--[if lte IE 6]><table><tr><td><![endif]-->
-	<ul>
-	<li><a href="http://gce-lter.marsci.uga.edu/public/research/research.htm">GCE Research</a></li>
-	<li><a href="http://gce-lter.marsci.uga.edu/public/app/all_species_lists.asp">Species Lists</a></li>
-	<li><a href="http://gce-lter.marsci.uga.edu/public/research/mon/monitoring.htm">Projects &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
-	<!--[if lte IE 6]><table><tr><td><![endif]-->
-		<ul>
-		<li><a href="http://gce-lter.marsci.uga.edu/public/research/mon/monitoring.htm">All Projects</a></li>
-		<li><a href="http://gce-lter.marsci.uga.edu/public/research/mon/climate.htm">Climate Monitoring</a></li>
-		<li><a href="http://gce-lter.marsci.uga.edu/public/research/mon/sounds_creeks.htm">Salinity Monitoring</a></li>
-		<li><a href="http://gce-lter.marsci.uga.edu/public/research/mon/marsh_set.htm">Sediment Dynamics</a></li>
-		<li><a href="http://gce-lter.marsci.uga.edu/public/site/monitoring_map.htm">Monitoring Map</a></li>
-		</ul>
-	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
-	</li>
-	<li><a href="http://www.lternet.edu/coreareas/coreintro.html">LTER Network &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
-	<!--[if lte IE 6]><table><tr><td><![endif]-->
-		<ul>
-		<li><a href="http://www.lternet.edu/coreareas/coreintro.html">LTER Core Areas</a></li>
-		<li><a href="http://www.lternet.edu/technology/ltergis/">Remote Sensing</a></li>
-		<li><a href="http://www.lternet.edu/microbial_ecology/">Microbial Ecology</a></li>
-		</ul>
-	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
-	</li>
-	</ul>
-	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
-</li>
-<li><a href="http://gce-lter.marsci.uga.edu/public/site/site_info.htm">Study Site &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
-	<!--[if lte IE 6]><table><tr><td><![endif]-->
-	<ul>
-	<li><a href="http://gce-lter.marsci.uga.edu/public/site/site_info.htm">GCE Study Site</a></li>
-	<li><a href="http://gce-lter.marsci.uga.edu/public/site/studyarea.htm">Study Area Map</a></li>
-	<li><a href="http://gce-lter.marsci.uga.edu/public/site/logistics.htm">Visiting Sapelo</a></li>
-	<li><a href="http://gce-lter.marsci.uga.edu/public/site/tides.htm">Tide Tables</a></li>
-	<li><a href="http://gce-lter.marsci.uga.edu/public/app/studysites.asp">Sampling Sites &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
-	<!--[if lte IE 6]><table><tr><td><![endif]-->
-		<ul>
-		<li><a href="http://gce-lter.marsci.uga.edu/public/app/studysites.asp">Sampling Sites</a></li>
-		<li><a href="http://gce-lter.marsci.uga.edu/public/app/transects.asp">Survey Transects</a></li>
-		<li><a href="http://gce-lter.marsci.uga.edu/public/app/geo_query.asp">Location Database</a></li>
-		<li><a href="http://gce-lter.marsci.uga.edu/public/site/monitoring_map.htm">Monitoring Map</a></li>
-		</ul>
-	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
-	</li>
-	<li><a href="http://www.lternet.edu/sites/">LTER Network &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
-	<!--[if lte IE 6]><table><tr><td><![endif]-->
-		<ul>
-		<li><a href="http://www.lternet.edu/sites/">Site Profiles</a></li>
-		<li><a href="http://www.lternet.edu/sites/site_coordinates.php">Site Coordinates</a></li>
-		</ul>
-	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
-	</li>
-	</ul>
-	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
-</li>
 <li><a href="http://gce-lter.marsci.uga.edu/public/gis/Introduction.htm">GIS Resources &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
 	<!--[if lte IE 6]><table><tr><td><![endif]-->
 	<ul>
 	<li><a href="http://gce-lter.marsci.uga.edu/public/gis/Introduction.htm">Overview</a> </li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/gis/gcewebmap.html">Interactive Map</a></li>
 	<li><a href="http://gce-lter.marsci.uga.edu/public/gis/Data_Resources.html">GIS Data Types</a></li>
 	<li><a href="http://gce-lter.marsci.uga.edu/public/gis/KML.html">KML Information</a></li>
 	<li><a href="http://gce-lter.marsci.uga.edu/public/gis/Links.html">GIS Links</a></li>
     <li><a href="http://www.lternet.edu/technology/ltergis/">LTER Network</a></li>
-	</ul>
-	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
-</li>
-<li><a href="http://gce-lter.marsci.uga.edu/public/app/resource_search.asp?type=documents">Documents &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
-	<!--[if lte IE 6]><table><tr><td><![endif]-->
-	<ul>
-	<li><a href="http://gce-lter.marsci.uga.edu/public/app/resource_search.asp?type=document">Search/Browse All</a></li>
-	<li><a href="http://gce-lter.marsci.uga.edu/public/app/resources.asp?type=document&amp;category=reports">Reports</a></li>
-	<li><a href="http://gce-lter.marsci.uga.edu/public/app/resources.asp?type=document&amp;category=proposals">Proposals</a></li>
-	<li><a href="http://gce-lter.marsci.uga.edu/public/app/resources.asp?type=document&amp;category=publications">Publications</a></li>
-	<li><a href="http://gce-lter.marsci.uga.edu/public/app/resources.asp?type=document&amp;category=presentations">Presentations</a></li>
-	<li><a href="http://gce-lter.marsci.uga.edu/public/app/resources.asp?type=document&amp;category=informatics">Informatics</a></li>
-	<li><a href="http://gce-lter.marsci.uga.edu/public/app/resources.asp?type=document&amp;category=governance">Governance</a></li>
-	<li><a href="http://gce-lter.marsci.uga.edu/public/app/resources.asp?type=document&amp;category=procedures">Procedures</a></li>
-	<li><a href="http://intranet.lternet.edu/modules.php?op=modload&amp;name=UpDownload&amp;file=index">LTER Network</a></li>
 	</ul>
 	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
 </li>
@@ -157,30 +134,39 @@
 	<li><a href="http://gce-lter.marsci.uga.edu/public/app/resources.asp?type=image&amp;category=sitephotos">Site Photos</a></li>
 	<li><a href="http://gce-lter.marsci.uga.edu/public/app/resources.asp?type=image&amp;category=speciesphotos">Organism Photos</a></li>
 	<li><a href="http://gce-lter.marsci.uga.edu/public/app/resources.asp?type=image&amp;category=logos">Logos</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/site/legacy_maps.htm">Legacy Maps</a></li>
 	<li><a href="http://savanna.lternet.edu/gallery/">LTER Network</a></li>
 	</ul>
 	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
 </li>
-<li><a href="http://gce-lter.marsci.uga.edu/public/outreach.htm">Outreach &amp; Ed &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
+<li><a href="http://gce-lter.marsci.uga.edu/public/app/resource_search.asp?type=documents">Documents &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
 	<!--[if lte IE 6]><table><tr><td><![endif]-->
 	<ul>
-	<li><a href="http://gce-lter.marsci.uga.edu/public/outreach.htm">GCE Outreach &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/resource_search.asp?type=document">Search/Browse All</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/resources.asp?type=document&amp;category=reports">Reports</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/resources.asp?type=document&amp;category=proposals">Proposals</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/resources.asp?type=document&amp;category=publications">Publications</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/resources.asp?type=document&amp;category=presentations">Presentations</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/resources.asp?type=document">Other &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
 	<!--[if lte IE 6]><table><tr><td><![endif]-->
 		<ul>
-		<li><a href="http://gce-lter.marsci.uga.edu/public/outreach.htm">Overview</a></li>
-		<li><a href="http://www.gcrc.uga.edu">GCRC Web Site</a></li>
+		<li><a href="http://gce-lter.marsci.uga.edu/public/app/resources.asp?type=document&amp;category=informatics">Informatics</a></li>
+		<li><a href="http://gce-lter.marsci.uga.edu/public/app/resources.asp?type=document&amp;category=governance">Governance</a></li>
+		<li><a href="http://gce-lter.marsci.uga.edu/public/app/resources.asp?type=document&amp;category=procedures">Procedures</a></li>
 		</ul>
 	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
 	</li>
-	<li><a href="http://gce-lter.marsci.uga.edu/public/education/education.htm">GCE Education &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
-	<!--[if lte IE 6]><table><tr><td><![endif]-->
-		<ul>
-		<li><a href="http://gce-lter.marsci.uga.edu/public/education/education.htm">Education News</a></li>
-		<li><a href="http://gce-lter.marsci.uga.edu/public/education/uga_classes.htm">UGA Classes</a></li>
-		<li><a href="http://gce-lter.marsci.uga.edu/public/app/biblio_results.asp?Library=GCE&amp;KeyWord=education&amp;KeyWordMatch=exact&amp;URLs=yes">Publications</a></li>
-		</ul>
+	<li><a href="http://intranet.lternet.edu/modules.php?op=modload&amp;name=UpDownload&amp;file=index">LTER Network</a></li>
+	</ul>
 	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
-	</li>
+</li>
+<li><a href="http://gce-lter.marsci.uga.edu/public/education/outreach.htm">Outreach &amp; Ed &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+	<ul>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/education/outreach.htm">Overview</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/education/gcrc.htm">GCRC Outreach</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/education/schoolyard.htm">GCE Schoolyard</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/education/additionaloutreach.htm">Additional</a></li>
 	<li><a href="http://www.lternet.edu/education/">LTER Network &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
 	<!--[if lte IE 6]><table><tr><td><![endif]-->
 		<ul>
@@ -217,6 +203,15 @@
 		</ul>
 	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
 	</li>
+	</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li><a href="http://gce-lter.marsci.uga.edu/public/app/personnel.asp">Personnel &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
+	<!--[if lte IE 6]><table><tr><td><![endif]-->
+	<ul>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/personnel.asp?display=all">GCE Personnel</a></li>
+	<li><a href="http://gce-lter.marsci.uga.edu/public/app/personnel.asp?display=committees">GCE Committees</a></li>
+	<li><a href="http://search.lternet.edu/dir.php">LTER Network</a></li>
 	</ul>
 	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
 </li>
@@ -280,7 +275,7 @@
 		</ul>
 	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
 	</li>
-	<li><a href="https://gce-lter.marsci.uga.edu/private/app/bibliography.asp">Update Biblio &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/update_citation.asp">Update Biblio &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
 	<!--[if lte IE 6]><table><tr><td><![endif]-->
 		<ul>
 		<li><a href="https://gce-lter.marsci.uga.edu/private/app/add_citation.asp">Add Citation</a></li>
@@ -307,7 +302,7 @@
 		</ul>
 	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
 	</li>
-	<li><a href="https://gce-lter.marsci.uga.edu/private/app/accountinfo.asp">Update User Info &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
+	<li><a href="https://gce-lter.marsci.uga.edu/private/app/update_bio.asp">Update User Info &#187;<!--[if IE 7]><!--></a><!--<![endif]-->
 	<!--[if lte IE 6]><table><tr><td><![endif]-->
 		<ul>
 		<li><a href="https://gce-lter.marsci.uga.edu/private/app/password.asp">Change Password</a></li>

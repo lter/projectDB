@@ -154,7 +154,7 @@ return
                 and ($beginDate >= $startYear or $singleDate >= $startYear)
                 and ($endDate <= $endYear or not($endDate))  
                 and ($beginDate <= $endYear or $singleDate <= $endYear)
-                and matches($p//surName,$surName,'i') and matches($keywordSet/keyword,$keyword,'i') 
+                and matches($p//individualName/surName,$surName,'i') and matches($keywordSet/keyword,$keyword,'i') 
                 and matches(($p//title | $p/abstract//para/text() | $p/abstract//literalLayout/text()),$text,'i')             
            
         order by $sort 

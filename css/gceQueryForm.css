@@ -1,4 +1,4 @@
-  #projects_query { width: 65%; margin: 0 20% 0 auto }
+  #projects_query { width: 80%; margin: 0 10% 0 auto }
   #projects_query h2 { font-size: 16px; text-align: center; }
   #projects_query table { width: 100%; margin: 1em auto 1em auto; border-collapse: collapse; border-top: 2px solid #999; border-bottom: 2px solid #999 }
   #projects_query th, #projects_query td  { vertical-align: top; white-space: nowrap; border-bottom: 1px solid #EEE; }

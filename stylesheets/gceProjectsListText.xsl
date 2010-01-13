@@ -11,7 +11,6 @@
             <xsl:with-param name="navLabel">Search Results</xsl:with-param>
         </xsl:call-template>
     </xsl:template>
-    
     <xsl:template name="projects_query">
         <div id="lter_projects">
             <h2>Research Projects</h2>
@@ -23,13 +22,13 @@
                             <xsl:with-param name="sortBy">id</xsl:with-param>
                         </xsl:call-template>,
                             <xsl:call-template name="build_xquery">
-                                <xsl:with-param name="label">Title</xsl:with-param>
-                                <xsl:with-param name="sortBy">title</xsl:with-param>
-                            </xsl:call-template>,
+                            <xsl:with-param name="label">Title</xsl:with-param>
+                            <xsl:with-param name="sortBy">title</xsl:with-param>
+                        </xsl:call-template>,
                             <xsl:call-template name="build_xquery">
-                                <xsl:with-param name="label">Investigator</xsl:with-param>
-                                <xsl:with-param name="sortBy">surName</xsl:with-param>
-                            </xsl:call-template>)
+                            <xsl:with-param name="label">Investigator</xsl:with-param>
+                            <xsl:with-param name="sortBy">surName</xsl:with-param>
+                        </xsl:call-template>)
                     </div>
                     <xsl:for-each select="projects/project">
                         <div class="lter_project">
@@ -71,13 +70,13 @@
                             <p class="project_dates">
                                 <em>Time Period</em>&#160;
                                 <xsl:for-each select="coverage/temporalCoverage">
-                                    <xsl:if test="string(rangeOfDates)">                                
+                                    <xsl:if test="string(rangeOfDates)">
                                         <xsl:choose>
                                             <xsl:when test="string(rangeOfDates/endDate)">
                                                 <xsl:value-of select="rangeOfDates/beginDate/calendarDate"/> to <xsl:value-of select="rangeOfDates/endDate/calendarDate"/>
                                             </xsl:when>
                                             <xsl:otherwise>ongoing (started <xsl:value-of select="rangeOfDates/beginDate/calendarDate"/>)</xsl:otherwise>
-                                        </xsl:choose>                                    
+                                        </xsl:choose>
                                     </xsl:if>
                                     <xsl:if test="string(singleDateTime)">
                                         <xsl:value-of select="singleDateTime/calendarDate"/>
@@ -85,9 +84,9 @@
                                     <xsl:if test="string(ongoing)">
                                         ongoing (started <xsl:value-of select="ongoing/beginDate/calendarDate"/>)
                                     </xsl:if>
-                                 </xsl:for-each>
+                                </xsl:for-each>
                             </p>
-                        </div>    
+                        </div>
                     </xsl:for-each>
                 </xsl:when>
                 <xsl:otherwise>
@@ -98,7 +97,6 @@
             </xsl:choose>
         </div>
     </xsl:template>
-    
     <xsl:template name="build_xquery">
         <xsl:param name="label"/>
         <xsl:param name="sortBy"/>
@@ -115,7 +113,7 @@
                 <xsl:value-of select="$sortBy"/>
                 <xsl:text>&amp;</xsl:text>
                 <xsl:text>_xsl=/db/projects/util/xslt/gceProjectsListText.xsl</xsl:text>
-            </xsl:attribute> 
+            </xsl:attribute>
             <xsl:attribute name="title">
                 <xsl:text>Sort projects by </xsl:text>
                 <xsl:value-of select="$label"/>
@@ -123,5 +121,4 @@
             <xsl:value-of select="$label"/>
         </xsl:element>
     </xsl:template>
-    
 </xsl:stylesheet>

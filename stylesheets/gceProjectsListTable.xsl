@@ -10,65 +10,64 @@
             <xsl:with-param name="navLabel">Search Results</xsl:with-param>
         </xsl:call-template>
     </xsl:template>
-
     <xsl:template name="projects_query">
         <div id="lter_projects">
             <h2>LTER Research Projects</h2>
             <xsl:choose>
-                <xsl:when test="projects/project/*">            
-            <table>
+                <xsl:when test="projects/project/*">
+                    <table>
                         <tr>
                             <th>
                                 <xsl:call-template name="build_xquery">
-                        <xsl:with-param name="label">Site</xsl:with-param>
-                        <xsl:with-param name="sortBy">id</xsl:with-param>
-                    </xsl:call-template>
-                    </th>
-                    <th>
+                                    <xsl:with-param name="label">Site</xsl:with-param>
+                                    <xsl:with-param name="sortBy">id</xsl:with-param>
+                                </xsl:call-template>
+                            </th>
+                            <th>
                                 <xsl:call-template name="build_xquery">
-                        <xsl:with-param name="label">Project Name</xsl:with-param>
-                        <xsl:with-param name="sortBy">title</xsl:with-param>
-                    </xsl:call-template>
-                    </th>
-                    <th>
+                                    <xsl:with-param name="label">Project Name</xsl:with-param>
+                                    <xsl:with-param name="sortBy">title</xsl:with-param>
+                                </xsl:call-template>
+                            </th>
+                            <th>
                                 <xsl:call-template name="build_xquery">
-                        <xsl:with-param name="label">Investigator</xsl:with-param>
-                        <xsl:with-param name="sortBy">surName</xsl:with-param>
-                    </xsl:call-template>
-                    </th>
-                    <th>Personnel</th>
-                </tr>
-                <xsl:for-each select="projects/project">
+                                    <xsl:with-param name="label">Investigator</xsl:with-param>
+                                    <xsl:with-param name="sortBy">surName</xsl:with-param>
+                                </xsl:call-template>
+                            </th>
+                            <th>Personnel</th>
+                        </tr>
+                        <xsl:for-each select="projects/project">
                     <!-- <xsl:sort select="title"/>-->
-                    <tr>
+                            <tr>
                                 <td>
                                     <xsl:value-of select="translate(substring(@id,10,3),'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/>
-                        </td>
-                        <td>
+                                </td>
+                                <td>
                                     <xsl:element name="a">
-                                <xsl:attribute name="href">/exist/rest/db/projects/util/xquery/getProjectById.xql?id=<xsl:value-of select="@id"/>&amp;_xsl=http://amble.lternet.edu:8080/exist/rest/db/projects/util/xslt/gceProjectDescription.xsl
+                                        <xsl:attribute name="href">/exist/rest/db/projects/util/xquery/getProjectById.xql?id=<xsl:value-of select="@id"/>&amp;_xsl=/db/projects/util/xslt/gceProjectDescription.xsl
                                 </xsl:attribute>
-                                <xsl:value-of select="title"/>
-                            </xsl:element>
+                                        <xsl:value-of select="title"/>
+                                    </xsl:element>
+                                </td>
+                                <td class="personnel">
+                                    <xsl:for-each select="creator">
+                                        <xsl:value-of select="individualName/surName"/>, <xsl:value-of select="individualName/givenName"/>
+                                        <br/>
+                                    </xsl:for-each>&#160;
                         </td>
-                        <td class="personnel">
-                            <xsl:for-each select="creator">
-                                <xsl:value-of select="individualName/surName"/>, <xsl:value-of select="individualName/givenName"/>
-                                <br/>
-                            </xsl:for-each>&#160;
-                        </td>
-                        <td class="personnel">
-                            <xsl:for-each select="associatedParty">
-                                <xsl:value-of select="individualName/surName"/>, <xsl:value-of select="individualName/givenName"/> -
+                                <td class="personnel">
+                                    <xsl:for-each select="associatedParty">
+                                        <xsl:value-of select="individualName/surName"/>, <xsl:value-of select="individualName/givenName"/> -
                                     <xsl:value-of select="role"/>
-                                <xsl:if test="position() != last()">
-                                    <br/>
-                                </xsl:if>
-                            </xsl:for-each> &#160; 
+                                        <xsl:if test="position() != last()">
+                                            <br/>
+                                        </xsl:if>
+                                    </xsl:for-each> &#160; 
                         </td>
-                    </tr>
-                </xsl:for-each>
-            </table>
+                            </tr>
+                        </xsl:for-each>
+                    </table>
                 </xsl:when>
                 <xsl:otherwise>
                     <p style="text-align:center; margin-top:3em">Sorry ... no projects were found. Please <a href="javascript:history.back(1)">return to the search form</a> and select broader criteria</p>
@@ -76,7 +75,6 @@
             </xsl:choose>
         </div>
     </xsl:template>
-    
     <xsl:template name="build_xquery">
         <xsl:param name="label"/>
         <xsl:param name="sortBy"/>
@@ -93,7 +91,7 @@
                 <xsl:value-of select="$sortBy"/>
                 <xsl:text>&amp;</xsl:text>
                 <xsl:text>_xsl=/db/projects/util/xslt/gceProjectsListTable.xsl</xsl:text>
-            </xsl:attribute> 
+            </xsl:attribute>
             <xsl:attribute name="title">
                 <xsl:text>Sort projects by </xsl:text>
                 <xsl:value-of select="$label"/>
@@ -101,5 +99,4 @@
             <xsl:value-of select="$label"/>
         </xsl:element>
     </xsl:template>
-    
 </xsl:stylesheet>

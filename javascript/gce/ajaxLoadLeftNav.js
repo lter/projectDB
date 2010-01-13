@@ -15,6 +15,8 @@ loaded('disclaimer',ajaxInit);
 function ajaxInit() {
 // page initialization function
 	var response = ajaxRead(insertNavBar,'/exist/rest/db/projects/util/web/js/gce/leftnav_insert.txt','text');
+	
+	init();  //call other page init functions in other page scripts
 }
 
 function insertNavBar(str) {
