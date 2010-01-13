@@ -25,7 +25,7 @@
             </head>
             <body>
                 <div id="projects_query">
-                    <form method="get" action="http://amble.lternet.edu:8080/exist/rest/db/projects/util/xquery/getProjects.xql">
+                    <form method="get" name="project_search" action="http://amble.lternet.edu:8080/exist/rest/db/projects/util/xquery/getProjects.xql">
                         <h2>Search for LTER Research Projects</h2>
                         <table>
                             <tr>
@@ -101,29 +101,44 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>Geographic Bounds<br/>
-                                    <br/>
-                                    <em style="font-weight:normal">(decimal degrees)</em>
+                                <th style="text-align: left; padding-left: 48px; border-bottom:none" colspan="2">Geographic Bounds <em style="font-weight:normal">(decimal degrees)</em>
                                 </th>
-                                <td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="padding-bottom: 16px">
                                     <table class="inset-table">
                                         <tr>
-                                            <td colspan="3" style="text-align: center">
-                                                North&#160; <input type="text" id="maxLat_fld" name="maxLat" size="10" value="" onblur="validate('maxLat_fld','latitude')"/>
+                                            <td style="text-align:center; padding: 0 0 0 30px">
+                                                <script language="javascript" type="text/javascript">var mapPage = "Search";</script>
+                                                <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAaNAtyjO5Rns3WYUATa5Y8xTi4fsO-fAhG9i00B95TE3lWmQBahSspL5z5z0dwOIEz3LDIaSQN3wR2Q" type="text/javascript"/>
+                                                <script src="http://amble.lternet.edu:8080/exist/rest/db/projects/util/web/js/dragzoom.js" type="text/javascript"/>
+                                                <script src="http://amble.lternet.edu:8080/exist/rest/db/projects/util/web/js/map_functions.js" type="text/javascript"/>
+                                                <div id="map" style="width: 300px; height: 240px; margin-left: 25px"/>
+                                                <span style="font-size:10px">Zoom in to the region you would like to search<br/>
+                                                    (use the magnifying glass to drag a bounding box)</span>
+                                                <br/>
                                             </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align: right; width: 50%">
-                                                West&#160; <input type="text" id="minLon_fld" name="minLon" size="10" value="" onblur="validate('minLon_fld','longitude')"/>
-                                            </td>
-                                            <td style="width: 5%">&#160;</td>
-                                            <td style="width: 45%; text-align:right">
-                                                <input type="text" id="maxLon_fld" name="maxLon" size="10" value="" onblur="validate('maxLon_fld','longitude')"/> &#160;East
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3" style="text-align: center">
-                                                South&#160; <input type="text" id="minLat_fld" name="minLat" size="10" value="" onblur="validate('minLat_fld','latitude')"/>
+                                            <td style="text-align:left; padding: 80px 0 0 0">
+                                                <table class="inset-table" style="width:300px">
+                                                    <tr>
+                                                        <td colspan="2" style="text-align: center">
+                                                            North&#160; <input type="text" id="maxLat_fld" name="maxLat" size="10" value="" onblur="validate('maxLat_fld','latitude')"/>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="text-align: right; width: 50%">
+                                                            West&#160; <input type="text" id="minLon_fld" name="minLon" size="10" value="" onblur="validate('minLon_fld','longitude')"/>
+                                                        </td>
+                                                        <td style="width: 50%; text-align:right">
+                                                            <input type="text" id="maxLon_fld" name="maxLon" size="10" value="" onblur="validate('maxLon_fld','longitude')"/> &#160;East
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2" style="text-align: center">
+                                                            South&#160; <input type="text" id="minLat_fld" name="minLat" size="10" value="" onblur="validate('minLat_fld','latitude')"/>
+                                                        </td>
+                                                    </tr>
+                                                </table>
                                             </td>
                                         </tr>
                                     </table>
