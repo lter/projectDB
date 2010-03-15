@@ -3,6 +3,8 @@
     <xsl:namespace-alias stylesheet-prefix="lter" result-prefix="xsl"/>
   
   <xsl:variable name="url_frag_sbc_people_app">http://sbc.lternet.edu/cgi-bin//ldapweb2009.cgi?stage=showindividual&amp;lter_id=</xsl:variable>
+  <xsl:variable name="url_frag_projectDB_xquery">http://amble.lternet.edu:8080/exist/rest/db/projects/util/xquery/getProjectById.xql?id=</xsl:variable>
+  <xsl:variable name="url_frag_projectDB_xsl">http://amble.lternet.edu:8080/exist/rest/db/projects/util/xslt/sbcProjectDescription.xsl</xsl:variable>
   
      <xsl:template match="/">
 
@@ -181,7 +183,18 @@
                     <xsl:call-template name="tempCover"/>
                 </xsl:for-each>
             </p>
+          <br/>
         </xsl:if>
+      <xsl:if test="associatedProject">
+        <br/>
+        <h3 class="inline">Related Project:</h3>
+        <p class="inline">
+          <xsl:for-each select="associatedProject">
+            <xsl:call-template name="associatedProject"/>
+          </xsl:for-each>
+        </p>
+        <br/>
+      </xsl:if>
         <xsl:if test="funding">
             <h3>Funding:</h3>
             <xsl:choose>
@@ -606,6 +619,38 @@
             </xsl:otherwise>
         </xsl:choose>
         
+    </xsl:template>
+    
+    
+    
+    <xsl:template name="associatedProject">
+      
+      <xsl:choose>
+        <xsl:when test="@id">
+          <xsl:variable name="project_id">
+            <xsl:value-of select="@id"/>
+          </xsl:variable>
+          <xsl:element name="a">
+            <xsl:attribute name="target">_parent</xsl:attribute>
+            <xsl:attribute name="href">
+              <xsl:value-of select="$url_frag_projectDB_xquery"/>
+              <xsl:value-of select="$project_id"/>
+              <xsl:text>&amp;_xsl=</xsl:text>
+              <xsl:value-of select="$url_frag_projectDB_xsl"/>
+            </xsl:attribute>
+            <emphasis>
+              <xsl:value-of select="normalize-space(.)"/>
+            </emphasis>
+          </xsl:element>
+        </xsl:when>
+        <xsl:otherwise>
+          <!-- no id, no link, just the name  -->
+          <emphasis>
+            <xsl:value-of select="normalize-space(.)"/>
+          </emphasis>
+        </xsl:otherwise>
+      </xsl:choose>
+          
     </xsl:template>
     
 </xsl:stylesheet>
