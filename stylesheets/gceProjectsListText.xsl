@@ -33,11 +33,7 @@
                     <xsl:for-each select="projects/project">
                         <div class="lter_project">
                             <h3>
-                                <xsl:element name="a">
-                                    <xsl:attribute name="href">/exist/rest/db/projects/util/xquery/getProjectById.xql?id=<xsl:value-of select="@id"/>&amp;_xsl=/db/projects/util/xslt/gceProjectDescription.xsl&amp;id=<xsl:value-of select="@id"/>
-                                    </xsl:attribute>
-                                    <xsl:value-of select="title"/>
-                                </xsl:element>
+                                <xsl:value-of select="title"/>
                             </h3>
                             <p>
                                 <em>LTER Site:</em>&#160;
@@ -68,7 +64,7 @@
                                 </xsl:for-each>
                             </p>
                             <p class="project_dates">
-                                <em>Time Period</em>&#160;
+                                <em>Time Period:</em>&#160;
                                 <xsl:for-each select="coverage/temporalCoverage">
                                     <xsl:if test="string(rangeOfDates)">
                                         <xsl:choose>
@@ -85,6 +81,20 @@
                                         ongoing (started <xsl:value-of select="ongoing/beginDate/calendarDate"/>)
                                     </xsl:if>
                                 </xsl:for-each>
+                            </p>
+                            <p class="project_links">
+                                <em>More Information:</em>&#160;
+                                <xsl:element name="a">
+                                    <xsl:attribute name="href">/exist/rest/db/projects/util/xquery/getProjectById.xql?id=<xsl:value-of select="@id"/>&amp;_xsl=/db/projects/util/xslt/gceProjectDescription.xsl&amp;id=<xsl:value-of select="@id"/>
+                                    </xsl:attribute>
+                                    <xsl:text>Standard web page</xsl:text>
+                                </xsl:element>
+                                <xsl:text>, </xsl:text>
+                                <xsl:element name="a">
+                                    <xsl:attribute name="href">/exist/rest/db/projects/util/xquery/getProjectById.xql?id=<xsl:value-of select="@id"/>&amp;_xsl=/db/projects/util/xslt/gceProjectDescriptionPlain.xsl&amp;id=<xsl:value-of select="@id"/>
+                                    </xsl:attribute>
+                                    <xsl:text>Plain web page</xsl:text>
+                                </xsl:element>
                             </p>
                         </div>
                     </xsl:for-each>

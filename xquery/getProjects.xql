@@ -89,7 +89,7 @@ return
 }
 {
     (: get all input arguments as strings, with default values as appropriate :)
-    let $siteId := request:get-parameter("siteId", "")
+    let $siteId := request:get-parameter("siteId", "*")
     let $startYr := request:get-parameter("startYear", "")
     let $endYr := request:get-parameter("endYear", "")
     let $surNam := request:get-parameter("surName", "")
@@ -142,9 +142,9 @@ return
 	let $idstr := $p/@id
 	let $time := $p/coverage/temporalCoverage	
 	let $keywordSet := if(string-length($keywdSet)>0) then $p/keywordSet[@name=$keywdSet] else $p/keywordSet
-	let $beginDate := number(substring(data($p/coverage/temporalCoverage//beginDate/calendarDate),1,4))
-	let $singleDate := number(substring(data($p/coverage/temporalCoverage/singleDateTime/calendarDate),1,4))
-	let $endDate := number(substring(data($p/coverage/temporalCoverage//endDate/calendarDate),1,4))
+	let $beginDate := number(substring(string($p/coverage/temporalCoverage//beginDate/calendarDate),1,4))
+	let $singleDate := number(substring(string($p/coverage/temporalCoverage/singleDateTime/calendarDate),1,4))
+	let $endDate := number(substring(string($p/coverage/temporalCoverage//endDate/calendarDate),1,4))
 
         (: define query restriction :)
         where (($west >= $minLon and $east <= $maxLon and $south >= $minLat and $north <= $maxLat)	

@@ -44,11 +44,21 @@
                                     <xsl:value-of select="translate(substring(@id,10,3),'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/>
                                 </td>
                                 <td>
-                                    <xsl:element name="a">
-                                        <xsl:attribute name="href">/exist/rest/db/projects/util/xquery/getProjectById.xql?id=<xsl:value-of select="@id"/>&amp;_xsl=/db/projects/util/xslt/gceProjectDescription.xsl
-                                </xsl:attribute>
-                                        <xsl:value-of select="title"/>
-                                    </xsl:element>
+                                    <xsl:value-of select="title"/>
+                                    <xsl:text/>
+                                    <em>
+                                        <xsl:text> (</xsl:text>
+                                        <xsl:element name="a">
+                                            <xsl:attribute name="href">/exist/rest/db/projects/util/xquery/getProjectById.xql?id=<xsl:value-of select="@id"/>&amp;_xsl=/db/projects/util/xslt/gceProjectDescription.xsl</xsl:attribute>
+                                            <xsl:text>styled</xsl:text>
+                                        </xsl:element>
+                                        <xsl:text>/</xsl:text>
+                                        <xsl:element name="a">
+                                            <xsl:attribute name="href">/exist/rest/db/projects/util/xquery/getProjectById.xql?id=<xsl:value-of select="@id"/>&amp;_xsl=/db/projects/util/xslt/gceProjectDescriptionPlain.xsl</xsl:attribute>
+                                            <xsl:text>plain</xsl:text>
+                                        </xsl:element>
+                                        <xsl:text>)</xsl:text>
+                                    </em>
                                 </td>
                                 <td class="personnel">
                                     <xsl:for-each select="creator">
